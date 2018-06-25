@@ -24,12 +24,13 @@
 
   }
 
+
   &_img{
     object-fit: cover;
     position: relative;
 
     &_link{
-      background-color: $color_gray_opacity;
+      background-color: $color_gray_opacity60;
       position: absolute;
       top: 0;
       left: 0;
@@ -40,6 +41,51 @@
         color: $color_white;
         padding: 40px 50px;
         text-transform: uppercase;
+      }
+    }
+
+  }
+
+  &_full {
+    margin-bottom: 1.5rem;
+
+    .card-item_text {
+      width: 380px;
+      background-color: $color_gray_opacity40;
+      height: calc(100% - 1.5rem);
+      position: absolute;
+      top: 0;
+      left: 4px;
+      padding: 110px 70px;
+
+      -webkit-transition: all 0.3s ease;
+      -moz-transition: all 0.3s ease;
+      -ms-transition: all 0.3s ease;
+      -o-transition: all 0.3s ease;
+      transition: all 0.3s ease;
+
+      &:hover {
+        width: 400px;
+        background-color: $color_red_middle;
+
+        .card-item_text_link {
+          background-color: $color_gray_darkest;
+        }
+      }
+
+      p, h2 {
+        max-width: 240px;
+      }
+
+      &_link {
+        background-color: $color_red_middle;
+        text-align: center;
+        a {
+          display: block;
+          color: $color_white;
+          padding: 15px 35px;
+          margin: 40px 0;
+        }
       }
     }
 
