@@ -1,0 +1,47 @@
+.card-item {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  &_text {
+    background-color: $color_gray_darkest;
+    color: $color_white;
+    padding: 45px 50px;
+    height: 100%;
+
+    h2{
+      padding: 0;
+      margin-bottom: 30px;
+      font-size: 23px;
+      font-weight: normal;
+    }
+
+    p {
+      margin: 0;
+      font-size: 14px;
+    }
+
+  }
+
+  &_img{
+    object-fit: cover;
+    position: relative;
+
+    &_link{
+      background-color: $color_gray_opacity;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+
+      a {
+        display: block;
+        color: $color_white;
+        padding: 40px 50px;
+        text-transform: uppercase;
+      }
+    }
+
+  }
+}
