@@ -1,0 +1,13 @@
+@import "template_vars";
+
+@import "../../node_modules/bootstrap/scss/bootstrap";
+
+
+@import "template_mixins";
+@import "template_webfonts";
+@import "libs/jquery.datetimepicker";
+@import "libs/sweetalert2";
+@import "components/swiper";
+
+
+@import "template_styles";

@@ -1,0 +1,46 @@
+.main__sections-nav {
+
+  .container {
+    max-width: #{map_get($container-max-widths, xl)};
+  }
+
+  &__level-0 {
+    margin-bottom: 60px;
+  }
+
+  &__level-1 {
+    background-color: $color_gray_darker;
+    padding: 60px 0 30px;
+  }
+
+  &__card {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+    .pic {
+      display: block;
+      margin-bottom: 20px;
+    }
+    .label {
+      display: block;
+      text-transform: uppercase;
+    }
+
+    &.active {
+      color: $color_red_middle;
+      &:after {
+        position: absolute;
+        content: '';
+        background-image: url("/img/icons/icon-active-section-arrow.svg");
+        width: 50px;
+        height: 16px;
+        bottom: -30px;
+      }
+    }
+  }
+
+  &__level-1 &__card {
+    margin-bottom: 30px;
+  }
+}
