@@ -8,7 +8,7 @@
     margin-bottom: 60px;
   }
 
-  &__level-1 {
+  &__level-1{
     background-color: $color_gray_darker;
     padding: 60px 0 30px;
   }
@@ -27,20 +27,32 @@
       text-transform: uppercase;
     }
 
-    &.active {
-      color: $color_red_middle;
-      &:after {
-        position: absolute;
-        content: '';
-        background-image: url("/img/icons/icon-active-section-arrow.svg");
-        width: 50px;
-        height: 16px;
-        bottom: -30px;
-      }
-    }
+    //&.active {
+    //  color: $color_red_middle;
+    //  &:after {
+    //    position: absolute;
+    //    content: '';
+    //    background-image: url("/img/icons/icon-active-section-arrow.svg");
+    //    width: 50px;
+    //    height: 16px;
+    //    bottom: -30px;
+    //  }
+    //}
   }
 
   &__level-1 &__card {
     margin-bottom: 30px;
   }
+
+  //.tab-content{
+  //  position: relative;
+  //}
+  .tab-pane{
+    display: flex;
+    //position: absolute;
+  }
+  .row{
+    width: 100%;
+  }
+
 }

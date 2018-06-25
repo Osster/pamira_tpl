@@ -1,67 +1,177 @@
 <div class="container">
-    <div class="row main__sections-nav__level-0">
-        <div class="col-lg-3">
-            <a class="main__sections-nav__card active" href="#">
+
+    <ul class="row main__sections-nav__level-0 nav nav-tabs" id="myTab" role="tablist">
+
+        <li class="col-lg-3 nav-item">
+            <a class="main__sections-nav__card nav-link active" id="santehnika-tab" data-toggle="tab" role="tab"  href="#santehnika" aria-controls="santehnika" aria-selected="true">
                 <img class="pic" src="img/icons/icon-santehnika.svg">
                 <span class="label">Сантехника</span>
             </a>
-        </div>
-        <div class="col-lg-3">
-            <a class="main__sections-nav__card" href="#">
+        </li>
+        <li class="col-lg-3 nav-item">
+            <a class="main__sections-nav__card nav-link" id="tehniksDlyaKuhni-tab" data-toggle="tab" role="tab" href="#tehniksDlyaKuhni" aria-controls="tehniksDlyaKuhni" aria-selected="false" >
                 <img class="pic" src="img/icons/icon-tehniks-dlya-kuhni.svg">
                 <span class="label">Техника для кухни</span>
             </a>
-        </div>
-        <div class="col-lg-3">
+        </li>
+        <li class="col-lg-3">
             <a class="main__sections-nav__card" href="#">
                 <img class="pic" src="img/icons/icon-mbt-i-posuda.svg">
                 <span class="label">МБТ и посуда</span>
             </a>
-        </div>
-        <div class="col-lg-3">
-            <a class="main__sections-nav__card" href="#">
+        </li>
+        <li class="col-lg-3 nav-item">
+            <a class="main__sections-nav__card nav-link" id="uhodZaBelem-tab" data-toggle="tab" role="tab" href="#uhodZaBelem" aria-controls="uhodZaBelem" aria-selected="false" >
                 <img class="pic" src="img/icons/icon-uhod-za-belem.svg">
                 <span class="label">Уход за бельем</span>
             </a>
+        </li>
+
+
+    </ul>
+
+
+    <div class="row tab-content" id="myTabContent">
+
+        <div class="col-12 main__sections-nav__level-1 tab-pane fade active show" id="santehnika" role="tabpanel" aria-labelledby="santehnika-tab">
+
+            <div class="row">
+
+                <div class="col-lg-3" >
+                    <a class="main__sections-nav__card" href="#">
+                        <img class="pic" src="img/icons/icon-kuhonnye-moiky.svg">
+                        <span class="label">Кухонные мойки</span>
+                    </a>
+                </div>
+                <div class="col-lg-3">
+                    <a class="main__sections-nav__card" href="#">
+                        <img class="pic" src="img/icons/icon-izmelchiteli.svg">
+                        <span class="label">Измельчители</span>
+                    </a>
+                </div>
+                <div class="col-lg-3">
+                    <a class="main__sections-nav__card" href="#">
+                        <img class="pic" src="img/icons/icon-sortery.svg">
+                        <span class="label">Сортеры</span>
+                    </a>
+                </div>
+                <div class="col-lg-3">
+                    <a class="main__sections-nav__card" href="#">
+                        <img class="pic" src="img/icons/icon-aksessuary.svg">
+                        <span class="label">Аксессуары</span>
+                    </a>
+                </div>
+                <div class="col-lg-3">
+                    <a class="main__sections-nav__card" href="#">
+                        <img class="pic" src="img/icons/icon-dozatory.svg">
+                        <span class="label">Дозаторы</span>
+                    </a>
+                </div>
+                <div class="col-lg-3">
+                    <a class="main__sections-nav__card" href="#">
+                        <img class="pic" src="img/icons/icon-smesiteli.svg">
+                        <span class="label">Смесители</span>
+                    </a>
+                </div>
+
+            </div>
+
         </div>
+
+
+        <div class="col-12 main__sections-nav__level-1 tab-pane fade" id="tehniksDlyaKuhni" role="tabpanel" aria-labelledby="tehniksDlyaKuhni-tab">
+
+            <div class="row">
+
+                <div class="col-lg-3">
+                    <a class="main__sections-nav__card" href="#">
+                        <img class="pic" src="img/icons/icon-duhovie-shkafi.svg">
+                        <span class="label">Духовые шкафы</span>
+                    </a>
+                </div>
+                <div class="col-lg-3">
+                    <a class="main__sections-nav__card" href="#">
+                        <img class="pic" src="img/icons/icon-holodilniki.svg">
+                        <span class="label">Холодильники</span>
+                    </a>
+                </div>
+                <div class="col-lg-3">
+                    <a class="main__sections-nav__card" href="#">
+                        <img class="pic" src="img/icons/icon-varochnie-poverhnosti.svg">
+                        <span class="label">Варочные поверхности</span>
+                    </a>
+                </div>
+                <div class="col-lg-3">
+                    <a class="main__sections-nav__card" href="#">
+                        <img class="pic" src="img/icons/icon-compaktnie-pribori.svg">
+                        <span class="label">Компактные приборы</span>
+                    </a>
+                </div>
+                <div class="col-lg-3">
+                    <a class="main__sections-nav__card" href="#">
+                        <img class="pic" src="img/icons/icon-kith-blocks.svg">
+                        <span class="label">Кухонные блоки</span>
+                    </a>
+                </div>
+                <div class="col-lg-3">
+                    <a class="main__sections-nav__card" href="#">
+                        <img class="pic" src="img/icons/icon-vitiazki.svg">
+                        <span class="label">Вытяжки</span>
+                    </a>
+                </div>
+                <div class="col-lg-3">
+                    <a class="main__sections-nav__card" href="#">
+                        <img class="pic" src="img/icons/icon-mikrovolnovie-pechi.svg">
+                        <span class="label">Микроволновые печи</span>
+                    </a>
+                </div>
+                <div class="col-lg-3">
+                    <a class="main__sections-nav__card" href="#">
+                        <img class="pic" src="img/icons/icon-posudomoechnie-mashini.svg">
+                        <span class="label">Посудомоечные машины</span>
+                    </a>
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="col-12 main__sections-nav__level-1 tab-pane fade" id="uhodZaBelem" role="tabpanel" aria-labelledby="uhodZaBelem-tab">
+
+            <div class="row">
+
+                <div class="col-lg-3">
+                    <a class="main__sections-nav__card" href="#">
+                        <img class="pic" src="img/icons/icon-stiralnie-mashini.svg">
+                        <span class="label">Стриральные машины</span>
+                    </a>
+                </div>
+                <div class="col-lg-3">
+                    <a class="main__sections-nav__card" href="#">
+                        <img class="pic" src="img/icons/icon-stiralnie-mashini.svg">
+                        <span class="label">Сушильные машины</span>
+                    </a>
+                </div>
+                <div class="col-lg-3">
+                    <a class="main__sections-nav__card" href="#">
+                        <img class="pic" src="img/icons/icon-sushilnie-shkafi.svg">
+                        <span class="label">Сушильные шкафы</span>
+                    </a>
+                </div>
+                <div class="col-lg-3">
+                    <a class="main__sections-nav__card" href="#">
+                        <img class="pic" src="img/icons/icon-aksessuari-uhod-za-beliom.svg">
+                        <span class="label">Аксессуары</span>
+                    </a>
+                </div>
+
+            </div>
+
+        </div>
+
+
     </div>
 
-    <div class="row main__sections-nav__level-1">
-        <div class="col-lg-3">
-            <a class="main__sections-nav__card" href="#">
-                <img class="pic" src="img/icons/icon-kuhonnye-moiky.svg">
-                <span class="label">Кухонные мойки</span>
-            </a>
-        </div>
-        <div class="col-lg-3">
-            <a class="main__sections-nav__card" href="#">
-                <img class="pic" src="img/icons/icon-izmelchiteli.svg">
-                <span class="label">Измельчители</span>
-            </a>
-        </div>
-        <div class="col-lg-3">
-            <a class="main__sections-nav__card" href="#">
-                <img class="pic" src="img/icons/icon-sortery.svg">
-                <span class="label">Сортеры</span>
-            </a>
-        </div>
-        <div class="col-lg-3">
-            <a class="main__sections-nav__card" href="#">
-                <img class="pic" src="img/icons/icon-aksessuary.svg">
-                <span class="label">Аксессуары</span>
-            </a>
-        </div>
-        <div class="col-lg-3">
-            <a class="main__sections-nav__card" href="#">
-                <img class="pic" src="img/icons/icon-dozatory.svg">
-                <span class="label">Дозаторы</span>
-            </a>
-        </div>
-        <div class="col-lg-3">
-            <a class="main__sections-nav__card" href="#">
-                <img class="pic" src="img/icons/icon-smesiteli.svg">
-                <span class="label">Смесители</span>
-            </a>
-        </div>
-    </div>
 </div>
