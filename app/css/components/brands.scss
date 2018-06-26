@@ -1,9 +1,15 @@
-//.wr-brands{
-//  .swiper-container{
-//    .swiper-wrapper{
-//      .swiper-slide{
-//
-//      }
-//    }
-//  }
-//}
+.wr-brands{
+  text-align: center;
+  max-width: 1200px;
+  width: 100%;
+  overflow: hidden;
+  margin: 115px auto;
+
+  .swiper-container{
+    .swiper-wrapper{
+      .swiper-slide{
+
+      }
+    }
+  }
+}
