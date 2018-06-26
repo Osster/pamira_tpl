@@ -7,17 +7,13 @@
 
   .swiper-container{
 
-    .spec-wrapper{
-      max-width: 1260px;
-      width: 100%;
+    .swiper-wrapper{
+      align-items: center;
 
-      .swiper-wrapper{
-        align-items: center;
-
-        .swiper-slide{
-        }
+      .swiper-slide{
       }
     }
+
     .swiper-button-prev{
       left: 0;
     }

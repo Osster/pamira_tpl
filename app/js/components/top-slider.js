@@ -60,3 +60,34 @@ var eventsSlider = new Swiper ('.wr-events .swiper-container', {
         prevEl: '.wr-events .swiper-button-prev'
     }
 });
+
+
+var eventsMonthSlider = new Swiper ('.wr-events-month .swiper-container', {
+    // Optional parameters
+
+    slidesPerView: 4,
+    direction: 'horizontal',
+    loop: true,
+    roundLengths: true,
+
+    // Navigation arrows
+    navigation: {
+        nextEl: '.wr-events-month .swiper-button-next',
+        prevEl: '.wr-events-month .swiper-button-prev'
+    }
+});
+
+
+var narrowSlider = new Swiper ('.wr-slider-narrow .swiper-container', {
+    // Optional parameters
+
+    direction: 'horizontal',
+    loop: true,
+    roundLengths: true,
+
+    // Navigation arrows
+    navigation: {
+        nextEl: '.wr-slider-narrow .swiper-button-next',
+        prevEl: '.wr-slider-narrow .swiper-button-prev'
+    }
+});

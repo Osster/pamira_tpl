@@ -1,0 +1,19 @@
+
+.wr-slider-narrow{
+  margin-bottom: 50px;
+
+  .swiper-container{
+    .swiper-wrapper{
+      .swiper-slide{
+        display: flex;
+        justify-content: center;
+        height: 480px;
+
+        img{
+          align-self: center;
+        }
+      }
+
+    }
+  }
+}
