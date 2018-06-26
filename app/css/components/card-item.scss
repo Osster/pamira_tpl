@@ -1,13 +1,14 @@
 .card-item {
   overflow: hidden;
+  background-color: $color_gray_darkest;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   height: 100%;
 
   &_text {
-    background-color: $color_gray_darkest;
     color: $color_white;
-    padding: 45px 50px;
+    padding: 45px 50px 20px;
     height: 100%;
 
     h2{
@@ -26,8 +27,14 @@
 
 
   &_img{
-    object-fit: cover;
+    height: 100%;
+    flex: 1;
     position: relative;
+
+    img {
+      height: 100%;
+      object-fit: cover;
+    }
 
     &_link{
       background-color: $color_gray_opacity60;
@@ -36,11 +43,10 @@
       left: 0;
       width: 100%;
 
-      a {
-        display: block;
-        color: $color_white;
+      .btn {
         padding: 40px 50px;
-        text-transform: uppercase;
+        width: 100%;
+        text-align: left;
       }
     }
 
@@ -52,7 +58,7 @@
     .card-item_text {
       width: 380px;
       background-color: $color_gray_opacity40;
-      height: calc(100% - 1.5rem);
+      height: 100%;
       position: absolute;
       top: 0;
       left: 4px;
@@ -80,11 +86,30 @@
       &_link {
         background-color: $color_red_middle;
         text-align: center;
-        a {
-          display: block;
+        margin: 40px 0;
+        .btn {
           color: $color_white;
           padding: 15px 35px;
-          margin: 40px 0;
+        }
+      }
+    }
+
+    &_right {
+      .card-item_text {
+        right: 4px;
+        left: auto;
+      }
+    }
+    &_half {
+      .card-item_text {
+        width: 520px;
+        padding: 70px 60px;
+
+        &:hover {
+          width: 540px;
+        }
+        p, h2 {
+          max-width: 380px;
         }
       }
     }

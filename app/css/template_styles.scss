@@ -151,6 +151,48 @@ a {
 }
 
 
+.more-btn {
+  line-height: 1.5;
+  text-transform: uppercase;
+  color: $color_white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+
+  @include transition(all, 0.3s, ease);
+
+  svg {
+    margin-left: 15px;
+    @include transition(all, 0.3s, ease);
+  }
+  &:hover {
+    color: inherit;
+
+    svg {
+      margin-left: 25px;
+    }
+  }
+
+  &_down {
+    color: $color_white;
+    cursor: pointer;
+    width: 100%;
+    display: block;
+    text-align: center;
+    padding-bottom: 30px;
+
+    svg {
+      transform: rotate(90deg);
+      @include transition(all, 0.3s, ease);
+    }
+    &:hover {
+      svg {
+        transform: rotate(90deg) translateX(10px);
+      }
+    }
+  }
+}
+
 @import "components/header";
 @import "components/footer";
 @import "components/top-slider";
