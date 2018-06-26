@@ -14,6 +14,7 @@
 //= ../../node_modules/swiper/dist/js/swiper.js
 
 //= components/top-slider.js
+//= components/map.js
 
 $(document).ready(function () {
 
