@@ -1,15 +1,28 @@
 .wr-brands{
   text-align: center;
-  max-width: 1200px;
+  max-width: 1360px;
   width: 100%;
   overflow: hidden;
   margin: 115px auto;
 
   .swiper-container{
-    .swiper-wrapper{
-      .swiper-slide{
 
+    .spec-wrapper{
+      max-width: 1260px;
+      width: 100%;
+
+      .swiper-wrapper{
+        align-items: center;
+
+        .swiper-slide{
+        }
       }
+    }
+    .swiper-button-prev{
+      left: 0;
+    }
+    .swiper-button-next{
+      right: 0;
     }
   }
 }

@@ -32,16 +32,11 @@ topSlider.on('slideChange', function (e) {
 var brandSlider = new Swiper ('.wr-brands .swiper-container', {
     // Optional parameters
 
-    slidesPerView: 8,
-
-    paceBetween: 20,
-
+    slidesPerView: 6,
+    paceBetween: 30,
     direction: 'horizontal',
-
     loop: true,
-
     //roundLengths: true,
-
     // Navigation arrows
     navigation: {
         nextEl: '.wr-brands .swiper-button-next',
@@ -50,22 +45,17 @@ var brandSlider = new Swiper ('.wr-brands .swiper-container', {
 });
 
 
-// var eventsSlider = new Swiper ('.wr-events .swiper-container', {
-//     // Optional parameters
-//     direction: 'horizontal',
-//
-//     loop: true,
-//
-//     roundLengths: true,
-//
-//     // // If we need pagination
-//     // pagination: {
-//     //     el: '.swiper-pagination'
-//     // },
-//
-//     // Navigation arrows
-//     navigation: {
-//         nextEl: '.wr-events .swiper-button-next',
-//         prevEl: '.wr-events .swiper-button-prev'
-//     }
-// });
+var eventsSlider = new Swiper ('.wr-events .swiper-container', {
+    // Optional parameters
+    direction: 'horizontal',
+
+    loop: true,
+
+    roundLengths: true,
+
+    // Navigation arrows
+    navigation: {
+        nextEl: '.wr-events .swiper-button-next',
+        prevEl: '.wr-events .swiper-button-prev'
+    }
+});
