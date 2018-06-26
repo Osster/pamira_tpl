@@ -228,6 +228,9 @@ a {
         width: 670px;
         margin: auto;
         text-align: left;
+        &_center{
+          text-align: center;
+        }
       }
     }
 
