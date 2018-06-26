@@ -27,3 +27,23 @@ topSlider.on('slideChange', function (e) {
     }
     //console.log('slideChange style', style);
 });
+
+var brandSlider = new Swiper ('.wr-brands .swiper-container', {
+    // Optional parameters
+    direction: 'horizontal',
+
+    loop: true,
+
+    roundLengths: true,
+
+    // // If we need pagination
+    // pagination: {
+    //     el: '.swiper-pagination'
+    // },
+
+    // Navigation arrows
+    navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev'
+    }
+});
