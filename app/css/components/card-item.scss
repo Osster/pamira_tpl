@@ -6,12 +6,17 @@
   justify-content: space-between;
   height: 100%;
 
+
   &_text {
     color: $color_white;
     padding: 45px 50px 20px;
     height: 100%;
 
-    h2{
+    &_inner {
+      margin-bottom: 40px;
+    }
+
+    h2 {
       padding: 0;
       margin-bottom: 30px;
       font-size: 23px;
@@ -21,10 +26,24 @@
     p {
       margin: 0;
       font-size: 14px;
+
     }
 
-  }
+    &_link {
+      margin-bottom: 40px;
+      display: inline-block;
+    }
+    .btn {
+      background-color: $color_red_middle;
+      text-align: center;
+      color: $color_white;
+      padding: 15px 35px;
 
+      &:hover {
+        background-color: $color_gray_darkest;
+      }
+    }
+  }
 
   &_img{
     height: 100%;
@@ -57,7 +76,7 @@
 
     .card-item_text {
       width: 380px;
-      background-color: $color_gray_opacity40;
+      background-color: $color_gray_opacity60;
       height: 100%;
       position: absolute;
       top: 0;
@@ -72,24 +91,11 @@
 
       &:hover {
         width: 400px;
+        padding: 110px 90px 110px 70px;
         background-color: $color_red_middle;
 
-        .card-item_text_link {
+        .card-item_text_link .btn {
           background-color: $color_gray_darkest;
-        }
-      }
-
-      p, h2 {
-        max-width: 240px;
-      }
-
-      &_link {
-        background-color: $color_red_middle;
-        text-align: center;
-        margin: 40px 0;
-        .btn {
-          color: $color_white;
-          padding: 15px 35px;
         }
       }
     }
@@ -98,21 +104,39 @@
       .card-item_text {
         right: 4px;
         left: auto;
+
+        &:hover {
+          padding: 110px 70px 110px 90px;
+        }
       }
     }
     &_half {
       .card-item_text {
         width: 520px;
         padding: 70px 60px;
+        text-align: center;
 
         &:hover {
           width: 540px;
+          padding: 70px 60px 70px 80px;
         }
-        p, h2 {
+        .card-item_text_inner {
           max-width: 380px;
         }
       }
     }
 
+  }
+
+  &_light {
+    background-color: $color_white;
+
+    .card-item_text {
+      background-color: $color_white;
+      color: $color_gray_light;
+    }
+    &.card-item_full .card-item_text:hover {
+      color: $color_white;
+    }
   }
 }

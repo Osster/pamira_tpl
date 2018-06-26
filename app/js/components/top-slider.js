@@ -17,6 +17,7 @@ var topSlider = new Swiper ('.swiper-container', {
         prevEl: '.swiper-button-prev',
     },
 });
+
 topSlider.on('slideChange', function (e) {
     var slider = this;
     var style = $(slider.slides[slider.activeIndex]).data('style');
