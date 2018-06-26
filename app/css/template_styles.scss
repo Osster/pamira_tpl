@@ -191,6 +191,9 @@ a {
       }
     }
   }
+  &_gray {
+    color: $color_gray_ligten;
+  }
 }
 
 @import "components/header";
@@ -202,7 +205,7 @@ a {
 .main {
   &__promo {
     background-color: $color_white;
-    color: $color_gray_ligten;
+    color: $color_gray_middle;
     padding: 100px 0 50px;
 
     .container {
@@ -213,7 +216,7 @@ a {
       text-align: center;
       margin-bottom: 50px;
       &_title {
-        color: $color_white_dirty;
+        color: $color_gray_middle;
         font-family: $font_family_title;
         font-size: 36px;
         text-transform: uppercase;
@@ -230,6 +233,13 @@ a {
 
     &_dark {
       background-color: $color_gray_darkest;
+      .main__promo {
+        color: $color_white_dirty;
+      }
+
+      .main__promo_heading_title{
+        color: $color_white_dirty;
+      }
     }
   }
 }
