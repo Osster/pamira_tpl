@@ -1,0 +1,24 @@
+.wr-contacts-title{
+  padding-top: 260px;
+  max-width: 1140px;
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+
+
+  .main__promo_heading{
+    text-align: left;
+  }
+
+}
+
+.wr-contacts-photo{
+  height: 600px;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+
+  img{
+    align-self: center;
+  }
+}
