@@ -33,16 +33,6 @@
       margin-bottom: 40px;
       display: inline-block;
     }
-    .btn {
-      background-color: $color_red_middle;
-      text-align: center;
-      color: $color_white;
-      padding: 15px 35px;
-
-      &:hover {
-        background-color: $color_gray_darkest;
-      }
-    }
   }
 
   &_img{
@@ -63,6 +53,7 @@
       width: 100%;
 
       .btn {
+        background-color: $color_gray_opacity60;
         padding: 40px 50px;
         width: 100%;
         text-align: left;

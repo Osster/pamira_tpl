@@ -1,0 +1,32 @@
+//FLYING NAV
+
+.wr-flying-nav {
+  position: fixed;
+  width: 0;
+  height: calc(100vh - 100px);
+  top: 45px;
+  right: 115px;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+  z-index: 1010;
+
+  @include mobile-all() {
+    right: 45px;
+  }
+
+  &_links {
+
+    &_icon {
+      background-color: $color_white_dirty_opacity80;
+      width: 72px;
+      height: 72px;
+      padding: 20px;
+
+      svg {
+        overflow: visible;
+        width: 100%;
+      }
+    }
+  }
+}

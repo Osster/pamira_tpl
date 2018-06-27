@@ -150,6 +150,19 @@ a {
   }
 }
 
+.btn {
+  background-color: $color_red_middle;
+  color: $color_white;
+  text-align: center;
+  padding: 15px 35px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $color_gray_darkest;
+    color: $color_white;
+  }
+}
+
 
 .more-btn {
   line-height: 1.5;
@@ -166,7 +179,8 @@ a {
     @include transition(all, 0.3s, ease);
   }
   &:hover {
-    color: inherit;
+    color: $color_gray_lighter;
+    text-decoration: none;
 
     svg {
       margin-left: 25px;
@@ -244,5 +258,9 @@ a {
         color: $color_white_dirty;
       }
     }
+  }
+  &_dark {
+    background-color: $color_gray_darkest;
+    color: $color_white_dirty;
   }
 }
