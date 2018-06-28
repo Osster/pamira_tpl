@@ -29,7 +29,19 @@
 <!--FLYING NAV-->
 //= tpl/components/flying-nav.html
 
+<section class="wr-breadcrumbs">
+    <div class="container">
+        <div class="breadcrumbs">
+            <a href="/index.html">Главная</a>
+            <a class="active" href="">Каталог</a>
+        </div>
+    </div>
+</section>
+
 <main class="main">
+    <div class="container">
+        <h1 class="main_header">Холодильники</h1>
+    </div>
     <section class="top-slider">
         //= tpl/components/catalog-top-slider.html
     </section>
@@ -39,79 +51,77 @@
             <div class="row">
                 <div class="col-12 col-md-3">
                     <div class="wr-side">
-                        <div class="side-menu">
+                        <div id="accordion" class="side-menu">
                             <div class="side-menu_item">
-                                <h3>Техника для кухни</h3>
-                                <div class="side-menu_list">
+                                <h3 data-toggle="collapse" data-target="#collapseOne" aria-expanded="true"
+                                    aria-controls="collapseOne">Техника для кухни</h3>
+                                <div class="side-menu_item_list collapse show" id="collapseOne"
+                                     aria-labelledby="headingOne" data-parent="#accordion">
                                     <ul>
-                                        <li>Духовые шкафы</li>
-                                        <li>Кухонные блоки</li>
-                                        <li>Холодильники</li>
-                                        <li>Варочные поверхности</li>
-                                        <li>СВЧ</li>
-                                        <li>Вытяжки</li>
-                                        <li>Компактные приборы</li>
-                                        <li>Посудомоечные машины</li>
+                                        <li><a href="#">Духовые шкафы</a></li>
+                                        <li><a href="#">Кухонные блоки</a></li>
+                                        <li><a href="#">Холодильники</a></li>
+                                        <li><a href="#">Варочные поверхности</a></li>
+                                        <li><a href="#">СВЧ</a></li>
+                                        <li><a href="#">Вытяжки</a></li>
+                                        <li><a href="#">Компактные приборы</a></li>
+                                        <li><a href="#">Посудомоечные машины</a></li>
                                     </ul>
                                 </div>
                             </div>
                             <div class="side-menu_item closed">
-                                <h3>Уход за бельем</h3>
-                                <div class="side-menu_list">
+                                <h3 data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false"
+                                    aria-controls="collapseTwo">Уход за бельем</h3>
+                                <div class="side-menu_item_list collapse" id="collapseTwo" aria-labelledby="headingTwo"
+                                     data-parent="#accordion">
                                     <ul>
-                                        <li>Духовые шкафы</li>
-                                        <li>Кухонные блоки</li>
-                                        <li>Холодильники</li>
-                                        <li>Варочные поверхности</li>
-                                        <li>СВЧ</li>
-                                        <li>Вытяжки</li>
-                                        <li>Компактные приборы</li>
-                                        <li>Посудомоечные машины</li>
+                                        <li><a href="#">Стиральные машины</a></li>
+                                        <li><a href="#">Сушильные машины</a></li>
+                                        <li><a href="#">Сушильные шкафы</a></li>
+                                        <li><a href="#">Аксессуары</a></li>
                                     </ul>
                                 </div>
                             </div>
                             <div class="side-menu_item">
-                                <h3>Сантехника</h3>
-                                <div class="side-menu_list">
+                                <h3 data-toggle="collapse" data-target="#collapseThree" aria-expanded="false"
+                                    aria-controls="collapseThree">Сантехника</h3>
+                                <div class="side-menu_item_list collapse" id="collapseThree"
+                                     aria-labelledby="headingThree" data-parent="#accordion">
                                     <ul>
-                                        <li>Духовые шкафы</li>
-                                        <li>Кухонные блоки</li>
-                                        <li>Холодильники</li>
-                                        <li>Варочные поверхности</li>
-                                        <li>СВЧ</li>
-                                        <li>Вытяжки</li>
-                                        <li>Компактные приборы</li>
-                                        <li>Посудомоечные машины</li>
+                                        <li><a href="#">Кухонные мойки</a></li>
+                                        <li><a href="#">Измельчители</a></li>
+                                        <li><a href="#">Смесители</a></li>
+                                        <li><a href="#">Дозаторы</a></li>
+                                        <li><a href="#">Сортеры</a></li>
+                                        <li><a href="#">Аксессуары</a></li>
                                     </ul>
                                 </div>
                             </div>
                             <div class="side-menu_item">
-                                <h3>МБТ и посуда</h3>
-                                <div class="side-menu_list">
+                                <h3 data-toggle="collapse" data-target="#collapseFour" aria-expanded="false"
+                                    aria-controls="collapseFour">МБТ и посуда</h3>
+                                <div class="side-menu_item_list collapse" id="collapseFour"
+                                     aria-labelledby="headingFour" data-parent="#accordion">
                                     <ul>
-                                        <li>Духовые шкафы</li>
-                                        <li>Кухонные блоки</li>
-                                        <li>Холодильники</li>
-                                        <li>Варочные поверхности</li>
-                                        <li>СВЧ</li>
-                                        <li>Вытяжки</li>
-                                        <li>Компактные приборы</li>
-                                        <li>Посудомоечные машины</li>
+                                        <li>МБТ</li>
+                                        <li>Посуда</li>
                                     </ul>
                                 </div>
                             </div>
                             <div class="side-menu_item">
-                                <h3>Покупателю</h3>
-                                <div class="side-menu_list">
+                                <h3 data-toggle="collapse" data-target="#collapseFive" aria-expanded="false"
+                                    aria-controls="collapseFive">Покупателю</h3>
+                                <div class="side-menu_item_list collapse" id="collapseFive"
+                                     aria-labelledby="headingFive" data-parent="#accordion">
                                     <ul>
-                                        <li>Духовые шкафы</li>
-                                        <li>Кухонные блоки</li>
-                                        <li>Холодильники</li>
-                                        <li>Варочные поверхности</li>
-                                        <li>СВЧ</li>
-                                        <li>Вытяжки</li>
-                                        <li>Компактные приборы</li>
-                                        <li>Посудомоечные машины</li>
+                                        <li><a href="#">Духовые шкафы</a></li>
+                                        <li><a href="#">Кухонные блоки</a></li>
+                                        <li><a href="#">Холодильники</a></li>
+                                        <li><a href="#">Варочные поверхности</a></li>
+                                        <li><a href="#">СВЧ</a></li>
+                                        <li><a href="#">Вытяжки</a></li>
+                                        <li><a href="#">Компактные приборы</a></li>
+                                        <li><a href="#">Посудомоечные машины</a></li>
                                     </ul>
                                 </div>
                             </div>
