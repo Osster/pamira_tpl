@@ -39,14 +39,9 @@
 }
 
 .wr-contacts-photo{
-  height: 600px;
   display: flex;
   justify-content: center;
   overflow: hidden;
-
-  @include mobile-all() {
-    height: 300px;
-  }
 
   img{
     align-self: center;
@@ -57,6 +52,10 @@
   max-width: 1200px;
   width: 100%;
   margin: 100px auto;
+
+  @include tablet-portrait() {
+    margin: 50px auto;
+  }
 
   @include mobile-all() {
     margin: 15px 0 0;
@@ -104,6 +103,11 @@
       position: absolute;
       top:70px;
 
+      @include tablet-portrait() {
+        padding: 20px;
+        top:35px;
+      }
+
       @include mobile-all() {
         padding: 15px 0;
         position: relative;
@@ -114,6 +118,10 @@
       &_left{
         left: -145px;
 
+        @include tablet-portrait() {
+          left: -70px;
+        }
+
         @include mobile-all() {
           left: 0;
         }
@@ -121,6 +129,10 @@
 
       &_right{
         right: -235px;
+
+        @include tablet-portrait() {
+          right: -110px;
+        }
 
         @include mobile-all() {
           right: 0;
@@ -135,6 +147,10 @@
   width: 100%;
   margin: 100px auto;
 
+  @include tablet-portrait() {
+    margin: 50px auto 20px;
+  }
+
   @include mobile-all() {
     margin: 25px auto;
   }
@@ -148,18 +164,26 @@
     margin-bottom: 100px;
     text-align: center;
 
+    @include tablet-portrait() {
+      margin-bottom: 50px;
+    }
+
     @include mobile-all() {
       margin-bottom: 25px;
     }
   }
 
   .requisites-text{
-    color: #858585;
+    color: $color_gray_light;
     font-family: $font_family_base;
     font-size: #{$font_size_sm}px;
     font-weight: 400;
     line-height: 30px;
     margin-bottom: 30px;
+
+    @include tablet-portrait() {
+      letter-spacing: -0.2px;
+    }
 
     @include mobile-all() {
       margin-bottom: 15px;
