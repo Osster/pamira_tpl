@@ -79,7 +79,7 @@
   .requisites-title{
     color: $color_gray_light;
     font-family: $font_family_title;
-    font-size: $font_size_h1!important;
+    font-size: #{$font_size_h1}px;
     font-weight: 700;
     letter-spacing: 0.72px;
     margin-bottom: 100px;

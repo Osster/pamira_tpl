@@ -33,20 +33,20 @@
     <div class="container">
         <div class="breadcrumbs">
             <a href="/index.html">Главная</a>
-            <a class="active" href="">Каталог</a>
+            <span class="active">Каталог</span>
         </div>
     </div>
 </section>
 
 <main class="main">
-    <div class="container">
-        <h1 class="main_header">Холодильники</h1>
+    <div class="container main_header">
+        <h1>Холодильники</h1>
     </div>
     <section class="top-slider">
         //= tpl/components/catalog-top-slider.html
     </section>
 
-    <section class="main_dark">
+    <section class="main_dark main_padding">
         <div class="container">
             <div class="row">
                 <div class="col-12 col-md-3">
@@ -60,7 +60,7 @@
                                     <ul>
                                         <li><a href="#">Духовые шкафы</a></li>
                                         <li><a href="#">Кухонные блоки</a></li>
-                                        <li><a href="#">Холодильники</a></li>
+                                        <li><a class="active" href="#">Холодильники</a></li>
                                         <li><a href="#">Варочные поверхности</a></li>
                                         <li><a href="#">СВЧ</a></li>
                                         <li><a href="#">Вытяжки</a></li>
@@ -146,31 +146,870 @@
                     <div class="wr-catalog">
 
                         <div class="catalog-brand-slider">
+                            <!-- Slider main container -->
+                            <div class="swiper-container">
+                                <!-- Additional required wrapper -->
+                                <div class="swiper-wrapper">
+                                    <!-- Slides -->
+                                    <div class="swiper-slide">
+                                        <div class="slide-brand-card">
+                                            <img src="img/catalog/smeg.png" alt="">
+                                            <p>80 наименований</p>
+                                            <p>155 000 - 255 000руб.</p>
+                                            <a href="" class="slide-brand-card_more">
+                                                <svg width="37" height="37" data-toggle="tooltip" data-placement="left"
+                                                     title="Перейти">
+                                                    <use xlink:href="#icon-arrow"></use>
+                                                </svg>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <div class="slide-brand-card">
+                                            <img src="img/catalog/falmec.png" alt="">
+                                            <p>80 наименований</p>
+                                            <p>155 000 - 255 000руб.</p>
+                                            <a href="" class="slide-brand-card_more">
+                                                <svg width="37" height="37" data-toggle="tooltip" data-placement="left"
+                                                     title="Перейти">
+                                                    <use xlink:href="#icon-arrow"></use>
+                                                </svg>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <div class="slide-brand-card">
+                                            <img src="img/catalog/franke.png" alt="">
+                                            <p>80 наименований</p>
+                                            <p>155 000 - 255 000руб.</p>
+                                            <a href="" class="slide-brand-card_more">
+                                                <svg width="37" height="37" data-toggle="tooltip" data-placement="left"
+                                                     title="Перейти">
+                                                    <use xlink:href="#icon-arrow"></use>
+                                                </svg>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <div class="slide-brand-card">
+                                            <img src="img/catalog/smeg.png" alt="">
+                                            <p>80 наименований</p>
+                                            <p>155 000 - 255 000руб.</p>
+                                            <a href="" class="slide-brand-card_more">
+                                                <svg width="37" height="37" data-toggle="tooltip" data-placement="left"
+                                                     title="Перейти">
+                                                    <use xlink:href="#icon-arrow"></use>
+                                                </svg>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <div class="slide-brand-card">
+                                            <img src="img/catalog/smeg.png" alt="">
+                                            <p>80 наименований</p>
+                                            <p>155 000 - 255 000руб.</p>
+                                            <a href="" class="slide-brand-card_more">
+                                                <svg width="37" height="37" data-toggle="tooltip" data-placement="left"
+                                                     title="Перейти">
+                                                    <use xlink:href="#icon-arrow"></use>
+                                                </svg>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- If we need navigation buttons -->
+                                <div class="swiper-button-prev"></div>
+                                <div class="swiper-button-next"></div>
 
+                            </div>
+
+                        </div>
+
+                        <div class="catalog-tags">
+                            <div class="catalog-tags_item">
+                                <a href="#">Холодильник двухкамерный</a>
+                            </div>
                         </div>
 
                         <div class="wr-filter">
 
                         </div>
 
+                        <div class="catalog-list">
+                            <div class="row">
+                                <div class="col-12 p-1">
+                                    <div class="catalog-item">
+                                        <div class="catalog-item_img">
+                                            <a href="#">
+                                                <img src="img/catalog/2b295d7c-550e-11e8-8130-0cc47a688fc6.jpg" alt="">
+                                            </a>
+                                        </div>
+                                        <div class="catalog-item_text">
+                                            <a href="#">Холодильник двухкамерный Smeg ERW1271AO</a>
+                                            <p>Способ работы: отвод, циркуляция</p>
+                                            <p>Монтаж: встраиваемый</p>
+                                            <p>Количество скоростей: 3</p>
+                                            <p>Страна: Чехия</p>
+                                        </div>
+                                        <div class="catalog-item_links">
+                                            <div class="catalog-item_links_props">
+                                                <p class="catalog-item_cost">125 000р.</p>
+                                                <a href="#" class="btn">В корзину</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 p-1">
+                                    <div class="catalog-item">
+                                        <div class="catalog-item_img">
+                                            <a href="#">
+                                                <img src="img/catalog/8adeea6e-5bdd-11e5-80be-0cc47a688fc6.jpg" alt="">
+                                            </a>
+                                        </div>
+                                        <div class="catalog-item_text">
+                                            <a href="#">Холодильник двухкамерный</a>
+                                            <p>Способ работы: отвод, циркуляция</p>
+                                            <p>Монтаж: встраиваемый</p>
+                                            <p>Количество скоростей: 3</p>
+                                            <p>Страна: Чехия</p>
+                                        </div>
+                                        <div class="catalog-item_links" id="props">
+                                            <div class="catalog-item_links_props">
+                                                <div class="catalog-item_links_props_text">
+                                                    <p>черный</p>
+                                                    <p>125 000р.</p>
+                                                </div>
+                                                <div class="catalog-item_links_props_links">
+                                                    <a class="catalog-item_links_icon active" href="#">
+                                                        <svg data-toggle="tooltip" data-placement="left"
+                                                             title="Корзина">
+                                                            <use xlink:href="#cart"></use>
+                                                        </svg>
+                                                    </a>
+                                                    <a class="catalog-item_links_icon" href="#">
+                                                        <svg data-toggle="tooltip" data-placement="left"
+                                                             title="Сравнение">
+                                                            <use xlink:href="#compare"></use>
+                                                        </svg>
+                                                    </a>
+                                                    <a class="catalog-item_links_icon" href="#">
+                                                        <svg data-toggle="tooltip" data-placement="left"
+                                                             title="Избранное">
+                                                            <use xlink:href="#favorites"></use>
+                                                        </svg>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="catalog-item_links_props">
+                                                <div class="catalog-item_links_props_text">
+                                                    <p>белый</p>
+                                                    <p>125 000р.</p>
+                                                </div>
+                                                <div class="catalog-item_links_props_links">
+                                                    <a class="catalog-item_links_icon active" href="#">
+                                                        <svg data-toggle="tooltip" data-placement="left"
+                                                             title="Корзина">
+                                                            <use xlink:href="#cart"></use>
+                                                        </svg>
+                                                    </a>
+                                                    <a class="catalog-item_links_icon" href="#">
+                                                        <svg data-toggle="tooltip" data-placement="left"
+                                                             title="Сравнение">
+                                                            <use xlink:href="#compare"></use>
+                                                        </svg>
+                                                    </a>
+                                                    <a class="catalog-item_links_icon" href="#">
+                                                        <svg data-toggle="tooltip" data-placement="left"
+                                                             title="Избранное">
+                                                            <use xlink:href="#favorites"></use>
+                                                        </svg>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="catalog-item_links_props">
+                                                <div class="catalog-item_links_props_text">
+                                                    <p>серый</p>
+                                                    <p>125 000р.</p>
+                                                </div>
+                                                <div class="catalog-item_links_props_links">
+                                                    <a class="catalog-item_links_icon active" href="#">
+                                                        <svg data-toggle="tooltip" data-placement="left"
+                                                             title="Корзина">
+                                                            <use xlink:href="#cart"></use>
+                                                        </svg>
+                                                    </a>
+                                                    <a class="catalog-item_links_icon" href="#">
+                                                        <svg data-toggle="tooltip" data-placement="left"
+                                                             title="Сравнение">
+                                                            <use xlink:href="#compare"></use>
+                                                        </svg>
+                                                    </a>
+                                                    <a class="catalog-item_links_icon" href="#">
+                                                        <svg data-toggle="tooltip" data-placement="left"
+                                                             title="Избранное">
+                                                            <use xlink:href="#favorites"></use>
+                                                        </svg>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <a class="catalog-item_links_props_more" data-toggle="collapse"
+                                               data-target="#props_id1" aria-expanded="false"
+                                               aria-controls="props_id1">Смотреть все</a>
+                                            <div class="collapse" id="props_id1" aria-labelledby="props_id1"
+                                                 data-parent="#props">
+                                                <div class="catalog-item_links_props">
+                                                    <div class="catalog-item_links_props_text">
+                                                        <p>черный</p>
+                                                        <p>125 000р.</p>
+                                                    </div>
+                                                    <div class="catalog-item_links_props_links">
+                                                        <a class="catalog-item_links_icon active" href="#">
+                                                            <svg data-toggle="tooltip" data-placement="left"
+                                                                 title="Корзина">
+                                                                <use xlink:href="#cart"></use>
+                                                            </svg>
+                                                        </a>
+                                                        <a class="catalog-item_links_icon" href="#">
+                                                            <svg data-toggle="tooltip" data-placement="left"
+                                                                 title="Сравнение">
+                                                                <use xlink:href="#compare"></use>
+                                                            </svg>
+                                                        </a>
+                                                        <a class="catalog-item_links_icon" href="#">
+                                                            <svg data-toggle="tooltip" data-placement="left"
+                                                                 title="Избранное">
+                                                                <use xlink:href="#favorites"></use>
+                                                            </svg>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <div class="catalog-item_links_props">
+                                                    <div class="catalog-item_links_props_text">
+                                                        <p>черный</p>
+                                                        <p>125 000р.</p>
+                                                    </div>
+                                                    <div class="catalog-item_links_props_links">
+                                                        <a class="catalog-item_links_icon active" href="#">
+                                                            <svg data-toggle="tooltip" data-placement="left"
+                                                                 title="Корзина">
+                                                                <use xlink:href="#cart"></use>
+                                                            </svg>
+                                                        </a>
+                                                        <a class="catalog-item_links_icon" href="#">
+                                                            <svg data-toggle="tooltip" data-placement="left"
+                                                                 title="Сравнение">
+                                                                <use xlink:href="#compare"></use>
+                                                            </svg>
+                                                        </a>
+                                                        <a class="catalog-item_links_icon" href="#">
+                                                            <svg data-toggle="tooltip" data-placement="left"
+                                                                 title="Избранное">
+                                                                <use xlink:href="#favorites"></use>
+                                                            </svg>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <div class="catalog-item_links_props">
+                                                    <div class="catalog-item_links_props_text">
+                                                        <p>черный</p>
+                                                        <p>125 000р.</p>
+                                                    </div>
+                                                    <div class="catalog-item_links_props_links">
+                                                        <a class="catalog-item_links_icon active" href="#">
+                                                            <svg data-toggle="tooltip" data-placement="left"
+                                                                 title="Корзина">
+                                                                <use xlink:href="#cart"></use>
+                                                            </svg>
+                                                        </a>
+                                                        <a class="catalog-item_links_icon" href="#">
+                                                            <svg data-toggle="tooltip" data-placement="left"
+                                                                 title="Сравнение">
+                                                                <use xlink:href="#compare"></use>
+                                                            </svg>
+                                                        </a>
+                                                        <a class="catalog-item_links_icon" href="#">
+                                                            <svg data-toggle="tooltip" data-placement="left"
+                                                                 title="Избранное">
+                                                                <use xlink:href="#favorites"></use>
+                                                            </svg>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 p-1">
+                                    <div class="catalog-item">
+                                        <div class="catalog-item_img">
+                                            <a href="#">
+                                                <img src="img/catalog/389029b7-54e9-11e8-8130-0cc47a688fc6.jpg" alt="">
+                                            </a>
+                                        </div>
+                                        <div class="catalog-item_text">
+                                            <a href="#">Холодильник двухкамерный</a>
+                                            <p>Способ работы: отвод, циркуляция</p>
+                                            <p>Монтаж: встраиваемый</p>
+                                            <p>Количество скоростей: 3</p>
+                                            <p>Страна: Чехия</p>
+                                        </div>
+                                        <div class="catalog-item_links" id="props">
+                                            <div class="catalog-item_links_props">
+                                                <div class="catalog-item_links_props_text">
+                                                    <p>черный</p>
+                                                    <p>125 000р.</p>
+                                                </div>
+                                                <div class="catalog-item_links_props_links">
+                                                    <a class="catalog-item_links_icon active" href="#">
+                                                        <svg data-toggle="tooltip" data-placement="left"
+                                                             title="Корзина">
+                                                            <use xlink:href="#cart"></use>
+                                                        </svg>
+                                                    </a>
+                                                    <a class="catalog-item_links_icon" href="#">
+                                                        <svg data-toggle="tooltip" data-placement="left"
+                                                             title="Сравнение">
+                                                            <use xlink:href="#compare"></use>
+                                                        </svg>
+                                                    </a>
+                                                    <a class="catalog-item_links_icon" href="#">
+                                                        <svg data-toggle="tooltip" data-placement="left"
+                                                             title="Избранное">
+                                                            <use xlink:href="#favorites"></use>
+                                                        </svg>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="catalog-item_links_props">
+                                                <div class="catalog-item_links_props_text">
+                                                    <p>белый</p>
+                                                    <p>125 000р.</p>
+                                                </div>
+                                                <div class="catalog-item_links_props_links">
+                                                    <a class="catalog-item_links_icon active" href="#">
+                                                        <svg data-toggle="tooltip" data-placement="left"
+                                                             title="Корзина">
+                                                            <use xlink:href="#cart"></use>
+                                                        </svg>
+                                                    </a>
+                                                    <a class="catalog-item_links_icon" href="#">
+                                                        <svg data-toggle="tooltip" data-placement="left"
+                                                             title="Сравнение">
+                                                            <use xlink:href="#compare"></use>
+                                                        </svg>
+                                                    </a>
+                                                    <a class="catalog-item_links_icon" href="#">
+                                                        <svg data-toggle="tooltip" data-placement="left"
+                                                             title="Избранное">
+                                                            <use xlink:href="#favorites"></use>
+                                                        </svg>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="catalog-item_links_props">
+                                                <div class="catalog-item_links_props_text">
+                                                    <p>серый</p>
+                                                    <p>125 000р.</p>
+                                                </div>
+                                                <div class="catalog-item_links_props_links">
+                                                    <a class="catalog-item_links_icon active" href="#">
+                                                        <svg data-toggle="tooltip" data-placement="left"
+                                                             title="Корзина">
+                                                            <use xlink:href="#cart"></use>
+                                                        </svg>
+                                                    </a>
+                                                    <a class="catalog-item_links_icon" href="#">
+                                                        <svg data-toggle="tooltip" data-placement="left"
+                                                             title="Сравнение">
+                                                            <use xlink:href="#compare"></use>
+                                                        </svg>
+                                                    </a>
+                                                    <a class="catalog-item_links_icon" href="#">
+                                                        <svg data-toggle="tooltip" data-placement="left"
+                                                             title="Избранное">
+                                                            <use xlink:href="#favorites"></use>
+                                                        </svg>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <a class="catalog-item_links_props_more" data-toggle="collapse"
+                                               data-target="#props_id2" aria-expanded="false"
+                                               aria-controls="props_id2">Смотреть все</a>
+                                            <div class="collapse" id="props_id2" aria-labelledby="props_id2"
+                                                 data-parent="#props">
+                                                <div class="catalog-item_links_props">
+                                                    <div class="catalog-item_links_props_text">
+                                                        <p>черный</p>
+                                                        <p>125 000р.</p>
+                                                    </div>
+                                                    <div class="catalog-item_links_props_links">
+                                                        <a class="catalog-item_links_icon active" href="#">
+                                                            <svg data-toggle="tooltip" data-placement="left"
+                                                                 title="Корзина">
+                                                                <use xlink:href="#cart"></use>
+                                                            </svg>
+                                                        </a>
+                                                        <a class="catalog-item_links_icon" href="#">
+                                                            <svg data-toggle="tooltip" data-placement="left"
+                                                                 title="Сравнение">
+                                                                <use xlink:href="#compare"></use>
+                                                            </svg>
+                                                        </a>
+                                                        <a class="catalog-item_links_icon" href="#">
+                                                            <svg data-toggle="tooltip" data-placement="left"
+                                                                 title="Избранное">
+                                                                <use xlink:href="#favorites"></use>
+                                                            </svg>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <div class="catalog-item_links_props">
+                                                    <div class="catalog-item_links_props_text">
+                                                        <p>черный</p>
+                                                        <p>125 000р.</p>
+                                                    </div>
+                                                    <div class="catalog-item_links_props_links">
+                                                        <a class="catalog-item_links_icon active" href="#">
+                                                            <svg data-toggle="tooltip" data-placement="left"
+                                                                 title="Корзина">
+                                                                <use xlink:href="#cart"></use>
+                                                            </svg>
+                                                        </a>
+                                                        <a class="catalog-item_links_icon" href="#">
+                                                            <svg data-toggle="tooltip" data-placement="left"
+                                                                 title="Сравнение">
+                                                                <use xlink:href="#compare"></use>
+                                                            </svg>
+                                                        </a>
+                                                        <a class="catalog-item_links_icon" href="#">
+                                                            <svg data-toggle="tooltip" data-placement="left"
+                                                                 title="Избранное">
+                                                                <use xlink:href="#favorites"></use>
+                                                            </svg>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <div class="catalog-item_links_props">
+                                                    <div class="catalog-item_links_props_text">
+                                                        <p>черный</p>
+                                                        <p>125 000р.</p>
+                                                    </div>
+                                                    <div class="catalog-item_links_props_links">
+                                                        <a class="catalog-item_links_icon active" href="#">
+                                                            <svg data-toggle="tooltip" data-placement="left"
+                                                                 title="Корзина">
+                                                                <use xlink:href="#cart"></use>
+                                                            </svg>
+                                                        </a>
+                                                        <a class="catalog-item_links_icon" href="#">
+                                                            <svg data-toggle="tooltip" data-placement="left"
+                                                                 title="Сравнение">
+                                                                <use xlink:href="#compare"></use>
+                                                            </svg>
+                                                        </a>
+                                                        <a class="catalog-item_links_icon" href="#">
+                                                            <svg data-toggle="tooltip" data-placement="left"
+                                                                 title="Избранное">
+                                                                <use xlink:href="#favorites"></use>
+                                                            </svg>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 p-1">
+                                    <div class="catalog-item">
+                                        <div class="catalog-item_img">
+                                            <a href="#">
+                                                <img src="img/catalog/ab477435-7bd5-11e6-80e3-0cc47a688fc6.jpg" alt="">
+                                            </a>
+                                        </div>
+                                        <div class="catalog-item_text">
+                                            <a href="#">Холодильник двухкамерный</a>
+                                            <p>Способ работы: отвод, циркуляция</p>
+                                            <p>Монтаж: встраиваемый</p>
+                                            <p>Количество скоростей: 3</p>
+                                            <p>Страна: Чехия</p>
+                                        </div>
+                                        <div class="catalog-item_links" id="props">
+                                            <div class="catalog-item_links_props">
+                                                <div class="catalog-item_links_props_text">
+                                                    <p>черный</p>
+                                                    <p>125 000р.</p>
+                                                </div>
+                                                <div class="catalog-item_links_props_links">
+                                                    <a class="catalog-item_links_icon active" href="#">
+                                                        <svg data-toggle="tooltip" data-placement="left"
+                                                             title="Корзина">
+                                                            <use xlink:href="#cart"></use>
+                                                        </svg>
+                                                    </a>
+                                                    <a class="catalog-item_links_icon" href="#">
+                                                        <svg data-toggle="tooltip" data-placement="left"
+                                                             title="Сравнение">
+                                                            <use xlink:href="#compare"></use>
+                                                        </svg>
+                                                    </a>
+                                                    <a class="catalog-item_links_icon" href="#">
+                                                        <svg data-toggle="tooltip" data-placement="left"
+                                                             title="Избранное">
+                                                            <use xlink:href="#favorites"></use>
+                                                        </svg>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="catalog-item_links_props">
+                                                <div class="catalog-item_links_props_text">
+                                                    <p>белый</p>
+                                                    <p>125 000р.</p>
+                                                </div>
+                                                <div class="catalog-item_links_props_links">
+                                                    <a class="catalog-item_links_icon active" href="#">
+                                                        <svg data-toggle="tooltip" data-placement="left"
+                                                             title="Корзина">
+                                                            <use xlink:href="#cart"></use>
+                                                        </svg>
+                                                    </a>
+                                                    <a class="catalog-item_links_icon" href="#">
+                                                        <svg data-toggle="tooltip" data-placement="left"
+                                                             title="Сравнение">
+                                                            <use xlink:href="#compare"></use>
+                                                        </svg>
+                                                    </a>
+                                                    <a class="catalog-item_links_icon" href="#">
+                                                        <svg data-toggle="tooltip" data-placement="left"
+                                                             title="Избранное">
+                                                            <use xlink:href="#favorites"></use>
+                                                        </svg>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="catalog-item_links_props">
+                                                <div class="catalog-item_links_props_text">
+                                                    <p>серый</p>
+                                                    <p>125 000р.</p>
+                                                </div>
+                                                <div class="catalog-item_links_props_links">
+                                                    <a class="catalog-item_links_icon active" href="#">
+                                                        <svg data-toggle="tooltip" data-placement="left"
+                                                             title="Корзина">
+                                                            <use xlink:href="#cart"></use>
+                                                        </svg>
+                                                    </a>
+                                                    <a class="catalog-item_links_icon" href="#">
+                                                        <svg data-toggle="tooltip" data-placement="left"
+                                                             title="Сравнение">
+                                                            <use xlink:href="#compare"></use>
+                                                        </svg>
+                                                    </a>
+                                                    <a class="catalog-item_links_icon" href="#">
+                                                        <svg data-toggle="tooltip" data-placement="left"
+                                                             title="Избранное">
+                                                            <use xlink:href="#favorites"></use>
+                                                        </svg>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <a class="catalog-item_links_props_more" data-toggle="collapse"
+                                               data-target="#props_id3" aria-expanded="false"
+                                               aria-controls="props_id3">Смотреть все</a>
+                                            <div class="collapse" id="props_id3" aria-labelledby="props_id3"
+                                                 data-parent="#props">
+                                                <div class="catalog-item_links_props">
+                                                    <div class="catalog-item_links_props_text">
+                                                        <p>черный</p>
+                                                        <p>125 000р.</p>
+                                                    </div>
+                                                    <div class="catalog-item_links_props_links">
+                                                        <a class="catalog-item_links_icon active" href="#">
+                                                            <svg data-toggle="tooltip" data-placement="left"
+                                                                 title="Корзина">
+                                                                <use xlink:href="#cart"></use>
+                                                            </svg>
+                                                        </a>
+                                                        <a class="catalog-item_links_icon" href="#">
+                                                            <svg data-toggle="tooltip" data-placement="left"
+                                                                 title="Сравнение">
+                                                                <use xlink:href="#compare"></use>
+                                                            </svg>
+                                                        </a>
+                                                        <a class="catalog-item_links_icon" href="#">
+                                                            <svg data-toggle="tooltip" data-placement="left"
+                                                                 title="Избранное">
+                                                                <use xlink:href="#favorites"></use>
+                                                            </svg>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <div class="catalog-item_links_props">
+                                                    <div class="catalog-item_links_props_text">
+                                                        <p>черный</p>
+                                                        <p>125 000р.</p>
+                                                    </div>
+                                                    <div class="catalog-item_links_props_links">
+                                                        <a class="catalog-item_links_icon active" href="#">
+                                                            <svg data-toggle="tooltip" data-placement="left"
+                                                                 title="Корзина">
+                                                                <use xlink:href="#cart"></use>
+                                                            </svg>
+                                                        </a>
+                                                        <a class="catalog-item_links_icon" href="#">
+                                                            <svg data-toggle="tooltip" data-placement="left"
+                                                                 title="Сравнение">
+                                                                <use xlink:href="#compare"></use>
+                                                            </svg>
+                                                        </a>
+                                                        <a class="catalog-item_links_icon" href="#">
+                                                            <svg data-toggle="tooltip" data-placement="left"
+                                                                 title="Избранное">
+                                                                <use xlink:href="#favorites"></use>
+                                                            </svg>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <div class="catalog-item_links_props">
+                                                    <div class="catalog-item_links_props_text">
+                                                        <p>черный</p>
+                                                        <p>125 000р.</p>
+                                                    </div>
+                                                    <div class="catalog-item_links_props_links">
+                                                        <a class="catalog-item_links_icon active" href="#">
+                                                            <svg data-toggle="tooltip" data-placement="left"
+                                                                 title="Корзина">
+                                                                <use xlink:href="#cart"></use>
+                                                            </svg>
+                                                        </a>
+                                                        <a class="catalog-item_links_icon" href="#">
+                                                            <svg data-toggle="tooltip" data-placement="left"
+                                                                 title="Сравнение">
+                                                                <use xlink:href="#compare"></use>
+                                                            </svg>
+                                                        </a>
+                                                        <a class="catalog-item_links_icon" href="#">
+                                                            <svg data-toggle="tooltip" data-placement="left"
+                                                                 title="Избранное">
+                                                                <use xlink:href="#favorites"></use>
+                                                            </svg>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 p-1">
+                                    <div class="catalog-item">
+                                        <div class="catalog-item_img">
+                                            <a href="#">
+                                                <img src="img/catalog/017d107c-0ab0-11e6-80c9-0cc47a688fc6.jpg" alt="">
+                                            </a>
+                                        </div>
+                                        <div class="catalog-item_text">
+                                            <a href="#">Холодильник двухкамерный Smeg ERW1271AO</a>
+                                            <p class="catalog-item_cost">125 000р.</p>
+                                        </div>
+                                        <div class="catalog-item_links" id="props">
+                                            <div class="catalog-item_links_props">
+                                                <div class="catalog-item_links_props_text">
+                                                    <p>черный</p>
+                                                    <p>125 000р.</p>
+                                                </div>
+                                                <div class="catalog-item_links_props_links">
+                                                    <a class="catalog-item_links_icon active" href="#">
+                                                        <svg data-toggle="tooltip" data-placement="left"
+                                                             title="Корзина">
+                                                            <use xlink:href="#cart"></use>
+                                                        </svg>
+                                                    </a>
+                                                    <a class="catalog-item_links_icon" href="#">
+                                                        <svg data-toggle="tooltip" data-placement="left"
+                                                             title="Сравнение">
+                                                            <use xlink:href="#compare"></use>
+                                                        </svg>
+                                                    </a>
+                                                    <a class="catalog-item_links_icon" href="#">
+                                                        <svg data-toggle="tooltip" data-placement="left"
+                                                             title="Избранное">
+                                                            <use xlink:href="#favorites"></use>
+                                                        </svg>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="catalog-item_links_props">
+                                                <div class="catalog-item_links_props_text">
+                                                    <p>белый</p>
+                                                    <p>125 000р.</p>
+                                                </div>
+                                                <div class="catalog-item_links_props_links">
+                                                    <a class="catalog-item_links_icon active" href="#">
+                                                        <svg data-toggle="tooltip" data-placement="left"
+                                                             title="Корзина">
+                                                            <use xlink:href="#cart"></use>
+                                                        </svg>
+                                                    </a>
+                                                    <a class="catalog-item_links_icon" href="#">
+                                                        <svg data-toggle="tooltip" data-placement="left"
+                                                             title="Сравнение">
+                                                            <use xlink:href="#compare"></use>
+                                                        </svg>
+                                                    </a>
+                                                    <a class="catalog-item_links_icon" href="#">
+                                                        <svg data-toggle="tooltip" data-placement="left"
+                                                             title="Избранное">
+                                                            <use xlink:href="#favorites"></use>
+                                                        </svg>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="catalog-item_links_props">
+                                                <div class="catalog-item_links_props_text">
+                                                    <p>серый</p>
+                                                    <p>125 000р.</p>
+                                                </div>
+                                                <div class="catalog-item_links_props_links">
+                                                    <a class="catalog-item_links_icon active" href="#">
+                                                        <svg data-toggle="tooltip" data-placement="left"
+                                                             title="Корзина">
+                                                            <use xlink:href="#cart"></use>
+                                                        </svg>
+                                                    </a>
+                                                    <a class="catalog-item_links_icon" href="#">
+                                                        <svg data-toggle="tooltip" data-placement="left"
+                                                             title="Сравнение">
+                                                            <use xlink:href="#compare"></use>
+                                                        </svg>
+                                                    </a>
+                                                    <a class="catalog-item_links_icon" href="#">
+                                                        <svg data-toggle="tooltip" data-placement="left"
+                                                             title="Избранное">
+                                                            <use xlink:href="#favorites"></use>
+                                                        </svg>
+                                                    </a>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 p-1">
+                                    <div class="catalog-item">
+                                        <div class="catalog-item_img">
+                                            <a href="#">
+                                                <img src="img/catalog/bd9687b1-9fad-11e4-936a-000423c85570.jpg" alt="">
+                                            </a>
+                                        </div>
+                                        <div class="catalog-item_text">
+                                            <a href="#">Холодильник двухкамерный Smeg ERW1271AO</a>
+                                            <p class="catalog-item_cost">125 000р.</p>
+                                        </div>
+                                        <div class="catalog-item_links" id="props">
+                                            <div class="catalog-item_links_props">
+                                                <div class="catalog-item_links_props_text">
+                                                    <p>черный</p>
+                                                    <p>125 000р.</p>
+                                                </div>
+                                                <div class="catalog-item_links_props_links">
+                                                    <a class="catalog-item_links_icon active" href="#">
+                                                        <svg data-toggle="tooltip" data-placement="left"
+                                                             title="Корзина">
+                                                            <use xlink:href="#cart"></use>
+                                                        </svg>
+                                                    </a>
+                                                    <a class="catalog-item_links_icon" href="#">
+                                                        <svg data-toggle="tooltip" data-placement="left"
+                                                             title="Сравнение">
+                                                            <use xlink:href="#compare"></use>
+                                                        </svg>
+                                                    </a>
+                                                    <a class="catalog-item_links_icon" href="#">
+                                                        <svg data-toggle="tooltip" data-placement="left"
+                                                             title="Избранное">
+                                                            <use xlink:href="#favorites"></use>
+                                                        </svg>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="catalog-item_links_props">
+                                                <div class="catalog-item_links_props_text">
+                                                    <p>белый</p>
+                                                    <p>125 000р.</p>
+                                                </div>
+                                                <div class="catalog-item_links_props_links">
+                                                    <a class="catalog-item_links_icon active" href="#">
+                                                        <svg data-toggle="tooltip" data-placement="left"
+                                                             title="Корзина">
+                                                            <use xlink:href="#cart"></use>
+                                                        </svg>
+                                                    </a>
+                                                    <a class="catalog-item_links_icon" href="#">
+                                                        <svg data-toggle="tooltip" data-placement="left"
+                                                             title="Сравнение">
+                                                            <use xlink:href="#compare"></use>
+                                                        </svg>
+                                                    </a>
+                                                    <a class="catalog-item_links_icon" href="#">
+                                                        <svg data-toggle="tooltip" data-placement="left"
+                                                             title="Избранное">
+                                                            <use xlink:href="#favorites"></use>
+                                                        </svg>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="catalog-item_links_props">
+                                                <div class="catalog-item_links_props_text">
+                                                    <p>серый</p>
+                                                    <p>125 000р.</p>
+                                                </div>
+                                                <div class="catalog-item_links_props_links">
+                                                    <a class="catalog-item_links_icon active" href="#">
+                                                        <svg data-toggle="tooltip" data-placement="left"
+                                                             title="Корзина">
+                                                            <use xlink:href="#cart"></use>
+                                                        </svg>
+                                                    </a>
+                                                    <a class="catalog-item_links_icon" href="#">
+                                                        <svg data-toggle="tooltip" data-placement="left"
+                                                             title="Сравнение">
+                                                            <use xlink:href="#compare"></use>
+                                                        </svg>
+                                                    </a>
+                                                    <a class="catalog-item_links_icon" href="#">
+                                                        <svg data-toggle="tooltip" data-placement="left"
+                                                             title="Избранное">
+                                                            <use xlink:href="#favorites"></use>
+                                                        </svg>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                         <div class="catalog-plitka">
                             <div class="row">
-                                <div class="col-12 col-md-4">
+                                <div class="col-12 col-md-4 p-1">
                                     <div class="catalog-item">
-                                        <img src="img/catalog/2b295d7c-550e-11e8-8130-0cc47a688fc6.jpg" alt="">
+                                        <div class="catalog-item_img">
+                                            <a href="#"><img src="img/catalog/2b295d7c-550e-11e8-8130-0cc47a688fc6.jpg"
+                                                             alt=""></a>
+                                        </div>
                                         <div class="catalog-item_text">
-                                            <p>Холодильник двухкамерный Smeg ERW1271AO</p>
+                                            <a href="#">Холодильник двухкамерный Smeg ERW1271AO</a>
                                             <p class="catalog-item_cost">125 000р.</p>
                                         </div>
                                         <div class="catalog-item_links">
                                             <a class="catalog-item_links_icon" href="#">
-                                                <svg width="37" height="37" data-toggle="tooltip" data-placement="left"
+                                                <svg data-toggle="tooltip" data-placement="left"
                                                      title="Сравнение">
                                                     <use xlink:href="#compare"></use>
                                                 </svg>
                                             </a>
                                             <a class="catalog-item_links_icon" href="#">
-                                                <svg width="37" height="37" data-toggle="tooltip" data-placement="left"
+                                                <svg data-toggle="tooltip" data-placement="left"
                                                      title="Избранное">
                                                     <use xlink:href="#favorites"></use>
                                                 </svg>
@@ -179,22 +1018,25 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-12 col-md-4">
+                                <div class="col-12 col-md-4 p-1">
                                     <div class="catalog-item">
-                                        <img src="img/catalog/8adeea6e-5bdd-11e5-80be-0cc47a688fc6.jpg" alt="">
+                                        <div class="catalog-item_img">
+                                            <a href="#"><img src="img/catalog/8adeea6e-5bdd-11e5-80be-0cc47a688fc6.jpg"
+                                                             alt=""></a>
+                                        </div>
                                         <div class="catalog-item_text">
-                                            <p>Холодильник двухкамерный Smeg ERW1271AO</p>
+                                            <a href="#">Холодильник двухкамерный</a>
                                             <p class="catalog-item_cost">125 000р.</p>
                                         </div>
                                         <div class="catalog-item_links">
                                             <a class="catalog-item_links_icon" href="#">
-                                                <svg width="37" height="37" data-toggle="tooltip" data-placement="left"
+                                                <svg data-toggle="tooltip" data-placement="left"
                                                      title="Сравнение">
                                                     <use xlink:href="#compare"></use>
                                                 </svg>
                                             </a>
                                             <a class="catalog-item_links_icon" href="#">
-                                                <svg width="37" height="37" data-toggle="tooltip" data-placement="left"
+                                                <svg data-toggle="tooltip" data-placement="left"
                                                      title="Избранное">
                                                     <use xlink:href="#favorites"></use>
                                                 </svg>
@@ -203,22 +1045,26 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-12 col-md-4">
+                                <div class="col-12 col-md-4 p-1">
                                     <div class="catalog-item">
-                                        <img src="img/catalog/389029b7-54e9-11e8-8130-0cc47a688fc6.jpg" alt="">
+                                        <div class="catalog-item_img">
+                                            <a href="#"><img src="img/catalog/389029b7-54e9-11e8-8130-0cc47a688fc6.jpg"
+                                                             alt=""></a>
+                                        </div>
                                         <div class="catalog-item_text">
-                                            <p>Холодильник двухкамерный Smeg ERW1271AO</p>
+                                            <a href="#">Холодильник двухкамерный Smeg ERW1271AO, Холодильник
+                                                двухкамерный Smeg ERW1271AO</a>
                                             <p class="catalog-item_cost">125 000р.</p>
                                         </div>
                                         <div class="catalog-item_links">
                                             <a class="catalog-item_links_icon" href="#">
-                                                <svg width="37" height="37" data-toggle="tooltip" data-placement="left"
+                                                <svg data-toggle="tooltip" data-placement="left"
                                                      title="Сравнение">
                                                     <use xlink:href="#compare"></use>
                                                 </svg>
                                             </a>
                                             <a class="catalog-item_links_icon" href="#">
-                                                <svg width="37" height="37" data-toggle="tooltip" data-placement="left"
+                                                <svg data-toggle="tooltip" data-placement="left"
                                                      title="Избранное">
                                                     <use xlink:href="#favorites"></use>
                                                 </svg>
@@ -227,22 +1073,24 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-12 col-md-4">
+                                <div class="col-12 col-md-4 p-1">
                                     <div class="catalog-item">
-                                        <img src="img/catalog/ab477435-7bd5-11e6-80e3-0cc47a688fc6.jpg" alt="">
+                                        <div class="catalog-item_img">
+                                            <img src="img/catalog/ab477435-7bd5-11e6-80e3-0cc47a688fc6.jpg" alt="">
+                                        </div>
                                         <div class="catalog-item_text">
-                                            <p>Холодильник двухкамерный Smeg ERW1271AO</p>
+                                            <a href="#">Холодильник двухкамерный Smeg ERW1271AO</a>
                                             <p class="catalog-item_cost">125 000р.</p>
                                         </div>
                                         <div class="catalog-item_links">
                                             <a class="catalog-item_links_icon" href="#">
-                                                <svg width="37" height="37" data-toggle="tooltip" data-placement="left"
+                                                <svg data-toggle="tooltip" data-placement="left"
                                                      title="Сравнение">
                                                     <use xlink:href="#compare"></use>
                                                 </svg>
                                             </a>
                                             <a class="catalog-item_links_icon" href="#">
-                                                <svg width="37" height="37" data-toggle="tooltip" data-placement="left"
+                                                <svg data-toggle="tooltip" data-placement="left"
                                                      title="Избранное">
                                                     <use xlink:href="#favorites"></use>
                                                 </svg>
@@ -251,22 +1099,24 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-12 col-md-4">
+                                <div class="col-12 col-md-4 p-1">
                                     <div class="catalog-item">
-                                        <img src="img/catalog/017d107c-0ab0-11e6-80c9-0cc47a688fc6.jpg" alt="">
+                                        <div class="catalog-item_img">
+                                            <img src="img/catalog/017d107c-0ab0-11e6-80c9-0cc47a688fc6.jpg" alt="">
+                                        </div>
                                         <div class="catalog-item_text">
-                                            <p>Холодильник двухкамерный Smeg ERW1271AO</p>
+                                            <a href="#">Холодильник двухкамерный Smeg ERW1271AO</a>
                                             <p class="catalog-item_cost">125 000р.</p>
                                         </div>
                                         <div class="catalog-item_links">
                                             <a class="catalog-item_links_icon" href="#">
-                                                <svg width="37" height="37" data-toggle="tooltip" data-placement="left"
+                                                <svg data-toggle="tooltip" data-placement="left"
                                                      title="Сравнение">
                                                     <use xlink:href="#compare"></use>
                                                 </svg>
                                             </a>
                                             <a class="catalog-item_links_icon" href="#">
-                                                <svg width="37" height="37" data-toggle="tooltip" data-placement="left"
+                                                <svg data-toggle="tooltip" data-placement="left"
                                                      title="Избранное">
                                                     <use xlink:href="#favorites"></use>
                                                 </svg>
@@ -275,22 +1125,24 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-12 col-md-4">
+                                <div class="col-12 col-md-4 p-1">
                                     <div class="catalog-item">
-                                        <img src="img/catalog/bd9687b1-9fad-11e4-936a-000423c85570.jpg" alt="">
+                                        <div class="catalog-item_img">
+                                            <img src="img/catalog/bd9687b1-9fad-11e4-936a-000423c85570.jpg" alt="">
+                                        </div>
                                         <div class="catalog-item_text">
-                                            <p>Холодильник двухкамерный Smeg ERW1271AO</p>
+                                            <a href="#">Холодильник двухкамерный Smeg ERW1271AO</a>
                                             <p class="catalog-item_cost">125 000р.</p>
                                         </div>
                                         <div class="catalog-item_links">
                                             <a class="catalog-item_links_icon" href="#">
-                                                <svg width="37" height="37" data-toggle="tooltip" data-placement="left"
+                                                <svg data-toggle="tooltip" data-placement="left"
                                                      title="Сравнение">
                                                     <use xlink:href="#compare"></use>
                                                 </svg>
                                             </a>
                                             <a class="catalog-item_links_icon" href="#">
-                                                <svg width="37" height="37" data-toggle="tooltip" data-placement="left"
+                                                <svg data-toggle="tooltip" data-placement="left"
                                                      title="Избранное">
                                                     <use xlink:href="#favorites"></use>
                                                 </svg>
