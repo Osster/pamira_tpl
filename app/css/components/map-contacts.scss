@@ -34,7 +34,7 @@
     color: $color_gray_middle;
 
     span{
-      transform: scaleY(1);
+      transform: scaleY(0.86);
     }
   }
 
@@ -70,6 +70,7 @@
   .wr-map-top{
     position: relative;
     height: 892px;
-    top:-250px;
+    top:-215px;
+    margin-bottom: -215px;
   }
 }
