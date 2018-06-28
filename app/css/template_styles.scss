@@ -161,6 +161,14 @@ a {
     background-color: $color_gray_darkest;
     color: $color_white;
   }
+
+  &-hover_white{
+
+    &:hover {
+      background-color: $color_white;
+      color: $color_red_middle!important;
+    }
+  }
 }
 
 
