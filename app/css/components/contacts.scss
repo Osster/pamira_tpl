@@ -5,10 +5,19 @@
   margin: 0 auto;
   position: relative;
 
+  @include mobile-all() {
+
+  }
 
   .main__promo_heading{
     text-align: left;
+
+    @include mobile-all() {
+      text-align: center;
+      margin-bottom: 0;
+    }
   }
+
 
   &_black{
     height: 504px;
@@ -48,7 +57,7 @@
     &__text{
       color: $color_gray_middle;
       font-family: $font_family_base;
-      font-size: $font_size;
+      font-size: #{$font_size}px;
       font-weight: 400;
       line-height: 30px;
 
@@ -79,18 +88,85 @@
   .requisites-title{
     color: $color_gray_light;
     font-family: $font_family_title;
-    font-size: $font_size_h1!important;
+    font-size: #{$font_size_h1}px;
     font-weight: 700;
     letter-spacing: 0.72px;
     margin-bottom: 100px;
+    text-align: center;
   }
 
   .requisites-text{
     color: #858585;
     font-family: $font_family_base;
-    font-size: $font_size_sm!important;
+    font-size: #{$font_size_sm}px;
     font-weight: 400;
     line-height: 30px;
     margin-bottom: 30px;
   }
+}
+
+.wr-contacts-form{
+  padding: 100px 15px;
+  background-color: $color_black;
+
+  .form-questions{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    &__title{
+      color: $color_white_dirty;
+      font-family: $font_family_title;
+      font-size: #{$font_size_h1}px;
+      font-weight: 700;
+      letter-spacing: 0.72px;
+      margin-bottom: 50px;
+    }
+
+    &__text{
+      color: $color_white_dirty;
+      font-family: $font_family_base;
+      font-size: #{$font_size}px;
+      font-weight: 400;
+      margin-bottom: 35px;
+    }
+
+    &__inputs{
+      margin-bottom: 20px;
+      max-width: 390px;
+      width: 100%;
+    }
+
+    &__input{
+      width: 100%;
+      margin-bottom: 20px;
+      height: 45px;
+      border: 1px solid $color_gray_light;
+      background-color: $color_white;
+
+      color: $color_gray_light;
+      font-family: $font_family_title;
+      font-size: #{$font_size_md}px;
+      font-weight: 400;
+      padding-left: 15px;
+    }
+
+    &__btn{
+      margin-bottom: 30px;
+      max-width: 390px;
+      width: 100%;
+    }
+
+    &__button{
+      width: 100%;
+      padding: 13px auto;
+      border: none;
+      color: $color_white_dirty;
+      font-family: $font_family_base;
+      font-size:  #{$font_size}px;
+      font-weight: 400;
+    }
+  }
+
 }

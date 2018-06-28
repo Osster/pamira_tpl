@@ -23,7 +23,7 @@
       display: block;
       padding: 70px 45px;
       font-family: $font_family_title;
-      font-size: 22px;
+      font-size: #{$font_size_h2}px;
       font-weight: 600;
       letter-spacing: 0.22px;
     }
@@ -43,9 +43,10 @@
     padding: 45px;
     font-family: $font_family_title;
     color: $color_gray_middle;
+    transform: scaleY(0.86);
 
     &__title{
-      font-size: 36px;
+      font-size: #{$font_size_h1}px;
       font-weight: 600;
       letter-spacing: 0.18px;
       margin-bottom: 30px;
@@ -57,12 +58,12 @@
       padding-right: 30px;
     }
     &__item{
-      font-size: $font_size;
+      font-size: #{$font_size}px;
       font-weight: 400;
       line-height: 30px;
 
       span{
-        font-size: 22px;
+        font-size: #{$font_size_h3}px;
       }
     }
   }
