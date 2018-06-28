@@ -4,6 +4,10 @@
   position: absolute;
   top: 0;
   left: 0;
+
+  @include mobile-all() {
+    height: 400px;
+  }
 }
 
 .wr-map {

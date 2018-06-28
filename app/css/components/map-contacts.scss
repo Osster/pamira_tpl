@@ -9,6 +9,10 @@
     z-index: 1;
     top:-215px;
 
+    @include mobile-all() {
+      top:-60px;
+    }
+
   }
 
   .nav-item{
@@ -19,6 +23,10 @@
     transition: transform 0.4s ease;
     color: $color_white;
 
+    @include mobile-all() {
+      height: 60px;
+    }
+
     span{
       display: block;
       padding: 70px 45px;
@@ -26,6 +34,13 @@
       font-size: #{$font_size_h2}px;
       font-weight: 600;
       letter-spacing: 0.22px;
+
+      @include mobile-all() {
+        padding: 5px;
+        font-size: #{$font_size_xs}px;
+        font-weight: 600;
+        letter-spacing: 0;
+      }
     }
   }
 
@@ -45,22 +60,41 @@
     color: $color_gray_middle;
     transform: scaleY(0.86);
 
+    @include mobile-all() {
+      padding: 15px 0;
+    }
+
     &__title{
       font-size: #{$font_size_h1}px;
       font-weight: 600;
       letter-spacing: 0.18px;
       margin-bottom: 30px;
+
+      @include mobile-all() {
+        padding: 15px 0 5px;
+        font-size: #{$font_size_h2}px;
+        letter-spacing: -0.2px;
+        margin-bottom: 15px;
+      }
     }
 
     &__text {
       display: flex;
       justify-content: space-between;
       padding-right: 30px;
+
+      @include mobile-all() {
+       flex-wrap: wrap;
+      }
     }
     &__item{
       font-size: #{$font_size}px;
       font-weight: 400;
       line-height: 30px;
+
+      @include mobile-all() {
+       margin-bottom: 15px;
+      }
 
       span{
         font-size: #{$font_size_h3}px;
@@ -73,5 +107,11 @@
     height: 892px;
     top:-215px;
     margin-bottom: -215px;
+
+    @include mobile-all() {
+      height: 400px;
+      top:-68px;
+      margin-bottom: -68px;
+    }
   }
 }

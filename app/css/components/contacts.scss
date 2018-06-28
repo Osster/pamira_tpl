@@ -6,7 +6,7 @@
   position: relative;
 
   @include mobile-all() {
-
+    padding-top: 215px;
   }
 
   .main__promo_heading{
@@ -14,7 +14,14 @@
 
     @include mobile-all() {
       text-align: center;
-      margin-bottom: 0;
+      margin-bottom: 25px;
+    }
+  }
+
+  .main__promo_heading_title{
+
+    @include mobile-all() {
+      font-size: #{$font_size_h2}px;
     }
   }
 
@@ -24,6 +31,9 @@
     background-color: $color_gray_darkest;
     padding: 150px 0;
 
+    @include mobile-all() {
+      padding: 0;
+    }
   }
 
 }
@@ -34,8 +44,13 @@
   justify-content: center;
   overflow: hidden;
 
+  @include mobile-all() {
+    height: 300px;
+  }
+
   img{
     align-self: center;
+    height: 100%;
   }
 }
 
@@ -44,14 +59,35 @@
   width: 100%;
   margin: 100px auto;
 
+  @include mobile-all() {
+    margin: 15px 0 0;
+  }
+
   .route{
     position: relative;
     z-index: 1;
     margin-bottom: 40px;
 
+
+    @include mobile-all() {
+      margin: 0;
+    }
+
     &__img{
-      width: 100%;
-      height: auto;
+      display: flex;
+      justify-content: center;
+      overflow: hidden;
+
+      img{
+        align-self: center;
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+
+        @include mobile-all() {
+          transform: scale(1.6);
+        }
+      }
     }
 
     &__text{
@@ -69,12 +105,27 @@
       position: absolute;
       top:70px;
 
+      @include mobile-all() {
+        padding: 15px 0;
+        position: relative;
+        top:0;
+        background-color: inherit;
+      }
+
       &_left{
         left: -145px;
+
+        @include mobile-all() {
+          left: 0;
+        }
       }
 
       &_right{
         right: -235px;
+
+        @include mobile-all() {
+          right: 0;
+        }
       }
     }
   }
@@ -85,6 +136,10 @@
   width: 100%;
   margin: 100px auto;
 
+  @include mobile-all() {
+    margin: 25px auto;
+  }
+
   .requisites-title{
     color: $color_gray_light;
     font-family: $font_family_title;
@@ -93,6 +148,10 @@
     letter-spacing: 0.72px;
     margin-bottom: 100px;
     text-align: center;
+
+    @include mobile-all() {
+      margin-bottom: 25px;
+    }
   }
 
   .requisites-text{
@@ -102,12 +161,20 @@
     font-weight: 400;
     line-height: 30px;
     margin-bottom: 30px;
+
+    @include mobile-all() {
+      margin-bottom: 15px;
+    }
   }
 }
 
 .wr-contacts-form{
   padding: 100px 15px;
   background-color: $color_black;
+
+  @include mobile-all() {
+    padding: 50px 15px;
+  }
 
   .form-questions{
     display: flex;
@@ -122,6 +189,12 @@
       font-weight: 700;
       letter-spacing: 0.72px;
       margin-bottom: 50px;
+
+      @include mobile-all() {
+        font-size: #{$font_size_h2}px;
+        text-align: center;
+        margin-bottom: 35px;
+      }
     }
 
     &__text{
@@ -130,10 +203,15 @@
       font-size: #{$font_size}px;
       font-weight: 400;
       margin-bottom: 35px;
+
+      @include mobile-all() {
+        text-align: center;
+        font-size: #{$font_size_xs}px;
+        //margin-bottom: 25px;
+      }
     }
 
     &__inputs{
-      margin-bottom: 20px;
       max-width: 390px;
       width: 100%;
     }
@@ -152,10 +230,30 @@
       padding-left: 15px;
     }
 
+    &__checkbox{
+      display: flex;
+      color: $color_gray_light;
+      letter-spacing: -0.2px;
+      margin: 60px auto;
+      font-family: $font_family_base;
+      font-size: #{$font_size}px;
+      font-weight: 400;
+
+      @include mobile-all() {
+        margin: 15px auto 35px;
+        letter-spacing: -0.2px;
+        font-size: 11px;
+      }
+    }
+
     &__btn{
       margin-bottom: 30px;
       max-width: 390px;
       width: 100%;
+
+      @include mobile-all() {
+        margin-bottom: 15px;
+      }
     }
 
     &__button{
@@ -165,8 +263,13 @@
       color: $color_white_dirty;
       font-family: $font_family_base;
       font-size:  #{$font_size}px;
-      font-weight: 400;
+      font-weight: 600;
+
+      @include mobile-all() {
+        padding: 13px 0;
+        font-size:  #{$font_size_sm}px;
+      }
     }
   }
-
 }
+
