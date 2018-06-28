@@ -33,18 +33,34 @@ topSlider.on('slideChange', function (e) {
 var brandSlider = new Swiper ('.wr-brands .swiper-container', {
     // Optional parameters
 
-    slidesPerView: 6,
-    paceBetween: 30,
+    slidesPerView: 4,
+    //paceBetween: 30,
     direction: 'horizontal',
     loop: true,
-    //roundLengths: true,
+    roundLengths: true,
+
     // Navigation arrows
     navigation: {
         nextEl: '.wr-brands .swiper-button-next',
         prevEl: '.wr-brands .swiper-button-prev'
+    },
+
+    // Responsive breakpoints
+    breakpoints: {
+        // when window width is <= 320px
+        540: {
+            slidesPerView: 1
+        },
+        // when window width is <= 480px
+        720: {
+            slidesPerView: 2
+        },
+        // when window width is <= 640px
+        960: {
+            slidesPerView: 3
+        }
     }
 });
-
 
 var eventsSlider = new Swiper ('.wr-events .swiper-container', {
     // Optional parameters
@@ -74,6 +90,22 @@ var eventsMonthSlider = new Swiper ('.wr-events-month .swiper-container', {
     navigation: {
         nextEl: '.wr-events-month .swiper-button-next',
         prevEl: '.wr-events-month .swiper-button-prev'
+    },
+
+    // Responsive breakpoints
+    breakpoints: {
+        // when window width is <= 320px
+        540: {
+            slidesPerView: 1
+        },
+        // when window width is <= 480px
+        720: {
+            slidesPerView: 2
+        },
+        // when window width is <= 640px
+        1200: {
+            slidesPerView: 3
+        }
     }
 });
 

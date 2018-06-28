@@ -15,7 +15,7 @@
   .title-center{
     color: $color_gray_middle;
     font-family: $font_family_title;
-    font-size: $font_size_h1;
+    font-size: #{$font_size_h1}px;
     font-weight: 700;
     letter-spacing: 0.72px;
     line-height: 55px;
@@ -28,13 +28,13 @@
 
     h3{
       font-family: $font_family_title;
-      font-size: $font_size_h3;
+      font-size: #{$font_size_h3}px;
       letter-spacing: 0.22px;
     }
 
     p{
       font-family: $font_family_base;
-      font-size: $font_size;
+      font-size: #{$font_size}px;
       line-height: 24px;
     }
 
@@ -71,13 +71,31 @@
   .events-month{
     color: $color_gray_ligten;
     font-family: $font_family_base;
-    font-size: $font_size;
+    font-size: #{$font_size}px;
     font-weight: 400;
     line-height: 50px;
     padding: 0 30px;
+
+    @include tablet-portrait() {
+      font-size: #{$font_size_sm}px;
+      letter-spacing: -0.5px;
+      padding: 0 25px;
+    }
+
+    @include mobile-all() {
+      font-size: #{$font_size_sm}px;
+    }
+
+    span{
+      display: inline-block;
+      padding: 0 20px;
+    }
   }
   .active{
-    background-color: $color_gray_darkest;
+
+    span{
+      background-color: $color_gray_darkest;
+    }
   }
 
 }

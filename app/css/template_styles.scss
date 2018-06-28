@@ -169,6 +169,14 @@ a {
       color: $color_red_middle!important;
     }
   }
+
+  &-hover_black{
+
+    &:hover {
+      background-color: $color_black;
+      color: $color_white!important;
+    }
+  }
 }
 
 
