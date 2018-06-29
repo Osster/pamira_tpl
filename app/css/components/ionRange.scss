@@ -1,0 +1,23 @@
+.irs-from, .irs-to, .irs-single {
+  font-size: 12px;
+  padding: 8px 18px;
+  background: $color_red_middle;
+  border-radius: 0;
+}
+
+.irs-from::after, .irs-to::after, .irs-single::after {
+  border: none;
+}
+
+.irs-line {
+  border-top: 1px solid $color_white_dirty;
+  top: 50%;
+
+}
+
+.irs-min, .irs-max {
+  font-size: 12px;
+  padding: 8px 18px;
+  background: $color_white_dirty;
+  border-radius: 0;
+}

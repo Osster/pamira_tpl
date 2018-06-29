@@ -7,6 +7,8 @@
 @import "template_webfonts";
 @import "libs/jquery.datetimepicker";
 @import "libs/sweetalert2";
+@import "libs/ion.rangeSlider";
+@import "libs/ion.rangeSlider.skinFlat";
 @import "components/swiper";
 
 
@@ -21,4 +23,7 @@
 @import "components/flying-nav";
 @import "components/breadcrumbs";
 @import "components/catalog";
+@import "components/catalog-sliders";
+@import "components/filter";
 @import "components/map-contacts";
+@import "components/ionRange";
