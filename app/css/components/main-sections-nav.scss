@@ -2,6 +2,10 @@
 
   .container {
     max-width: #{map_get($container-max-widths, xl)};
+
+    @include mobile-all() {
+      padding: 0;
+    }
   }
 
   &__level-0 {
@@ -11,6 +15,10 @@
   &__level-1{
     background-color: $color_gray_darker;
     padding: 60px 0 30px;
+
+    @include mobile-all() {
+      padding: 50px 0 5px;
+    }
   }
 
   &__card {
@@ -18,9 +26,25 @@
     flex-flow: column nowrap;
     align-items: center;
     justify-content: center;
+
+
+
     .pic {
       display: block;
       margin-bottom: 20px;
+
+      @include media-breakpoint-down(md) {
+        &:after {
+          content: none;
+        }
+      }
+
+      &_transform{
+
+        @include media-breakpoint-down(sm) {
+          transform: translateX(10px);
+        }
+      }
     }
     .label {
       display: block;
@@ -36,9 +60,43 @@
         width: 50px;
         height: 16px;
         bottom: -30px;
+
+
       }
       img{
+      }
 
+      @include media-breakpoint-down(md) {
+        &:after {
+          content: none;
+        }
+      }
+    }
+
+    &_content{
+
+      @include mobile-all() {
+        flex-flow: row nowrap;
+        align-items: center;
+        justify-content: flex-start;
+        padding-bottom: 15px;
+      }
+
+      .pic{
+
+        @include mobile-all() {
+          margin-bottom: 0;
+          position: absolute;
+          height: 50px;
+        }
+      }
+
+      .label{
+
+        @include mobile-all() {
+          margin-left: 85px;
+          //font-size: #{$font_size_sm}px;
+        }
       }
     }
   }
@@ -49,17 +107,24 @@
 
   .tab-content{
     position: relative;
+    z-index: 1;
     min-height: 341px;
     height: 100%;
+
+
+
   }
 
   .tab-pane{
     display: flex;
     position: absolute;
+
+
   }
 
   .row{
     width: 100%;
+    margin: auto;
   }
 
   .nav-tabs{

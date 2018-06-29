@@ -70,6 +70,12 @@ var eventsSlider = new Swiper ('.wr-events .swiper-container', {
 
     roundLengths: true,
 
+    // If we need pagination
+    pagination: {
+        el: '.wr-events .swiper-pagination',
+        clickable: true
+    },
+
     // Navigation arrows
     navigation: {
         nextEl: '.wr-events .swiper-button-next',

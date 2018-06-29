@@ -238,6 +238,10 @@ a {
     color: $color_gray_middle;
     padding: 100px 0 50px;
 
+    @include mobile-all(){
+      padding: 5px 0;
+    }
+
     .container {
       max-width: #{map_get($container-max-widths, xl)};
     }
