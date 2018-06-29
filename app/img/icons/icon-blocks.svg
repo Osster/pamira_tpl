@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="40" height="40"
+     viewBox="0 0 40 40">
+    <defs>
+        <path id="yz1ea" d="M1507 1626v-19h12v19z"/>
+        <path id="yz1eb" d="M1521 1626v-19h12v19z"/>
+        <path id="yz1ec" d="M1535 1626v-19h12v19z"/>
+        <path id="yz1ed" d="M1507 1647v-19h12v19z"/>
+        <path id="yz1ee" d="M1521 1647v-19h12v19z"/>
+        <path id="yz1ef" d="M1535 1647v-19h12v19z"/>
+    </defs>
+    <g>
+        <g transform="translate(-1507 -1607)">
+            <use fill="#606060" xlink:href="#yz1ea"/>
+        </g>
+        <g transform="translate(-1507 -1607)">
+            <use fill="#606060" xlink:href="#yz1eb"/>
+        </g>
+        <g transform="translate(-1507 -1607)">
+            <use fill="#606060" xlink:href="#yz1ec"/>
+        </g>
+        <g transform="translate(-1507 -1607)">
+            <use fill="#606060" xlink:href="#yz1ed"/>
+        </g>
+        <g transform="translate(-1507 -1607)">
+            <use fill="#606060" xlink:href="#yz1ee"/>
+        </g>
+        <g transform="translate(-1507 -1607)">
+            <use fill="#606060" xlink:href="#yz1ef"/>
+        </g>
+    </g>
+</svg>

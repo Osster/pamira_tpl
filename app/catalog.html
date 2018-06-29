@@ -42,7 +42,7 @@
     <div class="container main_header">
         <h1>Холодильники</h1>
     </div>
-    <section class="top-slider">
+    <section class="top-slider catalog-slider">
         //= tpl/components/catalog-top-slider.html
     </section>
 
@@ -146,93 +146,863 @@
                     <div class="wr-catalog">
 
                         <div class="catalog-brand-slider">
-                            <!-- Slider main container -->
-                            <div class="swiper-container">
-                                <!-- Additional required wrapper -->
-                                <div class="swiper-wrapper">
-                                    <!-- Slides -->
-                                    <div class="swiper-slide">
-                                        <div class="slide-brand-card">
-                                            <img src="img/catalog/smeg.png" alt="">
-                                            <p>80 наименований</p>
-                                            <p>155 000 - 255 000руб.</p>
-                                            <a href="" class="slide-brand-card_more">
-                                                <svg width="37" height="37" data-toggle="tooltip" data-placement="left"
-                                                     title="Перейти">
-                                                    <use xlink:href="#icon-arrow"></use>
-                                                </svg>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <div class="slide-brand-card">
-                                            <img src="img/catalog/falmec.png" alt="">
-                                            <p>80 наименований</p>
-                                            <p>155 000 - 255 000руб.</p>
-                                            <a href="" class="slide-brand-card_more">
-                                                <svg width="37" height="37" data-toggle="tooltip" data-placement="left"
-                                                     title="Перейти">
-                                                    <use xlink:href="#icon-arrow"></use>
-                                                </svg>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <div class="slide-brand-card">
-                                            <img src="img/catalog/franke.png" alt="">
-                                            <p>80 наименований</p>
-                                            <p>155 000 - 255 000руб.</p>
-                                            <a href="" class="slide-brand-card_more">
-                                                <svg width="37" height="37" data-toggle="tooltip" data-placement="left"
-                                                     title="Перейти">
-                                                    <use xlink:href="#icon-arrow"></use>
-                                                </svg>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <div class="slide-brand-card">
-                                            <img src="img/catalog/smeg.png" alt="">
-                                            <p>80 наименований</p>
-                                            <p>155 000 - 255 000руб.</p>
-                                            <a href="" class="slide-brand-card_more">
-                                                <svg width="37" height="37" data-toggle="tooltip" data-placement="left"
-                                                     title="Перейти">
-                                                    <use xlink:href="#icon-arrow"></use>
-                                                </svg>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <div class="slide-brand-card">
-                                            <img src="img/catalog/smeg.png" alt="">
-                                            <p>80 наименований</p>
-                                            <p>155 000 - 255 000руб.</p>
-                                            <a href="" class="slide-brand-card_more">
-                                                <svg width="37" height="37" data-toggle="tooltip" data-placement="left"
-                                                     title="Перейти">
-                                                    <use xlink:href="#icon-arrow"></use>
-                                                </svg>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- If we need navigation buttons -->
-                                <div class="swiper-button-prev"></div>
-                                <div class="swiper-button-next"></div>
-
-                            </div>
-
+                            //= tpl/components/catalog-brand-slider.html
                         </div>
 
                         <div class="catalog-tags">
-                            <div class="catalog-tags_item">
-                                <a href="#">Холодильник двухкамерный</a>
-                            </div>
+                            <a class="catalog-tags_item" href="#">Холодильник двухкамерный
+                                <svg width="12" height="19">
+                                    <use xlink:href="#icon-arrow"></use>
+                                </svg>
+                            </a>
+                            <a class="catalog-tags_item" href="#">Холодильная камера
+                                <svg width="12" height="19">
+                                    <use xlink:href="#icon-arrow"></use>
+                                </svg>
+                            </a>
+                            <a class="catalog-tags_item" href="#">Морозильная камера
+                                <svg width="12" height="19">
+                                    <use xlink:href="#icon-arrow"></use>
+                                </svg>
+                            </a>
+                            <a class="catalog-tags_item" href="#">Винный шкаф
+                                <svg width="12" height="19">
+                                    <use xlink:href="#icon-arrow"></use>
+                                </svg>
+                            </a>
+                            <a class="catalog-tags_item" href="#">SidebySide
+                                <svg width="12" height="19">
+                                    <use xlink:href="#icon-arrow"></use>
+                                </svg>
+                            </a>
                         </div>
-
                         <div class="wr-filter">
+                            <div class="row">
+                                <div class="col-2">
+                                    <h3>Фильтр</h3>
+                                </div>
+                                <div class="col-10">
+                                    <div class="catalog_filter row">
+                                        <div class="col-2 p-0 pr-1">
+                                            <div class="dropdown">
+                                                <button class="btn" type="button" id="filter01" data-toggle="dropdown"
+                                                        aria-haspopup="true" aria-expanded="false">
+                                                    Бренд
+                                                </button>
+                                                <div class="dropdown-menu" aria-labelledby="filter01">
+                                                    <ul>
+                                                        <li>
+                                                            <label class="check-container">AEG
+                                                                <input type="checkbox" checked="checked" value="AEG">
+                                                                <span class="checkmark"></span>
+                                                            </label>
+                                                        </li>
+                                                        <li>
+                                                            <label class="check-container">ELECTROLUX
+                                                                <input type="checkbox" value="ELECTROLUX">
+                                                                <span class="checkmark"></span>
+                                                            </label>
+                                                        </li>
+                                                        <li>
+                                                            <label class="check-container">ZANUSSI
+                                                                <input type="checkbox" value="ZANUSSI">
+                                                                <span class="checkmark"></span>
+                                                            </label>
+                                                        </li>
+                                                        <li>
+                                                            <label class="check-container">FRANKE
+                                                                <input type="checkbox" value="FRANKE">
+                                                                <span class="checkmark"></span>
+                                                            </label>
+                                                        </li>
+                                                        <li>
+                                                            <label class="check-container">TEKA
+                                                                <input type="checkbox" value="TEKA">
+                                                                <span class="checkmark"></span>
+                                                            </label>
+                                                        </li>
+                                                        <li>
+                                                            <label class="check-container">LIEBHERR
+                                                                <input type="checkbox" value="LIEBHERR">
+                                                                <span class="checkmark"></span>
+                                                            </label>
+                                                        </li>
+                                                        <li>
+                                                            <label class="check-container">WHIRLPOOR
+                                                                <input type="checkbox" value="WHIRLPOOR">
+                                                                <span class="checkmark"></span>
+                                                            </label>
+                                                        </li>
+                                                        <li>
+                                                            <label class="check-container">ASKO
+                                                                <input type="checkbox" value="ASKO">
+                                                                <span class="checkmark"></span>
+                                                            </label>
+                                                        </li>
+                                                        <li>
+                                                            <label class="check-container">SMEG
+                                                                <input type="checkbox" value="SMEG">
+                                                                <span class="checkmark"></span>
+                                                            </label>
+                                                        </li>
+                                                        <li>
+                                                            <label class="check-container">AEG
+                                                                <input type="checkbox" checked="checked" value="AEG">
+                                                                <span class="checkmark"></span>
+                                                            </label>
+                                                        </li>
+                                                        <li>
+                                                            <label class="check-container">ELECTROLUX
+                                                                <input type="checkbox" value="ELECTROLUX">
+                                                                <span class="checkmark"></span>
+                                                            </label>
+                                                        </li>
+                                                        <li>
+                                                            <label class="check-container">ZANUSSI
+                                                                <input type="checkbox" value="ZANUSSI">
+                                                                <span class="checkmark"></span>
+                                                            </label>
+                                                        </li>
+                                                        <li>
+                                                            <label class="check-container">FRANKE
+                                                                <input type="checkbox" value="FRANKE">
+                                                                <span class="checkmark"></span>
+                                                            </label>
+                                                        </li>
+                                                        <li>
+                                                            <label class="check-container">TEKA
+                                                                <input type="checkbox" value="TEKA">
+                                                                <span class="checkmark"></span>
+                                                            </label>
+                                                        </li>
+                                                        <li>
+                                                            <label class="check-container">LIEBHERR
+                                                                <input type="checkbox" value="LIEBHERR">
+                                                                <span class="checkmark"></span>
+                                                            </label>
+                                                        </li>
+                                                        <li>
+                                                            <label class="check-container">WHIRLPOOR
+                                                                <input type="checkbox" value="WHIRLPOOR">
+                                                                <span class="checkmark"></span>
+                                                            </label>
+                                                        </li>
+                                                        <li>
+                                                            <label class="check-container">ASKO
+                                                                <input type="checkbox" value="ASKO">
+                                                                <span class="checkmark"></span>
+                                                            </label>
+                                                        </li>
+                                                        <li>
+                                                            <label class="check-container">SMEG
+                                                                <input type="checkbox" value="SMEG">
+                                                                <span class="checkmark"></span>
+                                                            </label>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-2 p-0 pr-1">
+                                            <div class="dropdown">
+                                                <button class="btn" type="button" id="filter02" data-toggle="dropdown"
+                                                        aria-haspopup="true" aria-expanded="false">
+                                                    Тип
+                                                </button>
+                                                <div class="dropdown-menu" aria-labelledby="filter02">
+                                                    <ul>
+                                                        <li>
+                                                            <label class="check-container">AEG
+                                                                <input type="checkbox" checked="checked" value="AEG">
+                                                                <span class="checkmark"></span>
+                                                            </label>
+                                                        </li>
+                                                        <li>
+                                                            <label class="check-container">ELECTROLUX
+                                                                <input type="checkbox" value="ELECTROLUX">
+                                                                <span class="checkmark"></span>
+                                                            </label>
+                                                        </li>
+                                                        <li>
+                                                            <label class="check-container">ZANUSSI
+                                                                <input type="checkbox" value="ZANUSSI">
+                                                                <span class="checkmark"></span>
+                                                            </label>
+                                                        </li>
+                                                        <li>
+                                                            <label class="check-container">FRANKE
+                                                                <input type="checkbox" value="FRANKE">
+                                                                <span class="checkmark"></span>
+                                                            </label>
+                                                        </li>
+                                                        <li>
+                                                            <label class="check-container">TEKA
+                                                                <input type="checkbox" value="TEKA">
+                                                                <span class="checkmark"></span>
+                                                            </label>
+                                                        </li>
+                                                        <li>
+                                                            <label class="check-container">LIEBHERR
+                                                                <input type="checkbox" value="LIEBHERR">
+                                                                <span class="checkmark"></span>
+                                                            </label>
+                                                        </li>
+                                                        <li>
+                                                            <label class="check-container">WHIRLPOOR
+                                                                <input type="checkbox" value="WHIRLPOOR">
+                                                                <span class="checkmark"></span>
+                                                            </label>
+                                                        </li>
+                                                        <li>
+                                                            <label class="check-container">ASKO
+                                                                <input type="checkbox" value="ASKO">
+                                                                <span class="checkmark"></span>
+                                                            </label>
+                                                        </li>
+                                                        <li>
+                                                            <label class="check-container">SMEG
+                                                                <input type="checkbox" value="SMEG">
+                                                                <span class="checkmark"></span>
+                                                            </label>
+                                                        </li>
+                                                        <li>
+                                                            <label class="check-container">AEG
+                                                                <input type="checkbox" checked="checked" value="AEG">
+                                                                <span class="checkmark"></span>
+                                                            </label>
+                                                        </li>
+                                                        <li>
+                                                            <label class="check-container">ELECTROLUX
+                                                                <input type="checkbox" value="ELECTROLUX">
+                                                                <span class="checkmark"></span>
+                                                            </label>
+                                                        </li>
+                                                        <li>
+                                                            <label class="check-container">ZANUSSI
+                                                                <input type="checkbox" value="ZANUSSI">
+                                                                <span class="checkmark"></span>
+                                                            </label>
+                                                        </li>
+                                                        <li>
+                                                            <label class="check-container">FRANKE
+                                                                <input type="checkbox" value="FRANKE">
+                                                                <span class="checkmark"></span>
+                                                            </label>
+                                                        </li>
+                                                        <li>
+                                                            <label class="check-container">TEKA
+                                                                <input type="checkbox" value="TEKA">
+                                                                <span class="checkmark"></span>
+                                                            </label>
+                                                        </li>
+                                                        <li>
+                                                            <label class="check-container">LIEBHERR
+                                                                <input type="checkbox" value="LIEBHERR">
+                                                                <span class="checkmark"></span>
+                                                            </label>
+                                                        </li>
+                                                        <li>
+                                                            <label class="check-container">WHIRLPOOR
+                                                                <input type="checkbox" value="WHIRLPOOR">
+                                                                <span class="checkmark"></span>
+                                                            </label>
+                                                        </li>
+                                                        <li>
+                                                            <label class="check-container">ASKO
+                                                                <input type="checkbox" value="ASKO">
+                                                                <span class="checkmark"></span>
+                                                            </label>
+                                                        </li>
+                                                        <li>
+                                                            <label class="check-container">SMEG
+                                                                <input type="checkbox" value="SMEG">
+                                                                <span class="checkmark"></span>
+                                                            </label>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-2 p-0 pr-1">
+                                            <div class="dropdown">
+                                                <button class="btn" type="button" id="filter03" data-toggle="dropdown"
+                                                        aria-haspopup="true" aria-expanded="false">
+                                                    Прибор
+                                                </button>
+                                                <div class="dropdown-menu" aria-labelledby="filter03">
+                                                    <ul>
+                                                        <li>
+                                                            <label class="check-container">AEG
+                                                                <input type="checkbox" checked="checked" value="AEG">
+                                                                <span class="checkmark"></span>
+                                                            </label>
+                                                        </li>
+                                                        <li>
+                                                            <label class="check-container">ELECTROLUX
+                                                                <input type="checkbox" value="ELECTROLUX">
+                                                                <span class="checkmark"></span>
+                                                            </label>
+                                                        </li>
+                                                        <li>
+                                                            <label class="check-container">ZANUSSI
+                                                                <input type="checkbox" value="ZANUSSI">
+                                                                <span class="checkmark"></span>
+                                                            </label>
+                                                        </li>
+                                                        <li>
+                                                            <label class="check-container">FRANKE
+                                                                <input type="checkbox" value="FRANKE">
+                                                                <span class="checkmark"></span>
+                                                            </label>
+                                                        </li>
+                                                        <li>
+                                                            <label class="check-container">TEKA
+                                                                <input type="checkbox" value="TEKA">
+                                                                <span class="checkmark"></span>
+                                                            </label>
+                                                        </li>
+                                                        <li>
+                                                            <label class="check-container">LIEBHERR
+                                                                <input type="checkbox" value="LIEBHERR">
+                                                                <span class="checkmark"></span>
+                                                            </label>
+                                                        </li>
+                                                        <li>
+                                                            <label class="check-container">WHIRLPOOR
+                                                                <input type="checkbox" value="WHIRLPOOR">
+                                                                <span class="checkmark"></span>
+                                                            </label>
+                                                        </li>
+                                                        <li>
+                                                            <label class="check-container">ASKO
+                                                                <input type="checkbox" value="ASKO">
+                                                                <span class="checkmark"></span>
+                                                            </label>
+                                                        </li>
+                                                        <li>
+                                                            <label class="check-container">SMEG
+                                                                <input type="checkbox" value="SMEG">
+                                                                <span class="checkmark"></span>
+                                                            </label>
+                                                        </li>
+                                                        <li>
+                                                            <label class="check-container">AEG
+                                                                <input type="checkbox" checked="checked" value="AEG">
+                                                                <span class="checkmark"></span>
+                                                            </label>
+                                                        </li>
+                                                        <li>
+                                                            <label class="check-container">ELECTROLUX
+                                                                <input type="checkbox" value="ELECTROLUX">
+                                                                <span class="checkmark"></span>
+                                                            </label>
+                                                        </li>
+                                                        <li>
+                                                            <label class="check-container">ZANUSSI
+                                                                <input type="checkbox" value="ZANUSSI">
+                                                                <span class="checkmark"></span>
+                                                            </label>
+                                                        </li>
+                                                        <li>
+                                                            <label class="check-container">FRANKE
+                                                                <input type="checkbox" value="FRANKE">
+                                                                <span class="checkmark"></span>
+                                                            </label>
+                                                        </li>
+                                                        <li>
+                                                            <label class="check-container">TEKA
+                                                                <input type="checkbox" value="TEKA">
+                                                                <span class="checkmark"></span>
+                                                            </label>
+                                                        </li>
+                                                        <li>
+                                                            <label class="check-container">LIEBHERR
+                                                                <input type="checkbox" value="LIEBHERR">
+                                                                <span class="checkmark"></span>
+                                                            </label>
+                                                        </li>
+                                                        <li>
+                                                            <label class="check-container">WHIRLPOOR
+                                                                <input type="checkbox" value="WHIRLPOOR">
+                                                                <span class="checkmark"></span>
+                                                            </label>
+                                                        </li>
+                                                        <li>
+                                                            <label class="check-container">ASKO
+                                                                <input type="checkbox" value="ASKO">
+                                                                <span class="checkmark"></span>
+                                                            </label>
+                                                        </li>
+                                                        <li>
+                                                            <label class="check-container">SMEG
+                                                                <input type="checkbox" value="SMEG">
+                                                                <span class="checkmark"></span>
+                                                            </label>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-2 p-0 pr-1">
+                                            <div class="dropdown">
+                                                <button class="btn" type="button" id="filter04" data-toggle="dropdown"
+                                                        aria-haspopup="true" aria-expanded="false">
+                                                    Ширина
+                                                </button>
+                                                <div class="dropdown-menu" aria-labelledby="filter04">
+                                                    <ul>
+                                                        <li>
+                                                            <label class="check-container">AEG
+                                                                <input type="checkbox" checked="checked" value="AEG">
+                                                                <span class="checkmark"></span>
+                                                            </label>
+                                                        </li>
+                                                        <li>
+                                                            <label class="check-container">ELECTROLUX
+                                                                <input type="checkbox" value="ELECTROLUX">
+                                                                <span class="checkmark"></span>
+                                                            </label>
+                                                        </li>
+                                                        <li>
+                                                            <label class="check-container">ZANUSSI
+                                                                <input type="checkbox" value="ZANUSSI">
+                                                                <span class="checkmark"></span>
+                                                            </label>
+                                                        </li>
+                                                        <li>
+                                                            <label class="check-container">FRANKE
+                                                                <input type="checkbox" value="FRANKE">
+                                                                <span class="checkmark"></span>
+                                                            </label>
+                                                        </li>
+                                                        <li>
+                                                            <label class="check-container">TEKA
+                                                                <input type="checkbox" value="TEKA">
+                                                                <span class="checkmark"></span>
+                                                            </label>
+                                                        </li>
+                                                        <li>
+                                                            <label class="check-container">LIEBHERR
+                                                                <input type="checkbox" value="LIEBHERR">
+                                                                <span class="checkmark"></span>
+                                                            </label>
+                                                        </li>
+                                                        <li>
+                                                            <label class="check-container">WHIRLPOOR
+                                                                <input type="checkbox" value="WHIRLPOOR">
+                                                                <span class="checkmark"></span>
+                                                            </label>
+                                                        </li>
+                                                        <li>
+                                                            <label class="check-container">ASKO
+                                                                <input type="checkbox" value="ASKO">
+                                                                <span class="checkmark"></span>
+                                                            </label>
+                                                        </li>
+                                                        <li>
+                                                            <label class="check-container">SMEG
+                                                                <input type="checkbox" value="SMEG">
+                                                                <span class="checkmark"></span>
+                                                            </label>
+                                                        </li>
+                                                        <li>
+                                                            <label class="check-container">AEG
+                                                                <input type="checkbox" checked="checked" value="AEG">
+                                                                <span class="checkmark"></span>
+                                                            </label>
+                                                        </li>
+                                                        <li>
+                                                            <label class="check-container">ELECTROLUX
+                                                                <input type="checkbox" value="ELECTROLUX">
+                                                                <span class="checkmark"></span>
+                                                            </label>
+                                                        </li>
+                                                        <li>
+                                                            <label class="check-container">ZANUSSI
+                                                                <input type="checkbox" value="ZANUSSI">
+                                                                <span class="checkmark"></span>
+                                                            </label>
+                                                        </li>
+                                                        <li>
+                                                            <label class="check-container">FRANKE
+                                                                <input type="checkbox" value="FRANKE">
+                                                                <span class="checkmark"></span>
+                                                            </label>
+                                                        </li>
+                                                        <li>
+                                                            <label class="check-container">TEKA
+                                                                <input type="checkbox" value="TEKA">
+                                                                <span class="checkmark"></span>
+                                                            </label>
+                                                        </li>
+                                                        <li>
+                                                            <label class="check-container">LIEBHERR
+                                                                <input type="checkbox" value="LIEBHERR">
+                                                                <span class="checkmark"></span>
+                                                            </label>
+                                                        </li>
+                                                        <li>
+                                                            <label class="check-container">WHIRLPOOR
+                                                                <input type="checkbox" value="WHIRLPOOR">
+                                                                <span class="checkmark"></span>
+                                                            </label>
+                                                        </li>
+                                                        <li>
+                                                            <label class="check-container">ASKO
+                                                                <input type="checkbox" value="ASKO">
+                                                                <span class="checkmark"></span>
+                                                            </label>
+                                                        </li>
+                                                        <li>
+                                                            <label class="check-container">SMEG
+                                                                <input type="checkbox" value="SMEG">
+                                                                <span class="checkmark"></span>
+                                                            </label>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-2 p-0 pr-1">
+                                            <div class="dropdown">
+                                                <button class="btn" type="button" id="filter05" data-toggle="dropdown"
+                                                        aria-haspopup="true" aria-expanded="false">
+                                                    Цвет
+                                                </button>
+                                                <div class="dropdown-menu" aria-labelledby="filter05">
+                                                    <ul>
+                                                        <li>
+                                                            <label class="check-container">белый
+                                                                <input type="checkbox" checked="checked" value="AEG">
+                                                                <span class="checkmark"></span>
+                                                            </label>
+                                                        </li>
+                                                        <li>
+                                                            <label class="check-container">черный
+                                                                <input type="checkbox" value="ELECTROLUX">
+                                                                <span class="checkmark"></span>
+                                                            </label>
+                                                        </li>
+                                                        <li>
+                                                            <label class="check-container">серый
+                                                                <input type="checkbox" value="ZANUSSI">
+                                                                <span class="checkmark"></span>
+                                                            </label>
+                                                        </li>
+                                                        <li>
+                                                            <label class="check-container">красный
+                                                                <input type="checkbox" value="FRANKE">
+                                                                <span class="checkmark"></span>
+                                                            </label>
+                                                        </li>
+                                                        <li>
+                                                            <label class="check-container">металл
+                                                                <input type="checkbox" value="TEKA">
+                                                                <span class="checkmark"></span>
+                                                            </label>
+                                                        </li>
+                                                        <li>
+                                                            <label class="check-container">желтый
+                                                                <input type="checkbox" value="LIEBHERR">
+                                                                <span class="checkmark"></span>
+                                                            </label>
+                                                        </li>
+                                                        <li>
+                                                            <label class="check-container">синий
+                                                                <input type="checkbox" value="WHIRLPOOR">
+                                                                <span class="checkmark"></span>
+                                                            </label>
+                                                        </li>
+                                                        <li>
+                                                            <label class="check-container">рисунок
+                                                                <input type="checkbox" value="ASKO">
+                                                                <span class="checkmark"></span>
+                                                            </label>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-2 p-0 pr-1">
+                                            <div class="dropdown">
+                                                <button class="btn" type="button" id="filter06" data-toggle="dropdown"
+                                                        aria-haspopup="true" aria-expanded="false">
+                                                    Бренд
+                                                </button>
+                                                <div class="dropdown-menu" aria-labelledby="filter06">
+                                                    <ul>
+                                                        <li>
+                                                            <label class="check-container">AEG
+                                                                <input type="checkbox" checked="checked" value="AEG">
+                                                                <span class="checkmark"></span>
+                                                            </label>
+                                                        </li>
+                                                        <li>
+                                                            <label class="check-container">ELECTROLUX
+                                                                <input type="checkbox" value="ELECTROLUX">
+                                                                <span class="checkmark"></span>
+                                                            </label>
+                                                        </li>
+                                                        <li>
+                                                            <label class="check-container">ZANUSSI
+                                                                <input type="checkbox" value="ZANUSSI">
+                                                                <span class="checkmark"></span>
+                                                            </label>
+                                                        </li>
+                                                        <li>
+                                                            <label class="check-container">FRANKE
+                                                                <input type="checkbox" value="FRANKE">
+                                                                <span class="checkmark"></span>
+                                                            </label>
+                                                        </li>
+                                                        <li>
+                                                            <label class="check-container">TEKA
+                                                                <input type="checkbox" value="TEKA">
+                                                                <span class="checkmark"></span>
+                                                            </label>
+                                                        </li>
+                                                        <li>
+                                                            <label class="check-container">LIEBHERR
+                                                                <input type="checkbox" value="LIEBHERR">
+                                                                <span class="checkmark"></span>
+                                                            </label>
+                                                        </li>
+                                                        <li>
+                                                            <label class="check-container">WHIRLPOOR
+                                                                <input type="checkbox" value="WHIRLPOOR">
+                                                                <span class="checkmark"></span>
+                                                            </label>
+                                                        </li>
+                                                        <li>
+                                                            <label class="check-container">ASKO
+                                                                <input type="checkbox" value="ASKO">
+                                                                <span class="checkmark"></span>
+                                                            </label>
+                                                        </li>
+                                                        <li>
+                                                            <label class="check-container">SMEG
+                                                                <input type="checkbox" value="SMEG">
+                                                                <span class="checkmark"></span>
+                                                            </label>
+                                                        </li>
+                                                        <li>
+                                                            <label class="check-container">AEG
+                                                                <input type="checkbox" checked="checked" value="AEG">
+                                                                <span class="checkmark"></span>
+                                                            </label>
+                                                        </li>
+                                                        <li>
+                                                            <label class="check-container">ELECTROLUX
+                                                                <input type="checkbox" value="ELECTROLUX">
+                                                                <span class="checkmark"></span>
+                                                            </label>
+                                                        </li>
+                                                        <li>
+                                                            <label class="check-container">ZANUSSI
+                                                                <input type="checkbox" value="ZANUSSI">
+                                                                <span class="checkmark"></span>
+                                                            </label>
+                                                        </li>
+                                                        <li>
+                                                            <label class="check-container">FRANKE
+                                                                <input type="checkbox" value="FRANKE">
+                                                                <span class="checkmark"></span>
+                                                            </label>
+                                                        </li>
+                                                        <li>
+                                                            <label class="check-container">TEKA
+                                                                <input type="checkbox" value="TEKA">
+                                                                <span class="checkmark"></span>
+                                                            </label>
+                                                        </li>
+                                                        <li>
+                                                            <label class="check-container">LIEBHERR
+                                                                <input type="checkbox" value="LIEBHERR">
+                                                                <span class="checkmark"></span>
+                                                            </label>
+                                                        </li>
+                                                        <li>
+                                                            <label class="check-container">WHIRLPOOR
+                                                                <input type="checkbox" value="WHIRLPOOR">
+                                                                <span class="checkmark"></span>
+                                                            </label>
+                                                        </li>
+                                                        <li>
+                                                            <label class="check-container">ASKO
+                                                                <input type="checkbox" value="ASKO">
+                                                                <span class="checkmark"></span>
+                                                            </label>
+                                                        </li>
+                                                        <li>
+                                                            <label class="check-container">SMEG
+                                                                <input type="checkbox" value="SMEG">
+                                                                <span class="checkmark"></span>
+                                                            </label>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-2 p-0 pr-1">
+                                            <div class="dropdown">
+                                                <button class="btn" type="button" id="filter07" data-toggle="dropdown"
+                                                        aria-haspopup="true" aria-expanded="false">
+                                                    Бренд
+                                                </button>
+                                                <div class="dropdown-menu" aria-labelledby="filter07">
+                                                    <ul>
+                                                        <li>
+                                                            <label class="check-container">AEG
+                                                                <input type="checkbox" checked="checked" value="AEG">
+                                                                <span class="checkmark"></span>
+                                                            </label>
+                                                        </li>
+                                                        <li>
+                                                            <label class="check-container">ELECTROLUX
+                                                                <input type="checkbox" value="ELECTROLUX">
+                                                                <span class="checkmark"></span>
+                                                            </label>
+                                                        </li>
+                                                        <li>
+                                                            <label class="check-container">ZANUSSI
+                                                                <input type="checkbox" value="ZANUSSI">
+                                                                <span class="checkmark"></span>
+                                                            </label>
+                                                        </li>
+                                                        <li>
+                                                            <label class="check-container">FRANKE
+                                                                <input type="checkbox" value="FRANKE">
+                                                                <span class="checkmark"></span>
+                                                            </label>
+                                                        </li>
+                                                        <li>
+                                                            <label class="check-container">TEKA
+                                                                <input type="checkbox" value="TEKA">
+                                                                <span class="checkmark"></span>
+                                                            </label>
+                                                        </li>
+                                                        <li>
+                                                            <label class="check-container">LIEBHERR
+                                                                <input type="checkbox" value="LIEBHERR">
+                                                                <span class="checkmark"></span>
+                                                            </label>
+                                                        </li>
+                                                        <li>
+                                                            <label class="check-container">WHIRLPOOR
+                                                                <input type="checkbox" value="WHIRLPOOR">
+                                                                <span class="checkmark"></span>
+                                                            </label>
+                                                        </li>
+                                                        <li>
+                                                            <label class="check-container">ASKO
+                                                                <input type="checkbox" value="ASKO">
+                                                                <span class="checkmark"></span>
+                                                            </label>
+                                                        </li>
+                                                        <li>
+                                                            <label class="check-container">SMEG
+                                                                <input type="checkbox" value="SMEG">
+                                                                <span class="checkmark"></span>
+                                                            </label>
+                                                        </li>
+                                                        <li>
+                                                            <label class="check-container">AEG
+                                                                <input type="checkbox" checked="checked" value="AEG">
+                                                                <span class="checkmark"></span>
+                                                            </label>
+                                                        </li>
+                                                        <li>
+                                                            <label class="check-container">ELECTROLUX
+                                                                <input type="checkbox" value="ELECTROLUX">
+                                                                <span class="checkmark"></span>
+                                                            </label>
+                                                        </li>
+                                                        <li>
+                                                            <label class="check-container">ZANUSSI
+                                                                <input type="checkbox" value="ZANUSSI">
+                                                                <span class="checkmark"></span>
+                                                            </label>
+                                                        </li>
+                                                        <li>
+                                                            <label class="check-container">FRANKE
+                                                                <input type="checkbox" value="FRANKE">
+                                                                <span class="checkmark"></span>
+                                                            </label>
+                                                        </li>
+                                                        <li>
+                                                            <label class="check-container">TEKA
+                                                                <input type="checkbox" value="TEKA">
+                                                                <span class="checkmark"></span>
+                                                            </label>
+                                                        </li>
+                                                        <li>
+                                                            <label class="check-container">LIEBHERR
+                                                                <input type="checkbox" value="LIEBHERR">
+                                                                <span class="checkmark"></span>
+                                                            </label>
+                                                        </li>
+                                                        <li>
+                                                            <label class="check-container">WHIRLPOOR
+                                                                <input type="checkbox" value="WHIRLPOOR">
+                                                                <span class="checkmark"></span>
+                                                            </label>
+                                                        </li>
+                                                        <li>
+                                                            <label class="check-container">ASKO
+                                                                <input type="checkbox" value="ASKO">
+                                                                <span class="checkmark"></span>
+                                                            </label>
+                                                        </li>
+                                                        <li>
+                                                            <label class="check-container">SMEG
+                                                                <input type="checkbox" value="SMEG">
+                                                                <span class="checkmark"></span>
+                                                            </label>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
 
+                                    </div>
+
+                                    <div class="price-filter">
+                                        <div class="row">
+                                            <div class="col-5">
+                                                <p>Цена</p>
+                                                <input type="text" id="priceRange" name="priceRange" value=""/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="catalog-filter_res">
+                                <div class="catalog-filter_res_total">
+                                    <p>Всего товаров: 300</p>
+                                </div>
+                                <div class="catalog-filter_res_sort">
+                                    <p>Сортировать</p>
+                                    <button class="btn">по наименованию</button>
+                                    <button class="btn">по цене</button>
+                                    <button class="btn">по популярности</button>
+                                </div>
+                                <div class="catalog-filter_res_view">
+                                    <p>Вид</p>
+                                    <a class="active" href="#">
+                                        <svg width="40" height="40" data-toggle="tooltip" data-placement="left"
+                                             title="Список">
+                                            <use xlink:href="#icon-list"></use>
+                                        </svg>
+                                    </a>
+                                    <a href="#">
+                                        <svg width="40" height="40" data-toggle="tooltip" data-placement="left"
+                                             title="Блоки">
+                                            <use xlink:href="#icon-blocks"></use>
+                                        </svg>
+                                    </a>
+                                </div>
+                            </div>
                         </div>
 
                         <div class="catalog-list">
