@@ -129,3 +129,29 @@ var narrowSlider = new Swiper ('.wr-slider-narrow .swiper-container', {
         prevEl: '.wr-slider-narrow .swiper-button-prev'
     }
 });
+
+
+// Переключение событий по месяцам в слайдере "eventsMonthSlider"
+
+$eventsMonth = $('.wr-events-month .events-month');
+
+$eventsMonth.each(function () {
+    var $this = $(this);
+    var $index = $(this).attr('data-swiper-slide-index');
+
+
+    $this.on('click', function () {
+        $eventsMonth.removeClass('active');
+        $this.toggleClass('active');
+        //eventsMonthSlider.slideTo($index, 500, true);
+        eventsMonthSlider.slideNext(500, true);
+
+        //$(this).hide();
+        //alert($(this));
+
+        return false
+
+    });
+
+});
+
