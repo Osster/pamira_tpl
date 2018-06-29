@@ -8,11 +8,27 @@ footer {
       &:first-of-type {
         .footer-top__menu {
           height: 360px;
+
+          @include tablet-portrait(){
+            height: auto;
+          }
+
+          @include mobile-all(){
+            height: auto;
+          }
         }
       }
       &:last-of-type {
         .footer-top__menu {
           height: 290px;
+
+          @include tablet-portrait(){
+            height: auto;
+          }
+
+          @include mobile-all(){
+            height: auto;
+          }
         }
       }
     }
@@ -35,8 +51,27 @@ footer {
       margin: 0;
       font-size: #{$font_size}px;
       line-height: #{$font_size * 1.7}px;
+
+      @include tablet-portrait(){
+        flex-flow: row wrap;
+      }
+
+      @include mobile-all(){
+        flex-flow: row wrap;
+      }
+
       &_item {
         list-style: none;
+
+        @include tablet-portrait(){
+          width: 50%;
+        }
+
+        @include mobile-all(){
+          width: 100%;
+          text-align: center;
+        }
+
         &_link {
           display: block;
           color: $color_gray_lighter;
@@ -45,6 +80,11 @@ footer {
           text-transform: uppercase;
         }
       }
+
+      //.order{
+      //  height: 70px;
+      //}
+
       &_level-1 {
         padding: 0;
         margin: 0 0 40px;

@@ -18,6 +18,7 @@
 //= components/map.js
 //= components/filter.js
 //= scripts/ion.rangeSlider.js
+//= components/main-sections-nav.js
 
 $(document).ready(function () {
 
