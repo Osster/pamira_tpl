@@ -1,9 +1,9 @@
 header {
   position: absolute;
+  z-index: 90;
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 100;
   padding: 10px 0 0;
 
   .container {
@@ -154,3 +154,112 @@ header {
   }
 }
 
+.modal-backdrop.show {
+  z-index: 100;
+  opacity: 1;
+  background-color: $color_gray_darkest;
+}
+
+.toggle-nav {
+  .modal-content {
+    border: none;
+  }
+  .modal-body {
+    background-color: $color_gray_darkest;
+    color: $color_gray_lighter;
+    width: 100%;
+    z-index: 101;
+    padding: 0;
+  }
+
+  &_pills {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+
+    &_link {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      flex: 1;
+      width: 100%;
+      font-size: 40px;
+      line-height: 1;
+      text-transform: uppercase;
+      font-weight: bold;
+      padding: 10px;
+      text-align: center;
+      border: 1px solid $color_white_dirty;
+      @include transition();
+
+      &:hover,
+      &.active {
+        background-color: $color_white_dirty;
+        color: $color_gray_darkest;
+        text-decoration: none;
+      }
+    }
+  }
+
+  &_col {
+    border: 1px solid $color_white_dirty;
+    @include transition();
+
+    a {
+      color: $color_gray_lighter;
+    }
+
+    h4 {
+      margin-bottom: 45px;
+
+      a {
+        color: $color_gray_lighter;
+        font-weight: normal;
+        line-height: #{$line_height_sm}px;
+        span {
+          max-width: 115px;
+          margin-bottom: 23px;
+          text-align: center;
+        }
+      }
+    }
+    &:hover {
+      background-color: $color_white_dirty;
+      a, p, h4 {
+        color: $color_gray_middle;
+      }
+      h4 {
+        a {
+          color: $color_red_middle;
+        }
+      }
+    }
+  }
+
+  .pills-item {
+    height: 100%;
+    a {
+      text-decoration: none;
+    }
+    &_text {
+      margin-bottom: 30px;
+      h4 {
+        font-weight: normal;
+        margin-bottom: 30px;
+      }
+      p {
+        line-height: 1.5;
+        margin-bottom: 10px;
+      }
+    }
+    img {
+      max-width: 100%;
+      object-fit: cover;
+    }
+    .more-btn_down {
+      height: 100%;
+      font-weight: bold;
+      color: $color_red_middle;
+    }
+  }
+}

@@ -27,43 +27,27 @@
     align-items: center;
     justify-content: center;
 
+    @include transition();
 
 
-    .pic {
-      display: block;
-      margin-bottom: 20px;
-
-      @include media-breakpoint-down(md) {
-        &:after {
-          content: none;
-        }
-      }
-
-      &_transform{
-
-        @include media-breakpoint-down(sm) {
-          transform: translateX(10px);
-        }
-      }
-    }
     .label {
       display: block;
       text-transform: uppercase;
+      margin: 25px 0;
     }
 
-    &.active {
+    &.active,
+    &:hover {
+      text-decoration: none;
       color: $color_red_middle;
       &:after {
         position: absolute;
         content: '';
         background-image: url("/img/icons/icon-active-section-arrow.svg");
         width: 50px;
-        height: 16px;
+        height: 18px;
         bottom: -30px;
-
-
-      }
-      img{
+        background-repeat: no-repeat;
       }
 
       @include media-breakpoint-down(md) {
