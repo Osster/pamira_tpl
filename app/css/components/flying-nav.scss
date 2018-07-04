@@ -40,13 +40,26 @@
   display: flex;
   margin: auto 15px;
 
+  @include mobile-all() {
+    flex-wrap: wrap;
+    margin: auto;
+  }
+
   &__input{
     width: 100%;
     height: 56px!important;
     padding-left: 15px!important;
+
+
   }
 
-  &__btn{}
+  &__btn{
+
+    @include mobile-all() {
+      width: 100%;
+      margin-top: 10px;
+    }
+  }
 
 }
 .wr-icon{
@@ -72,19 +85,34 @@
   transform: translateX(0);
 }
 
-.basket{
+.basket {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 
-  &__title{
+  &::after {
+    display: block;
+    content: "";
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    //background: red;
+    background-image: url("../../img/icons/icon-active-section-arrow.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 50px;
+    height: 50px;
+  }
+
+  &__title {
     max-width: 640px;
     width: 100%;
     height: 70px;
     padding: 15px auto;
     background-color: $color_white_dirty;
     margin-top: 30px;
+    margin-bottom: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -94,15 +122,37 @@
     font-weight: 600;
     letter-spacing: 0.28px;
 
-    &::after{
-      content: "";
+    &::after {
       display: block;
-      position: absolute;
-      background-image: url("../../img/icons/icon-arrow-gray.jpg");
+      width: 30px;
+      height: 30px;
+      content: "";
+      position: relative;
+      margin-left: 30px;
+      background-image: url("../../img/icons/icon-active-section-arrow.svg");
       background-size: 50px;
       background-repeat: no-repeat;
       background-position: center;
-
+      cursor: pointer;
     }
+  }
+
+  &__product {
+
+    max-width: 640px;
+    width: 100%;
+    height: 70px;
+    padding: 15px auto;
+    background-color: $color_white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: $font_family_base;
+    font-size: #{$font_size}px;
+    font-weight: 400;
+    letter-spacing: 0.28px;
+    color: $color_gray_light;
+    line-height: 24px;
+
   }
 }

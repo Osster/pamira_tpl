@@ -218,11 +218,19 @@
     padding: 50px 15px;
   }
 
+  &_search{
+    padding: 50px 15px;
+  }
+
   &_light{
     background-color: $color_white_dirty_opacity80;
-    margin:160px auto 0;
+    margin:14vh auto 0;
     max-width:840px;
     width: 100%;
+
+    @include tablet-landscape() {
+      margin: 4vh auto 0;
+    }
 
     @include mobile-all() {
       margin:0 auto;
@@ -257,6 +265,11 @@
         @include mobile-all() {
           margin-bottom: 35px;
         }
+
+        @include mobile-landscape() {
+          margin-bottom: 15px;
+          margin-top: -35px;
+        }
       }
     }
 
@@ -279,6 +292,14 @@
         max-width: 410px;
         width: 100%;
         margin: 20px 0 -20px;
+
+        @include mobile-all() {
+          margin: 20px 0 0;
+        }
+
+        @include mobile-landscape() {
+          margin:0;
+        }
       }
     }
 
@@ -319,6 +340,10 @@
         margin: 15px auto 35px;
         letter-spacing: -0.2px;
         font-size: 11px;
+      }
+
+      @include mobile-landscape() {
+        margin: 0 0 5px;
       }
     }
 
