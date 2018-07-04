@@ -40,200 +40,199 @@
   }
 }
 
-.wr-catalog {
-  .catalog-plitka {
-    .catalog-item {
-      background-color: $color_white;
-      color: $color_gray_light;
-      text-align: center;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: space-between;
+.catalog-plitka {
+  .catalog-item {
+    background-color: $color_white;
+    color: $color_gray_light;
+    text-align: center;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
 
-      &_img {
+    &_img {
+      width: 100%;
+      height: 330px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      a {
+        display: block;
+        padding: 35px 30px;
+        height: 100%;
         width: 100%;
-        height: 330px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        a {
-          display: block;
-          padding: 35px 30px;
+        img {
           height: 100%;
           width: 100%;
-          img {
-            height: 100%;
-            width: 100%;
-            object-fit: contain;
-          }
+          object-fit: contain;
         }
       }
-      &_text {
-        padding: 0 30px;
-        a {
-          height: 3rem;
-          overflow: hidden;
-        }
+    }
+    &_text {
+      padding: 0 30px;
+      a {
+        height: 3rem;
+        overflow: hidden;
       }
-      &_cost {
-        margin: 25px 0 20px;
-        color: $color_red_middle;
-        font-size: #{$font_size_h4}px;
-      }
-      &_links {
+    }
+    &_cost {
+      margin: 25px 0 20px;
+      color: $color_red_middle;
+      font-size: #{$font_size_h4}px;
+    }
+    &_links {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 30px 50px;
+      &_icon {
+        background-color: $color_gray_darkest;
+        padding: 15px;
         display: flex;
         align-items: center;
         justify-content: center;
-        padding: 0 30px 50px;
-        &_icon {
-          background-color: $color_gray_darkest;
-          padding: 15px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          margin-right: 3px;
-          @include transition();
+        margin-right: 3px;
+        @include transition();
 
-          &:hover {
-            background-color: $color_red_middle;
-            color: $color_white;
-          }
-          svg {
-            max-height: 26px;
-            max-width: 26px;
-          }
+        &:hover {
+          background-color: $color_red_middle;
+          color: $color_white;
+        }
+        svg {
+          max-height: 26px;
+          max-width: 26px;
         }
       }
     }
   }
-  .catalog-list {
-    .catalog-item {
-      background-color: $color_white;
-      color: $color_gray_light;
-      height: 100%;
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
+}
 
-      &_img {
-        width: 30%;
-        text-align: center;
-        a {
-          display: block;
-          padding: 30px;
-          height: 100%;
-          width: 100%;
-          img {
-            max-width: 100%;
-          }
+.catalog-list {
+  .catalog-item {
+    background-color: $color_white;
+    color: $color_gray_light;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+
+    &_img {
+      width: 30%;
+      text-align: center;
+      a {
+        display: block;
+        padding: 30px;
+        height: 100%;
+        width: 100%;
+        img {
+          max-width: 100%;
         }
       }
-      &_text {
-        width: 45%;
-        padding: 30px;
+    }
+    &_text {
+      width: 45%;
+      padding: 30px;
 
-        a {
-          color: $color_gray_middle;
-          display: block;
-          margin-bottom: 20px;
-        }
+      a {
+        color: $color_gray_middle;
+        display: block;
+        margin-bottom: 20px;
+      }
+      p {
+        font-size: #{$font_size_xxs}px;
+        color: $color_gray_light;
+        line-height: 2;
+      }
+    }
+    &_links {
+      width: 35%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      padding: 30px;
+
+      &_props {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+
         p {
           font-size: #{$font_size_xxs}px;
-          color: $color_gray_light;
-          line-height: 2;
+          color: $color_gray_darkest;
+          margin: 0 15px;
         }
-      }
-      &_links {
-        width: 35%;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-end;
-        padding: 30px;
 
-        &_props {
+        .catalog-item_cost {
+          margin-right: 20px;
+          display: block;
+          color: $color_red_middle;
+          font-size: #{$font_size_h4}px;
+        }
+
+        &_links {
           display: flex;
           align-items: center;
           justify-content: space-between;
-          width: 100%;
-
-          p {
-            font-size: #{$font_size_xxs}px;
-            color: $color_gray_darkest;
-            margin: 0 15px;
-          }
-
-          .catalog-item_cost {
-            margin-right: 20px;
-            display: block;
-            color: $color_red_middle;
-            font-size: #{$font_size_h4}px;
-          }
-
-          &_links {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex: 2;
-          }
-          &_text {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex: 3;
-          }
-
-          &_more {
-            display: flex;
-            align-items: center;
-            width: 100%;
-            font-size: #{$font_size_xxs}px;
-            color: $color_gray_ligten;
-            cursor: pointer;
-
-            &:after {
-              content: "";
-              background-image: url(/img/icons/icon-arrow.svg);
-              display: block;
-              width: 12px;
-              height: 20px;
-              color: $color_gray_ligten;
-              transform: rotate(90deg);
-              -webkit-background-size: 20px;
-              background-size: cover;
-              background-repeat: no-repeat;
-              margin-left: 20px;
-              margin-top: 0;
-            }
-            &:hover {
-              color: $color_gray_light;
-            }
-          }
+          flex: 2;
+        }
+        &_text {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          flex: 3;
         }
 
-        &_icon {
-          background-color: $color_gray_darkest;
-          padding: 3px 5px;
-          margin-bottom: 10px;
+        &_more {
           display: flex;
-          height: 35px;
           align-items: center;
-          justify-content: center;
-          margin-right: 3px;
-          color: $color_white;
-          @include transition();
+          width: 100%;
+          font-size: #{$font_size_xxs}px;
+          color: $color_gray_ligten;
+          cursor: pointer;
 
-          svg {
-            max-height: 25px;
-            max-width: 30px;
+          &:after {
+            content: "";
+            background-image: url(/img/icons/icon-arrow.svg);
+            display: block;
+            width: 12px;
+            height: 20px;
+            color: $color_gray_ligten;
+            transform: rotate(90deg);
+            -webkit-background-size: 20px;
+            background-size: cover;
+            background-repeat: no-repeat;
+            margin-left: 20px;
+            margin-top: 0;
           }
-
-          &.active,
           &:hover {
-            background-color: $color_red_middle;
-            color: $color_white;
+            color: $color_gray_light;
           }
+        }
+      }
+
+      &_icon {
+        background-color: $color_gray_darkest;
+        padding: 3px 5px;
+        margin-bottom: 10px;
+        display: flex;
+        height: 35px;
+        align-items: center;
+        justify-content: center;
+        margin-right: 3px;
+        color: $color_white;
+        @include transition();
+
+        svg {
+          max-height: 25px;
+          max-width: 30px;
+        }
+
+        &.active,
+        &:hover {
+          background-color: $color_red_middle;
+          color: $color_white;
         }
       }
     }

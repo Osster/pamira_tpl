@@ -22,5 +22,29 @@
       font-size: #{$font_size_sm}px;
       color: $color_gray_ligten;
     }
+
+    &_back {
+      .btn {
+        background-color: $color_gray_ligten;
+        padding: 12px 15px;
+        display: inline-flex;
+        justify-content: center;
+        @include transition();
+
+        svg {
+          transform: rotate(180deg);
+        }
+        span {
+          margin-left: 10px;
+        }
+        &:hover {
+          background-color: $color_red_middle;
+          svg {
+            transform: rotate(180deg) translateX(5px);
+          }
+        }
+      }
+      margin-bottom: 50px;
+    }
   }
 }

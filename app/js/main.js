@@ -19,6 +19,7 @@
 //= components/filter.js
 //= scripts/ion.rangeSlider.js
 //= components/main-sections-nav.js
+//= components/singleItem.js
 
 $(document).ready(function () {
 
