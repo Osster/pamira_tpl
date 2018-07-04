@@ -28,23 +28,30 @@
 </header>
 <!-- Modal menu -->
 //= tpl/components/menu-modal.html
+<!--FLYING NAV-->
+//= tpl/components/flying-nav.html
 
-<main class="main">
-
-    <div class="wr-contacts-title">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="main__promo_heading">
-                        <div class="main__promo_heading_title">КАК НАС НАЙТИ?</div>
-                    </div>
-                </div>
-            </div>
+<section class="wr-breadcrumbs">
+    <div class="container">
+        <div class="breadcrumbs">
+            <a href="/index.html">Главная</a>
+            <span class="active">Контакты</span>
         </div>
     </div>
+</section>
 
-    <div class="wr-contacts-photo">
-        <img src="img/slides/slide-2.jpg" alt="">
+
+<main class="main">
+    <div class="container main_header">
+        <h1>Как нас найти</h1>
+    </div>
+
+    <div class="wr-top-photo wr-top-photo_contacts">
+        <div class="container">
+            <h2>ПРОСТО ВЫБЕРИТЕ ВАШ ГОРОД!</h2>
+            <p>Все остальное расскажем мы</p>
+        </div>
+        <!--<img src="img/slides/slide-2.jpg" alt="">-->
     </div>
 
     //= tpl/components/map-contacts.html
@@ -59,7 +66,8 @@
                         <div class="main__promo_heading">
                             <div class="main__promo_heading_title">ВАМ НУЖНО К НАМ В ОФИС ИЛИ НА СКЛАД?</div>
                             <p class="main__promo_heading_desc">
-                                Мы устраиваем чудесные мастер-классы, на которых вы можете попробовать себя в новом стиле готовки, а также на нашей активной кухне!
+                                Мы устраиваем чудесные мастер-классы, на которых вы можете попробовать себя в новом
+                                стиле готовки, а также на нашей активной кухне!
                                 Благодаря акциям и распродажам можно позволить себе больше, чем когда-либо хотелось!
                             </p>
                         </div>
@@ -149,49 +157,53 @@
     <div class="wr-contacts-form">
         <form class="form-questions" name="form-questions" method="post">
             <!--<div class="container">-->
-                <!--<div class="row">-->
-                    <!--<div class="col-12">-->
-                        <div class="form-questions__title">
-                            У ВАС ОСТАЛИСЬ ВОПРОСЫ?
-                        </div>
-                    <!--</div>-->
-                    <!--<div class="col-12">-->
-                        <div class="form-questions__text">
-                            Заполните заявку и наши специалисты сделают все лучшее для Вас
-                        </div>
-                    <!--</div>-->
-                    <!--<div class="col-12">-->
-                        <div class="form-questions__inputs">
-                            <input type="text" name="form-questions-input-name" class="form-questions__input" placeholder="Ваше имя" required>
-                        </div>
-                    <!--</div>-->
-                    <!--<div class="col-12">-->
-                        <div class="form-questions__inputs">
-                            <input type="tel" name="form-questions-input-email" class="form-questions__input" placeholder="Ваш телефон" required>
-                        </div>
-                    <!--</div>-->
-                    <!--<div class="col-12">-->
-                        <div class="form-questions__checkbox">
+            <!--<div class="row">-->
+            <!--<div class="col-12">-->
+            <div class="form-questions__title">
+                У ВАС ОСТАЛИСЬ ВОПРОСЫ?
+            </div>
+            <!--</div>-->
+            <!--<div class="col-12">-->
+            <div class="form-questions__text">
+                Заполните заявку и наши специалисты сделают все лучшее для Вас
+            </div>
+            <!--</div>-->
+            <!--<div class="col-12">-->
+            <div class="form-questions__inputs">
+                <input type="text" name="form-questions-input-name" class="form-questions__input" placeholder="Ваше имя"
+                       required>
+            </div>
+            <!--</div>-->
+            <!--<div class="col-12">-->
+            <div class="form-questions__inputs">
+                <input type="tel" name="form-questions-input-email" class="form-questions__input"
+                       placeholder="Ваш телефон" required>
+            </div>
+            <!--</div>-->
+            <!--<div class="col-12">-->
+            <div class="form-questions__checkbox">
 
-                            <input type="checkbox" name="personal-data" required>&nbsp;- Я соглашаюсь на обработку персональных даных
+                <input type="checkbox" name="personal-data" required>&nbsp;- Я соглашаюсь на обработку персональных
+                даных
 
-                            <!--<div class="checkbox-square">-->
-                                <!--<input type="checkbox" name="option2" value="a2">Windows 2000<Br>-->
-                            <!--</div>-->
-                            <!--<div class="checkbox-text">- Я соглашаюсь на обработку персональных даных</div>-->
-                        </div>
-                    <!--</div>-->
-                    <!--<div class="col-12">-->
-                        <div class="form-questions__btn">
-                           <button class="btn btn-hover_white form-questions__button" name="form-questions__button">Оставить заявку на подбор техники</button>
-                        </div>
-                    <!--</div>-->
-
+                <!--<div class="checkbox-square">-->
+                <!--<input type="checkbox" name="option2" value="a2">Windows 2000<Br>-->
                 <!--</div>-->
+                <!--<div class="checkbox-text">- Я соглашаюсь на обработку персональных даных</div>-->
+            </div>
+            <!--</div>-->
+            <!--<div class="col-12">-->
+            <div class="form-questions__btn">
+                <button class="btn btn-hover_white form-questions__button" name="form-questions__button">Оставить заявку
+                    на подбор техники
+                </button>
+            </div>
+            <!--</div>-->
+
+            <!--</div>-->
             <!--</div>-->
         </form>
     </div>
-
 
 
 </main>

@@ -1,53 +1,71 @@
-.wr-contacts-title{
-  padding-top: 260px;
-  max-width: 1140px;
-  width: 100%;
-  margin: 0 auto;
-  position: relative;
+//.wr-contacts-title{
+//  padding-top: 260px;
+//  max-width: 1140px;
+//  width: 100%;
+//  margin: 0 auto;
+//  position: relative;
+//
+//  @include mobile-all() {
+//    padding-top: 215px;
+//  }
+//
+//  .main__promo_heading{
+//    text-align: left;
+//
+//    @include mobile-all() {
+//      text-align: center;
+//      margin-bottom: 25px;
+//    }
+//  }
+//
+//  .main__promo_heading_title{
+//
+//    @include mobile-all() {
+//      font-size: #{$font_size_h2}px;
+//    }
+//  }
+//
+//
+//  &_black{
+//    height: 504px;
+//    background-color: $color_gray_darkest;
+//    padding: 150px 0;
+//
+//    @include mobile-all() {
+//      padding: 0;
+//    }
+//  }
+//
+//}
 
-  @include mobile-all() {
-    padding-top: 215px;
+.wr-top-photo {
+  height: 600px;
+  background-image: url(../img/contacts/top-contacts.jpg);
+  -webkit-background-size: cover;
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: $color_white_dirty;
+  padding: 70px 0;
+  .container {
+    max-width: 1140px;
   }
-
-  .main__promo_heading{
-    text-align: left;
-
-    @include mobile-all() {
-      text-align: center;
-      margin-bottom: 25px;
-    }
+  h2 {
+    font-size: #{$font_size_h1}px;
+    font-weight: 600;
+    margin-bottom: 35px;
   }
-
-  .main__promo_heading_title{
-
-    @include mobile-all() {
-      font-size: #{$font_size_h2}px;
-    }
-  }
-
-
-  &_black{
-    height: 504px;
-    background-color: $color_gray_darkest;
-    padding: 150px 0;
-
-    @include mobile-all() {
-      padding: 0;
-    }
-  }
-
 }
 
-.wr-contacts-photo{
-  display: flex;
-  justify-content: center;
-  overflow: hidden;
-
-  img{
-    align-self: center;
-    height: 100%;
-  }
-}
+//.wr-contacts-photo{
+//  display: flex;
+//  justify-content: center;
+//  overflow: hidden;
+//
+//  img{
+//    align-self: center;
+//    height: 100%;
+//  }
+//}
 
 .wr-contacts-route{
   max-width: 1200px;
