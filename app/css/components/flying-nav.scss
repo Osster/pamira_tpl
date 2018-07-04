@@ -35,3 +35,74 @@
     }
   }
 }
+
+.search{
+  display: flex;
+  margin: auto 15px;
+
+  &__input{
+    width: 100%;
+    height: 56px!important;
+    padding-left: 15px!important;
+  }
+
+  &__btn{}
+
+}
+.wr-icon{
+  position: fixed;
+  z-index: 90;
+  left: 0;
+  top:0;
+  width: 100%;
+  height: 100vh;
+  background-color: $color_gray_opacity60;
+  //transform: translateX(100vw);
+  transform: translateX(0);
+  transition: transform 0.5s ease;
+
+  &_basket{
+    width: 50%;
+    right: 0;
+    left: auto;
+  }
+}
+
+.icon-active{
+  transform: translateX(0);
+}
+
+.basket{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  &__title{
+    max-width: 640px;
+    width: 100%;
+    height: 70px;
+    padding: 15px auto;
+    background-color: $color_white_dirty;
+    margin-top: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $color_gray_middle;
+    font-family: $font_family_title;
+    font-size: #{$font_size_h2_max}px;
+    font-weight: 600;
+    letter-spacing: 0.28px;
+
+    &::after{
+      content: "";
+      display: block;
+      position: absolute;
+      background-image: url("../../img/icons/icon-arrow-gray.jpg");
+      background-size: 50px;
+      background-repeat: no-repeat;
+      background-position: center;
+
+    }
+  }
+}
