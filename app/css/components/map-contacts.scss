@@ -7,7 +7,7 @@
     width: 100%;
     position: relative;
     z-index: 1;
-    top:-215px;
+    top:-250px;
 
     @include tablet-portrait() {
       top:-120px;
@@ -19,12 +19,17 @@
 
   }
 
+  .nav-tabs{
+    display: flex;
+    align-items: flex-end;
+  }
   .nav-item{
+
     height: 215px;
     background-color:$color_gray_opacity40;
-    transform: scaleY(1);
+    //transform: scaleY(1);
     transform-origin:bottom;
-    transition: transform 0.4s ease;
+    transition: all 0.4s ease;
     color: $color_white;
 
     @include tablet-portrait() {
@@ -57,11 +62,14 @@
   }
 
   .active{
-    transform: scaleY(1.16);
+    //transform: scaleY(1.16);
+    height: 250px;
     color: $color_gray_middle;
 
+
     span{
-      transform: scaleY(0.86);
+      //padding: 90px 45px 85px;
+      //transform: scaleY(0.86);
     }
   }
 
