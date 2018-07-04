@@ -6,7 +6,7 @@
   max-width: 1200px;
   width: 100%;
   overflow: hidden;
-  margin: 0 auto 90px;
+  margin: 0 auto;
 
   @include mobile-all() {
     margin-bottom: 40px;
@@ -60,8 +60,12 @@
     }
   }
 
+  .swiper-wrapper{
+    margin-bottom: 90px;
+  }
+
   .swiper-pagination{
-    bottom: -5px;
+    bottom: 40px;
   }
 }
 
