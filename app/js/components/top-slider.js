@@ -73,14 +73,14 @@ var eventsSlider = new Swiper ('.wr-events .swiper-container', {
     // If we need pagination
     pagination: {
         el: '.wr-events .swiper-pagination',
-        clickable: true
+        //clickable: true
     },
 
     // Navigation arrows
-    navigation: {
-        nextEl: '.wr-events .swiper-button-next',
-        prevEl: '.wr-events .swiper-button-prev'
-    }
+    // navigation: {
+    //     nextEl: '.wr-events .swiper-button-next',
+    //     prevEl: '.wr-events .swiper-button-prev'
+    // }
 });
 
 
@@ -134,20 +134,21 @@ var narrowSlider = new Swiper ('.wr-slider-narrow .swiper-container', {
 // Переключение событий по месяцам в слайдере "eventsMonthSlider"
 
 $eventsMonth = $('.wr-events-month .events-month');
+$eventSlider = $('.wr-events .swiper-slide');
 
 $eventsMonth.each(function () {
     var $this = $(this);
     var $index = $(this).attr('data-swiper-slide-index');
 
-
     $this.on('click', function () {
         $eventsMonth.removeClass('active');
+        $eventSlider.removeClass('swiper-slide-active');
         $this.toggleClass('active');
         //eventsMonthSlider.slideTo($index, 500, true);
-        eventsMonthSlider.slideNext(500, true);
 
-        //$(this).hide();
-        //alert($(this));
+        eventsSlider.slideTo($index, 500, true);
+        //eventsMonthSlider.slidePrev(500, true);
+        //eventsSlider.slideNext(500, true);
 
         return false
 
