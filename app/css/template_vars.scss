@@ -11,6 +11,7 @@ $color_gray_darker: #232323;
 $color_gray_darkest: #1d1d1d;
 $color_red_middle: #bf000c;
 $color_white_dirty_opacity80: rgba(240, 240, 240, 0.8);
+$color_white_dirty_opacity50: rgba(247, 247, 247, 0.5);
 $color_white_opacity80: rgba(255, 255, 255, 0.8);
 $color_gray_opacity60: rgba(107,101,101,0.6);
 $color_gray_opacity40: rgba(107,101,101,0.4);
@@ -23,6 +24,7 @@ $font_family_title: "Segoe UI", sans-serif;
 
 $font_size: 16;
 
+$font_size_xl: $font_size * 1.375;
 $font_size_lg: $font_size * 1.25;
 $font_size_md: $font_size * 1.125;
 $font_size_sm: $font_size * 0.875;
