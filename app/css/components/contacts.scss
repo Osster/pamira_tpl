@@ -38,23 +38,6 @@
 //
 //}
 
-.wr-top-photo {
-  height: 600px;
-  background-image: url(../img/contacts/top-contacts.jpg);
-  -webkit-background-size: cover;
-  background-size: cover;
-  background-repeat: no-repeat;
-  color: $color_white_dirty;
-  padding: 70px 0;
-  .container {
-    max-width: 1140px;
-  }
-  h2 {
-    font-size: #{$font_size_h1}px;
-    font-weight: 600;
-    margin-bottom: 35px;
-  }
-}
 
 //.wr-contacts-photo{
 //  display: flex;
