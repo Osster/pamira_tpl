@@ -1,23 +1,6 @@
 $(document).ready(function () {
 
-    // var $icon = $('.wr-flying-nav_links_icon');
-    // var $icon = $('.wr-flying-nav_links_icon [data-index="0"]');
-    //
-    // var $iconPage = $('.wr-icon');
-    // var $iconPageIndex = $iconPage.attr('data-index');
-    //
-    // $icon.each(function () {
-    //     var $this = $(this);
-    //     var $iconIndex = $this.attr('data-index');
-    //
-    //     $this. on('click', function () {
-    //         //$iconPage.removeClass('icon-active');
-    //         $iconPage.attr('data-index','0').toggleClass('icon-active');
-    //
-    //
-    //     });
-    //
-    // });
+    //FLYING-NAV PAGES (APPEAR)
 
     var $icons = $('.wr-flying-nav_links_icon');
     var $flyingPages = $('.wr-icon');
@@ -42,11 +25,11 @@ $(document).ready(function () {
             $flyingPages.removeClass('icon-active');
             $search.toggleClass('icon-active');
         }
-        //alert("Ok");
         return false
     });
 
     $iconCall.on('click', function () {
+
         if($call.hasClass('icon-active')){
             $call.removeClass('icon-active');
         }
@@ -58,6 +41,7 @@ $(document).ready(function () {
     });
 
     $iconBasket.on('click', function () {
+
         if($basket.hasClass('icon-active')){
             $basket.removeClass('icon-active');
         }
@@ -69,6 +53,7 @@ $(document).ready(function () {
     });
 
     $iconSelected.on('click', function () {
+
         if($selected.hasClass('icon-active')){
             $selected.removeClass('icon-active')
         }
@@ -78,5 +63,34 @@ $(document).ready(function () {
         }
         return false
     });
+
+
+    //PAGE-GO-BACK
+
+    var $closePage = $('.basket img');
+
+    $closePage.on('click', function () {
+        $(this).parent().parent().removeClass('icon-active');
+    });
+
+
+    //BLOCK DISAPPEAR
+
+    var $closeBlockClose = $('.basket__product img');
+
+    $closeBlockClose.on('click', function () {
+        $(this).parent().fadeOut(500);
+    });
+
+
+    //calc
+
+    var $numberProduct = $('.basket-calc');
+
+    $numberProduct.on('click', function () {
+
+    });
+
+
 
 });
