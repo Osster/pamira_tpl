@@ -14,6 +14,8 @@
 //= ../../node_modules/swiper/dist/js/swiper.js
 
 //= components/top-slider.js
+//= components/sliderNarrow.js
+//= components/sliderText.js
 //= components/catalogBrandSlider.js
 //= components/map.js
 //= components/filter.js

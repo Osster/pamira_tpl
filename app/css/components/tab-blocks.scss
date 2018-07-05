@@ -1,0 +1,166 @@
+.wr-top-photo {
+  height: 600px;
+  -webkit-background-size: cover;
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: $color_white_dirty;
+  padding: 70px 0;
+  background-attachment: fixed;
+  width: 100%;
+
+  @include mobile-all() {
+    height: 250px;
+  }
+
+  .container {
+    max-width: 1140px;
+  }
+  h2 {
+    font-size: #{$font_size_h1}px;
+    font-weight: 600;
+    margin-bottom: 35px;
+  }
+
+  &_contacts {
+    background-image: url(../img/contacts/top-contacts.jpg);
+  }
+  &_single {
+    background-image: url(../img/slides/home-slideshow01.jpg);
+  }
+}
+
+.wr-tab-blocks {
+  position: relative;
+
+  .container {
+    max-width: 1140px;
+    width: 100%;
+    position: relative;
+  }
+
+  .nav-tabs {
+    position: absolute;
+    bottom: -100%;
+    left: 0;
+    right: 0;
+    border: none;
+    flex-wrap: nowrap;
+
+    .nav-link {
+      flex: 1;
+      padding: 40px;
+      height: 180px;
+      font-size: #{$font_size_h3}px;
+      background-color: $color_gray_darken_opacity45;
+      color: $color_white;
+      margin: 0 1px;
+      border: none;
+      align-self: end;
+      @include transition();
+
+      @include mobile-all() {
+        font-size: 12px;
+        padding: 20px 10px;
+        height: 80px;
+      }
+
+      &:hover {
+        border: none;
+      }
+
+      &.active {
+        height: 210px;
+        padding: 70px 40px 40px;
+        background-color: #fff;
+        color: $color_gray_middle;
+
+        @include mobile-all() {
+          height: 90px;
+          padding: 30px 10px 20px;
+        }
+      }
+    }
+  }
+
+  .nav-item {
+
+    height: 215px;
+    background-color: $color_gray_opacity40;
+    transform-origin: bottom;
+    transition: all 0.4s ease;
+    color: $color_white;
+
+    @include tablet-portrait() {
+      height: 120px;
+    }
+
+    @include mobile-all() {
+      height: 60px;
+    }
+
+    span {
+      display: block;
+      padding: 70px 45px;
+      font-family: $font_family_title;
+      font-size: #{$font_size_h2}px;
+      font-weight: 600;
+      letter-spacing: 0.22px;
+
+      @include tablet-portrait() {
+        padding: 35px;
+      }
+
+      @include mobile-all() {
+        padding: 5px;
+        font-size: #{$font_size_xs}px;
+        font-weight: 600;
+        letter-spacing: 0;
+      }
+    }
+  }
+
+  .tab-blocks_item {
+    padding: 110px 45px;
+    font-family: $font_family_title;
+    color: $color_gray_middle;
+
+    @include mobile-all() {
+      padding: 40px 0;
+    }
+
+    &_title {
+      font-size: #{$font_size_h1}px;
+      font-weight: 600;
+      text-transform: none;
+      padding: 0;
+      margin-bottom: 30px;
+
+      @include mobile-all() {
+        padding: 15px 0 5px;
+        font-size: #{$font_size_h2}px;
+        letter-spacing: -0.2px;
+        margin-bottom: 15px;
+      }
+    }
+
+    &_text {
+      &_icons {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        width: 180px;
+        margin-bottom: 120px;
+        text-align: center;
+        @include mobile-all() {
+          width: 50%;
+          margin-bottom: 20px;
+        }
+        img {
+          margin-bottom: 30px;
+          max-width: 100%;
+        }
+      }
+    }
+  }
+}

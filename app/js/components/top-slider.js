@@ -116,19 +116,19 @@ var eventsMonthSlider = new Swiper ('.wr-events-month .swiper-container', {
 });
 
 
-var narrowSlider = new Swiper ('.wr-slider-narrow .swiper-container', {
-    // Optional parameters
-
-    direction: 'horizontal',
-    loop: true,
-    roundLengths: true,
-
-    // Navigation arrows
-    navigation: {
-        nextEl: '.wr-slider-narrow .swiper-button-next',
-        prevEl: '.wr-slider-narrow .swiper-button-prev'
-    }
-});
+// var narrowSlider = new Swiper ('.wr-slider-narrow .swiper-container', {
+//     // Optional parameters
+//
+//     direction: 'horizontal',
+//     loop: true,
+//     roundLengths: true,
+//
+//     // Navigation arrows
+//     navigation: {
+//         nextEl: '.wr-slider-narrow .swiper-button-next',
+//         prevEl: '.wr-slider-narrow .swiper-button-prev'
+//     }
+// });
 
 
 // Переключение событий по месяцам в слайдере "eventsMonthSlider"

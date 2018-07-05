@@ -15,47 +15,26 @@ input[type="search"], input[type="tel"],
 input[type="text"], input[type="time"],
 input[type="url"], input[type="week"] {
   -webkit-box-sizing: border-box;
-
   -moz-box-sizing: border-box;
-
   box-sizing: border-box;
-
   -webkit-background-clip: padding;
-
   -moz-background-clip: padding;
-
   background-clip: padding-box;
-
   -webkit-border-radius: 0;
-
   -moz-border-radius: 0;
-
   -ms-border-radius: 0;
-
   -o-border-radius: 0;
-
   border-radius: 0;
-
   -webkit-appearance: none;
-
   background-color: $color_white;
-
   color: $color_black;
-
   outline: 0;
-
   margin: 0;
-
   padding: 0;
-
   text-align: left;
-
   font-size: 1em;
-
   height: 1em;
-
   vertical-align: middle;
-
   border: 1px solid;
 }
 
@@ -136,6 +115,13 @@ h3, .h3 {
 
 h4, .h4 {
   @extend %h4;
+}
+
+p {
+  @include mobile-all() {
+    font-size: #{$font_size_sm}px;
+    line-height: #{$line_height_sm}px;
+  }
 }
 
 .preloader {
@@ -240,6 +226,15 @@ a {
 @import "components/top-slider";
 @import "components/main-sections-nav";
 @import "components/card-item";
+//
+//.bg-dark {
+//  background-color: $color_gray_darkest;
+//  color: $color_white_dirty;
+//}
+//.bg-light {
+//  background-color: $color_white;
+//  color: $color_gray_middle;
+//}
 
 .main {
   &__promo {
@@ -303,29 +298,5 @@ a {
   }
   &_padding {
     padding: 100px 0;
-  }
-}
-
-.wr-top-photo {
-  height: 600px;
-  -webkit-background-size: cover;
-  background-size: cover;
-  background-repeat: no-repeat;
-  color: $color_white_dirty;
-  padding: 70px 0;
-  .container {
-    max-width: 1140px;
-  }
-  h2 {
-    font-size: #{$font_size_h1}px;
-    font-weight: 600;
-    margin-bottom: 35px;
-  }
-
-  &_contacts {
-    background-image: url(../img/contacts/top-contacts.jpg);
-  }
-  &_single {
-    background-image: url(../img/slides/home-slideshow01.jpg);
   }
 }

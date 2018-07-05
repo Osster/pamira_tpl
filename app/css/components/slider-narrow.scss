@@ -1,4 +1,3 @@
-
 .wr-slider-narrow{
   margin-bottom: 50px;
 
@@ -22,5 +21,12 @@
       }
 
     }
+  }
+
+  .swiper-button-prev {
+    left: 90px;
+  }
+  .swiper-button-next {
+    right: 90px;
   }
 }
