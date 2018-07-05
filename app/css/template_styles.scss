@@ -163,6 +163,16 @@ a {
       color: $color_white!important;
     }
   }
+
+  &-hover_red{
+    background-color: $color_white_dirty;
+    color: $color_gray_light;
+
+    &:hover {
+      background-color: $color_black;
+      color: $color_white_dirty!important;
+    }
+  }
 }
 
 
