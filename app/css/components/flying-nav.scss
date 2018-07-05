@@ -96,14 +96,15 @@
     display: block;
     content: "";
     position: absolute;
-    top: 10px;
-    right: 10px;
+    top: 0;
+    right: 0;
     //background: red;
-    background-image: url("../../img/icons/icon-active-section-arrow.svg");
+    background-image: url("../../img/icons/close-red.svg");
     background-repeat: no-repeat;
     background-position: center;
     width: 50px;
     height: 50px;
+    cursor: pointer;
   }
 
   &__title {
@@ -125,13 +126,14 @@
 
     &::after {
       display: block;
-      width: 30px;
-      height: 30px;
+      width: 28px;
+      height: 14px;
       content: "";
       position: relative;
+      top:2px;
       margin-left: 30px;
-      background-image: url("../../img/icons/icon-active-section-arrow.svg");
-      background-size: 50px;
+      background-image: url("../../img/icons/icon-arrow-gray.svg");
+      background-size: 100%;
       background-repeat: no-repeat;
       background-position: center;
       cursor: pointer;
@@ -139,24 +141,70 @@
   }
 
   &__product {
+    position: relative;
     max-width: 640px;
     width: 100%;
-    padding: 30px;
+    padding: 30px 30px 30px 150px ;
     background-color: $color_white;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
+
+    &::after{
+      position: absolute;
+      top:0;
+      right: 0;
+      display: inline-block;
+      width: 35px;
+      height: 35px;
+      content: "";
+      background-color: $color_red_middle;
+      background-image: url("../../img/icons/close-white.svg");
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: 80%;
+    }
 
     &_gray{
       background-color: $color_white_dirty_opacity50;
     }
   }
 
-  &__calc {
+  .product-name{
+    max-width: 300px;
+    width: 100%;
+    font-family: $font_family_base;
+    font-size: #{$font_size}px;
+    font-weight: 400;
+    letter-spacing: 0.28px;
+    color: $color_gray_light;
+    line-height: 24px;
+    margin-bottom: 15px;
+  }
+
+  .product-price{
+    color: $color_red_middle;
+    font-family: $font_family_title;
+    font-size: #{$font_size_xl}px;
+    font-weight: 400;
+    letter-spacing: 0.22px;
+    margin-bottom: 30px;
+  }
+
+  .product-info{
+    font-size: #{$font_size_xs}px;
+    font-weight: 400;
+    margin-bottom: 20px;
+    color: $color_gray_light;
+    font-family: $font_family_base;
+    line-height: 24px;
+  }
+
+  .basket-calc {
     position: absolute;
-    bottom: 160px;
-    right: 140px;
+    bottom: 100px;
+    right: 71px;
     font-size: #{$font_size_h3}px;
 
     &::before{
@@ -192,35 +240,46 @@
       background-color: $color_gray_light;
       cursor: pointer;
     }
-
   }
 
+  &__result {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 640px;
+    width: 100%;
+    padding: 23px 70px;
+    background-color: $color_white_dirty;
+    opacity: 0.9;
 
-  .product-name{
-    font-family: $font_family_base;
-    font-size: #{$font_size}px;
-    font-weight: 400;
-    letter-spacing: 0.28px;
-    color: $color_gray_light;
-    line-height: 24px;
-    margin-bottom: 15px;
+    .result-text{
+      color: $color_gray_light;
+      font-family: $font_family_title;
+      font-size: #{$font_size_xl}px;
+      font-weight: 400;
+      letter-spacing: 0.22px;
+    }
+
+    .result-number{
+      color: $color_red_middle;
+      font-family:  $font_family_title;
+      font-size: #{$font_size_h2_max}px;
+      font-weight: 600;
+      letter-spacing: 0.14px;
+    }
   }
 
-  .product-price{
-    color: $color_red_middle;
-    font-family: $font_family_title;
-    font-size: #{$font_size_xl}px;
-    font-weight: 400;
-    letter-spacing: 0.22px;
-    margin-bottom: 30px;
-  }
+  &__buttons{
+    max-width: 640px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
 
-  .product-info{
-    font-size: #{$font_size_xs}px;
-    font-weight: 400;
-    margin-bottom: 20px;
-    color: $color_gray_light;
-    font-family: $font_family_base;
-    line-height: 24px;
+    .btn{
+      max-width: 315px;
+      width: 100%;
+      height: 70px;
+    }
   }
 }

@@ -130,4 +130,16 @@
       color: $color_white;
     }
   }
+
+  &_light {
+    background-color: $color_white;
+
+    .card-item_text {
+      background-color: $color_white;
+      color: $color_gray_light;
+    }
+    &.card-item_full .card-item_text:hover {
+      color: $color_white;
+    }
+  }
 }
