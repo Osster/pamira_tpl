@@ -80,10 +80,18 @@
       -o-transition: all 0.3s ease;
       transition: all 0.3s ease;
 
+      @include mobile-all() {
+        padding: 20px 30px;
+      }
+
       &:hover {
         width: 400px;
         padding: 110px 90px 110px 70px;
         background-color: $color_red_middle;
+
+        @include mobile-all() {
+          padding: 20px 30px;
+        }
 
         .card-item_text_link .btn {
           background-color: $color_gray_darkest;
@@ -138,6 +146,10 @@
       img {
         object-fit: cover;
         width: 65%;
+
+        @include mobile-all() {
+          width: 100%;
+        }
       }
     }
 
@@ -150,6 +162,14 @@
       height: auto;
       transform: translateY(-50%);
       padding: 45px 80px;
+
+      @include mobile-all() {
+        width: 100%;
+        position: relative;
+        top: 0;
+        transform: translateY(0);
+        padding: 20px 30px;
+      }
 
       p {
         margin-bottom: 1rem;
