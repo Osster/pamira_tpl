@@ -19,33 +19,33 @@
 
             <?if ($APPLICATION->GetCurPage(true) == SITE_DIR."index.php"):?>
                 <div class="bx-footer-line">
-                    <?$APPLICATION->IncludeComponent("bitrix:search.title", "visual", array(
-                        "NUM_CATEGORIES" => "1",
-                        "TOP_COUNT" => "5",
-                        "CHECK_DATES" => "N",
-                        "SHOW_OTHERS" => "N",
-                        "PAGE" => SITE_DIR."catalog/",
-                        "CATEGORY_0_TITLE" => "Товары" ,
-                        "CATEGORY_0" => array(
-                            0 => "iblock_catalog",
-                        ),
-                        "CATEGORY_0_iblock_catalog" => array(
-                            0 => "all",
-                        ),
-                        "CATEGORY_OTHERS_TITLE" => "Прочее",
-                        "SHOW_INPUT" => "Y",
-                        "INPUT_ID" => "title-search-input",
-                        "CONTAINER_ID" => "search",
-                        "PRICE_CODE" => array(
-                            0 => "BASE",
-                        ),
-                        "SHOW_PREVIEW" => "Y",
-                        "PREVIEW_WIDTH" => "75",
-                        "PREVIEW_HEIGHT" => "75",
-                        "CONVERT_CURRENCY" => "Y"
-                    ),
-                        false
-                    );?>
+                    <?$APPLICATION->IncludeComponent("bitrix:search.title", "toggle-form", Array(
+	"NUM_CATEGORIES" => "1",	// Количество категорий поиска
+		"TOP_COUNT" => "5",	// Количество результатов в каждой категории
+		"CHECK_DATES" => "N",	// Искать только в активных по дате документах
+		"SHOW_OTHERS" => "N",	// Показывать категорию "прочее"
+		"PAGE" => SITE_DIR."catalog/",	// Страница выдачи результатов поиска (доступен макрос #SITE_DIR#)
+		"CATEGORY_0_TITLE" => "Товары",	// Название категории
+		"CATEGORY_0" => array(	// Ограничение области поиска
+			0 => "iblock_catalog",
+		),
+		"CATEGORY_0_iblock_catalog" => array(	// Искать в информационных блоках типа "iblock_catalog"
+			0 => "all",
+		),
+		"CATEGORY_OTHERS_TITLE" => "Прочее",
+		"SHOW_INPUT" => "Y",	// Показывать форму ввода поискового запроса
+		"INPUT_ID" => "title-search-input",	// ID строки ввода поискового запроса
+		"CONTAINER_ID" => "search",	// ID контейнера, по ширине которого будут выводиться результаты
+		"PRICE_CODE" => array(	// Тип цены
+			0 => "BASE",
+		),
+		"SHOW_PREVIEW" => "Y",	// Показать картинку
+		"PREVIEW_WIDTH" => "75",	// Ширина картинки
+		"PREVIEW_HEIGHT" => "75",	// Высота картинки
+		"CONVERT_CURRENCY" => "Y",	// Показывать цены в одной валюте
+	),
+	false
+);?>
                 </div>
             <?endif?>
 
@@ -278,10 +278,7 @@
                 </div>
             </div>
 
-
-		</footer>
-		<div class="col-xs-12 hidden-lg hidden-md hidden-sm">
-			<?$APPLICATION->IncludeComponent("bitrix:sale.basket.basket.line", "", array(
+            <?/*$APPLICATION->IncludeComponent("bitrix:sale.basket.basket.line", "", array(
 					"PATH_TO_BASKET" => SITE_DIR."personal/cart/",
 					"PATH_TO_PERSONAL" => SITE_DIR."personal/",
 					"SHOW_PERSONAL_LINK" => "N",
@@ -297,8 +294,9 @@
 				),
 				false,
 				array()
-			);?>
-		</div>
+			);*/?>
+
+		</footer>
 	</div> <!-- //bx-wrapper -->
 
 
@@ -309,24 +307,5 @@ $APPLICATION->AddHeadScript("https://api-maps.yandex.ru/2.1/?lang=ru_RU");
 
 <script src="<?= SITE_TEMPLATE_PATH ?>/js/main.js"></script>
 
-<script>
-	BX.ready(function(){
-		var upButton = document.querySelector('[data-role="eshopUpButton"]');
-		BX.bind(upButton, "click", function(){
-			var windowScroll = BX.GetWindowScrollPos();
-			(new BX.easing({
-				duration : 500,
-				start : { scroll : windowScroll.scrollTop },
-				finish : { scroll : 0 },
-				transition : BX.easing.makeEaseOut(BX.easing.transitions.quart),
-				step : function(state){
-					window.scrollTo(0, state.scroll);
-				},
-				complete: function() {
-				}
-			})).animate();
-		})
-	});
-</script>
 </body>
 </html>
