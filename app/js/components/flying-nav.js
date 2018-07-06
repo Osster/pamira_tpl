@@ -99,7 +99,7 @@ $(document).ready(function () {
         $numberPlus = $plus + 1;
         $(this).prev().text($numberPlus);
 
-        return false;
+        return false
     });
 
     $numberProductMinus.on('click', function () {
@@ -114,7 +114,20 @@ $(document).ready(function () {
             $(this).next().text($numberMinus);
         }
 
-        return false;
+        return false
+    });
+
+
+    //HIDE PRODUTS
+
+    var $hideProduct = $('.basket__title');
+
+    $hideProduct.on('click', function () {
+
+        $(this).toggleClass('direction-arrow');
+        $(this).siblings().toggleClass('hide-products');
+
+        return false
     });
 
 });
