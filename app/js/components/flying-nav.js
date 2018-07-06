@@ -67,9 +67,14 @@ $(document).ready(function () {
 
     //PAGE-GO-BACK
 
-    var $closePage = $('.basket img');
+    var $closePage50 = $('.basket img');
+    var $closePage100 = $('.wr-contacts-form img');
 
-    $closePage.on('click', function () {
+    $closePage50.on('click', function () {
+        $(this).parent().parent().removeClass('icon-active');
+    });
+
+    $closePage100.on('click', function () {
         $(this).parent().parent().removeClass('icon-active');
     });
 
