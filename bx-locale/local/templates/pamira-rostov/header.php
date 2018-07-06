@@ -22,14 +22,481 @@ $theme = COption::GetOptionString("main", "wizard_eshop_bootstrap_theme_id", "bl
 
 <? require_once __DIR__ . "/parts/svg.php" ?>
 
-<?$APPLICATION->IncludeComponent("bitrix:eshop.banner", "", array());?>
-
 <?
 global $USER;
 if ($USER->IsAdmin()) :
     ?><style>header { top: 40px; }</style><?
 endif;
 ?>
+
+<nav class="pushNav">
+    <section class="pushNav__header">
+        <ul class="pushNav__header__list">
+            <li>
+                <a class="#">
+                    <svg width="28" height="28">
+                        <use xlink:href="#favorites"></use>
+                    </svg>
+                </a>
+            </li>
+            <li>
+                <a class="#">
+                    <svg width="28" height="28">
+                        <use xlink:href="#compare"></use>
+                    </svg>
+                </a>
+            </li>
+            <li>
+                <a class="#">
+                    <svg width="28" height="28">
+                        <use xlink:href="#login"></use>
+                    </svg>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="pushNav__header__close">
+                    <svg width="28" height="28">
+                        <use xlink:href="#icon-close"></use>
+                    </svg>
+                </a>
+            </li>
+        </ul>
+    </section>
+    <section class="pushNav__filter">
+        <div class="pushNav__filter__label" onclick="$('.pushNav__filter__dropdown').addClass('show'); return false;">
+            <span class="pushNav__filter__label__name">Город</span>
+            <span class="pushNav__filter__label__value">Ростов-на-Дону</span>
+        </div>
+        <ul class="pushNav__filter__dropdown">
+            <li onclick="$('.pushNav__filter__dropdown').removeClass('show'); $('.pushNav__filter__label__value').text($(this).text()); return false;">
+                Ростов-на-Дону
+            </li>
+            <li onclick="$('.pushNav__filter__dropdown').removeClass('show'); $('.pushNav__filter__label__value').text($(this).text()); return false;">
+                Воронеж
+            </li>
+            <li onclick="$('.pushNav__filter__dropdown').removeClass('show'); $('.pushNav__filter__label__value').text($(this).text()); return false;">
+                Ставрополь
+            </li>
+        </ul>
+    </section>
+    <section class="pushNav__content">
+        <div class="pushNav__content__title">Каталог</div>
+
+        <ul class="pushNav__content__nav">
+            <li class="pushNav__content__nav__item">
+                <a href="#">Сантехника</a>
+                <ul>
+                    <li class="">
+                        <a href="#">Кухонные мойки</a>
+                    </li>
+                    <li class="">
+                        <a href="#">Смесители</a>
+                    </li>
+                    <li class="">
+                        <a href="#">Дозаторы</a>
+                    </li>
+                    <li class="">
+                        <a href="#">Измельчители</a>
+                    </li>
+                    <li class="">
+                        <a href="#">Сортеры</a>
+                    </li>
+                    <li class="">
+                        <a href="#">Аксессуары</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="pushNav__content__nav__item">
+                <a href="#">МБТ и Посуда</a>
+            </li>
+            <li class="pushNav__content__nav__item">
+                <a href="#">Техника для кухни</a>
+
+                <ul>
+                    <li class="">
+                        <a href="#">Духовые шкафы</a>
+                    </li>
+                    <li class="">
+                        <a href="#">Кухонные блоки</a>
+                    </li>
+                    <li class="">
+                        <a href="#">Варочные поверхности</a>
+                    </li>
+                    <li class="">
+                        <a href="#">Микроволновые печи</a>
+                    </li>
+                    <li class="">
+                        <a href="#">Компактные приборы</a>
+                    </li>
+                    <li class="">
+                        <a href="#">Вытяжки</a>
+                    </li>
+                    <li class="">
+                        <a href="#">Посудомоечные машины</a>
+                    </li>
+                    <li class="">
+                        <a href="#">Холодильное оборудование</a>
+                    </li>
+                    <li class="">
+                        <a href="#">Техника на заказ PREMIUM</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="pushNav__content__nav__item">
+                <a href="#">Уход за бельём</a>
+
+                <ul>
+                    <li class="">
+                        <a href="#">Стиральные машины</a>
+                    </li>
+                    <li class="">
+                        <a href="#">Сушильные машины</a>
+                    </li>
+                    <li class="">
+                        <a href="#">Сушильные шкафы</a>
+                    </li>
+                    <li class="">
+                        <a href="#">Аксессуары</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="pushNav__content__nav__item">
+                <a href="#">Бренды</a>
+            </li>
+        </ul>
+
+    </section>
+</nav>
+
+<div class="toggle-nav modal fade" id="toggleNav">
+    <div class="modal-dialog modal-dialog-centered container" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-5 p-0">
+                        <div class="nav toggle-nav_pills" id="v-pills-tab" role="tablist"
+                             aria-orientation="vertical">
+                            <a class="toggle-nav_pills_link active" id="v-pills-catalog-tab" data-toggle="pill"
+                               href="#v-pills-catalog" role="tab" aria-controls="v-pills-catalog" aria-selected="true">Каталог</a>
+                            <a class="toggle-nav_pills_link" id="v-pills-events-tab" data-toggle="pill"
+                               href="#v-pills-events" role="tab" aria-controls="v-pills-events" aria-selected="true">Мероприятия</a>
+                            <a class="toggle-nav_pills_link" id="v-pills-buyers-tab" data-toggle="pill"
+                               href="#v-pills-buyers"
+                               role="tab" aria-controls="v-pills-buyers" aria-selected="false">Покупателю</a>
+                            <a class="toggle-nav_pills_link" id="v-pills-brands-tab" data-toggle="pill"
+                               href="#v-pills-brands"
+                               role="tab" aria-controls="v-pills-brands" aria-selected="false">Бренды</a>
+                            <a class="toggle-nav_pills_link" id="v-pills-about-tab" data-toggle="pill"
+                               href="#v-pills-about"
+                               role="tab" aria-controls="v-pills-about" aria-selected="false">О компании</a>
+                            <a class="toggle-nav_pills_link" id="v-pills-contacts-tab" data-toggle="pill"
+                               href="#v-pills-contacts"
+                               role="tab" aria-controls="v-pills-contacts" aria-selected="false">Контакты</a>
+                        </div>
+                    </div>
+                    <div class="col-7">
+                        <div class="tab-content" id="v-pills-tabContent">
+                            <div class="tab-pane fade show active" id="v-pills-catalog" role="tabpanel"
+                                 aria-labelledby="v-pills-catalog-tab">
+                                <div class="row">
+                                    <div class="col-5 p-4 toggle-nav_col">
+                                        <h4>
+                                            <a href="#" class="d-flex flex-column align-items-center">
+                                                <span>Уход за бельем</span>
+                                                <svg width="41" height="50" data-toggle="tooltip" data-placement="left"
+                                                     title="Уход за бельем">
+                                                    <use xlink:href="#uhod_za_belem"></use>
+                                                </svg>
+                                            </a>
+                                        </h4>
+                                        <div class="d-flex flex-column mx-4">
+                                            <a href="#">Стиральные машины</a>
+                                            <a href="#">Сушильные машины</a>
+                                            <a href="#">Сушильные шкафы</a>
+                                            <a href="#">Аксессуары</a>
+                                        </div>
+                                    </div>
+                                    <div class="col-7 p-4 toggle-nav_col d-flex align-items-center justify-content-around">
+                                        <h4>
+                                            <a href="#" class="d-flex flex-column align-items-center">
+                                                <span>Техника для кухни</span>
+                                                <svg width="41" height="50" data-toggle="tooltip" data-placement="left"
+                                                     title="Техника для кухни">
+                                                    <use xlink:href="#kitchen_tehnic"></use>
+                                                </svg>
+                                            </a>
+                                        </h4>
+                                        <div class="d-flex flex-column">
+                                            <a href="#">Духовые шкафы</a>
+                                            <a href="#">Кухонные блоки</a>
+                                            <a href="#">Холодильники</a>
+                                            <a href="#">Варочные поверхности</a>
+                                            <a href="#">Микроволновые печи</a>
+                                            <a href="#">Вытяжки</a>
+                                            <a href="#">Компактные приборы</a>
+                                            <a href="#">Посудомоечные машины</a>
+                                        </div>
+                                    </div>
+                                    <div class="col-9 p-4 toggle-nav_col d-flex align-items-center justify-content-around">
+                                        <h4>
+                                            <a href="#" class="d-flex flex-column align-items-center">
+                                                <span>Сантехника</span>
+                                                <svg width="41" height="50" data-toggle="tooltip" data-placement="left"
+                                                     title="Сантехника">
+                                                    <use xlink:href="#santehnika"></use>
+                                                </svg>
+                                            </a>
+                                        </h4>
+                                        <div class="d-flex flex-column">
+                                            <a href="#">Кухонные мойки</a>
+                                            <a href="#">Аксессуары</a>
+                                            <a href="#">Измельчители</a>
+                                        </div>
+                                        <div class="d-flex flex-column">
+                                            <a href="#">Сортер</a>
+                                            <a href="#">Смесители</a>
+                                            <a href="#">Дозаторы</a>
+                                        </div>
+                                    </div>
+                                    <div class="col-3 p-4 toggle-nav_col">
+                                        <h4>
+                                            <a href="#" class="d-flex flex-column align-items-center">
+                                                <span>МБТ и посуда</span>
+                                                <svg width="41" height="50" data-toggle="tooltip" data-placement="left"
+                                                     title="МБТ и посуда">
+                                                    <use xlink:href="#mbt_i_posuda"></use>
+                                                </svg>
+                                            </a>
+                                        </h4>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="v-pills-events" role="tabpanel"
+                                 aria-labelledby="v-pills-events-tab">
+                                <div class="row">
+                                    <div class="col-5 p-4 toggle-nav_col">
+                                        <div class="pills-item">
+                                            <div class="pills-item_text">
+                                                <a href="#"><h4>Название мероприятия</h4></a>
+                                                <p>дата</p>
+                                                <p>описание</p>
+                                            </div>
+                                            <a href="#"><img src="img/menu/menu-event1.jpg" alt=""></a>
+                                        </div>
+                                    </div>
+                                    <div class="col-7 p-4 toggle-nav_col">
+                                        <div class="pills-item">
+                                            <div class="pills-item_text">
+                                                <a href="#"><h4>Название мероприятия</h4></a>
+                                                <p>дата</p>
+                                                <p>описание</p>
+                                            </div>
+                                            <div class="d-flex">
+                                                <a href="#"><img src="img/menu/menu-event2.jpg" alt=""></a>
+                                                <a href="#"><img src="img/menu/menu-event3.jpg" alt=""></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-9 p-3 toggle-nav_col">
+                                        <div class="pills-item">
+                                            <div class="d-flex">
+                                                <a href="#"><img src="img/menu/menu-event2.jpg" alt=""></a>
+                                                <div class="pills-item_text pl-5">
+                                                    <a href="#"><h4>Название мероприятия</h4></a>
+                                                    <p>дата</p>
+                                                    <p>описание</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-3 toggle-nav_col p-3 toggle-nav_col">
+                                        <div class="pills-item">
+                                            <a class="more-btn_down" href="#">
+                                                <span>Смотреть все</span>
+                                                <svg width="30" height="42">
+                                                    <use xlink:href="#icon-arrow"></use>
+                                                </svg>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="v-pills-buyers" role="tabpanel"
+                                 aria-labelledby="v-pills-buyers-tab">
+                                <div class="row">
+                                    <div class="col-5 p-5 toggle-nav_col">
+                                        <div class="pills-item">
+                                            <div class="pills-item_text">
+                                                <a href="#"><h4>Доставка и оплата</h4></a>
+                                            </div>
+                                            <a href="#"><img src="img/menu/menu-buyers1.jpg" alt=""></a>
+                                        </div>
+                                    </div>
+                                    <div class="col-7 p-5 toggle-nav_col">
+                                        <div class="pills-item">
+                                            <div class="pills-item_text">
+                                                <a href="#"><h4>Установка и гарантии</h4></a>
+                                            </div>
+                                            <div class="d-flex">
+                                                <a href="#"><img src="img/menu/menu-buyers2.jpg" alt=""></a>
+                                                <a href="#"><img src="img/menu/menu-buyers3.jpg" alt=""></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-9 p-3 toggle-nav_col">
+                                        <div class="pills-item">
+                                            <div class="d-flex">
+                                                <a href="#"><img src="img/menu/menu-buyers4.jpg" alt=""></a>
+                                                <div class="pills-item_text pl-4">
+                                                    <a href="#"><h4>Помощь в выборе и часто задаваемые вопросы</h4></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-3 p-3 toggle-nav_col toggle-nav_col">
+                                        <div class="pills-item">
+                                            <a class="more-btn_down" href="#">
+                                                <span>Смотреть все</span>
+                                                <svg width="30" height="42">
+                                                    <use xlink:href="#icon-arrow"></use>
+                                                </svg>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="v-pills-brands" role="tabpanel"
+                                 aria-labelledby="v-pills-brands-tab">...
+                            </div>
+                            <div class="tab-pane fade" id="v-pills-about" role="tabpanel"
+                                 aria-labelledby="v-pills-about-tab">
+                                <div class="row">
+                                    <div class="col-5 p-5 toggle-nav_col">
+                                        <div class="pills-item">
+                                            <div class="pills-item_text">
+                                                <p class="pb-3">На сегодняшний день компания «ПАМИРА» имеет в
+                                                    своих магазинах
+                                                    самую большую и современную экспозицию встраиваемой техники
+                                                    в
+                                                    Ростове-на-Дону и Воронеже.</p>
+                                                <a href="" class="more-btn">
+                                                    <span>Подробнее</span>
+                                                    <svg width="10" height="15">
+                                                        <use xlink:href="#icon-arrow"></use>
+                                                    </svg>
+                                                </a>
+                                            </div>
+                                            <a href="#"><img src="img/menu/menu-about1.jpg" alt=""></a>
+                                        </div>
+                                    </div>
+                                    <div class="col-7 p-5 toggle-nav_col">
+                                        <div class="pills-item">
+                                            <div class="pills-item_text">
+                                                <p class="pb-3">Компания «ПАМИРА» основана в 1998 году и на
+                                                    сегодняшний день
+                                                    является одной из ведущих компаний на рынке бытовой и
+                                                    встраиваемой техники Ростова-на-Дону, Ставропольского края и
+                                                    Воронежа.</p>
+                                                <a href="" class="more-btn">
+                                                    <span>Подробнее</span>
+                                                    <svg width="10" height="15">
+                                                        <use xlink:href="#icon-arrow"></use>
+                                                    </svg>
+                                                </a>
+                                            </div>
+                                            <div class="d-flex">
+                                                <a href="#"><img src="img/menu/menu-about2.jpg" alt=""></a>
+                                                <a href="#"><img src="img/menu/menu-about3.jpg" alt=""></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-9 p-3 toggle-nav_col">
+                                        <div class="pills-item">
+                                            <div class="d-flex">
+                                                <a href="#"><img src="img/menu/menu-about4.jpg" alt=""></a>
+                                                <div class="pills-item_text pl-4">
+                                                    <p class="pb-3">Мы являемся официальными партнерами таких
+                                                        ведущих брендов как:
+                                                        ELECTROLUX, AEG, GORENJE, ZANUSSI, WHIRLPOOL, FRANKE, FABER,
+                                                        SMEG, ASKO, MIDEA, FALMEC, LIEBHERR, KUPPERSBUSCH, FULGOR,
+                                                        KITCHEN AID.</p>
+                                                    <a href="" class="more-btn">
+                                                        <span>Подробнее</span>
+                                                        <svg width="10" height="15">
+                                                            <use xlink:href="#icon-arrow"></use>
+                                                        </svg>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-3 p-3 toggle-nav_col toggle-nav_col">
+                                        <div class="pills-item">
+                                            <a class="more-btn_down" href="#">
+                                                <span>Смотреть все</span>
+                                                <svg width="30" height="42">
+                                                    <use xlink:href="#icon-arrow"></use>
+                                                </svg>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="v-pills-contacts" role="tabpanel"
+                                 aria-labelledby="v-pills-contacts-tab">
+                                <div class="row">
+                                    <div class="col-5 p-5 toggle-nav_col">
+                                        <div class="pills-item">
+                                            <a href="#">
+                                                <div class="pills-item_text">
+                                                    <h4>Ростов-на-Дону</h4>
+                                                </div>
+                                                <img src="img/menu/menu-buyers1.jpg" alt="">
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="col-7 p-5 toggle-nav_col">
+                                        <div class="pills-item">
+                                            <a href="#">
+                                                <div class="pills-item_text">
+                                                    <h4>Воронеж</h4>
+                                                </div>
+                                                <div class="d-flex">
+                                                    <img src="img/menu/menu-buyers2.jpg" alt="">
+                                                    <img src="img/menu/menu-buyers3.jpg" alt="">
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="col-9 p-3 toggle-nav_col">
+                                        <div class="pills-item">
+                                            <a href="#" class="d-flex">
+                                                <img src="img/menu/menu-buyers4.jpg" alt="">
+                                                <div class="pills-item_text pl-4">
+                                                    <h4>Ставрополь, Пятигорск</h4>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="col-3 toggle-nav_col p-3 toggle-nav_col">
+                                        <div class="pills-item">
+                                            <a class="more-btn_down" href="#">
+                                                <span>Смотреть все</span>
+                                                <svg width="30" height="42">
+                                                    <use xlink:href="#icon-arrow"></use>
+                                                </svg>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 <div class="bx-wrapper" id="bx_eshop_wrap">
 	<header class="bx-header light-or-dark">
@@ -163,397 +630,107 @@ endif;
         */ ?>
 
         <div class="bx-header-section container">
-            <div class="top-row">
+            <div class="top-row d-flex justify-content-start justify-content-md-between align-items-center">
+
                 <div class="top-row__toggle-nav">
-                    <a href="#" data-toggle="modal" data-target="#toggleNav"></a>
+                    <a id="showPushNav" href="#"></a>
+                    <!--<a href="#" data-toggle="modal" data-target="#toggleNav"></a>-->
                 </div>
 
                 <div class="top-row__logo">
-                    <a href="<?=htmlspecialcharsbx(SITE_DIR)?>"></a>
+                    <a href="index.html"></a>
                 </div>
+
                 <div class="top-row__location-switcher">
-                    <div class="top-row__location-switcher_toggle">
-                        <span class="city">Ростов-на-Дону</span>
-                        <span class="address">ул. Красноармейская, 63-90</span>
+
+                    <div class="locationPicker">
+                        <div class="locationPicker__label">
+                            <div class="locationPicker__label__pointer">
+                                <svg width="24" height="24">
+                                    <use xlink:href="#pointer"></use>
+                                </svg>
+                            </div>
+                            <div class="locationPicker__label__city">
+                                Ростов-на-Дону
+                            </div>
+                            <div class="locationPicker__label__address">
+                                ул. Красноармейская, 63-90
+                            </div>
+                        </div>
+                        <ul class="locationPicker__list">
+                        </ul>
                     </div>
+
+                    <ul class="phoneList">
+                    </ul>
+
+                    <script>
+                        var locations = {
+                            0: {
+                                name: 'Ростов-на-Дону',
+                                addr: 'ул. Красноармейская, 63-90',
+                                phones: [{p: '+7 (863) 302-03-04', l: 'розница'}, {
+                                    p: '+7 (919) 888-6-777',
+                                    l: 'розница'
+                                }, {p: '+7 (863) 302-00-22', l: 'опт'}]
+                            },
+                            1: {
+                                name: 'Воронеж',
+                                addr: 'frankestudio-voronezh@pamira.ru',
+                                phones: [{p: '+7(473)253-30-20', l: 'розница'}, {p: '+7(473)239-05-05', l: 'опт'}]
+                            },
+                            2: {
+                                name: 'Ставрополь, Пятигорск',
+                                addr: 'prodaja@pamira.ru',
+                                phones: [{p: '8-928-378-80-01', l: 'сотовый'}, {p: '3-02-00-22', l: 'опт'}]
+                            }
+                        };
+                    </script>
                 </div>
-                <div class="top-row__phones">
-                    <ul class="top-row__phones_list">
-                        <li class="top-row__phones_list_item">
-                            <a class="number" href="tel:+7 (919) 888-6-777">+7 (919) 888-6-777</a>
-                            <span class="label">розница</span>
+
+            </div>
+
+            <div class="headerBottom">
+                <nav class="nav-menu">
+                    <ul class="nav nav-menu__list">
+                        <li class="nav-item nav-menu__list_item"><a class="nav-link nav-menu__list_item_link active"
+                                                                    href="catalog.html">Каталог</a></li>
+                        <li class="nav-item nav-menu__list_item"><a class="nav-link nav-menu__list_item_link"
+                                                                    href="events.html">Мероприятия</a>
                         </li>
-                        <li class="top-row__phones_list_item">
-                            <a class="number" href="tel:+7 (863) 302-03-04">+7 (863) 302-03-04</a>
-                            <span class="label">розница</span>
+                        <li class="nav-item nav-menu__list_item"><a class="nav-link nav-menu__list_item_link"
+                                                                    href="for-client.html">Покупателю</a></li>
+                        <li class="nav-item nav-menu__list_item"><a class="nav-link nav-menu__list_item_link"
+                                                                    href="brands.html">Бренды</a>
                         </li>
-                        <li class="top-row__phones_list_item">
-                            <a class="number" href="tel:+7 (863) 302-00-22">+7 (863) 302-00-22</a>
-                            <span class="label">опт</span>
+                        <li class="nav-item nav-menu__list_item"><a class="nav-link nav-menu__list_item_link"
+                                                                    href="about.html">О
+                                компании</a></li>
+                        <li class="nav-item nav-menu__list_item"><a class="nav-link nav-menu__list_item_link"
+                                                                    href="contacts.html">Контакты</a>
                         </li>
                     </ul>
-                </div>
+                </nav>
             </div>
-            <nav class="nav-menu">
-                <ul class="nav nav-menu__list">
-                    <li class="nav-item nav-menu__list_item"><a class="nav-link nav-menu__list_item_link active"
-                                                                href="catalog.html">Каталог</a></li>
-                    <li class="nav-item nav-menu__list_item"><a class="nav-link nav-menu__list_item_link" href="events.html">Мероприятия</a>
-                    </li>
-                    <li class="nav-item nav-menu__list_item"><a class="nav-link nav-menu__list_item_link"
-                                                                href="for-client.html">Покупателю</a></li>
-                    <li class="nav-item nav-menu__list_item"><a class="nav-link nav-menu__list_item_link" href="brands.html">Бренды</a>
-                    </li>
-                    <li class="nav-item nav-menu__list_item"><a class="nav-link nav-menu__list_item_link" href="about.html">О
-                            компании</a></li>
-                    <li class="nav-item nav-menu__list_item"><a class="nav-link nav-menu__list_item_link" href="contacts.html">Контакты</a>
-                    </li>
-                </ul>
-            </nav>
         </div>
 
 	</header>
 
-    <div class="toggle-nav modal fade" id="toggleNav" tabindex="-1" role="dialog" aria-labelledby="toggleNav"
-         aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered container" role="document">
-            <div class="modal-content">
-                <div class="modal-body">
-                    <div class="row">
-                        <div class="col-5 p-0">
-                            <div class="nav toggle-nav_pills" id="v-pills-tab" role="tablist"
-                                 aria-orientation="vertical">
-                                <a class="toggle-nav_pills_link active" id="v-pills-catalog-tab" data-toggle="pill"
-                                   href="#v-pills-catalog" role="tab" aria-controls="v-pills-catalog" aria-selected="true">Каталог</a>
-                                <a class="toggle-nav_pills_link" id="v-pills-events-tab" data-toggle="pill"
-                                   href="#v-pills-events" role="tab" aria-controls="v-pills-events" aria-selected="true">Мероприятия</a>
-                                <a class="toggle-nav_pills_link" id="v-pills-buyers-tab" data-toggle="pill"
-                                   href="#v-pills-buyers"
-                                   role="tab" aria-controls="v-pills-buyers" aria-selected="false">Покупателю</a>
-                                <a class="toggle-nav_pills_link" id="v-pills-brands-tab" data-toggle="pill"
-                                   href="#v-pills-brands"
-                                   role="tab" aria-controls="v-pills-brands" aria-selected="false">Бренды</a>
-                                <a class="toggle-nav_pills_link" id="v-pills-about-tab" data-toggle="pill"
-                                   href="#v-pills-about"
-                                   role="tab" aria-controls="v-pills-about" aria-selected="false">О компании</a>
-                                <a class="toggle-nav_pills_link" id="v-pills-contacts-tab" data-toggle="pill"
-                                   href="#v-pills-contacts"
-                                   role="tab" aria-controls="v-pills-contacts" aria-selected="false">Контакты</a>
-                            </div>
-                        </div>
-                        <div class="col-7">
-                            <div class="tab-content" id="v-pills-tabContent">
-                                <div class="tab-pane fade show active" id="v-pills-catalog" role="tabpanel"
-                                     aria-labelledby="v-pills-catalog-tab">
-                                    <div class="row">
-                                        <div class="col-5 p-4 toggle-nav_col">
-                                            <h4>
-                                                <a href="#" class="d-flex flex-column align-items-center">
-                                                    <span>Уход за бельем</span>
-                                                    <svg width="41" height="50" data-toggle="tooltip" data-placement="left"
-                                                         title="Уход за бельем">
-                                                        <use xlink:href="#uhod_za_belem"></use>
-                                                    </svg>
-                                                </a>
-                                            </h4>
-                                            <div class="d-flex flex-column mx-4">
-                                                <a href="#">Стиральные машины</a>
-                                                <a href="#">Сушильные машины</a>
-                                                <a href="#">Сушильные шкафы</a>
-                                                <a href="#">Аксессуары</a>
-                                            </div>
-                                        </div>
-                                        <div class="col-7 p-4 toggle-nav_col d-flex align-items-center justify-content-around">
-                                            <h4>
-                                                <a href="#" class="d-flex flex-column align-items-center">
-                                                    <span>Техника для кухни</span>
-                                                    <svg width="41" height="50" data-toggle="tooltip" data-placement="left"
-                                                         title="Техника для кухни">
-                                                        <use xlink:href="#kitchen_tehnic"></use>
-                                                    </svg>
-                                                </a>
-                                            </h4>
-                                            <div class="d-flex flex-column">
-                                                <a href="#">Духовые шкафы</a>
-                                                <a href="#">Кухонные блоки</a>
-                                                <a href="#">Холодильники</a>
-                                                <a href="#">Варочные поверхности</a>
-                                                <a href="#">Микроволновые печи</a>
-                                                <a href="#">Вытяжки</a>
-                                                <a href="#">Компактные приборы</a>
-                                                <a href="#">Посудомоечные машины</a>
-                                            </div>
-                                        </div>
-                                        <div class="col-9 p-4 toggle-nav_col d-flex align-items-center justify-content-around">
-                                            <h4>
-                                                <a href="#" class="d-flex flex-column align-items-center">
-                                                    <span>Сантехника</span>
-                                                    <svg width="41" height="50" data-toggle="tooltip" data-placement="left"
-                                                         title="Сантехника">
-                                                        <use xlink:href="#santehnika"></use>
-                                                    </svg>
-                                                </a>
-                                            </h4>
-                                            <div class="d-flex flex-column">
-                                                <a href="#">Кухонные мойки</a>
-                                                <a href="#">Аксессуары</a>
-                                                <a href="#">Измельчители</a>
-                                            </div>
-                                            <div class="d-flex flex-column">
-                                                <a href="#">Сортер</a>
-                                                <a href="#">Смесители</a>
-                                                <a href="#">Дозаторы</a>
-                                            </div>
-                                        </div>
-                                        <div class="col-3 p-4 toggle-nav_col">
-                                            <h4>
-                                                <a href="#" class="d-flex flex-column align-items-center">
-                                                    <span>МБТ и посуда</span>
-                                                    <svg width="41" height="50" data-toggle="tooltip" data-placement="left"
-                                                         title="МБТ и посуда">
-                                                        <use xlink:href="#mbt_i_posuda"></use>
-                                                    </svg>
-                                                </a>
-                                            </h4>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="tab-pane fade" id="v-pills-events" role="tabpanel"
-                                     aria-labelledby="v-pills-events-tab">
-                                    <div class="row">
-                                        <div class="col-5 p-4 toggle-nav_col">
-                                            <div class="pills-item">
-                                                <div class="pills-item_text">
-                                                    <a href="#"><h4>Название мероприятия</h4></a>
-                                                    <p>дата</p>
-                                                    <p>описание</p>
-                                                </div>
-                                                <a href="#"><img src="img/menu/menu-event1.jpg" alt=""></a>
-                                            </div>
-                                        </div>
-                                        <div class="col-7 p-4 toggle-nav_col">
-                                            <div class="pills-item">
-                                                <div class="pills-item_text">
-                                                    <a href="#"><h4>Название мероприятия</h4></a>
-                                                    <p>дата</p>
-                                                    <p>описание</p>
-                                                </div>
-                                                <div class="d-flex">
-                                                    <a href="#"><img src="img/menu/menu-event2.jpg" alt=""></a>
-                                                    <a href="#"><img src="img/menu/menu-event3.jpg" alt=""></a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-9 p-3 toggle-nav_col">
-                                            <div class="pills-item">
-                                                <div class="d-flex">
-                                                    <a href="#"><img src="img/menu/menu-event2.jpg" alt=""></a>
-                                                    <div class="pills-item_text pl-5">
-                                                        <a href="#"><h4>Название мероприятия</h4></a>
-                                                        <p>дата</p>
-                                                        <p>описание</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-3 toggle-nav_col p-3 toggle-nav_col">
-                                            <div class="pills-item">
-                                                <a class="more-btn_down" href="#">
-                                                    <span>Смотреть все</span>
-                                                    <svg width="30" height="42">
-                                                        <use xlink:href="#icon-arrow"></use>
-                                                    </svg>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="tab-pane fade" id="v-pills-buyers" role="tabpanel"
-                                     aria-labelledby="v-pills-buyers-tab">
-                                    <div class="row">
-                                        <div class="col-5 p-5 toggle-nav_col">
-                                            <div class="pills-item">
-                                                <div class="pills-item_text">
-                                                    <a href="#"><h4>Доставка и оплата</h4></a>
-                                                </div>
-                                                <a href="#"><img src="img/menu/menu-buyers1.jpg" alt=""></a>
-                                            </div>
-                                        </div>
-                                        <div class="col-7 p-5 toggle-nav_col">
-                                            <div class="pills-item">
-                                                <div class="pills-item_text">
-                                                    <a href="#"><h4>Установка и гарантии</h4></a>
-                                                </div>
-                                                <div class="d-flex">
-                                                    <a href="#"><img src="img/menu/menu-buyers2.jpg" alt=""></a>
-                                                    <a href="#"><img src="img/menu/menu-buyers3.jpg" alt=""></a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-9 p-3 toggle-nav_col">
-                                            <div class="pills-item">
-                                                <div class="d-flex">
-                                                    <a href="#"><img src="img/menu/menu-buyers4.jpg" alt=""></a>
-                                                    <div class="pills-item_text pl-4">
-                                                        <a href="#"><h4>Помощь в выборе и часто задаваемые вопросы</h4></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-3 p-3 toggle-nav_col toggle-nav_col">
-                                            <div class="pills-item">
-                                                <a class="more-btn_down" href="#">
-                                                    <span>Смотреть все</span>
-                                                    <svg width="30" height="42">
-                                                        <use xlink:href="#icon-arrow"></use>
-                                                    </svg>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="tab-pane fade" id="v-pills-brands" role="tabpanel"
-                                     aria-labelledby="v-pills-brands-tab">...
-                                </div>
-                                <div class="tab-pane fade" id="v-pills-about" role="tabpanel"
-                                     aria-labelledby="v-pills-about-tab">
-                                    <div class="row">
-                                        <div class="col-5 p-5 toggle-nav_col">
-                                            <div class="pills-item">
-                                                <div class="pills-item_text">
-                                                    <p class="pb-3">На сегодняшний день компания «ПАМИРА» имеет в
-                                                        своих магазинах
-                                                        самую большую и современную экспозицию встраиваемой техники
-                                                        в
-                                                        Ростове-на-Дону и Воронеже.</p>
-                                                    <a href="" class="more-btn">
-                                                        <span>Подробнее</span>
-                                                        <svg width="10" height="15">
-                                                            <use xlink:href="#icon-arrow"></use>
-                                                        </svg>
-                                                    </a>
-                                                </div>
-                                                <a href="#"><img src="img/menu/menu-about1.jpg" alt=""></a>
-                                            </div>
-                                        </div>
-                                        <div class="col-7 p-5 toggle-nav_col">
-                                            <div class="pills-item">
-                                                <div class="pills-item_text">
-                                                    <p class="pb-3">Компания «ПАМИРА» основана в 1998 году и на
-                                                        сегодняшний день
-                                                        является одной из ведущих компаний на рынке бытовой и
-                                                        встраиваемой техники Ростова-на-Дону, Ставропольского края и
-                                                        Воронежа.</p>
-                                                    <a href="" class="more-btn">
-                                                        <span>Подробнее</span>
-                                                        <svg width="10" height="15">
-                                                            <use xlink:href="#icon-arrow"></use>
-                                                        </svg>
-                                                    </a>
-                                                </div>
-                                                <div class="d-flex">
-                                                    <a href="#"><img src="img/menu/menu-about2.jpg" alt=""></a>
-                                                    <a href="#"><img src="img/menu/menu-about3.jpg" alt=""></a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-9 p-3 toggle-nav_col">
-                                            <div class="pills-item">
-                                                <div class="d-flex">
-                                                    <a href="#"><img src="img/menu/menu-about4.jpg" alt=""></a>
-                                                    <div class="pills-item_text pl-4">
-                                                        <p class="pb-3">Мы являемся официальными партнерами таких
-                                                            ведущих брендов как:
-                                                            ELECTROLUX, AEG, GORENJE, ZANUSSI, WHIRLPOOL, FRANKE, FABER,
-                                                            SMEG, ASKO, MIDEA, FALMEC, LIEBHERR, KUPPERSBUSCH, FULGOR,
-                                                            KITCHEN AID.</p>
-                                                        <a href="" class="more-btn">
-                                                            <span>Подробнее</span>
-                                                            <svg width="10" height="15">
-                                                                <use xlink:href="#icon-arrow"></use>
-                                                            </svg>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-3 p-3 toggle-nav_col toggle-nav_col">
-                                            <div class="pills-item">
-                                                <a class="more-btn_down" href="#">
-                                                    <span>Смотреть все</span>
-                                                    <svg width="30" height="42">
-                                                        <use xlink:href="#icon-arrow"></use>
-                                                    </svg>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="tab-pane fade" id="v-pills-contacts" role="tabpanel"
-                                     aria-labelledby="v-pills-contacts-tab">
-                                    <div class="row">
-                                        <div class="col-5 p-5 toggle-nav_col">
-                                            <div class="pills-item">
-                                                <a href="#">
-                                                    <div class="pills-item_text">
-                                                        <h4>Ростов-на-Дону</h4>
-                                                    </div>
-                                                    <img src="img/menu/menu-buyers1.jpg" alt="">
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <div class="col-7 p-5 toggle-nav_col">
-                                            <div class="pills-item">
-                                                <a href="#">
-                                                    <div class="pills-item_text">
-                                                        <h4>Воронеж</h4>
-                                                    </div>
-                                                    <div class="d-flex">
-                                                        <img src="img/menu/menu-buyers2.jpg" alt="">
-                                                        <img src="img/menu/menu-buyers3.jpg" alt="">
-                                                    </div>
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <div class="col-9 p-3 toggle-nav_col">
-                                            <div class="pills-item">
-                                                <a href="#" class="d-flex">
-                                                    <img src="img/menu/menu-buyers4.jpg" alt="">
-                                                    <div class="pills-item_text pl-4">
-                                                        <h4>Ставрополь, Пятигорск</h4>
-                                                    </div>
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <div class="col-3 toggle-nav_col p-3 toggle-nav_col">
-                                            <div class="pills-item">
-                                                <a class="more-btn_down" href="#">
-                                                    <span>Смотреть все</span>
-                                                    <svg width="30" height="42">
-                                                        <use xlink:href="#icon-arrow"></use>
-                                                    </svg>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    <?$APPLICATION->IncludeComponent("bitrix:eshop.banner", "", array());?>
 
 
-
-	<div class="workarea">
-		<div class="container bx-content-seection">
-			<div class="row">
-			<?
-			$hideSidebar =
-				defined("HIDE_SIDEBAR") && HIDE_SIDEBAR == true
-				|| preg_match("~^".SITE_DIR."(catalog|personal\\/cart|personal\\/order\\/make)/~", $curPage)
-			? true : false;
-			?>
-				<div class="bx-content <?=($hideSidebar ? "col-xs-12" : "col-md-9 col-sm-8")?>">
+	<main class="main workarea">
+        <section class="top-slider">
+            <? $APPLICATION->IncludeComponent(
+                "bitrix:main.include",
+                "",
+                Array(
+                    "AREA_FILE_SHOW" => "file",
+                    "PATH" => SITE_DIR."include/main_top_slider.php",
+                    "AREA_FILE_RECURSIVE" => "N",
+                    "EDIT_MODE" => "html",
+                ),
+                false,
+                Array('HIDE_ICONS' => 'Y')
+            ); ?>
+        </section>

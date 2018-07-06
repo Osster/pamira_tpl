@@ -1,128 +1,282 @@
 <?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
-					</div>
-					<?if (!$hideSidebar):?>
-					<div class="sidebar col-md-3 col-sm-4">
-						<?$APPLICATION->IncludeComponent(
-							"bitrix:main.include",
-							"",
-							Array(
-								"AREA_FILE_SHOW" => "sect",
-								"AREA_FILE_SUFFIX" => "sidebar",
-								"AREA_FILE_RECURSIVE" => "Y",
-								"EDIT_MODE" => "html",
-							),
-							false,
-							Array('HIDE_ICONS' => 'Y')
-						);?>
-					</div><!--// sidebar -->
-					<?endif?>
-				</div><!--//row-->
-				<?$APPLICATION->IncludeComponent(
-					"bitrix:main.include",
-					"",
-					Array(
-						"AREA_FILE_SHOW" => "sect",
-						"AREA_FILE_SUFFIX" => "bottom",
-						"AREA_FILE_RECURSIVE" => "N",
-						"EDIT_MODE" => "html",
-					),
-					false,
-					Array('HIDE_ICONS' => 'Y')
-				);?>
-			</div><!--//container bx-content-seection-->
-		</div><!--//workarea-->
+
+		</main><!--//workarea-->
+
+<? $APPLICATION->IncludeComponent(
+    "bitrix:main.include",
+    "",
+    Array(
+        "AREA_FILE_SHOW" => "file",
+        "PATH" => SITE_DIR."include/map.php",
+        "AREA_FILE_RECURSIVE" => "N",
+        "EDIT_MODE" => "html",
+    ),
+    false,
+    Array('HIDE_ICONS' => 'Y')
+); ?>
 
 		<footer class="bx-footer">
-			<div class="bx-footer-line">
-				<div class="bx-footer-section container">
-					<?$APPLICATION->IncludeComponent(
-						"bitrix:main.include",
-						"",
-						Array(
-							"AREA_FILE_SHOW" => "file",
-							"PATH" => SITE_DIR."include/socnet_footer.php",
-							"AREA_FILE_RECURSIVE" => "N",
-							"EDIT_MODE" => "html",
-						),
-						false,
-						Array('HIDE_ICONS' => 'Y')
-					);?>
-				</div>
-			</div>
-			<div class="bx-footer-section container bx-center-section">
-				<div class="col-sm-5 col-md-3 col-md-push-6">
-					<h4 class="bx-block-title"><?$APPLICATION->IncludeComponent("bitrix:main.include", "", array("AREA_FILE_SHOW" => "file", "PATH" => SITE_DIR."include/about_title.php"), false);?></h4>
-					<?$APPLICATION->IncludeComponent("bitrix:menu", "bottom_menu", array(
-							"ROOT_MENU_TYPE" => "bottom",
-							"MAX_LEVEL" => "1",
-							"MENU_CACHE_TYPE" => "A",
-							"CACHE_SELECTED_ITEMS" => "N",
-							"MENU_CACHE_TIME" => "36000000",
-							"MENU_CACHE_USE_GROUPS" => "Y",
-							"MENU_CACHE_GET_VARS" => array(
-							),
-						),
-						false
-					);?>
-				</div>
-				<div class="col-sm-5 col-md-3">
-					<h4 class="bx-block-title"><?$APPLICATION->IncludeComponent("bitrix:main.include", "", array("AREA_FILE_SHOW" => "file", "PATH" => SITE_DIR."include/catalog_title.php"), false);?></h4>
-					<?$APPLICATION->IncludeComponent("bitrix:menu", "bottom_menu", array(
-							"ROOT_MENU_TYPE" => "left",
-							"MENU_CACHE_TYPE" => "A",
-							"MENU_CACHE_TIME" => "36000000",
-							"MENU_CACHE_USE_GROUPS" => "Y",
-							"MENU_CACHE_GET_VARS" => array(
-							),
-							"CACHE_SELECTED_ITEMS" => "N",
-							"MAX_LEVEL" => "1",
-							"USE_EXT" => "Y",
-							"DELAY" => "N",
-							"ALLOW_MULTI_SELECT" => "N"
-						),
-						false
-					);?>
-				</div>
-				<div class="col-sm-5 col-md-3 col-md-push-3">
-					<div style="padding: 20px;background:#eaeaeb">
-						<?$APPLICATION->IncludeComponent(
-							"bitrix:main.include",
-							"",
-							Array(
-								"AREA_FILE_SHOW" => "file",
-								"PATH" => SITE_DIR."include/sender.php",
-								"AREA_FILE_RECURSIVE" => "N",
-								"EDIT_MODE" => "html",
-							),
-							false,
-							Array('HIDE_ICONS' => 'Y')
-						);?>
-					</div>
-					<div id="bx-composite-banner" style="padding-top: 20px"></div>
-				</div>
-				<div class="col-sm-5 col-md-3 col-md-pull-9">
-					<div class="bx-inclogofooter">
-						<div class="bx-inclogofooter-block">
-							<a class="bx-inclogofooter-logo" href="<?=htmlspecialcharsbx(SITE_DIR)?>">
-								<?$APPLICATION->IncludeComponent("bitrix:main.include", "", array("AREA_FILE_SHOW" => "file", "PATH" => SITE_DIR."include/company_logo_mobile.php"), false);?>
-							</a>
-						</div>
-						<div class="bx-inclogofooter-block">
-							<div class="bx-inclogofooter-tel"><?$APPLICATION->IncludeComponent("bitrix:main.include", "", array("AREA_FILE_SHOW" => "file", "PATH" => SITE_DIR."include/telephone.php"), false);?></div>
-							<div class="bx-inclogofooter-worktime"><?$APPLICATION->IncludeComponent("bitrix:main.include", "", array("AREA_FILE_SHOW" => "file", "PATH" => SITE_DIR."include/schedule.php"), false);?></div>
-						</div>
-						<div>
-							<?$APPLICATION->IncludeComponent("bitrix:main.include", "", array("AREA_FILE_SHOW" => "file", "PATH" => SITE_DIR."include/personal.php"), false);?>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="bx-footer-bottomline">
-				<div class="bx-footer-section container">
-					<div class="col-sm-6"><?$APPLICATION->IncludeComponent("bitrix:main.include", "", array("AREA_FILE_SHOW" => "file", "PATH" => SITE_DIR."include/copyright.php"), false);?></div>
-					<div class="col-sm-6 bx-up"><a href="javascript:void(0)" data-role="eshopUpButton"><i class="fa fa-caret-up"></i> <?=GetMessage("FOOTER_UP_BUTTON")?></a></div>
-				</div>
-			</div>
+
+            <?if ($APPLICATION->GetCurPage(true) == SITE_DIR."index.php"):?>
+                <div class="bx-footer-line">
+                    <?$APPLICATION->IncludeComponent("bitrix:search.title", "visual", array(
+                        "NUM_CATEGORIES" => "1",
+                        "TOP_COUNT" => "5",
+                        "CHECK_DATES" => "N",
+                        "SHOW_OTHERS" => "N",
+                        "PAGE" => SITE_DIR."catalog/",
+                        "CATEGORY_0_TITLE" => "Товары" ,
+                        "CATEGORY_0" => array(
+                            0 => "iblock_catalog",
+                        ),
+                        "CATEGORY_0_iblock_catalog" => array(
+                            0 => "all",
+                        ),
+                        "CATEGORY_OTHERS_TITLE" => "Прочее",
+                        "SHOW_INPUT" => "Y",
+                        "INPUT_ID" => "title-search-input",
+                        "CONTAINER_ID" => "search",
+                        "PRICE_CODE" => array(
+                            0 => "BASE",
+                        ),
+                        "SHOW_PREVIEW" => "Y",
+                        "PREVIEW_WIDTH" => "75",
+                        "PREVIEW_HEIGHT" => "75",
+                        "CONVERT_CURRENCY" => "Y"
+                    ),
+                        false
+                    );?>
+                </div>
+            <?endif?>
+
+            <?$APPLICATION->IncludeComponent(
+                "bitrix:main.include",
+                "",
+                Array(
+                    "AREA_FILE_SHOW" => "file",
+                    "PATH" => SITE_DIR."include/sender.php",
+                    "AREA_FILE_RECURSIVE" => "N",
+                    "EDIT_MODE" => "html",
+                ),
+                false,
+                Array('HIDE_ICONS' => 'Y')
+            );?>
+
+            <?$APPLICATION->IncludeComponent("bitrix:menu", "bottom_menu", array(
+                "ROOT_MENU_TYPE" => "left",
+                "MENU_CACHE_TYPE" => "A",
+                "MENU_CACHE_TIME" => "36000000",
+                "MENU_CACHE_USE_GROUPS" => "Y",
+                "MENU_CACHE_GET_VARS" => array(
+                ),
+                "CACHE_SELECTED_ITEMS" => "N",
+                "MAX_LEVEL" => "1",
+                "USE_EXT" => "Y",
+                "DELAY" => "N",
+                "ALLOW_MULTI_SELECT" => "N"
+            ),
+                false
+            );?>
+
+            <?$APPLICATION->IncludeComponent("bitrix:sender.subscribe", "", array(
+                "SET_TITLE" => "N"
+            ));?>
+
+
+            <div class="container">
+                <div class="row footer-top">
+                    <div class="col-lg-6">
+                        <div class="footer-top__tite"><a href="#">Каталог</a></div>
+                        <ul class="footer-top__menu ">
+
+                            <li class="footer-top__menu_item ">
+                                <a class="footer-top__menu_item_link" href="#">Сантехника</a>
+                                <ul class="footer-top__menu_level-1">
+                                    <li class="footer-top__menu_level-1_item">
+                                        <a href="" class="footer-top__menu_level-1_item_link">Кухонные мойки</a>
+                                    </li>
+                                    <li class="footer-top__menu_level-1_item">
+                                        <a href="" class="footer-top__menu_level-1_item_link">Смесители</a>
+                                    </li>
+                                    <li class="footer-top__menu_level-1_item">
+                                        <a href="" class="footer-top__menu_level-1_item_link">Дозаторы</a>
+                                    </li>
+                                    <li class="footer-top__menu_level-1_item">
+                                        <a href="" class="footer-top__menu_level-1_item_link">Измельчители</a>
+                                    </li>
+                                    <li class="footer-top__menu_level-1_item">
+                                        <a href="" class="footer-top__menu_level-1_item_link">Сортеры</a>
+                                    </li>
+                                    <li class="footer-top__menu_level-1_item">
+                                        <a href="" class="footer-top__menu_level-1_item_link">Аксессуары</a>
+                                    </li>
+                                </ul>
+                            </li>
+
+                            <li class="footer-top__menu_item order-3">
+                                <a class="footer-top__menu_item_link" href="#">МБТ и Посуда</a>
+                            </li>
+
+                            <li class="footer-top__menu_item ">
+                                <a class="footer-top__menu_item_link" href="#">Техника для кухни</a>
+                                <ul class="footer-top__menu_level-1">
+                                    <li class="footer-top__menu_level-1_item">
+                                        <a href="" class="footer-top__menu_level-1_item_link">Духовые шкафы</a>
+                                    </li>
+                                    <li class="footer-top__menu_level-1_item">
+                                        <a href="" class="footer-top__menu_level-1_item_link">Кухонные блоки</a>
+                                    </li>
+                                    <li class="footer-top__menu_level-1_item">
+                                        <a href="" class="footer-top__menu_level-1_item_link">Варочные поверхности</a>
+                                    </li>
+                                    <li class="footer-top__menu_level-1_item">
+                                        <a href="" class="footer-top__menu_level-1_item_link">Микроволновые печи</a>
+                                    </li>
+                                    <li class="footer-top__menu_level-1_item">
+                                        <a href="" class="footer-top__menu_level-1_item_link">Компактные приборы</a>
+                                    </li>
+                                    <li class="footer-top__menu_level-1_item">
+                                        <a href="" class="footer-top__menu_level-1_item_link">Вытяжки</a>
+                                    </li>
+                                    <li class="footer-top__menu_level-1_item">
+                                        <a href="" class="footer-top__menu_level-1_item_link">Посудомоечные машины</a>
+                                    </li>
+                                    <li class="footer-top__menu_level-1_item">
+                                        <a href="" class="footer-top__menu_level-1_item_link">Холодильное оборудование</a>
+                                    </li>
+                                    <li class="footer-top__menu_level-1_item">
+                                        <a href="" class="footer-top__menu_level-1_item_link">Техника на заказ PREMIUM</a>
+                                    </li>
+                                </ul>
+                            </li>
+
+                            <li class="footer-top__menu_item ">
+                                <a class="footer-top__menu_item_link" href="#">Уход за бельём</a>
+                                <ul class="footer-top__menu_level-1">
+                                    <li class="footer-top__menu_level-1_item">
+                                        <a href="" class="footer-top__menu_level-1_item_link">Стиральные машины</a>
+                                    </li>
+                                    <li class="footer-top__menu_level-1_item">
+                                        <a href="" class="footer-top__menu_level-1_item_link">Сушильные машины</a>
+                                    </li>
+                                    <li class="footer-top__menu_level-1_item">
+                                        <a href="" class="footer-top__menu_level-1_item_link">Сушильные шкафы</a>
+                                    </li>
+                                    <li class="footer-top__menu_level-1_item">
+                                        <a href="" class="footer-top__menu_level-1_item_link">Аксессуары</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="footer-top__menu_item order-2 ">
+                                <a class="footer-top__menu_item_link" href="#">Бренды</a>
+                            </li>
+                            <li class="footer-top__menu_item order-3 ">
+                                <a class="footer-top__menu_item_link" href="#">Перейти в каталог</a>
+                            </li>
+
+                        </ul>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="footer-top__tite"><a href="#">О компании</a></div>
+                        <ul class="footer-top__menu">
+                            <li class="footer-top__menu_item">
+                                <a class="footer-top__menu_item_link" href="#">Мероприятия</a>
+                                <ul class="footer-top__menu_level-1">
+                                    <li class="footer-top__menu_level-1_item">
+                                        <a href="" class="footer-top__menu_level-1_item_link">Мы
+                                            готовим для
+                                            Вас</a>
+                                    </li>
+                                    <li class="footer-top__menu_level-1_item">
+                                        <a href="" class="footer-top__menu_level-1_item_link">Распродажи</a>
+                                    </li>
+                                    <li class="footer-top__menu_level-1_item">
+                                        <a href="" class="footer-top__menu_level-1_item_link">Акции</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="footer-top__menu_item">
+                                <a class="footer-top__menu_item_link" href="#">Покупателю</a>
+                                <ul class="footer-top__menu_level-1">
+                                    <li class="footer-top__menu_level-1_item">
+                                        <a href="" class="footer-top__menu_level-1_item_link">Доставка и установка</a>
+                                    </li>
+                                    <li class="footer-top__menu_level-1_item">
+                                        <a href="" class="footer-top__menu_level-1_item_link">Полезные советы</a>
+                                    </li>
+                                    <li class="footer-top__menu_level-1_item">
+                                        <a href="" class="footer-top__menu_level-1_item_link">Часто задаваемые вопросы</a>
+                                    </li>
+                                    <li class="footer-top__menu_level-1_item">
+                                        <a href="" class="footer-top__menu_level-1_item_link">Гарантия</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="footer-top__menu_item order-1">
+                                <a class="footer-top__menu_item_link" href="#">Контакты</a>
+                            </li>
+                            <li class="footer-top__menu_item">
+                                <a class="footer-top__menu_item_link" href="#">Партнёры</a>
+                                <ul class="footer-top__menu_level-1">
+                                    <li class="footer-top__menu_level-1_item">
+                                        <a href="" class="footer-top__menu_level-1_item_link">Кухни Трио</a>
+                                    </li>
+                                    <li class="footer-top__menu_level-1_item">
+                                        <a href="" class="footer-top__menu_level-1_item_link">Кухни Делия</a>
+                                    </li>
+                                    <li class="footer-top__menu_level-1_item">
+                                        <a href="" class="footer-top__menu_level-1_item_link">Кухни Дриада</a>
+                                    </li>
+                                    <li class="footer-top__menu_level-1_item">
+                                        <a href="" class="footer-top__menu_level-1_item_link">Кухни NOBILIA</a>
+                                    </li>
+                                    <li class="footer-top__menu_level-1_item">
+                                        <a href="" class="footer-top__menu_level-1_item_link">Кухни KUCHENBERG</a>
+                                    </li>
+                                    <li class="footer-top__menu_level-1_item">
+                                        <a href="" class="footer-top__menu_level-1_item_link">Дизайнеры и архитекторы</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                        <div class="row">
+                            <div class="col-lg-7 text-center mb-4 mb-lg-0">
+                                <a href="#" class="btn btn-secondary w-100">Оплата на сайте Visa, MasterCard, МИР</a>
+                            </div>
+                            <div class="col-lg-5 text-center">
+                                <a href="#" class="btn btn-light">Cтать Партнёром</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row footer-bottom">
+                    <div class="col-lg-4 footer-bottom__left">
+                        <p>ПАМИРА является официальными партнерами таких ведущих брендов как:</p>
+                        <p>ELECTROLUX, AEG, GORENJE, ZANUSSI, WHIRLPOOL, FRANKE, FABER, SMEG, ASKO, MIDEA, FALMEC, LIEBHERR,
+                            KUPPERSBUSCH, FULGOR, KITCHEN AID</p>
+                    </div>
+                    <div class="col-lg-4 footer-bottom__mid">
+                        <a href="#">Instagram</a>
+                        <a href="#">facebook</a>
+                    </div>
+                    <div class="col-lg-4 footer-bottom__right">
+                        <p>Обращаем Ваше внимание на то, что данный сайт носит исключительно информационный характер. Информация,
+                            указанная на сайте, не является публичной офертой, определяемой положениями Статей 435 и 437
+                            Гражданского Кодекса РФ. Информация о технических характеристиках товаров, указанная на сайте, может
+                            быть изменена производителем в одностроннем порядке. Изображения товаров на фотографиях, представленных
+                            в каталоге на сайте, могут отличаться от оригиналов.</p>
+                        <a href="#">Согласие на обработку персональных данных</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-copy">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12"><span><?$APPLICATION->IncludeComponent("bitrix:main.include", "", array("AREA_FILE_SHOW" => "file", "PATH" => SITE_DIR."include/copyright.php"), false);?></span></div>
+                    </div>
+                </div>
+            </div>
 
 
 		</footer>
@@ -147,9 +301,13 @@
 		</div>
 	</div> <!-- //bx-wrapper -->
 
+
+
 <?
-$APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH."/js/main.js");
+$APPLICATION->AddHeadScript("https://api-maps.yandex.ru/2.1/?lang=ru_RU");
 ?>
+
+<script src="<?= SITE_TEMPLATE_PATH ?>/js/main.js"></script>
 
 <script>
 	BX.ready(function(){

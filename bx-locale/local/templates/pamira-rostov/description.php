@@ -2,7 +2,7 @@
 $arTemplate = Array(
 	"NAME"=>GetMessage("CSST_TEMPLATE_NAME"), 
 	"EDITOR_STYLES" => array (
-		'/bitrix/css/main/bootstrap.css',
-		'/bitrix/css/main/font-awesome.css',
+		//'/bitrix/css/main/bootstrap.css',
+		//'/bitrix/css/main/font-awesome.css',
 	)
 );?>
