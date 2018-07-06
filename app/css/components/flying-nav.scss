@@ -12,7 +12,10 @@
   z-index: 91;
 
   @include mobile-all() {
-    right: 45px;
+    top: 12px;
+    right: 0;
+    flex-flow: row nowrap;
+    justify-content: flex-end;
   }
 
   &_links {
@@ -27,12 +30,26 @@
       width: 40px;
       height: 40px;
 
+      @include mobile-all() {
+        margin-right: 10px;
+      }
+
 
       svg {
         overflow: visible;
         width: 50%;
       }
     }
+  }
+}
+
+#icon-call,
+#icon-login,
+#icon-selected,
+#icon-baloon,
+#icon-compare {
+  @include mobile-all() {
+    display: none;
   }
 }
 
@@ -72,6 +89,7 @@
       width: 100%;
     }
   }
+
 }
 
 .icon-active{
@@ -323,17 +341,52 @@
     position: absolute;
     bottom: 100px;
     right: 71px;
-    font-size: #{$font_size_h3}px;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
 
     @include mobile-all(){
       bottom: 60px;
       left: 55px;
     }
 
-    &::before{
-      position: absolute;
-      left: -50px;
-      top: -5px;
+    //&::before{
+    //  position: absolute;
+    //  left: -50px;
+    //  top: -5px;
+    //  display: flex;
+    //  flex-direction: row;
+    //  justify-content: center;
+    //  align-items: center;
+    //  flex-wrap: nowrap;
+    //  width: 35px;
+    //  height: 35px;
+    //  content: "-";
+    //  color: $color_white;
+    //  background-color: $color_gray_light;
+    //  cursor: pointer;
+    //}
+    //
+    //&::after{
+    //  position: absolute;
+    //  left: 37px;
+    //  top: -5px;
+    //  display: flex;
+    //  flex-direction: row;
+    //  justify-content: center;
+    //  align-items: center;
+    //  flex-wrap: nowrap;
+    //  width: 35px;
+    //  height: 35px;
+    //  content: "+";
+    //  color: $color_white;
+    //  background-color: $color_gray_light;
+    //  cursor: pointer;
+    //}
+
+    &__minus{
+      margin-right: 15px;
       display: flex;
       flex-direction: row;
       justify-content: center;
@@ -347,22 +400,31 @@
       cursor: pointer;
     }
 
-    &::after{
-      position: absolute;
-      left: 37px;
-      top: -5px;
+    &__number{
+      min-width: 25px;
+      text-align: center;
+      font-size: #{$font_size_h3}px;
+      line-height: 35px;
+    }
+
+    &__plus{
+      margin-left: 15px;
       display: flex;
       flex-direction: row;
       justify-content: center;
       align-items: center;
       flex-wrap: nowrap;
+      //display: inline-block;
       width: 35px;
       height: 35px;
       content: "+";
       color: $color_white;
       background-color: $color_gray_light;
+      background-position: center;
       cursor: pointer;
     }
+
+
   }
 
   .basket-btns {

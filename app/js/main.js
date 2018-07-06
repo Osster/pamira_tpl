@@ -23,6 +23,8 @@
 //= components/main-sections-nav.js
 //= components/flying-nav.js
 //= components/singleItem.js
+//= components/locationPicker.js
+//= components/pushNav.js
 
 $(document).ready(function () {
 

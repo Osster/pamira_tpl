@@ -194,6 +194,8 @@
 }
 
 .wr-contacts-form{
+  position: relative;
+  z-index: 1;
   padding: 100px 15px;
   background-color: $color_black;
 
@@ -218,6 +220,27 @@
     @include mobile-all() {
       margin:0 auto;
       height: 100vh;
+    }
+  }
+
+  img{
+    display: inline-block;
+    position: absolute;
+    top: 1px;
+    right: 1px;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+
+    @include mobile-landscape(){
+      top:2px;
+      right: 4px;
+    }
+
+    @include mobile-portrait(){
+      top:22px;
+      left: 0;
+      right: auto;
     }
   }
 
