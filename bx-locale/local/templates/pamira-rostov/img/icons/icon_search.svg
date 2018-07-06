@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="38" height="38"
+     viewBox="0 0 38 38">
+    <defs>
+        <path id="sx3aa" d="M1820.89 83.36a15.42 15.42 0 1 1 30.84 0 15.42 15.42 0 0 1-30.84 0z"/>
+        <path id="sx3ac" d="M1846.71 93.76l10.86 10.86"/>
+        <clipPath id="sx3ab">
+            <use fill="#fff" xlink:href="#sx3aa"/>
+        </clipPath>
+    </defs>
+    <g>
+        <g transform="translate(-1821 -68)">
+            <g>
+                <g>
+                    <use fill="#fff" fill-opacity="0" stroke="#aaa" stroke-miterlimit="50" stroke-width="2"
+                         clip-path="url(&quot;#sx3ab&quot;)" xlink:href="#sx3aa"/>
+                </g>
+                <g>
+                    <use fill="#fff" xlink:href="#sx3ac"/>
+                    <use fill="#fff" fill-opacity="0" stroke="#aaa" stroke-miterlimit="50" stroke-width="2"
+                         xlink:href="#sx3ac"/>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
