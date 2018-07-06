@@ -316,18 +316,23 @@ header {
   }
 }
 
-.modal-backdrop.show {
-  z-index: 100;
-  opacity: 1;
-  background-color: $color_gray_darkest;
-}
-
 .toggle-nav {
+  background-color: $color_gray_darkest;
+  position: fixed;
+  top: 0;
+  left: -100%;
+  bottom: 0;
+  z-index: 200;
+  overflow: hidden;
+  overflow-y: auto;
+  opacity: 0;
+  width: 100%;
+
+  @include transition(all, 0.5s, ease-in);
+
   &.show {
-    display: block;
-  }
-  .modal-content {
-    border: none;
+    opacity: 1;
+    left: 0;
   }
   .modal-body {
     background-color: $color_gray_darkest;
@@ -335,6 +340,14 @@ header {
     width: 100%;
     z-index: 101;
     padding: 0;
+    height: 560px;
+    max-height: 560px;
+
+    .row,
+    .tab-content,
+    .tab-content .tab-pane {
+      height: 100%;
+    }
   }
 
   &_pills {
@@ -348,7 +361,7 @@ header {
       justify-content: center;
       flex: 1;
       width: 100%;
-      font-size: 40px;
+      font-size: #{$font_size_h1}px;
       line-height: 1;
       text-transform: uppercase;
       font-weight: bold;
@@ -410,17 +423,32 @@ header {
       margin-bottom: 30px;
       h4 {
         font-weight: normal;
-        margin-bottom: 30px;
+        margin-bottom: 15px;
       }
       p {
         line-height: 1.5;
         margin-bottom: 10px;
       }
+      &_img {
+        margin-right: 10px;
+        img {
+          max-width: 100%;
+          object-fit: cover;
+        }
+      }
+
+      .pills-item_text_news {
+        max-height: 6rem;
+        overflow: hidden;
+        margin-bottom: 20px;
+      }
     }
+
     img {
       max-width: 100%;
       object-fit: cover;
     }
+
     .more-btn_down {
       height: 100%;
       font-weight: bold;

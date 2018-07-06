@@ -9,6 +9,7 @@ var topSlider = new Swiper ('.top-slider .swiper-container', {
     // If we need pagination
     pagination: {
         el: '.top-slider .swiper-pagination',
+        clickable: true
     },
 
     // Navigation arrows

@@ -2,7 +2,7 @@
     $(document).ready(function () {
         var $body = $('body');
         var $pNav = $('.pushNav');
-        var $gNav = $('#toggleNav');
+        var $gNav = $('.toggle-nav');
         var $closeBtn = $('.pushNav__header__close');
         var $showPushNav = $('#showPushNav');
         var $menuTree = $pNav.find('.pushNav__content__nav');
@@ -15,8 +15,7 @@
                 } else {
                     $body.removeClass('g-menu-opened');
                 }
-
-                console.log('hasClass(show)', ($gNav.hasClass('show') || $pNav.hasClass('show')));
+                //console.log('hasClass(show)', ($gNav.hasClass('show') || $pNav.hasClass('show')));
             }, 300);
         };
 
@@ -28,10 +27,13 @@
             return false;
         });
 
-        $gNav.on('click', function () {
-            $gNav.toggleClass('show');
-            toggleBodyScrolling();
-            return false;
+        $gNav.on('click', function (e) {
+            if ($gNav.get(0).id === e.target.id) {
+                $gNav.toggleClass('show');
+                toggleBodyScrolling();
+                return false;
+            }
+            //console.log('elem', e);
         });
 
         $showPushNav.off('click').on('click', function (e) {
