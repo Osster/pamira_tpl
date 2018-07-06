@@ -83,14 +83,33 @@ $(document).ready(function () {
     });
 
 
-    //calc
+    //CALC number of products
 
-    var $numberProduct = $('.basket-calc');
+    var $numberProductPlus = $('.basket-calc__plus');
+    var $numberProductMinus = $('.basket-calc__minus');
 
-    $numberProduct.on('click', function () {
+    $numberProductPlus.on('click', function () {
 
+        var $plus = parseInt($(this).prev().text());
+        $numberPlus = $plus + 1;
+        $(this).prev().text($numberPlus);
+
+        return false;
     });
 
+    $numberProductMinus.on('click', function () {
 
+        var $minus = parseInt($(this).next().text());
+
+        if($minus <= 1){
+            $(this).closest('.basket__product').fadeOut(500);
+        }
+        else{
+            $numberMinus = $minus - 1;
+            $(this).next().text($numberMinus);
+        }
+
+        return false;
+    });
 
 });
