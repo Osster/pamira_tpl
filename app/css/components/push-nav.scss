@@ -1,0 +1,220 @@
+// pushNav COMPONENT
+.pushNav {
+  position: fixed;
+  top: 0;
+  left: -100%;
+  bottom: 0;
+  z-index: 100;
+  background-color: $color_gray_darken;
+  overflow: hidden;
+  overflow-y: auto;
+  opacity: 0;
+  @include transition();
+  @include media((
+          width: (all: 300px, lg: 100%)
+  ));
+
+  &.show {
+    opacity: 1;
+    left: 0;
+  }
+
+  &__header {
+    background-color: $color_white_dirty;
+    &__list {
+      padding: 1rem;
+      margin: 0;
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+
+      li {
+        list-style: none;
+        cursor: pointer;
+
+        &:hover {
+          color: $color_red_middle;
+          svg {
+            stroke: $color_red_middle;
+          }
+        }
+      }
+    }
+
+    &__close {
+      color: $color_red_middle;
+    }
+
+  }
+
+  &__filter {
+    background-color: $color_white;
+    padding: 1rem;
+    position: relative;
+    z-index: 10;
+
+    &__label {
+      cursor: pointer;
+
+      &__name {
+        padding-right: 1rem;
+        border-right: 1px solid $color_gray_ligten;
+      }
+      &__value {
+        padding: 0 2rem 0 1rem;
+        position: relative;
+        &:after {
+          display: block;
+          position: absolute;
+          content: '';
+          height: 20px;
+          width: 20px;
+          top: 1px;
+          right: 0;
+          background-image: url("/img/icons/icon-arrow.svg");
+          background-size: contain;
+          background-position: center;
+          background-repeat: no-repeat;
+          cursor: pointer;
+          pointer-events: all;
+          @include transition(0.3s, ease);
+        }
+      }
+
+    }
+    &__dropdown {
+      background-color: $color_white;
+      position: absolute;
+      left: 0;
+      width: 100%;
+      margin: 0;
+      padding: 0.5rem 0;
+      display: none;
+
+      &.show {
+        display: block;
+      }
+
+      li {
+        list-style: none;
+        padding: 0.5rem 1rem;
+        cursor: pointer;
+
+        &:hover {
+          background-color: $color_white_dirty;
+        }
+      }
+    }
+  }
+
+  &__content {
+    &__title {
+      font-weight: 400;
+      text-transform: uppercase;
+      min-height: 40px;
+      line-height: 22px;
+      color: $color_gray_ligten;
+      padding: 13px 20px;
+      //@extend %hx;
+      //@extend .small;
+      @include media((
+              border-top: (all: 1px solid $color_gray_ligten),
+              background-color: (all: $color_gray_darken),
+      ));
+    }
+    &__nav {
+      padding: 0 0 1rem 0;
+      margin: 0;
+
+      &__item {
+        text-transform: uppercase;
+        list-style: none;
+        position: relative;
+        font-weight: 400;
+        min-height: 40px;
+        line-height: 22px;
+        //@extend %hx;
+        //@extend .small;
+
+        @include media((
+                border-top: (all: 1px solid $color_gray_ligten),
+                background-color: (all: $color_gray_darken),
+        ));
+
+        a {
+          padding: 13px 20px;
+          color: $color_gray_ligten;
+          text-decoration: none;
+          display: block;
+          position: relative;
+          top: 0;
+          left: 0;
+          height: 50px;
+          width: calc(100% - 40px);
+        }
+
+        &.active {
+          > ul {
+            max-height: 1000px;
+            margin: 0;
+          }
+        }
+
+        > ul {
+          margin: 0;
+          padding: 0;
+          max-height: 0;
+          overflow: hidden;
+          @include transition();
+
+          > li {
+            list-style: none;
+
+            @include media((
+                    padding: (all: 0 0 0 1rem),
+                    border-top: (all: 1px solid $color_gray_ligten),
+                    background-color: (all: $color_gray_middle),
+                    height: (all: 50px)
+            ));
+
+            a {
+              position: relative;
+            }
+          }
+        }
+
+        &.parent {
+          &:after {
+            @include media((
+                    display: (all: block)
+            ));
+            position: absolute;
+            content: '';
+            height: 20px;
+            width: 20px;
+            right: 20px;
+            top: 15px;
+            background-image: url("/img/icons/icon-plus.svg");
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            transform: rotate(90deg);
+            cursor: pointer;
+            pointer-events: all;
+            @include transition();
+          }
+        }
+
+        &.active {
+          background-color: $color_gray_middle;
+          &:after {
+            background-image: url("/img/icons/icon-minus.svg");
+            transform: rotate(180deg);
+          }
+        }
+      }
+    }
+  }
+}

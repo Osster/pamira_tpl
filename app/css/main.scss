@@ -13,6 +13,10 @@
 
 
 @import "template_styles";
+@import "components/flying-nav";
+@import "components/push-nav";
+@import "components/breadcrumbs";
+@import "components/tab-blocks";
 
 @import "components/brands";
 @import "components/events";
@@ -21,11 +25,8 @@
 @import "components/form-news";
 @import "components/contacts";
 @import "components/map";
-@import "components/flying-nav";
-@import "components/breadcrumbs";
 @import "components/catalog";
 @import "components/catalog-sliders";
 @import "components/filter";
-@import "components/tab-blocks";
 @import "components/ionRange";
 @import "components/single-item";

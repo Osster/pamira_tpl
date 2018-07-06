@@ -6,14 +6,24 @@ header {
   width: 100%;
   padding: 10px 0 0;
 
+  @include mobile-all() {
+    position: fixed;
+  }
+
   .container {
     max-width: #{map-get($container-max-widths, xl)};
+    height: auto;
+
+    @include media((
+            height: (all: 80px, sm: 42px)
+    ));
   }
   .top-row {
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-between;
     align-items: center;
+    height: 100%;
 
     &__toggle-nav {
       > a {
@@ -22,8 +32,14 @@ header {
         background-repeat: no-repeat;
         background-position: center;
         display: block;
+        margin-right: 20px;
         width: 41px;
         height: 35px;
+
+        @include media((
+                width: (all: 41px, sm: 27px),
+                height: (all: 35px, sm: 18px)
+        ));
       }
     }
 
@@ -34,27 +50,27 @@ header {
         background-repeat: no-repeat;
         background-position: center;
         display: block;
-        width: 331px;
-        height: 76px;
+        width: 310px;
+        height: 70px;
+
+        @include media((
+                width: (all: 310px, sm: 140px),
+                height: (all: 70px, sm: 32px),
+                margin-right: (all: 60px, sm: 0)
+        ));
       }
     }
 
     &__location-switcher {
-      &_toggle {
-        display: flex;
-        flex-flow: column nowrap;
-        justify-content: flex-start;
-        align-items: flex-start;
-        color: $color_gray_ligten;
-        font-size: #{$font_size_sm}px;
-        cursor: pointer;
-        .city {
-          border-bottom: 1px solid $color_gray_ligten;
-        }
-        .address {
 
-        }
-      }
+      @include media((
+              display: (all: inline-flex, lg: flex, sm: none),
+              flex-direction: (all: row, lg: column),
+              justify-content: (all:space-between, lg: flex-end),
+              align-items: (all: center, lg: flex-end),
+              margin-right: (all: 0rem, lg: 3rem),
+              width: (all: calc(100% - 330px - 3rem))
+      ));
     }
 
     &__phones {
@@ -91,7 +107,8 @@ header {
     font-family: $font_family_title;
     font-size: #{$font_size_lg}px;
     text-transform: uppercase;
-    padding: 44px 0 12px;
+    padding-top: 35px;
+
     &__list {
       display: flex;
       flex-flow: row nowrap;
@@ -106,6 +123,10 @@ header {
         }
       }
     }
+
+    @include media((
+            display: (xxl:flex, all:flex, lg: none)
+    ));
   }
 
   &.light .top-row {
@@ -154,6 +175,147 @@ header {
   }
 }
 
+// locationPicker COMPONENT
+.locationPicker {
+  padding: 0 0 0.25rem 24px;
+  position: relative;
+  font-size: #{$font_size_sm}px;
+
+  &__label {
+    position: relative;
+    color: $color_gray_ligten;
+
+    &__pointer {
+      position: absolute;
+      left: -28px;
+      top: 6px;
+      width: 24px;
+      height: 24px;
+      svg {
+        stroke: $color_gray_ligten;
+      }
+    }
+    &__city {
+      border-bottom: 1px dashed $color_gray_ligten;
+      display: inline;
+      cursor: pointer;
+      @include transition(0.3s, ease-in-out);
+    }
+    &__address {
+      @include transition(0.3s, ease-in-out);
+    }
+  }
+
+  &__list {
+    background-color: $color_white;
+    position: absolute;
+    left: 0;
+    top: 48px;
+    display: none;
+    opacity: 0;
+    min-width: 250px;
+    width: 100%;
+    padding: 0rem;
+    margin: 0.25rem 0 0 1.5rem;
+    border: 1px solid $color_gray;
+    z-index: 10;
+
+    @include transition(0.3s, ease-in-out);
+
+    &__item {
+      cursor: pointer;
+      list-style: none;
+      padding: 0.5rem 1.5rem;
+
+      &:first-of-type {
+        padding-top: 0.75rem;
+      }
+      &:last-of-type {
+        padding-bottom: 0.75rem;
+      }
+      &:hover {
+        background-color: $color_gray_ligten;
+        color: $color_white;
+      }
+      &.active {
+        background-color: $color_gray;
+        color: $color_white;
+      }
+    }
+  }
+
+  &.show &__list {
+    display: block;
+    opacity: 0.95;
+  }
+
+  &:hover &__label {
+    color: $color_red_middle;
+    &__city {
+      border-bottom: 1px dashed $color_red_middle;
+    }
+  }
+  &:hover &__label {
+    svg {
+      stroke: $color_red_middle;
+    }
+  }
+}
+
+// phoneList COMPONENT
+.phoneList {
+  padding: 0;
+  margin: 0;
+  font-size: #{$font_size_sm}px;
+
+  @include media((
+          display: (all:flex, md: none),
+          flex-direction: (all: row),
+          justify-content: (all: space-between, lg: flex-end)
+  ));
+
+  &__item {
+    color: $color_gray_ligten;
+    display: inline-flex;
+    flex-flow: column nowrap;
+    align-items: flex-end;
+    padding: 0.5rem 0 0.5rem 2rem;
+    @include media((
+            display: (all: inline-flex, xl: flex)
+    ));
+
+    &__phone {
+      //@extend .large;
+      border-bottom: 1px dashed $color_gray_ligten;
+      cursor: pointer;
+      text-decoration: none;
+      white-space: nowrap;
+      @include transition(0.3s, ease-in-out);
+    }
+
+    &__label {
+      @extend .small;
+      @include media((
+              display: (xxl:inline-flex, all:inline-flex, lg: none)
+      ));
+    }
+
+    &:hover &__phone {
+      color: $color_red_middle;
+      border-bottom: 1px dashed $color_red_middle;
+      text-decoration: none;
+    }
+
+    &:hover &__label {
+      color: $color_red_middle;
+    }
+
+    @include media((
+            padding-left: (xxl:2rem, all:1rem, lg: 1rem)
+    ));
+  }
+}
+
 .modal-backdrop.show {
   z-index: 100;
   opacity: 1;
@@ -161,6 +323,9 @@ header {
 }
 
 .toggle-nav {
+  &.show {
+    display: block;
+  }
   .modal-content {
     border: none;
   }
