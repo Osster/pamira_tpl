@@ -1,13 +1,4 @@
 $(document).ready(function () {
-    // var singleSwiper = new Swiper('.single-item_imgs .swiper-container', {
-    //     direction: 'vertical',
-    //     loop: 'true',
-    //     // Navigation arrows
-    //     navigation: {
-    //         nextEl: '.single-item_imgs .swiper-button-next',
-    //         prevEl: '.single-item_imgs .swiper-button-prev',
-    //     },
-    // });
 
     var singleSwiper = new Swiper('.single-item_imgs_main', {
         spaceBetween: 20,
@@ -23,7 +14,13 @@ $(document).ready(function () {
         touchRatio: 0.2,
         slideToClickedSlide: true,
     });
-    singleSwiper.controller.control = singleSwiperThumbs;
-    singleSwiperThumbs.controller.control = singleSwiper;
 
+    if (singleSwiper.controller && singleSwiperThumbs.controller) {
+        singleSwiper.controller.control = singleSwiperThumbs;
+        singleSwiperThumbs.controller.control = singleSwiper;
+
+        singleSwiper.on('click', function (e) {
+            console.log('galleryTop click', e, singleSwiper.clickedSlide);
+        });
+    }
 });

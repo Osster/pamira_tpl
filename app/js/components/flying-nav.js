@@ -99,7 +99,7 @@ $(document).ready(function () {
         $numberPlus = $plus + 1;
         $(this).prev().text($numberPlus);
 
-        return false;
+        return false
     });
 
     $numberProductMinus.on('click', function () {
@@ -114,7 +114,32 @@ $(document).ready(function () {
             $(this).next().text($numberMinus);
         }
 
-        return false;
+        return false
+    });
+
+
+    //HIDE PRODUTS
+
+    var $hideProduct = $('.basket__title');
+
+    $hideProduct.on('click', function () {
+
+        if ($(this).hasClass('direction-arrow')){
+
+            $(this).toggleClass('direction-arrow');
+            $(this).siblings().toggleClass('hide-products');
+        }
+        else {
+
+            //$(this).animate({'margin-top':0},500);
+            $(this).addClass('title-margin');
+            $(this).toggleClass('direction-arrow');
+            $(this).siblings().toggleClass('hide-products');
+        }
+
+        //$(this).toggleClass('direction-arrow').delay(1000).siblings().toggleClass('hide-products');
+
+        return false
     });
 
 });
