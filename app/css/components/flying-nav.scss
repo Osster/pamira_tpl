@@ -12,7 +12,10 @@
   z-index: 91;
 
   @include mobile-all() {
-    right: 45px;
+    top: 12px;
+    right: 0;
+    flex-flow: row nowrap;
+    justify-content: flex-end;
   }
 
   &_links {
@@ -27,12 +30,26 @@
       width: 40px;
       height: 40px;
 
+      @include mobile-all() {
+        margin-right: 10px;
+      }
+
 
       svg {
         overflow: visible;
         width: 50%;
       }
     }
+  }
+}
+
+#icon-call,
+#icon-login,
+#icon-selected,
+#icon-baloon,
+#icon-compare {
+  @include mobile-all() {
+    display: none;
   }
 }
 

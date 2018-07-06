@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="44" height="50"
+     viewBox="0 0 44 50">
+    <defs>
+        <path id="f2d6a" d="M669 95c0-1 1-2 2-2h39.84c1 0 2 1 2 2v46c0 1-1 2-2 2H671c-1 0-2-1-2-2z"/>
+        <path id="f2d6b" d="M675.85 121.77a15.07 15.07 0 1 1 30.14 0 15.07 15.07 0 0 1-30.14 0z"/>
+        <path id="f2d6e" d="M701.15 100.25a2.46 2.46 0 1 1 4.92 0 2.46 2.46 0 0 1-4.92 0z"/>
+        <path id="f2d6f" d="M676.15 100.25a2.46 2.46 0 1 1 4.92 0 2.46 2.46 0 0 1-4.92 0z"/>
+        <path id="f2d6g" d="M688.15 100.25a2.46 2.46 0 1 1 4.92 0 2.46 2.46 0 0 1-4.92 0z"/>
+        <path id="f2d6h" d="M685.25 127.92s-7.44-13.95 4.65-7.9c12.1 6.04 6.98-4.65 6.98-4.65"/>
+        <clipPath id="f2d6c">
+            <use fill="#fff" xlink:href="#f2d6a"/>
+        </clipPath>
+        <clipPath id="f2d6d">
+            <use fill="#fff" xlink:href="#f2d6b"/>
+        </clipPath>
+    </defs>
+    <g>
+        <g transform="translate(-669 -93)">
+            <g>
+                <g>
+                    <use fill="#fff" fill-opacity="0" stroke="#aaa" stroke-miterlimit="50" stroke-width="4"
+                         clip-path="url(&quot;#f2d6c&quot;)" xlink:href="#f2d6a"/>
+                </g>
+                <g>
+                    <use fill="#fff" fill-opacity="0" stroke="#aaa" stroke-miterlimit="50" stroke-width="4"
+                         clip-path="url(&quot;#f2d6d&quot;)" xlink:href="#f2d6b"/>
+                </g>
+                <g>
+                    <use fill="#aaa" xlink:href="#f2d6e"/>
+                </g>
+                <g>
+                    <use fill="#aaa" xlink:href="#f2d6e"/>
+                </g>
+                <g>
+                    <use fill="#aaa" xlink:href="#f2d6f"/>
+                </g>
+                <g>
+                    <use fill="#aaa" xlink:href="#f2d6g"/>
+                </g>
+            </g>
+            <g>
+                <use fill="#fff" fill-opacity="0" stroke="#95989a" stroke-miterlimit="50" stroke-width="2"
+                     xlink:href="#f2d6h"/>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="41" height="33"
+     viewBox="0 0 41 33">
+    <defs>
+        <path id="7r5ia" d="M365.5 34.5h39.9"/>
+        <path id="7r5ib" d="M365.5 47.5h39.9"/>
+        <path id="7r5ic" d="M365.5 60.49h39.9"/>
+    </defs>
+    <g>
+        <g transform="translate(-365 -31)">
+            <use fill="#fff" fill-opacity="0" stroke="#bf000c" stroke-miterlimit="50" stroke-width="6"
+                 xlink:href="#7r5ia"/>
+        </g>
+        <g transform="translate(-365 -31)">
+            <use fill="#fff" fill-opacity="0" stroke="#bf000c" stroke-miterlimit="50" stroke-width="6"
+                 xlink:href="#7r5ib"/>
+        </g>
+        <g transform="translate(-365 -31)">
+            <use fill="#fff" fill-opacity="0" stroke="#858585" stroke-miterlimit="50" stroke-width="6"
+                 xlink:href="#7r5ic"/>
+        </g>
+    </g>
+</svg>

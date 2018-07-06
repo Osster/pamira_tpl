@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-11647.254 -3374.242 47.093 40.198">
+    <defs>
+        <style>
+            .cls-1, .cls-2, .cls-4 {
+            fill: none;
+            }
+
+            .cls-1, .cls-2 {
+            stroke: #aaa;
+            }
+
+            .cls-1 {
+            stroke-width: 2px;
+            }
+
+            .cls-3 {
+            stroke: none;
+            }
+        </style>
+    </defs>
+    <g id="Group_593" data-name="Group 593" transform="translate(-11645.422 -3373.243)">
+        <path id="Path_261" data-name="Path 261" class="cls-1"
+              d="M-408,1811.089a11.585,11.585,0,0,0,.7-3.5,30.029,30.029,0,0,1,1.785-11.646c3.1-5.71,9.058-9.994,18.127-9.994,6.35,0,9.787.958,11.8,2.179,9.336,4.79,9.937,15.61,5.654,21.922,0,0-5.034,7.814-20.091,6.287-1.206-.047-5.048-.412-5.927-.506a18.58,18.58,0,0,0-4.012-.094l-.14.015c-2.013.21-5.409,2.6-5.409,2.6l-6.086,4.283,3.605-11.545Z"
+              transform="translate(411.609 -1785.948)"/>
+        <g id="Ellipse_24" data-name="Ellipse 24" class="cls-2" transform="translate(14.328 12.765)">
+            <ellipse class="cls-3" cx="2.267" cy="2.267" rx="2.267" ry="2.267"/>
+            <ellipse class="cls-4" cx="2.267" cy="2.267" rx="1.767" ry="1.767"/>
+        </g>
+        <g id="Ellipse_25" data-name="Ellipse 25" class="cls-2" transform="translate(22.803 12.765)">
+            <ellipse class="cls-3" cx="2.267" cy="2.267" rx="2.267" ry="2.267"/>
+            <ellipse class="cls-4" cx="2.267" cy="2.267" rx="1.767" ry="1.767"/>
+        </g>
+        <g id="Ellipse_26" data-name="Ellipse 26" class="cls-2" transform="translate(31.277 12.765)">
+            <ellipse class="cls-3" cx="2.267" cy="2.267" rx="2.267" ry="2.267"/>
+            <ellipse class="cls-4" cx="2.267" cy="2.267" rx="1.767" ry="1.767"/>
+        </g>
+    </g>
+</svg>

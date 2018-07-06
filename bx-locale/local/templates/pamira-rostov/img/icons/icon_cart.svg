@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-11650.176 -3798.496 44.295 44.8">
+    <defs>
+        <style>
+            .cls-1, .cls-2, .cls-4 {
+            fill: none;
+            }
+
+            .cls-1, .cls-2 {
+            stroke: #aaa;
+            }
+
+            .cls-1 {
+            stroke-width: 2px;
+            }
+
+            .cls-3 {
+            stroke: none;
+            }
+        </style>
+    </defs>
+    <g id="Group_594" data-name="Group 594" transform="translate(-11649.904 -3798.076)">
+        <g id="Rectangle_807" data-name="Rectangle 807" class="cls-1" transform="translate(11.296 15.549)">
+            <rect class="cls-3" width="32.728" height="19.481"/>
+            <rect class="cls-4" x="1" y="1" width="30.728" height="17.481"/>
+        </g>
+        <g id="Ellipse_22" data-name="Ellipse 22" class="cls-2" transform="translate(14.413 36.588)">
+            <ellipse class="cls-3" cx="3.896" cy="3.896" rx="3.896" ry="3.896"/>
+            <ellipse class="cls-4" cx="3.896" cy="3.896" rx="3.396" ry="3.396"/>
+        </g>
+        <g id="Ellipse_23" data-name="Ellipse 23" class="cls-2" transform="translate(33.114 36.588)">
+            <ellipse class="cls-3" cx="3.896" cy="3.896" rx="3.896" ry="3.896"/>
+            <ellipse class="cls-4" cx="3.896" cy="3.896" rx="3.396" ry="3.396"/>
+        </g>
+        <path id="Path_257" data-name="Path 257" class="cls-2" d="M-372.32,1585.427l-.882-10.058-11.294-7.323"
+              transform="translate(384.496 -1568.046)"/>
+    </g>
+</svg>
