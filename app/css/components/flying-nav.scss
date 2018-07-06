@@ -194,6 +194,8 @@
     font-size: #{$font_size_h2_max}px;
     font-weight: 600;
     letter-spacing: 0.28px;
+    cursor: pointer;
+    transition: margin-top 0.2s ease;
 
     @include mobile-all(){
       margin-top: 10px;
@@ -212,12 +214,17 @@
       background-repeat: no-repeat;
       background-position: center;
       cursor: pointer;
-      transition: transform 0.5s ease;
+      transition: transform 0.7s ease;
     }
 
   }
 
+  .title-margin{
+    margin-top: 0;
+  }
+
   .direction-arrow{
+    //margin-top: 0;
 
     &::after{
       transform: rotateX(180deg);

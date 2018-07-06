@@ -124,8 +124,20 @@ $(document).ready(function () {
 
     $hideProduct.on('click', function () {
 
-        $(this).toggleClass('direction-arrow');
-        $(this).siblings().toggleClass('hide-products');
+        if ($(this).hasClass('direction-arrow')){
+
+            $(this).toggleClass('direction-arrow');
+            $(this).siblings().toggleClass('hide-products');
+        }
+        else {
+
+            //$(this).animate({'margin-top':0},500);
+            $(this).addClass('title-margin');
+            $(this).toggleClass('direction-arrow');
+            $(this).siblings().toggleClass('hide-products');
+        }
+
+        //$(this).toggleClass('direction-arrow').delay(1000).siblings().toggleClass('hide-products');
 
         return false
     });
