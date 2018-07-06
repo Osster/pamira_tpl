@@ -194,6 +194,8 @@
 }
 
 .wr-contacts-form{
+  position: relative;
+  z-index: 1;
   padding: 100px 15px;
   background-color: $color_black;
 
@@ -221,6 +223,27 @@
     }
   }
 
+  img{
+    display: inline-block;
+    position: absolute;
+    top: 1px;
+    right: 1px;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+
+    @include mobile-landscape(){
+      top:2px;
+      right: 4px;
+    }
+
+    @include mobile-portrait(){
+      top:22px;
+      left: 0;
+      right: auto;
+    }
+  }
+
   .form-questions{
     display: flex;
     flex-direction: column;
@@ -245,13 +268,13 @@
         color: $color_gray_middle;
         margin-bottom: 65px;
 
-        @include mobile-all() {
+        @include mobile-portrait() {
           margin-bottom: 35px;
         }
 
         @include mobile-landscape() {
           margin-bottom: 15px;
-          margin-top: -35px;
+          margin-top: -48px;
         }
       }
     }
