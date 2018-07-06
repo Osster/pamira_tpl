@@ -1,17 +1,17 @@
-  /**
-   * Swiper 3.0.0
-   * Most modern mobile touch slider and framework with hardware accelerated transitions
-   *
-   * http://www.idangero.us/swiper/
-   *
-   * Copyright 2015, Vladimir Kharlampidi
-   * The iDangero.us
-   * http://www.idangero.us/
-   *
-   * Licensed under MIT
-   *
-   * Released on: February 13, 2015
-   */
+/**
+ * Swiper 3.0.0
+ * Most modern mobile touch slider and framework with hardware accelerated transitions
+ *
+ * http://www.idangero.us/swiper/
+ *
+ * Copyright 2015, Vladimir Kharlampidi
+ * The iDangero.us
+ * http://www.idangero.us/
+ *
+ * Licensed under MIT
+ *
+ * Released on: February 13, 2015
+ */
 .swiper-container {
   margin: 0 auto;
   position: relative;
@@ -19,6 +19,7 @@
   /* Fix of Webkit flickering */
   z-index: 1;
 }
+
 .swiper-container-vertical > .swiper-wrapper {
   -webkit-box-orient: vertical;
   -moz-box-orient: vertical;
@@ -26,6 +27,7 @@
   -webkit-flex-direction: column;
   flex-direction: column;
 }
+
 .swiper-wrapper {
   position: relative;
   width: 100%;
@@ -54,6 +56,7 @@
   -moz-box-sizing: content-box;
   box-sizing: content-box;
 }
+
 .swiper-container-multirow > .swiper-wrapper {
   -webkit-box-lines: multiple;
   -moz-box-lines: multiple;
@@ -61,6 +64,7 @@
   -webkit-flex-wrap: wrap;
   flex-wrap: wrap;
 }
+
 .swiper-container-free-mode > .swiper-wrapper {
   -webkit-transition-timing-function: ease-out;
   -moz-transition-timing-function: ease-out;
@@ -69,6 +73,7 @@
   transition-timing-function: ease-out;
   margin: 0 auto;
 }
+
 .swiper-slide {
   -webkit-transform-style: preserve-3d;
   -moz-transform-style: preserve-3d;
@@ -81,15 +86,18 @@
   height: 100%;
   position: relative;
 }
+
 /* IE10 Windows Phone 8 Fixes */
 .swiper-wp8-horizontal {
   -ms-touch-action: pan-y;
   touch-action: pan-y;
 }
+
 .swiper-wp8-vertical {
   -ms-touch-action: pan-x;
   touch-action: pan-x;
 }
+
 /* Arrows */
 .swiper-button-prev,
 .swiper-button-next {
@@ -106,39 +114,47 @@
   background-position: center;
   background-repeat: no-repeat;
 }
+
 .swiper-button-prev.swiper-button-disabled,
 .swiper-button-next.swiper-button-disabled {
   opacity: 0.35;
   cursor: auto;
 }
+
 .swiper-button-prev,
 .swiper-container-rtl .swiper-button-next {
   background-image: url("data:image/svg+xml;charset=utf-8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 27 44'><path d='M0,22L22,0l2.1,2.1L4.2,22l19.9,19.9L22,44L0,22L0,22L0,22z' fill='%23BF000C'/></svg>");
   left: 10px;
   right: auto;
 }
+
 .swiper-button-prev.swiper-button-black,
 .swiper-container-rtl .swiper-button-next.swiper-button-black {
   background-image: url("data:image/svg+xml;charset=utf-8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 27 44'><path d='M0,22L22,0l2.1,2.1L4.2,22l19.9,19.9L22,44L0,22L0,22L0,22z' fill='%23000000'/></svg>");
 }
+
 .swiper-button-prev.swiper-button-white,
 .swiper-container-rtl .swiper-button-next.swiper-button-white {
   background-image: url("data:image/svg+xml;charset=utf-8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 27 44'><path d='M0,22L22,0l2.1,2.1L4.2,22l19.9,19.9L22,44L0,22L0,22L0,22z' fill='%23ffffff'/></svg>");
 }
+
 .swiper-button-next,
 .swiper-container-rtl .swiper-button-prev {
   background-image: url("data:image/svg+xml;charset=utf-8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 27 44'><path d='M27,22L27,22L5,44l-2.1-2.1L22.8,22L2.9,2.1L5,0L27,22L27,22z' fill='%23BF000C'/></svg>");
   right: 10px;
   left: auto;
 }
+
 .swiper-button-next.swiper-button-black,
 .swiper-container-rtl .swiper-button-prev.swiper-button-black {
   background-image: url("data:image/svg+xml;charset=utf-8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 27 44'><path d='M27,22L27,22L5,44l-2.1-2.1L22.8,22L2.9,2.1L5,0L27,22L27,22z' fill='%23000000'/></svg>");
 }
+
 .swiper-button-next.swiper-button-white,
 .swiper-container-rtl .swiper-button-prev.swiper-button-white {
   background-image: url("data:image/svg+xml;charset=utf-8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 27 44'><path d='M27,22L27,22L5,44l-2.1-2.1L22.8,22L2.9,2.1L5,0L27,22L27,22z' fill='%23ffffff'/></svg>");
 }
+
 /* Pagination Styles */
 .swiper-pagination {
   position: absolute;
@@ -153,9 +169,11 @@
   transform: translate3d(0, 0, 0);
   z-index: 1000000000000000;
 }
+
 .swiper-pagination.swiper-pagination-hidden {
   opacity: 0;
 }
+
 .swiper-pagination-bullet {
   width: 12px;
   height: 12px;
@@ -164,22 +182,28 @@
   background: #000;
   opacity: 0.2;
 }
+
 .swiper-pagination-clickable .swiper-pagination-bullet {
   cursor: pointer;
 }
+
 .swiper-pagination-white .swiper-pagination-bullet {
   background: #fff;
 }
+
 .swiper-pagination-bullet-active {
   opacity: 1;
   background: $color_red_middle;
 }
+
 .swiper-pagination-white .swiper-pagination-bullet-active {
   background: #fff;
 }
+
 .swiper-pagination-black .swiper-pagination-bullet-active {
   background: #000;
 }
+
 .swiper-container-vertical > .swiper-pagination {
   right: 10px;
   top: 50%;
@@ -189,18 +213,22 @@
   -ms-transform: translate3d(0px, -50%, 0);
   transform: translate3d(0px, -50%, 0);
 }
+
 .swiper-container-vertical > .swiper-pagination .swiper-pagination-bullet {
   margin: 5px 0;
   display: block;
 }
+
 .swiper-container-horizontal > .swiper-pagination {
   bottom: 10px;
   left: 0;
   width: 100%;
 }
+
 .swiper-container-horizontal > .swiper-pagination .swiper-pagination-bullet {
   margin: 0 5px;
 }
+
 /* 3D Container */
 .swiper-container-3d {
   -webkit-perspective: 1200px;
@@ -208,6 +236,7 @@
   -o-perspective: 1200px;
   perspective: 1200px;
 }
+
 .swiper-container-3d .swiper-wrapper,
 .swiper-container-3d .swiper-slide,
 .swiper-container-3d .swiper-slide-shadow-left,
@@ -220,6 +249,7 @@
   -ms-transform-style: preserve-3d;
   transform-style: preserve-3d;
 }
+
 .swiper-container-3d .swiper-slide-shadow-left,
 .swiper-container-3d .swiper-slide-shadow-right,
 .swiper-container-3d .swiper-slide-shadow-top,
@@ -232,6 +262,7 @@
   pointer-events: none;
   z-index: 10;
 }
+
 .swiper-container-3d .swiper-slide-shadow-left {
   background-image: -webkit-gradient(linear, left top, right top, from(rgba(0, 0, 0, 0.5)), to(rgba(0, 0, 0, 0)));
   /* Safari 4+, Chrome */
@@ -244,6 +275,7 @@
   background-image: linear-gradient(to left, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
   /* Firefox 16+, IE10, Opera 12.50+ */
 }
+
 .swiper-container-3d .swiper-slide-shadow-right {
   background-image: -webkit-gradient(linear, right top, left top, from(rgba(0, 0, 0, 0.5)), to(rgba(0, 0, 0, 0)));
   /* Safari 4+, Chrome */
@@ -256,6 +288,7 @@
   background-image: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
   /* Firefox 16+, IE10, Opera 12.50+ */
 }
+
 .swiper-container-3d .swiper-slide-shadow-top {
   background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.5)), to(rgba(0, 0, 0, 0)));
   /* Safari 4+, Chrome */
@@ -268,6 +301,7 @@
   background-image: linear-gradient(to top, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
   /* Firefox 16+, IE10, Opera 12.50+ */
 }
+
 .swiper-container-3d .swiper-slide-shadow-bottom {
   background-image: -webkit-gradient(linear, left bottom, left top, from(rgba(0, 0, 0, 0.5)), to(rgba(0, 0, 0, 0)));
   /* Safari 4+, Chrome */
@@ -280,11 +314,13 @@
   background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
   /* Firefox 16+, IE10, Opera 12.50+ */
 }
+
 /* Coverflow */
 .swiper-container-coverflow .swiper-wrapper {
   /* Windows 8 IE 10 fix */
   -ms-perspective: 1200px;
 }
+
 /* Fade */
 .swiper-container-fade.swiper-container-free-mode .swiper-slide {
   -webkit-transition-timing-function: ease-out;
@@ -293,16 +329,20 @@
   -o-transition-timing-function: ease-out;
   transition-timing-function: ease-out;
 }
+
 .swiper-container-fade .swiper-slide {
   pointer-events: none;
 }
+
 .swiper-container-fade .swiper-slide-active {
   pointer-events: auto;
 }
+
 /* Cube */
 .swiper-container-cube {
   overflow: visible;
 }
+
 .swiper-container-cube .swiper-slide {
   pointer-events: none;
   visibility: hidden;
@@ -317,12 +357,14 @@
   width: 100%;
   height: 100%;
 }
+
 .swiper-container-cube.swiper-container-rtl .swiper-slide {
   -webkit-transform-origin: 100% 0;
   -moz-transform-origin: 100% 0;
   -ms-transform-origin: 100% 0;
   transform-origin: 100% 0;
 }
+
 .swiper-container-cube .swiper-slide-active,
 .swiper-container-cube .swiper-slide-next,
 .swiper-container-cube .swiper-slide-prev,
@@ -330,6 +372,7 @@
   pointer-events: auto;
   visibility: visible;
 }
+
 .swiper-container-cube .swiper-cube-shadow {
   position: absolute;
   left: 0;
@@ -341,9 +384,11 @@
   -webkit-filter: blur(50px);
   filter: blur(50px);
 }
+
 .swiper-container-cube.swiper-container-vertical .swiper-cube-shadow {
   z-index: 0;
 }
+
 /* Scrollbar */
 .swiper-scrollbar {
   border-radius: 10px;
@@ -351,6 +396,7 @@
   -ms-touch-action: none;
   background: rgba(0, 0, 0, 0.1);
 }
+
 .swiper-container-horizontal > .swiper-scrollbar {
   position: absolute;
   left: 1%;
@@ -359,6 +405,7 @@
   height: 5px;
   width: 98%;
 }
+
 .swiper-container-vertical > .swiper-scrollbar {
   position: absolute;
   right: 3px;
@@ -367,6 +414,7 @@
   width: 5px;
   height: 98%;
 }
+
 .swiper-scrollbar-drag {
   height: 100%;
   width: 100%;
@@ -376,7 +424,37 @@
   left: 0;
   top: 0;
 }
+
 .swiper-scrollbar-cursor-drag {
   cursor: move;
 }
 
+@include mobile-all() {
+  .swiper-container {
+    .swiper-button-prev {
+      z-index: 151;
+      left: 30px;
+      transform: rotate(90deg);
+      background-image: url("data:image/svg+xml;charset=utf-8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 27 44'><path d='M14,20.672,0,4.744,4.17,0,14,11.183,23.83,0,28,4.744Z' fill='%23BF000C'/></svg>");
+    }
+    .swiper-button-next {
+      z-index: 152;
+      right: 30px;
+      transform: rotate(-90deg);
+      background-image: url("data:image/svg+xml;charset=utf-8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 27 44'><path d='M14,20.672,0,4.744,4.17,0,14,11.183,23.83,0,28,4.744Z' fill='%23BF000C'/></svg>");
+    }
+
+    .swiper-button-prev,
+    .swiper-button-next {
+      top: auto;
+      bottom: 10px;
+      background-size: cover;
+      width: 24px;
+      height: 24px;
+      background-position: 0 0;
+    }
+    .swiper-pagination {
+      z-index: 150;
+    }
+  }
+}

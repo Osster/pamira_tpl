@@ -18,6 +18,7 @@
 //= components/sliderText.js
 //= components/catalogBrandSlider.js
 //= components/map.js
+//= components/mapMenu.js
 //= components/filter.js
 //= scripts/ion.rangeSlider.js
 //= components/main-sections-nav.js

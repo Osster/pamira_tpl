@@ -7,12 +7,17 @@
 
   @include mobile-all() {
     height: 400px;
+    height: 100vh;
+    position: relative;
   }
 }
 
 .wr-map {
   position: relative;
   height: 892px;
+  @include mobile-all() {
+    height: auto;
+  }
 
   .map_menu {
     height: 100%;
@@ -45,6 +50,9 @@
       &.closed {
         h3 {
           background-color: $color_gray_middle;
+        }
+        .map-item_content {
+          display: none;
         }
       }
     }

@@ -253,7 +253,7 @@ a {
     padding: 100px 0 50px;
 
     @include mobile-all(){
-      padding: 5px 0;
+      padding: 20px 0;
     }
 
     .container {
@@ -263,6 +263,7 @@ a {
     &_heading {
       text-align: center;
       margin-bottom: 50px;
+
       &_title {
         color: $color_gray_middle;
         font-family: $font_family_title;
@@ -271,11 +272,19 @@ a {
         font-weight: 700;
         letter-spacing: 0.72px;
         margin-bottom: 30px;
+
+        @include mobile-all() {
+          font-size: #{$font_size_md}px;
+        }
       }
       &_desc {
         width: 670px;
         margin: auto;
         text-align: left;
+        @include mobile-all() {
+          width: 100%;
+          text-align: center;
+        }
         &_center{
           text-align: center;
         }

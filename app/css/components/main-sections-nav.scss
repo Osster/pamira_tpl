@@ -10,9 +10,16 @@
 
   &_level-0 {
     margin-bottom: 60px;
+    @include mobile-all() {
+      margin-bottom: 0;
+    }
 
     .main_sections-nav_card {
       color: $color_white_dirty;
+
+      @include mobile-all() {
+        padding: 10px 20px 30px;
+      }
 
       &.active,
       &:hover {
@@ -42,7 +49,17 @@
     padding: 60px 0 30px;
 
     @include mobile-all() {
-      padding: 50px 0 5px;
+      padding: 30px 5px 0;
+
+      .main_sections-nav_card_content {
+        svg {
+          width: 30px;
+          height: 30px;
+        }
+        .label {
+          font-size: #{$font_size_sm}px;
+        }
+      }
     }
   }
 
@@ -58,6 +75,11 @@
       display: block;
       text-transform: uppercase;
       margin: 25px 0;
+      text-align: center;
+
+      @include mobile-all() {
+        margin: 20px 0 0;
+      }
     }
 
     &:hover {
@@ -75,20 +97,10 @@
       padding-bottom: 15px;
     }
 
-    //.pic {
-    //
-    //  @include mobile-all() {
-    //    margin-bottom: 0;
-    //    position: absolute;
-    //    height: 50px;
-    //  }
-    //}
-
     .label {
 
       @include mobile-all() {
         margin-left: 85px;
-        //font-size: #{$font_size_sm}px;
       }
     }
   }
