@@ -6,6 +6,10 @@
   justify-content: space-between;
   height: 100%;
 
+  @include mobile-all() {
+    position: relative;
+  }
+
 
   &_text {
     color: $color_white;
@@ -65,6 +69,14 @@
   &_full {
     margin-bottom: 1.5rem;
 
+    @include mobile-all() {
+      .card-item_img {
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+    }
+
     .card-item_text {
       width: 380px;
       background-color: $color_gray_opacity60;
@@ -81,7 +93,14 @@
       transition: all 0.3s ease;
 
       @include mobile-all() {
+        text-align: center;
         padding: 20px 30px;
+        width: 100%;
+        position: relative;
+
+        .card-item_text_link {
+          margin-bottom: 0;
+        }
       }
 
       &:hover {
@@ -90,6 +109,7 @@
         background-color: $color_red_middle;
 
         @include mobile-all() {
+          width: 100%;
           padding: 20px 30px;
         }
 
@@ -104,6 +124,10 @@
         right: 0;
         left: auto;
 
+        @include mobile-all() {
+          text-align: center;
+        }
+
         &:hover {
           padding: 110px 70px 110px 90px;
         }
@@ -114,6 +138,9 @@
         width: 520px;
         padding: 70px 60px;
         text-align: center;
+        @include mobile-all() {
+          width: 100%;
+        }
 
         &:hover {
           width: 540px;
@@ -121,6 +148,10 @@
         }
         .card-item_text_inner {
           max-width: 380px;
+
+          @include mobile-all() {
+            width: 100%;
+          }
         }
       }
     }
