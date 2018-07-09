@@ -142,6 +142,7 @@ a {
   text-align: center;
   padding: 15px 35px;
   cursor: pointer;
+  font-size: #{$font_size}px;
 
   &:hover {
     background-color: $color_gray_darkest;

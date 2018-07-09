@@ -2,7 +2,7 @@
 
     <ul class="row main_sections-nav_level-0 nav" id="myTab" role="tablist">
 
-        <li class=" col-12 col-sm-6 col-lg-3 nav-item">
+        <li class=" col-6 col-lg-3 nav-item">
             <a class="main_sections-nav_card active" id="santeh-tab" data-toggle="tab" role="tab"
                href="#santeh" aria-controls="santeh" aria-selected="true">
                 <svg width="41" height="50" data-toggle="tooltip" data-placement="left"
@@ -12,7 +12,7 @@
                 <span class="label">Сантехника</span>
             </a>
         </li>
-        <li class="col-12 col-sm-6 col-lg-3 nav-item">
+        <li class="col-6 col-lg-3 nav-item">
             <a class="main_sections-nav_card" id="tehniksDlyaKuhni-tab" data-toggle="tab" role="tab"
                href="#tehniksDlyaKuhni" aria-controls="tehniksDlyaKuhni" aria-selected="false">
                 <svg width="41" height="50" data-toggle="tooltip" data-placement="left"
@@ -22,7 +22,7 @@
                 <span class="label">Техника для кухни</span>
             </a>
         </li>
-        <li class="col-12 col-sm-6 col-lg-3">
+        <li class="col-6 col-lg-3">
             <a class="main_sections-nav_card" href="#">
                 <svg width="41" height="50" data-toggle="tooltip" data-placement="left"
                      title="МБТ и посуда">
@@ -31,7 +31,7 @@
                 <span class="label">МБТ и посуда</span>
             </a>
         </li>
-        <li class="col-12 col-sm-6 col-lg-3 nav-item">
+        <li class="col-6 col-lg-3 nav-item">
             <a class="main_sections-nav_card" id="uhodZaBelem-tab" data-toggle="tab" role="tab"
                href="#uhodZaBelem" aria-controls="uhodZaBelem" aria-selected="false">
                 <svg width="41" height="50" data-toggle="tooltip" data-placement="left"
@@ -53,7 +53,7 @@
 
             <div class="row">
 
-                <div class="col-12 col-sm-6 col-lg-3">
+                <div class="col-4 col-lg-3">
                     <a class="main_sections-nav_card main_sections-nav_card_content" href="#">
                         <svg width="50" height="52" data-toggle="tooltip" data-placement="left"
                              title="Кухонные мойки">
@@ -63,7 +63,7 @@
                         <span class="label">Кухонные мойки</span>
                     </a>
                 </div>
-                <div class="col-12 col-sm-6 col-lg-3">
+                <div class="col-4 col-lg-3">
                     <a class="main_sections-nav_card main_sections-nav_card_content" href="#">
                         <svg width="50" height="52" data-toggle="tooltip" data-placement="left"
                              title="Измельчители">
@@ -72,7 +72,7 @@
                         <span class="label">Измельчители</span>
                     </a>
                 </div>
-                <div class="col-12 col-sm-6 col-lg-3">
+                <div class="col-4 col-lg-3">
                     <a class="main_sections-nav_card main_sections-nav_card_content" href="#">
                         <svg width="50" height="52" data-toggle="tooltip" data-placement="left"
                              title="Сортеры">
@@ -81,7 +81,7 @@
                         <span class="label">Сортеры</span>
                     </a>
                 </div>
-                <div class="col-12 col-sm-6 col-lg-3">
+                <div class="col-4 col-lg-3">
                     <a class="main_sections-nav_card main_sections-nav_card_content" href="#">
                         <svg width="50" height="52" data-toggle="tooltip" data-placement="left"
                              title="Аксессуары">
@@ -90,7 +90,7 @@
                         <span class="label">Аксессуары</span>
                     </a>
                 </div>
-                <div class="col-12 col-sm-6 col-lg-3">
+                <div class="col-4 col-lg-3">
                     <a class="main_sections-nav_card main_sections-nav_card_content" href="#">
                         <svg width="50" height="52" data-toggle="tooltip" data-placement="left"
                              title="Дозаторы">
@@ -99,7 +99,7 @@
                         <span class="label">Дозаторы</span>
                     </a>
                 </div>
-                <div class="col-12 col-sm-6 col-lg-3">
+                <div class="col-4 col-lg-3">
                     <a class="main_sections-nav_card main_sections-nav_card_content" href="#">
                         <svg width="50" height="52" data-toggle="tooltip" data-placement="left"
                              title="Смесители">
@@ -119,7 +119,7 @@
 
             <div class="row">
 
-                <div class="col-12 col-sm-6 col-lg-3">
+                <div class="col-4 col-lg-3">
                     <a class="main_sections-nav_card main_sections-nav_card_content" href="#">
                         <svg width="50" height="52" data-toggle="tooltip" data-placement="left"
                              title="Духовые шкафы">
@@ -128,7 +128,7 @@
                         <span class="label">Духовые шкафы</span>
                     </a>
                 </div>
-                <div class="col-12 col-sm-6 col-lg-3">
+                <div class="col-4 col-lg-3">
                     <a class="main_sections-nav_card main_sections-nav_card_content" href="#">
                         <svg width="50" height="52" data-toggle="tooltip" data-placement="left"
                              title="Смесители">
@@ -137,7 +137,7 @@
                         <span class="label">Холодильники</span>
                     </a>
                 </div>
-                <div class="col-12 col-sm-6 col-lg-3">
+                <div class="col-4 col-lg-3">
                     <a class="main_sections-nav_card main_sections-nav_card_content" href="#">
                         <svg width="50" height="52" data-toggle="tooltip" data-placement="left"
                              title="Смесители">
@@ -146,7 +146,7 @@
                         <span class="label">Варочные поверхности</span>
                     </a>
                 </div>
-                <div class="col-12 col-sm-6 col-lg-3">
+                <div class="col-4 col-lg-3">
                     <a class="main_sections-nav_card main_sections-nav_card_content" href="#">
                         <svg width="50" height="52" data-toggle="tooltip" data-placement="left"
                              title="Компактные приборы">
@@ -155,7 +155,7 @@
                         <span class="label">Компактные приборы</span>
                     </a>
                 </div>
-                <div class="col-12 col-sm-6 col-lg-3">
+                <div class="col-4 col-lg-3">
                     <a class="main_sections-nav_card main_sections-nav_card_content" href="#">
                         <svg width="50" height="52" data-toggle="tooltip" data-placement="left"
                              title="Кухонные блоки">
@@ -164,7 +164,7 @@
                         <span class="label">Кухонные блоки</span>
                     </a>
                 </div>
-                <div class="col-12 col-sm-6 col-lg-3">
+                <div class="col-4 col-lg-3">
                     <a class="main_sections-nav_card main_sections-nav_card_content" href="#">
                         <svg width="50" height="52" data-toggle="tooltip" data-placement="left"
                              title="Вытяжки">
@@ -173,7 +173,7 @@
                         <span class="label">Вытяжки</span>
                     </a>
                 </div>
-                <div class="col-12 col-sm-6 col-lg-3">
+                <div class="col-4 col-lg-3">
                     <a class="main_sections-nav_card main_sections-nav_card_content" href="#">
                         <svg width="50" height="52" data-toggle="tooltip" data-placement="left"
                              title="Микроволновые печи">
@@ -182,7 +182,7 @@
                         <span class="label">Микроволновые печи</span>
                     </a>
                 </div>
-                <div class="col-12 col-sm-6 col-lg-3">
+                <div class="col-4 col-lg-3">
                     <a class="main_sections-nav_card main_sections-nav_card_content" href="#">
                         <svg width="50" height="52" data-toggle="tooltip" data-placement="left"
                              title="Посудомоечные машины">
@@ -202,7 +202,7 @@
 
             <div class="row">
 
-                <div class="col-12 col-sm-6 col-lg-3">
+                <div class="col-4 col-lg-3">
                     <a class="main_sections-nav_card main_sections-nav_card_content" href="#">
                         <svg width="50" height="52" data-toggle="tooltip" data-placement="left"
                              title="Стриральные машины">
@@ -211,7 +211,7 @@
                         <span class="label">Стриральные машины</span>
                     </a>
                 </div>
-                <div class="col-12 col-sm-6 col-lg-3">
+                <div class="col-4 col-lg-3">
                     <a class="main_sections-nav_card main_sections-nav_card_content" href="#">
                         <svg width="50" height="52" data-toggle="tooltip" data-placement="left"
                              title="Сушильные машины">
@@ -220,7 +220,7 @@
                         <span class="label">Сушильные машины</span>
                     </a>
                 </div>
-                <div class="col-12 col-sm-6 col-lg-3">
+                <div class="col-4 col-lg-3">
                     <a class="main_sections-nav_card main_sections-nav_card_content" href="#">
                         <svg width="50" height="52" data-toggle="tooltip" data-placement="left"
                              title="Сушильные шкафы">
@@ -229,7 +229,7 @@
                         <span class="label">Сушильные шкафы</span>
                     </a>
                 </div>
-                <div class="col-12 col-sm-6 col-lg-3">
+                <div class="col-4 col-lg-3">
                     <a class="main_sections-nav_card main_sections-nav_card_content" href="#">
                         <svg width="50" height="52" data-toggle="tooltip" data-placement="left"
                              title="Аксессуары">

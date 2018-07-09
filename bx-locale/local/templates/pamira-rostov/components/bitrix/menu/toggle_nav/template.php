@@ -1,3 +1,109 @@
+<? if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
+/** @var array $arParams */
+/** @var array $arResult */
+/** @global CMain $APPLICATION */
+/** @global CUser $USER */
+/** @global CDatabase $DB */
+/** @var CBitrixComponentTemplate $this */
+/** @var string $templateName */
+/** @var string $templateFile */
+/** @var string $templateFolder */
+/** @var string $componentPath */
+/** @var CBitrixComponent $component */
+
+$this->setFrameMode(true);
+
+if (empty($arResult["ALL_ITEMS"]))
+    return;
+
+CUtil::InitJSCore();
+
+if (file_exists($_SERVER["DOCUMENT_ROOT"] . $this->GetFolder() . '/themes/' . $arParams["MENU_THEME"] . '/colors.css'))
+    $APPLICATION->SetAdditionalCSS($this->GetFolder() . '/themes/' . $arParams["MENU_THEME"] . '/colors.css');
+
+$menuBlockId = "catalog_menu_" . $this->randString();
+?>
+<div class="headerBottom">
+    <nav class="nav-menu">
+        <ul class="bx-nav-list-1-lvl nav nav-menu__list" id="ul_<?= $menuBlockId ?>">
+            <? foreach ($arResult["MENU_STRUCTURE"] as $itemID => $arColumns): ?>     <!-- first level-->
+                <? $existPictureDescColomn = ($arResult["ALL_ITEMS"][$itemID]["PARAMS"]["picture_src"] || $arResult["ALL_ITEMS"][$itemID]["PARAMS"]["description"]) ? true : false; ?>
+                <li
+                        class="nav-item nav-menu__list_item bx-nav-1-lvl bx-nav-list-<?= ($existPictureDescColomn) ? count($arColumns) + 1 : count($arColumns) ?>-col <? if ($arResult["ALL_ITEMS"][$itemID]["SELECTED"]): ?>bx-active<? endif ?><? if (is_array($arColumns) && count($arColumns) > 0): ?> bx-nav-parent<? endif ?>"
+                    <? if (is_array($arColumns) && count($arColumns) > 0): ?>
+                        data-role="bx-menu-item"
+                    <? endif ?>
+                        onclick="if (BX.hasClass(document.documentElement, 'bx-touch')) obj_<?= $menuBlockId ?>.clickInMobile(this, event);"
+                >
+                    <a class="nav-link nav-menu__list_item_link"
+                       href="<?= $arResult["ALL_ITEMS"][$itemID]["LINK"] ?>"
+                        <? if (is_array($arColumns) && count($arColumns) > 0 && $existPictureDescColomn): ?>
+                            onmouseover="window.obj_<?= $menuBlockId ?> && obj_<?= $menuBlockId ?>.changeSectionPicure(this, '<?= $itemID ?>');"
+                        <? endif ?>
+                    >
+            <span>
+                <?= $arResult["ALL_ITEMS"][$itemID]["TEXT"] ?>
+                <? if (is_array($arColumns) && count($arColumns) > 0): ?><i class="fa fa-angle-down"></i><? endif ?>
+            </span>
+                    </a>
+                    <? if (is_array($arColumns) && count($arColumns) > 0): ?>
+                        <span class="bx-nav-parent-arrow" onclick="obj_<?= $menuBlockId ?>.toggleInMobile(this)"><i
+                                    class="fa fa-angle-left"></i></span> <!-- for mobile -->
+                        <div class="bx-nav-2-lvl-container">
+                            <? foreach ($arColumns as $key => $arRow): ?>
+                                <ul class="bx-nav-list-2-lvl">
+                                    <? foreach ($arRow as $itemIdLevel_2 => $arLevel_3): ?>  <!-- second level-->
+                                        <li class="bx-nav-2-lvl">
+                                            <a
+                                                    href="<?= $arResult["ALL_ITEMS"][$itemIdLevel_2]["LINK"] ?>"
+                                                <? if ($existPictureDescColomn): ?>
+                                                    onmouseover="window.obj_<?= $menuBlockId ?> && obj_<?= $menuBlockId ?>.changeSectionPicure(this, '<?= $itemIdLevel_2 ?>');"
+                                                <? endif ?>
+                                                    data-picture="<?= $arResult["ALL_ITEMS"][$itemIdLevel_2]["PARAMS"]["picture_src"] ?>"
+                                                    <? if ($arResult["ALL_ITEMS"][$itemIdLevel_2]["SELECTED"]): ?>class="bx-active"<? endif ?>
+                                            >
+                                                <span><?= $arResult["ALL_ITEMS"][$itemIdLevel_2]["TEXT"] ?></span>
+                                            </a>
+                                            <? if (is_array($arLevel_3) && count($arLevel_3) > 0): ?>
+                                                <ul class="bx-nav-list-3-lvl">
+                                                    <? foreach ($arLevel_3 as $itemIdLevel_3): ?>    <!-- third level-->
+                                                        <li class="bx-nav-3-lvl">
+                                                            <a
+                                                                    href="<?= $arResult["ALL_ITEMS"][$itemIdLevel_3]["LINK"] ?>"
+                                                                <? if ($existPictureDescColomn): ?>
+                                                                    onmouseover="window.obj_<?= $menuBlockId ?> && obj_<?= $menuBlockId ?>.changeSectionPicure(this, '<?= $itemIdLevel_3 ?>');return false;"
+                                                                <? endif ?>
+                                                                    data-picture="<?= $arResult["ALL_ITEMS"][$itemIdLevel_3]["PARAMS"]["picture_src"] ?>"
+                                                                    <? if ($arResult["ALL_ITEMS"][$itemIdLevel_3]["SELECTED"]): ?>class="bx-active"<? endif ?>
+                                                            >
+                                                                <span><?= $arResult["ALL_ITEMS"][$itemIdLevel_3]["TEXT"] ?></span>
+                                                            </a>
+                                                        </li>
+                                                    <? endforeach; ?>
+                                                </ul>
+                                            <? endif ?>
+                                        </li>
+                                    <? endforeach; ?>
+                                </ul>
+                            <? endforeach; ?>
+                            <? if ($existPictureDescColomn): ?>
+                                <div class="bx-nav-list-2-lvl bx-nav-catinfo dbg" data-role="desc-img-block">
+                                    <a href="<?= $arResult["ALL_ITEMS"][$itemID]["LINK"] ?>">
+                                        <img src="<?= $arResult["ALL_ITEMS"][$itemID]["PARAMS"]["picture_src"] ?>"
+                                             alt="">
+                                    </a>
+                                    <p><?= $arResult["ALL_ITEMS"][$itemID]["PARAMS"]["description"] ?></p>
+                                </div>
+                                <div class="bx-nav-catinfo-back"></div>
+                            <? endif ?>
+                        </div>
+                    <? endif ?>
+                </li>
+            <? endforeach; ?>
+        </ul>
+    </nav>
+</div>
+
 <div class="toggle-nav" id="toggleNav">
     <div class="container d-flex align-items-center h-100">
         <div class="modal-body">
@@ -5,22 +111,16 @@
                 <div class="col-5 p-0">
                     <div class="nav toggle-nav_pills" id="v-pills-tab" role="tablist"
                          aria-orientation="vertical">
-                        <a class="toggle-nav_pills_link active" id="v-pills-catalog-tab" data-toggle="pill"
-                           href="#v-pills-catalog" role="tab" aria-controls="v-pills-catalog" aria-selected="true">Каталог</a>
-                        <a class="toggle-nav_pills_link" id="v-pills-events-tab" data-toggle="pill"
-                           href="#v-pills-events" role="tab" aria-controls="v-pills-events" aria-selected="true">Мероприятия</a>
-                        <a class="toggle-nav_pills_link" id="v-pills-buyers-tab" data-toggle="pill"
-                           href="#v-pills-buyers"
-                           role="tab" aria-controls="v-pills-buyers" aria-selected="false">Покупателю</a>
-                        <a class="toggle-nav_pills_link" id="v-pills-brands-tab" data-toggle="pill"
-                           href="#v-pills-brands"
-                           role="tab" aria-controls="v-pills-brands" aria-selected="false">Бренды</a>
-                        <a class="toggle-nav_pills_link" id="v-pills-about-tab" data-toggle="pill"
-                           href="#v-pills-about"
-                           role="tab" aria-controls="v-pills-about" aria-selected="false">О компании</a>
-                        <a class="toggle-nav_pills_link" id="v-pills-contacts-tab" data-toggle="pill"
-                           href="#v-pills-contacts"
-                           role="tab" aria-controls="v-pills-contacts" aria-selected="false">Контакты</a>
+                        <? foreach ($arResult["MENU_STRUCTURE"] as $itemID => $arColumns): ?>
+                            <a class="toggle-nav_pills_link active"
+                               href="<?= $arResult["ALL_ITEMS"][$itemID]["LINK"] ?>"
+                               id="v-pills-<?= $arResult["ALL_ITEMS"][$itemID] ?>-tab"
+                               data-toggle="pill"
+                               href="#v-pills-<?= $arResult["ALL_ITEMS"][$itemID] ?>" role="tab"
+                               aria-controls="v-pills-<?= $arResult["ALL_ITEMS"][$itemID] ?>" aria-selected="true">
+                                <?= $arResult["ALL_ITEMS"][$itemID]["TEXT"] ?>
+                            </a>
+                        <? endforeach; ?>
                     </div>
                 </div>
                 <div class="col-7">
