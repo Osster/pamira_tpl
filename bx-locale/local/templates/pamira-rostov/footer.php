@@ -2,18 +2,20 @@
 
 		</main><!--//workarea-->
 
-<? $APPLICATION->IncludeComponent(
-    "bitrix:main.include",
-    "",
-    Array(
-        "AREA_FILE_SHOW" => "file",
-        "PATH" => SITE_DIR."include/map.php",
-        "AREA_FILE_RECURSIVE" => "N",
-        "EDIT_MODE" => "html",
-    ),
-    false,
-    Array('HIDE_ICONS' => 'Y')
-); ?>
+<? if (!preg_match("/^\/kontakty/", $APPLICATION->GetCurPage(false))): ?>
+    <? $APPLICATION->IncludeComponent(
+        "bitrix:main.include",
+        "",
+        Array(
+            "AREA_FILE_SHOW" => "file",
+            "PATH" => SITE_DIR . "include/map.php",
+            "AREA_FILE_RECURSIVE" => "N",
+            "EDIT_MODE" => "html",
+        ),
+        false,
+        Array('HIDE_ICONS' => 'Y')
+    ); ?>
+<? endif; ?>
 
 		<footer class="bx-footer">
 

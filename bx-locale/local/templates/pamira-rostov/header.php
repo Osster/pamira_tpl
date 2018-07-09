@@ -58,6 +58,19 @@ endif;
     Array('HIDE_ICONS' => 'Y')
 ); ?>
 
+<? $APPLICATION->IncludeComponent(
+    "bitrix:main.include",
+    "",
+    Array(
+        "AREA_FILE_SHOW" => "file",
+        "PATH" => SITE_DIR . "include/flying_nav.php",
+        "AREA_FILE_RECURSIVE" => "N",
+        "EDIT_MODE" => "html",
+    ),
+    false,
+    Array('HIDE_ICONS' => 'Y')
+); ?>
+
 <div class="bx-wrapper" id="bx_eshop_wrap">
     <header class="bx-header light-or-dark">
         <? /*
@@ -249,10 +262,10 @@ endif;
                 </div>
 
             </div>
+            
+<!--            NAVIGATION-->
 
-            <div class="headerBottom">
-                <nav class="nav-menu">
-                    <? $APPLICATION->IncludeComponent(
+            <? $APPLICATION->IncludeComponent(
 	"bitrix:menu", 
 	"main_horizontal", 
 	array(
@@ -273,8 +286,6 @@ endif;
 	),
 	false
 ); ?>
-                </nav>
-            </div>
         </div>
 
     </header>
