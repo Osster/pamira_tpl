@@ -4,21 +4,21 @@ CJSCore::Init(array("fx"));
 $curPage = $APPLICATION->GetCurPage(true);
 $theme = COption::GetOptionString("main", "wizard_eshop_bootstrap_theme_id", "blue", SITE_ID);
 ?>
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <html xml:lang="<?= LANGUAGE_ID ?>" lang="<?= LANGUAGE_ID ?>">
-    <head>
-        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-        <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, width=device-width">
-        <link rel="shortcut icon" type="image/x-icon" href="<?= htmlspecialcharsbx(SITE_DIR) ?>favicon.ico"/>
-        <? $APPLICATION->ShowHead(); ?>
-        <?
-        $APPLICATION->SetAdditionalCSS(SITE_TEMPLATE_PATH . "/css/main.css", true);
-        ?>
-        <title><? $APPLICATION->ShowTitle() ?></title>
-    </head>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, width=device-width">
+    <link rel="shortcut icon" type="image/x-icon" href="<?= htmlspecialcharsbx(SITE_DIR) ?>favicon.ico"/>
+    <? $APPLICATION->ShowHead(); ?>
+    <?
+    $APPLICATION->SetAdditionalCSS(SITE_TEMPLATE_PATH . "/css/main.css", true);
+    ?>
+    <title><? $APPLICATION->ShowTitle() ?></title>
+</head>
 <body class="bx-background-image" <?= $APPLICATION->ShowProperty("backgroundImage") ?>>
 
-    <div id="panel"><? $APPLICATION->ShowPanel(); ?></div>
+<div id="panel"><? $APPLICATION->ShowPanel(); ?></div>
 
 <? require_once __DIR__ . "/parts/svg.php" ?>
 
@@ -58,6 +58,20 @@ endif;
     Array('HIDE_ICONS' => 'Y')
 ); ?>
 
+<? $APPLICATION->IncludeComponent(
+    "bitrix:main.include",
+    "",
+    Array(
+        "AREA_FILE_SHOW" => "file",
+        "PATH" => SITE_DIR . "include/flying_nav.php",
+        "AREA_FILE_RECURSIVE" => "N",
+        "EDIT_MODE" => "html",
+    ),
+    false,
+    Array('HIDE_ICONS' => 'Y')
+); ?>
+
+<div class="bx-wrapper" id="bx_eshop_wrap">
     <header class="bx-header light-or-dark">
         <? /*
 		<div class="bx-header-section container">
@@ -249,66 +263,74 @@ endif;
 
             </div>
 
-            <!--            NAVIGATION-->
-
-            <? $APPLICATION->IncludeComponent(
-                "bitrix:menu",
-                "main_horizontal",
-                array(
-                    "ROOT_MENU_TYPE" => "top",
-                    "MENU_CACHE_TYPE" => "A",
-                    "MENU_CACHE_TIME" => "36000000",
-                    "MENU_CACHE_USE_GROUPS" => "Y",
-                    "MENU_CACHE_GET_VARS" => array(),
-                    "CACHE_SELECTED_ITEMS" => "N",
-                    "MAX_LEVEL" => "1",
-                    "USE_EXT" => "N",
-                    "DELAY" => "N",
-                    "ALLOW_MULTI_SELECT" => "N",
-                    "COMPONENT_TEMPLATE" => "main_horizontal",
-                    "CHILD_MENU_TYPE" => "left",
-                    "MENU_THEME" => "site"
-                ),
-                false
-            ); ?>
+            <div class="headerBottom">
+                <nav class="nav-menu">
+                    <? $APPLICATION->IncludeComponent(
+	"bitrix:menu", 
+	"main_horizontal", 
+	array(
+		"ROOT_MENU_TYPE" => "top",
+		"MENU_CACHE_TYPE" => "A",
+		"MENU_CACHE_TIME" => "36000000",
+		"MENU_CACHE_USE_GROUPS" => "Y",
+		"MENU_CACHE_GET_VARS" => array(
+		),
+		"CACHE_SELECTED_ITEMS" => "N",
+		"MAX_LEVEL" => "1",
+		"USE_EXT" => "N",
+		"DELAY" => "N",
+		"ALLOW_MULTI_SELECT" => "N",
+		"COMPONENT_TEMPLATE" => "main_horizontal",
+		"CHILD_MENU_TYPE" => "left",
+		"MENU_THEME" => "site"
+	),
+	false
+); ?>
+                </nav>
+            </div>
         </div>
 
     </header>
 
-<? $APPLICATION->IncludeComponent("bitrix:eshop.banner", "", array()); ?>
+    <? $APPLICATION->IncludeComponent("bitrix:eshop.banner", "", array()); ?>
 
 
-<? if ($APPLICATION->GetCurPage(false) === '/'): ?>
-    <section class="top-slider">
-        <? $APPLICATION->IncludeComponent(
-            "bitrix:main.include",
-            "",
-            Array(
-                "AREA_FILE_SHOW" => "file",
-                "PATH" => SITE_DIR . "include/main_top_slider.php",
-                "AREA_FILE_RECURSIVE" => "N",
-                "EDIT_MODE" => "html",
-            ),
-            false,
-            Array('HIDE_ICONS' => 'Y')
-        ); ?>
-    </section>
-<? endif; ?>
+    <main class="main workarea">
 
-<? if ($APPLICATION->GetCurPage(false) !== '/'): ?>
-    <section class="wr-breadcrumbs">
-        <div class="container">
-            <? $APPLICATION->IncludeComponent("bitrix:breadcrumb",
-                "pamira-breadcrumbs",
+        <? if ($APPLICATION->GetCurPage(false) === '/'): ?>
+        <section class="top-slider">
+            <? $APPLICATION->IncludeComponent(
+                "bitrix:main.include",
+                "",
                 Array(
-                    "PATH" => "",    // Путь, для которого будет построена навигационная цепочка (по умолчанию, текущий путь)
-                    "SITE_ID" => "s1",    // Cайт (устанавливается в случае многосайтовой версии, когда DOCUMENT_ROOT у сайтов разный)
-                    "START_FROM" => "0",    // Номер пункта, начиная с которого будет построена навигационная цепочка
-                    "COMPONENT_TEMPLATE" => ""
+                    "AREA_FILE_SHOW" => "file",
+                    "PATH" => SITE_DIR . "include/main_top_slider.php",
+                    "AREA_FILE_RECURSIVE" => "N",
+                    "EDIT_MODE" => "html",
                 ),
-                false
+                false,
+                Array('HIDE_ICONS' => 'Y')
             ); ?>
-        </div>
-    </section>
+        </section>
+        <? endif; ?>
 
-<? endif; ?>
+        <? if ($APPLICATION->GetCurPage(false) !== '/'): ?>
+        <section class="wr-breadcrumbs">
+            <div class="container">
+                <?$APPLICATION->IncludeComponent("bitrix:breadcrumb",
+                    "pamira-breadcrumbs",
+                    Array(
+                        "PATH" => "",	// Путь, для которого будет построена навигационная цепочка (по умолчанию, текущий путь)
+                        "SITE_ID" => "s1",	// Cайт (устанавливается в случае многосайтовой версии, когда DOCUMENT_ROOT у сайтов разный)
+                        "START_FROM" => "0",	// Номер пункта, начиная с которого будет построена навигационная цепочка
+                        "COMPONENT_TEMPLATE" => ""
+                    ),
+                    false
+                );?>
+            </div>
+        </section>
+
+        <div class="container main_header">
+            <h1><?= $APPLICATION->ShowTitle(true) ?></h1>
+        </div>
+        <? endif; ?>
