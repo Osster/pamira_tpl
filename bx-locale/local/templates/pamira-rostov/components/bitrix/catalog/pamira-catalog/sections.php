@@ -13,6 +13,18 @@
 /** @var CBitrixComponent $component */
 
 $this->setFrameMode(true);
+//print_r($this);
+?>
+<div class="container main_header">
+    <h1><?= $APPLICATION->ShowTitle(true) ?></h1>
+</div>
+
+<?
+$APPLICATION->IncludeFile(
+    SITE_DIR . "include/catalog-slider.php",
+    Array(),
+    Array("MODE" => "text")
+);
 ?>
 <section class="main_dark main_padding">
     <div class="container">

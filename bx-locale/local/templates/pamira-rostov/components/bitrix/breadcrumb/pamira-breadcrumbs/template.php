@@ -13,18 +13,17 @@ if(empty($arResult))
 
 $strReturn = '';
 
-$strReturn .= '<div class="bx-breadcrumb breadcrumbs" itemprop="http://schema.org/breadcrumb" itemscope itemtype="http://schema.org/BreadcrumbList">';
+$strReturn .= '<div class="breadcrumbs" itemprop="http://schema.org/breadcrumb" itemscope itemtype="http://schema.org/BreadcrumbList">';
 
 $itemSize = count($arResult);
 for($index = 0; $index < $itemSize; $index++)
 {
 	$title = htmlspecialcharsex($arResult[$index]["TITLE"]);
-	$arrow = ($index > 0? '<i class="fa fa-angle-right"></i>' : '');
 
 	if($arResult[$index]["LINK"] <> "" && $index != $itemSize-1)
 	{
 		$strReturn .= '
-			<span class="bx-breadcrumb-item" id="bx_breadcrumb_'.$index.'" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+			<span id="bx_breadcrumb_' . $index . '" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
 				'.$arrow.'
 				<a href="'.$arResult[$index]["LINK"].'" title="'.$title.'" itemprop="url">
 					<span itemprop="name">'.$title.'</span>
@@ -35,14 +34,12 @@ for($index = 0; $index < $itemSize; $index++)
 	else
 	{
 		$strReturn .= '
-			<span class="bx-breadcrumb-item" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+			<span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
 				'.$arrow.'
 				<span itemprop="name">'.$title.'</span>
 				<meta itemprop="position" content="'.($index + 1).'" />
 			</span>';
 	}
 }
-
-$strReturn .= '<div style="clear:both"></div></div>';
 
 return $strReturn;
