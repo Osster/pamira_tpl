@@ -60,6 +60,7 @@ if (!function_exists("menu_struct_gen")) {
                 if ($prevItem['RELATIVE_DEPTH_LEVEL'] < $item['RELATIVE_DEPTH_LEVEL']) {
                     $parentsChain[] = $prevItem["ID"];
                 } elseif ($prevItem['RELATIVE_DEPTH_LEVEL'] > $item['RELATIVE_DEPTH_LEVEL']) {
+//                    $parentsChain[] = $prevItem["IBLOCK_SECTION_ID"];
                     unset($parentsChain[count($parentsChain) - 1]);
                 }
 
@@ -71,6 +72,7 @@ if (!function_exists("menu_struct_gen")) {
                 $struct[$parentsChain[count($parentsChain) - 1]]["childs"][$item["ID"]] = ["key" => $k];
             }
             $prevItem = $item;
+
         }
 
         return $struct;
@@ -82,18 +84,18 @@ if (!function_exists("menu_build_recur")) {
     {
         foreach ($struct as $k => $s_item) {
             $item = $list[$s_item["key"]];
+
             $obj->AddEditAction($item['ID'], $item['EDIT_LINK'], $strSectionEdit);
             $obj->AddDeleteAction($item['ID'], $item['DELETE_LINK'], $strSectionDelete, $arSectionDeleteParams);
             ?>
             <div class="side-menu_item">
-                <a class="h3" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true"
-                   aria-controls="collapseOne" href="<? echo $item["SECTION_PAGE_URL"]; ?>"
-                   id="<?=$obj->GetEditAreaId($item['ID']);?>"><?= $item["NAME"] ?></a>
+                <h3 data-toggle="collapse" data-target="#collapse<?= $item["ID"] ?>" aria-expanded="true"
+                    aria-controls="collapse<?= $item["ID"] ?>"><?= $item["NAME"] ?></h3>
                 <?
                 if (isset($s_item["childs"])) {
                     ?>
-                    <div class="side-menu_item_list collapse" id="collapseOne"
-                         aria-labelledby="headingOne" data-parent="#accordion">
+                    <div class="side-menu_item_list collapse" id="collapse<?= $item["ID"] ?>"
+                         aria-labelledby="heading<?= $item["ID"] ?>" data-parent=".side-menu">
                         <ul>
                             <?
                             foreach ($s_item["childs"] as $s_child) {
@@ -124,10 +126,11 @@ if (!function_exists("menu_build_recur")) {
 if (0 < $arResult["SECTIONS_COUNT"]) {
     ?>
 
-    <div id="accordion" class="side-menu <? echo $arCurView['CONT']; ?> <? echo $arCurView['LIST']; ?>">
+    <div class="side-menu">
 
         <?php
         $menu_struct = menu_struct_gen($arResult['SECTIONS']);
+        print_r($list);
 
         menu_build_recur($arResult['SECTIONS'], $menu_struct, $this, $strSectionEdit, $strSectionDelete, $arSectionDeleteParams);
         ?>

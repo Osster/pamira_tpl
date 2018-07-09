@@ -61,7 +61,6 @@ $this->setFrameMode(true);
                 <div class="wr-catalog">
                     <?php
 
-
                     if ($arParams["USE_COMPARE"] === "Y") {
                         $APPLICATION->IncludeComponent(
                             "bitrix:catalog.compare.list",

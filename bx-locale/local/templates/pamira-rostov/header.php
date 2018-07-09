@@ -262,10 +262,10 @@ endif;
                 </div>
 
             </div>
-            
-<!--            NAVIGATION-->
 
-            <? $APPLICATION->IncludeComponent(
+            <div class="headerBottom">
+                <nav class="nav-menu">
+                    <? $APPLICATION->IncludeComponent(
 	"bitrix:menu", 
 	"main_horizontal", 
 	array(
@@ -286,6 +286,8 @@ endif;
 	),
 	false
 ); ?>
+                </nav>
+            </div>
         </div>
 
     </header>

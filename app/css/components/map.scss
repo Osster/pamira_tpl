@@ -32,11 +32,17 @@
     .map-item {
       h3 {
         text-transform: uppercase;
-        background-color: $color_gray_darkest;
+        background-color: $color_gray_middle;
         color: $color_white_dirty;
         padding: 10px 35px;
         margin-bottom: 0;
         font-weight: normal;
+        cursor: pointer;
+      }
+      &_content {
+        max-height: 0;
+        overflow: hidden;
+        @include transition();
       }
 
       &_text {
@@ -45,14 +51,18 @@
         p {
           margin-bottom: 0;
         }
+        a {
+          color: $color_gray_darken;
+        }
       }
 
-      &.closed {
+      &.active {
         h3 {
-          background-color: $color_gray_middle;
+          background-color: $color_gray_darkest;
         }
         .map-item_content {
-          display: none;
+          max-height: 632px;
+          @include transition();
         }
       }
     }
