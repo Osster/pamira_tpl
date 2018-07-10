@@ -11,5 +11,5 @@ $component = $this->getComponent();
 $arParams = $component->applyTemplateModifications();
 
 if (isset($_REQUEST["TYPE"]) && ($_REQUEST["TYPE"] == 'card' || $_REQUEST["TYPE"] == 'line')) {
-    $APPLICATION->set_cookie("SECTION_VIEW_TYPE", strVal($_REQUEST["TYPE"]));
+    $APPLICATION->set_cookie("SECTION_VIEW_TYPE", strVal($_REQUEST["TYPE"]) );
 }

@@ -48,20 +48,17 @@ $arSectionDeleteParams = array("CONFIRM" => GetMessage('CT_BCSL_ELEMENT_DELETE_C
 if (!function_exists("menu_struct_gen")) {
     function menu_struct_gen($list)
     {
-/*
         $struct = [];
 
         $parentsChain = [];
         $prevItem = null;
-
         foreach ($list as $k => $item) {
             if ($item['RELATIVE_DEPTH_LEVEL'] > 2) continue;
 
             if ($prevItem) {
 
                 if ($prevItem['RELATIVE_DEPTH_LEVEL'] < $item['RELATIVE_DEPTH_LEVEL']) {
-                    $parentsChain[] = $prevItem['ID'];
-//                    print_r($parentsChain);
+                    $parentsChain[] = $prevItem["ID"];
                 } elseif ($prevItem['RELATIVE_DEPTH_LEVEL'] > $item['RELATIVE_DEPTH_LEVEL']) {
 //                    $parentsChain[] = $prevItem["IBLOCK_SECTION_ID"];
                     unset($parentsChain[count($parentsChain) - 1]);
@@ -70,29 +67,14 @@ if (!function_exists("menu_struct_gen")) {
             }
 
             if (count($parentsChain) == 0) {
-                $struct[$item['ID']] = ['key' => $k];
+                $struct[$item["ID"]] = ["key" => $k];
             } else {
-                $struct[$parentsChain[count($parentsChain) - 1]]['childs'][$item['ID']] = ['key'=> $k];
+                $struct[$parentsChain[count($parentsChain) - 1]]["childs"][$item["ID"]] = ["key" => $k];
             }
             $prevItem = $item;
-        }
-        print_r ($struct);
-*/
 
-        foreach($list as $k=>$item) {
-            if ($item['RELATIVE_DEPTH_LEVEL']==1) {
-                $struct[$item['ID']]['key']=$k;
-            }
         }
-       foreach($list as $k=>$item) {
-            if ($item['RELATIVE_DEPTH_LEVEL']==2) {
-                if(isset($struct[$item['IBLOCK_SECTION_ID']])) {
-                    //$struct[$item['IBLOCK_SECTION_ID']]['childs']='1';
-                    $struct[$item['IBLOCK_SECTION_ID']]['childs'][$item['ID']]['key'] = $k;
-                }
 
-            }
-        }
         return $struct;
     }
 }
@@ -102,7 +84,6 @@ if (!function_exists("menu_build_recur")) {
     {
         foreach ($struct as $k => $s_item) {
             $item = $list[$s_item["key"]];
-            
 
             $obj->AddEditAction($item['ID'], $item['EDIT_LINK'], $strSectionEdit);
             $obj->AddDeleteAction($item['ID'], $item['DELETE_LINK'], $strSectionDelete, $arSectionDeleteParams);
@@ -113,7 +94,7 @@ if (!function_exists("menu_build_recur")) {
                 <?
                 if (isset($s_item["childs"])) {
                     ?>
-                    <div class="side-menu_item_list collapse <? if(current($s_item) == 0) { echo 'show'; }?>" id="collapse<?= $item["ID"] ?>"
+                    <div class="side-menu_item_list collapse" id="collapse<?= $item["ID"] ?>"
                          aria-labelledby="heading<?= $item["ID"] ?>" data-parent=".side-menu">
                         <ul>
                             <?
