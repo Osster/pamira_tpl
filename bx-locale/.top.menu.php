@@ -1,0 +1,46 @@
+<?
+$aMenuLinks = Array(
+    Array(
+        "Каталог",
+        "/tehnika/",
+        Array(),
+        Array(),
+        ""
+    ),
+    Array(
+        "Мероприятия",
+        "/meropriyatia/",
+        Array(),
+        Array(),
+        ""
+    ),
+    Array(
+        "Покупателю",
+        "/pokupatelu/",
+        Array(),
+        Array(),
+        ""
+    ),
+    Array(
+        "Бренды",
+        "/brendy/",
+        Array(),
+        Array(),
+        ""
+    ),
+    Array(
+        "О компании",
+        "/o-kompanii/",
+        Array(),
+        Array(),
+        ""
+    ),
+    Array(
+        "Контакты",
+        "/kontakty/",
+        Array(),
+        Array(),
+        "CUser::IsAuthorized()"
+    )
+);
+?>

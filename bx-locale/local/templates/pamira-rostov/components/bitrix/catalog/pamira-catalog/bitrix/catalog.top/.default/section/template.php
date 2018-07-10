@@ -12,6 +12,9 @@ use \Bitrix\Main\Localization\Loc;
  * @var string $elementDelete
  * @var string $elementDeleteParams
  */
+
+$this->addExternalCss('/bitrix/css/main/bootstrap.css');
+
 global $APPLICATION;
 
 $positionClassMap = array(
@@ -185,27 +188,27 @@ $containerName = 'catalog-plitka-container';
                         foreach ($rowItems as $item) {
                             ?>
                             <div class="col-12 col-md-4 p-1">
-                                    <?
-                                    $APPLICATION->IncludeComponent(
-                                        'bitrix:catalog.item',
-                                        '',
-                                        array(
-                                            'RESULT' => array(
-                                                'ITEM' => $item,
-                                                'AREA_ID' => $areaIds[$item['ID']],
-                                                'TYPE' => $rowData['TYPE'],
-                                                'BIG_LABEL' => 'N',
-                                                'BIG_DISCOUNT_PERCENT' => 'N',
-                                                'BIG_BUTTONS' => 'Y',
-                                                'SCALABLE' => 'N'
-                                            ),
-                                            'PARAMS' => $generalParams
-                                                + array('SKU_PROPS' => $arResult['SKU_PROPS'][$item['IBLOCK_ID']])
+                                <?
+                                $APPLICATION->IncludeComponent(
+                                    'bitrix:catalog.item',
+                                    '',
+                                    array(
+                                        'RESULT' => array(
+                                            'ITEM' => $item,
+                                            'AREA_ID' => $areaIds[$item['ID']],
+                                            'TYPE' => $rowData['TYPE'],
+                                            'BIG_LABEL' => 'N',
+                                            'BIG_DISCOUNT_PERCENT' => 'N',
+                                            'BIG_BUTTONS' => 'Y',
+                                            'SCALABLE' => 'N'
                                         ),
-                                        $component,
-                                        array('HIDE_ICONS' => 'Y')
-                                    );
-                                    ?>
+                                        'PARAMS' => $generalParams
+                                            + array('SKU_PROPS' => $arResult['SKU_PROPS'][$item['IBLOCK_ID']])
+                                    ),
+                                    $component,
+                                    array('HIDE_ICONS' => 'Y')
+                                );
+                                ?>
                             </div>
                             <?
                         }
