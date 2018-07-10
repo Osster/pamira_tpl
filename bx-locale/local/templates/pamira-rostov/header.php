@@ -263,31 +263,29 @@ endif;
 
             </div>
 
-            <div class="headerBottom">
-                <nav class="nav-menu">
+
                     <? $APPLICATION->IncludeComponent(
-	"bitrix:menu", 
-	"main_horizontal", 
-	array(
-		"ROOT_MENU_TYPE" => "top",
-		"MENU_CACHE_TYPE" => "A",
-		"MENU_CACHE_TIME" => "36000000",
-		"MENU_CACHE_USE_GROUPS" => "Y",
-		"MENU_CACHE_GET_VARS" => array(
-		),
-		"CACHE_SELECTED_ITEMS" => "N",
-		"MAX_LEVEL" => "1",
-		"USE_EXT" => "N",
-		"DELAY" => "N",
-		"ALLOW_MULTI_SELECT" => "N",
-		"COMPONENT_TEMPLATE" => "main_horizontal",
-		"CHILD_MENU_TYPE" => "left",
-		"MENU_THEME" => "site"
-	),
-	false
-); ?>
-                </nav>
-            </div>
+                        "bitrix:menu",
+                        "main_horizontal",
+                        array(
+                            "ROOT_MENU_TYPE" => "top",
+                            "MENU_CACHE_TYPE" => "A",
+                            "MENU_CACHE_TIME" => "36000000",
+                            "MENU_CACHE_USE_GROUPS" => "Y",
+                            "MENU_CACHE_GET_VARS" => array(
+                            ),
+                            "CACHE_SELECTED_ITEMS" => "N",
+                            "MAX_LEVEL" => "1",
+                            "USE_EXT" => "N",
+                            "DELAY" => "N",
+                            "ALLOW_MULTI_SELECT" => "N",
+                            "COMPONENT_TEMPLATE" => "main_horizontal",
+                            "CHILD_MENU_TYPE" => "left",
+                            "MENU_THEME" => "site"
+                        ),
+                        false
+                    ); ?>
+
         </div>
 
     </header>
@@ -314,6 +312,19 @@ endif;
         </section>
         <? endif; ?>
 
+         <? $APPLICATION->IncludeComponent(
+            "bitrix:main.include",
+            "",
+            Array(
+                "AREA_FILE_SHOW" => "file",
+                "PATH" => SITE_DIR."include/flying_nav.php",
+                "AREA_FILE_RECURSIVE" => "N",
+                "EDIT_MODE" => "html",
+            ),
+            false,
+            Array('HIDE_ICONS' => 'Y')
+        ); ?>
+
         <? if ($APPLICATION->GetCurPage(false) !== '/'): ?>
         <section class="wr-breadcrumbs">
             <div class="container">
@@ -330,7 +341,5 @@ endif;
             </div>
         </section>
 
-        <div class="container main_header">
-            <h1><?= $APPLICATION->ShowTitle(true) ?></h1>
-        </div>
+
         <? endif; ?>

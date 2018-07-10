@@ -95,7 +95,7 @@ $obName = 'ob' . preg_replace('/[^a-zA-Z0-9_]/', 'x', $this->GetEditAreaId($this
 $containerName = 'catalog-plitka-container';
 ?>
 
-<div class="catalog-plitka" data-entity="<?= $containerName ?>">
+
     <?
     if (!empty($arResult['ITEMS']) && !empty($arResult['ITEM_ROWS'])) {
         $areaIds = array();
@@ -112,7 +112,7 @@ $containerName = 'catalog-plitka-container';
         foreach ($arResult['ITEM_ROWS'] as $rowData) {
             $rowItems = array_splice($arResult['ITEMS'], 0, $rowData['COUNT']);
             ?>
-            <div class="row" data-entity="items-row">
+
                 <?
                 switch ($rowData['VARIANT']) {
                     case 0:
@@ -182,37 +182,42 @@ $containerName = 'catalog-plitka-container';
                         <?
                         break;
 
+                    //PAMIRA PLITKA
                     case 2:
                         ?>
-                        <?
-                        foreach ($rowItems as $item) {
-                            ?>
-                            <div class="col-12 col-md-4 p-1">
+                        <div class="catalog-plitka" data-entity="<?= $containerName ?>">
+                            <div class="row" data-entity="items-row">
                                 <?
-                                $APPLICATION->IncludeComponent(
-                                    'bitrix:catalog.item',
-                                    '',
-                                    array(
-                                        'RESULT' => array(
-                                            'ITEM' => $item,
-                                            'AREA_ID' => $areaIds[$item['ID']],
-                                            'TYPE' => $rowData['TYPE'],
-                                            'BIG_LABEL' => 'N',
-                                            'BIG_DISCOUNT_PERCENT' => 'N',
-                                            'BIG_BUTTONS' => 'Y',
-                                            'SCALABLE' => 'N'
-                                        ),
-                                        'PARAMS' => $generalParams
-                                            + array('SKU_PROPS' => $arResult['SKU_PROPS'][$item['IBLOCK_ID']])
-                                    ),
-                                    $component,
-                                    array('HIDE_ICONS' => 'Y')
-                                );
+                                foreach ($rowItems as $item) {
+                                    ?>
+                                    <div class="col-12 col-md-4 p-1">
+                                        <?
+                                        $APPLICATION->IncludeComponent(
+                                            'bitrix:catalog.item',
+                                            'pamira-catalog-item',
+                                            array(
+                                                'RESULT' => array(
+                                                    'ITEM' => $item,
+                                                    'AREA_ID' => $areaIds[$item['ID']],
+                                                    'TYPE' => $rowData['TYPE'],
+                                                    'BIG_LABEL' => 'N',
+                                                    'BIG_DISCOUNT_PERCENT' => 'N',
+                                                    'BIG_BUTTONS' => 'Y',
+                                                    'SCALABLE' => 'N'
+                                                ),
+                                                'PARAMS' => $generalParams
+                                                    + array('SKU_PROPS' => $arResult['SKU_PROPS'][$item['IBLOCK_ID']])
+                                            ),
+                                            $component,
+                                            array('HIDE_ICONS' => 'Y')
+                                        );
+                                        ?>
+                                    </div>
+                                    <?
+                                }
                                 ?>
                             </div>
-                            <?
-                        }
-                        ?>
+                        </div>
                         <?
                         break;
 
@@ -603,7 +608,7 @@ $containerName = 'catalog-plitka-container';
                         break;
                 }
                 ?>
-            </div>
+
             <?
         }
         unset($generalParams, $rowItems);
@@ -625,7 +630,7 @@ $containerName = 'catalog-plitka-container';
     $signedTemplate = $signer->sign($templateName, 'catalog.top');
     $signedParams = $signer->sign(base64_encode(serialize($arResult['ORIGINAL_PARAMETERS'])), 'catalog.top');
     ?>
-</div>
+
 <script>
     BX.message({
         RELATIVE_QUANTITY_MANY: '<?=CUtil::JSEscape($arParams['MESS_RELATIVE_QUANTITY_MANY'])?>',
