@@ -81,70 +81,47 @@
     </div>
 </div>
 
-<div class="wr-icon wr-icon_basket" id="basket">
-
+<div class="wr-icon wr-icon_basket icon-active" id="basket">
     <div class="basket">
+        <button class="icon-close">
+            <svg width="32" height="32" data-toggle="tooltip" data-placement="left"
+                 title="Закрыть">
+                <use xlink:href="#icon-close"></use>
+            </svg>
+        </button>
 
-        <img src="img/icons/close-red.svg" alt="">
-
-        <div class="basket__title">
-            КОРЗИНА
-        </div>
-
-        <div class="basket__product">
-            <div class="product-name">
-                Вытяжка Faber Flexa Glass M6 BK A60
-                Faber Flexa Gl
-            </div>
-            <div class="product-price">
-                700 390 руб./1 шт
-            </div>
-            <div class="product-info">
-                А Вы знаете о преимуществах вытяжек Faber?
-            </div>
-
-            <div class="basket-calc">
-                <span class="basket-calc__minus">-</span>
-                <span class="basket-calc__number">1</span>
-                <span class="basket-calc__plus">+</span>
-            </div>
-
-            <img src="img/icons/close-white.svg" alt="">
-        </div>
-
-        <div class="basket__product basket__product_gray">
-
-            <div class="product-name">
-                Вытяжка Faber Flexa Glass M6 BK A60
-                Faber Flexa Gl
-            </div>
-            <div class="product-price">
-                700 390 руб./1 шт
-            </div>
-            <div class="product-info">
-                А Вы знаете о преимуществах вытяжек Faber?
-            </div>
-
-            <div class="basket-calc">
-                <span class="basket-calc__minus">-</span>
-                <span class="basket-calc__number">1</span>
-                <span class="basket-calc__plus">+</span>
-            </div>
-
-            <img src="img/icons/close-white.svg" alt="">
-
-        </div>
-
-        <div class="basket__result">
-            <span class="result-text">ИТОГО</span>
-            <span class="result-number">1 400 000 руб.</span>
-        </div>
-
-        <div class="basket__buttons">
-            <button class="btn btn-hover_white" name="form-questions__button">Оформить в один клик</button>
-            <button class="btn btn-hover_red" name="form-questions__button">Перейти в корзину</button>
-        </div>
-
+        <? $APPLICATION->IncludeComponent(
+            "bitrix:eshopapp.basket",
+            "pamira-basket",
+            array(
+                "AJAX_MODE" => "N",
+                "AJAX_OPTION_ADDITIONAL" => "",
+                "AJAX_OPTION_HISTORY" => "N",
+                "AJAX_OPTION_JUMP" => "N",
+                "AJAX_OPTION_STYLE" => "Y",
+                "CATALOG_FOLDER" => "/eshop_app/catalog/",
+                "COLUMNS_LIST" => array(
+                    0 => "NAME",
+                    1 => "PRICE",
+                    2 => "QUANTITY",
+                    3 => "DELETE",
+                    4 => "DELAY",
+                    5 => "WEIGHT",
+                ),
+                "COUNT_DISCOUNT_4_ALL_QUANTITY" => "N",
+                "HIDE_COUPON" => "N",
+                "PATH_TO_ORDER" => "/personal/order.php",
+                "PRICE_VAT_SHOW_VALUE" => "N",
+                "QUANTITY_FLOAT" => "N",
+                "SET_TITLE" => "Y",
+                "COMPONENT_TEMPLATE" => "pamira-basket",
+                "VARIABLE_ALIASES" => array(
+                    "ELEMENT_ID" => "ELEMENT_ID",
+                    "SECTION_ID" => "SECTION_ID",
+                )
+            ),
+            false
+        ); ?>
     </div>
 
 </div>
