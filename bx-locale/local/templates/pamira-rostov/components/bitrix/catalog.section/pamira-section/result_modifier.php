@@ -36,11 +36,22 @@ while ($childSection = $resChildSections->GetNext()) {
     $childSectionId[] = $childSection["ID"];
 }
 
+
 $arSelect = Array("ID", "NAME", "DATE_ACTIVE_FROM");
 $arFilter = Array("IBLOCK_ID"=>IntVal($arParams["IBLOCK_ID"]), "ACTIVE_DATE"=>"Y", "ACTIVE"=>"Y");
 if (count($childSectionId) > 0) {
     $arFilter["SECTION_ID"] = $childSectionId;
 }
+$fname = $arParams["FILTER_NAME"];
+if ($fname != '') {
+    global $$fname;
+    if (isset($$fname)) {
+        foreach ($$fname as $name => $values) {
+            $arFilter[$name] = $values;
+        }
+    }
+}
+
 $res = CIBlockElement::GetList(Array(), $arFilter, false, false, $arSelect);
 
 $arResult["ACTIVE_ELEMENTS_COUNT"] = $res->SelectedRowsCount();
