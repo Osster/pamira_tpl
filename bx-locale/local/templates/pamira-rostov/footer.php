@@ -304,7 +304,8 @@
 
 
 <?
-$APPLICATION->AddHeadScript("https://api-maps.yandex.ru/2.1/?lang=ru_RU");
+// TODO: откоментировать в продакшн. Грузит страницу
+//$APPLICATION->AddHeadScript("https://api-maps.yandex.ru/2.1/?lang=ru_RU");
 ?>
 
 <script src="<?= SITE_TEMPLATE_PATH ?>/js/main.js"></script>

@@ -14,7 +14,7 @@ $this->setFrameMode(true);
 ?><?
 $APPLICATION->IncludeComponent(
 	"bitrix:catalog.section",
-	"",
+	"pamira-section",
 	array(
 		"AJAX_MODE" => $arParams["AJAX_MODE"],
 		"IBLOCK_TYPE" => $arParams["IBLOCK_TYPE"],
