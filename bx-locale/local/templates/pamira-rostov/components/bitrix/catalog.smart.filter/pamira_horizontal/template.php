@@ -152,12 +152,11 @@ $this->setFrameMode(true);
 
                         <div class="col-5">
                             <p><?=$arItem["NAME"]?></p>
-                            <input type="text" id="priceRange" name="priceRange" value="<?= $arItem["VALUES"]["MIN"]["VALUE"] . ";" . $arItem["VALUES"]["MAX"]["VALUE"] ?>"/>
-
+                            <input type="text" id="priceRange<?=$key?>" name="priceRange" value=""/>
 
 
                             <input
-                                    class="min-price form-control"
+                                    class="min-price form-control d-none"
                                     type="text"
                                     name="<?echo $arItem["VALUES"]["MIN"]["CONTROL_NAME"]?>"
                                     id="<?echo $arItem["VALUES"]["MIN"]["CONTROL_ID"]?>"
@@ -165,13 +164,35 @@ $this->setFrameMode(true);
                                     size="5"
                                     onkeyup="smartFilter.keyup(this)"/>
                             <input
-                                    class="max-price form-control"
+                                    class="max-price form-control d-none"
                                     type="text"
                                     name="<?echo $arItem["VALUES"]["MAX"]["CONTROL_NAME"]?>"
                                     id="<?echo $arItem["VALUES"]["MAX"]["CONTROL_ID"]?>"
                                     value="<?echo $arItem["VALUES"]["MAX"]["HTML_VALUE"]?>"
                                     size="5"
                                     onkeyup="smartFilter.keyup(this)"/>
+
+                            <script>
+                                if (typeof window.rangeSliders == 'undefined') {
+                                    window.rangeSliders = [];
+                                }
+                                window.rangeSliders[window.rangeSliders.length] = {
+                                    id: "#priceRange<?=$key?>",
+                                    min: <?= intval($arItem["VALUES"]["MIN"]["VALUE"]) ?>,
+                                    max: <?= intval($arItem["VALUES"]["MAX"]["VALUE"]) ?>,
+                                    from: <?= intval($arItem["VALUES"]["MIN"]["HTML_VALUE"]) ?>,
+                                    to: <?= intval($arItem["VALUES"]["MAX"]["HTML_VALUE"]) ?>,
+                                    onFinish: function (data) {
+                                        console.log("onChange", data);
+                                        $filFrom = $('#<?echo $arItem["VALUES"]["MIN"]["CONTROL_ID"]?>');
+                                        $filFrom.val(data.from);
+                                        $filTo = $('#<?echo $arItem["VALUES"]["MAX"]["CONTROL_ID"]?>');
+                                        $filTo.val(data.to);
+                                        smartFilter.keyup($filFrom.get(0));
+                                        smartFilter.keyup($filTo.get(0));
+                                    }
+                                };
+                            </script>
                         </div>
                     </div>
                 </div>
