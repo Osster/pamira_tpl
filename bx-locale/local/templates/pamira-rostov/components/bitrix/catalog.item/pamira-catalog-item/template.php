@@ -46,7 +46,6 @@ if (isset($arResult['ITEM'])) {
         'BASKET_PROP_DIV' => $areaId . '_basket_prop',
     );
     $obName = 'ob' . preg_replace("/[^a-zA-Z0-9_]/", "x", $areaId);
-    $isBig = isset($arResult['BIG']) && $arResult['BIG'] === 'Y';
 
     $productTitle = isset($item['IPROPERTY_VALUES']['ELEMENT_PAGE_TITLE']) && $item['IPROPERTY_VALUES']['ELEMENT_PAGE_TITLE'] != ''
         ? $item['IPROPERTY_VALUES']['ELEMENT_PAGE_TITLE']
@@ -78,24 +77,10 @@ if (isset($arResult['ITEM'])) {
         $morePhoto = $actualItem['MORE_PHOTO'];
     }
 
-    $showSlider = is_array($morePhoto) && count($morePhoto) > 1;
     $showSubscribe = $arParams['PRODUCT_SUBSCRIPTION'] === 'Y' && ($item['CATALOG_SUBSCRIBE'] === 'Y' || $haveOffers);
-
-    $discountPositionClass = isset($arResult['BIG_DISCOUNT_PERCENT']) && $arResult['BIG_DISCOUNT_PERCENT'] === 'Y'
-        ? 'product-item-label-big'
-        : 'product-item-label-small';
-    $discountPositionClass .= $arParams['DISCOUNT_POSITION_CLASS'];
-
-    $labelPositionClass = isset($arResult['BIG_LABEL']) && $arResult['BIG_LABEL'] === 'Y'
-        ? 'product-item-label-big'
-        : 'product-item-label-small';
-    $labelPositionClass .= $arParams['LABEL_POSITION_CLASS'];
-
-    $buttonSizeClass = isset($arResult['BIG_BUTTONS']) && $arResult['BIG_BUTTONS'] === 'Y' ? 'btn-md' : 'btn-sm';
     ?>
 
-    <div class="h-100"
-         id="<?= $areaId ?>" data-entity="item">
+    <div class="h-100" id="<?= $areaId ?>" data-entity="item">
         <?
         $documentRoot = Main\Application::getDocumentRoot();
         $templatePath = strtolower($arResult['TYPE']) . '/template.php';

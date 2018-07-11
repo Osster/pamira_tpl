@@ -19,6 +19,31 @@ else
 {
 	$basketAction = isset($arParams['SECTION_ADD_TO_BASKET_ACTION']) ? $arParams['SECTION_ADD_TO_BASKET_ACTION'] : '';
 }
+
+/*
+ * Сортировка
+ * */
+if (isset($_REQUEST["ORDER"]) && preg_match('/^(NAME|PRICE|RATING)\:/', $_REQUEST["ORDER"])) {
+    list ($SECTION_ORDER_FIELD, $SECTION_ORDER_DIR) = explode(':', $_REQUEST["ORDER"]);
+} else {
+    $SECTION_ORDER_FIELD = $APPLICATION->get_cookie("SECTION_ORDER_FIELD") ?: 'NAME';
+    $SECTION_ORDER_DIR = $APPLICATION->get_cookie("SECTION_ORDER_DIR") ?: 'ASC';
+}
+
+switch ($SECTION_ORDER_FIELD) {
+    case 'PRICE':
+        $arParams["ELEMENT_SORT_FIELD"] = 'catalog_PRICE_1';
+        break;
+    case 'RATING':
+        $arParams["ELEMENT_SORT_FIELD"] = 'shows';
+        break;
+    default:
+    case 'NAME':
+        $arParams["ELEMENT_SORT_FIELD"] = 'NAME';
+        break;
+}
+$arParams["ELEMENT_SORT_ORDER"] = $SECTION_ORDER_DIR;
+
 ?>
 
 <section class="main_dark main_padding">

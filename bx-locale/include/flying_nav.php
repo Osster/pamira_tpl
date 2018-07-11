@@ -1,40 +1,40 @@
 <aside class="wr-flying-nav">
     <div class="wr-flying-nav_links d-block d-md-flex flex-column">
-        <a class="wr-flying-nav_links_icon" href="#" id="icon-search">
+        <a class="wr-flying-nav_links_icon" id="icon-search">
             <svg width="36" height="36" data-toggle="tooltip" data-placement="left" title="Поиск">
                 <use xlink:href="#icon-search-svg"></use>
             </svg>
         </a>
-        <a class="wr-flying-nav_links_icon" href="#" id="icon-call">
+        <a class="wr-flying-nav_links_icon" id="icon-call">
             <svg width="37" height="37" data-toggle="tooltip" data-placement="left" title="Заказать звонок">
                 <use xlink:href="#tel"></use>
             </svg>
         </a>
     </div>
     <div class="wr-flying-nav_links d-block d-md-flex flex-column">
-        <a class="wr-flying-nav_links_icon" href="#" id="icon-login">
+        <a class="wr-flying-nav_links_icon" id="icon-login">
             <svg width="37" height="37" data-toggle="tooltip" data-placement="left" title="Личный кабинет">
                 <use xlink:href="#login"></use>
             </svg>
         </a>
-        <a class="wr-flying-nav_links_icon" href="#" id="icon-basket">
+        <a class="wr-flying-nav_links_icon" id="icon-basket">
             <svg width="37" height="37" data-toggle="tooltip" data-placement="left" title="Корзина">
                 <use xlink:href="#icon-cart-svg"></use>
             </svg>
         </a>
-        <a class="wr-flying-nav_links_icon" href="#" id="icon-selected">
+        <a class="wr-flying-nav_links_icon" id="icon-selected">
             <svg width="37" height="37" data-toggle="tooltip" data-placement="left" title="Избранное">
                 <use xlink:href="#favorites"></use>
             </svg>
         </a>
-        <a class="wr-flying-nav_links_icon" href="#" id="icon-compare">
+        <a class="wr-flying-nav_links_icon" id="icon-compare">
             <svg width="37" height="37" data-toggle="tooltip" data-placement="left" title="Сравнение">
                 <use xlink:href="#compare"></use>
             </svg>
         </a>
     </div>
     <div class="wr-flying-nav_links d-block d-md-flex flex-column">
-        <a class="wr-flying-nav_links_icon" href="#" id="icon-baloon">
+        <a class="wr-flying-nav_links_icon" id="icon-baloon">
             <svg width="37" height="37" data-toggle="tooltip" data-placement="left" title="Задать вопрос">
                 <use xlink:href="#baloon"></use>
             </svg>
@@ -42,14 +42,24 @@
     </div>
 </aside>
 
-<div class="wr-icon" id="search">
+<div class="wr-icon wr-icon_basket" id="search">
     <div class="wr-contacts-form wr-contacts-form_search wr-contacts-form_light">
-        <img src="img/icons/close-red.svg" alt="">
-        <form class="search" name="search" method="post">
-            <input class="search__input" name="search" type="text" placeholder="Найдется все! Например, варочные панели...">
-            <button class="btn btn-primary search__btn">Найти</button>
-        </form>
+    <?$APPLICATION->IncludeComponent(
+        "bitrix:search.form",
+        "",
+        Array(
+            "PAGE" => "#SITE_DIR#search/index.php",
+            "USE_SUGGEST" => "Y"
+        )
+    );?>
     </div>
+<!--    <div class="wr-contacts-form wr-contacts-form_search wr-contacts-form_light">-->
+<!--        <img src="img/icons/close-red.svg" alt="">-->
+<!--        <form class="search" name="search" method="post">-->
+<!--            <input class="search__input" name="search" type="text" placeholder="Найдется все! Например, варочные панели...">-->
+<!--            <button class="btn btn-primary search__btn">Найти</button>-->
+<!--        </form>-->
+<!--    </div>-->
 </div>
 
 <div class="wr-icon" id="call">

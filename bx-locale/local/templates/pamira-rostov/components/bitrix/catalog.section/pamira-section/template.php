@@ -159,18 +159,26 @@ if (isset($_REQUEST["TYPE"]) && ($_REQUEST["TYPE"] == 'card' || $_REQUEST["TYPE"
 } else {
     $SECTION_VIEW_TYPE = ($APPLICATION->get_cookie("SECTION_VIEW_TYPE") ? $APPLICATION->get_cookie("SECTION_VIEW_TYPE") : 'card');
 }
+
+if (isset($_REQUEST["ORDER"]) && preg_match('/^(NAME|PRICE|RATING)\:/', $_REQUEST["ORDER"])) {
+    list ($SECTION_ORDER_FIELD, $SECTION_ORDER_DIR) = explode(':', $_REQUEST["ORDER"]);
+} else {
+    $SECTION_ORDER_FIELD = $APPLICATION->get_cookie("SECTION_ORDER_FIELD") ?: 'NAME';
+    $SECTION_ORDER_DIR = $APPLICATION->get_cookie("SECTION_ORDER_DIR") ?: 'ASC';
+}
+
 ?>
 
 <div class="wr-filter">
     <div class="catalog-filter_res">
         <div class="catalog-filter_res_total">
-            <p>Всего товаров: 300</p>
+            <p>Всего товаров: <?= IntVal($arResult["ACTIVE_ELEMENTS_COUNT"]) ?></p>
         </div>
         <div class="catalog-filter_res_sort">
             <p>Сортировать</p>
-            <button class="btn">по наименованию</button>
-            <button class="btn">по цене</button>
-            <button class="btn">по популярности</button>
+            <a href="?ORDER=NAME:<?= $SECTION_ORDER_DIR == 'ASC' ? 'DESC' : 'ASC' ?>" class="btn <?= $SECTION_ORDER_FIELD == 'NAME' ? 'active': '' ?>">по наименованию</a>
+            <a href="?ORDER=PRICE:<?= $SECTION_ORDER_DIR == 'ASC' ? 'DESC' : 'ASC' ?>" class="btn <?= $SECTION_ORDER_FIELD == 'PRICE' ? 'active': '' ?>">по цене</a>
+            <a href="?ORDER=RATING:<?= $SECTION_ORDER_DIR == 'ASC' ? 'DESC' : 'ASC' ?>" class="btn <?= $SECTION_ORDER_FIELD == 'RATING' ? 'active': '' ?>">по популярности</a>
         </div>
         <div class="catalog-filter_res_view">
             <p>Вид</p>
@@ -221,7 +229,7 @@ if (isset($_REQUEST["TYPE"]) && ($_REQUEST["TYPE"] == 'card' || $_REQUEST["TYPE"
                                 'RESULT' => array(
                                     'ITEM' => $item,
                                     'AREA_ID' => $areaIds[$item['ID']],
-                                    'TYPE' => ($APPLICATION->get_cookie("SECTION_VIEW_TYPE") ? $APPLICATION->get_cookie("SECTION_VIEW_TYPE") : $rowData['TYPE']),
+                                    'TYPE' => ($SECTION_VIEW_TYPE ? $SECTION_VIEW_TYPE : $rowData['TYPE']),
                                     'BIG_LABEL' => 'N',
                                     'BIG_DISCOUNT_PERCENT' => 'N',
                                     'BIG_BUTTONS' => 'Y',

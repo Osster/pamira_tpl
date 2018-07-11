@@ -312,19 +312,6 @@ endif;
         </section>
         <? endif; ?>
 
-         <? $APPLICATION->IncludeComponent(
-            "bitrix:main.include",
-            "",
-            Array(
-                "AREA_FILE_SHOW" => "file",
-                "PATH" => SITE_DIR."include/flying_nav.php",
-                "AREA_FILE_RECURSIVE" => "N",
-                "EDIT_MODE" => "html",
-            ),
-            false,
-            Array('HIDE_ICONS' => 'Y')
-        ); ?>
-
         <? if ($APPLICATION->GetCurPage(false) !== '/'): ?>
         <section class="wr-breadcrumbs">
             <div class="container">
