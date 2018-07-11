@@ -81,6 +81,7 @@
     </div>
 </div>
 
+<!--
 <div class="wr-icon wr-icon_basket icon-active" id="basket">
     <div class="basket">
         <button class="icon-close">
@@ -90,41 +91,44 @@
             </svg>
         </button>
 
-        <? $APPLICATION->IncludeComponent(
-            "bitrix:eshopapp.basket",
-            "pamira-basket",
-            array(
-                "AJAX_MODE" => "N",
-                "AJAX_OPTION_ADDITIONAL" => "",
-                "AJAX_OPTION_HISTORY" => "N",
-                "AJAX_OPTION_JUMP" => "N",
-                "AJAX_OPTION_STYLE" => "Y",
-                "CATALOG_FOLDER" => "/eshop_app/catalog/",
-                "COLUMNS_LIST" => array(
-                    0 => "NAME",
-                    1 => "PRICE",
-                    2 => "QUANTITY",
-                    3 => "DELETE",
-                    4 => "DELAY",
-                    5 => "WEIGHT",
-                ),
-                "COUNT_DISCOUNT_4_ALL_QUANTITY" => "N",
-                "HIDE_COUPON" => "N",
-                "PATH_TO_ORDER" => "/personal/order.php",
-                "PRICE_VAT_SHOW_VALUE" => "N",
-                "QUANTITY_FLOAT" => "N",
-                "SET_TITLE" => "Y",
-                "COMPONENT_TEMPLATE" => "pamira-basket",
-                "VARIABLE_ALIASES" => array(
-                    "ELEMENT_ID" => "ELEMENT_ID",
-                    "SECTION_ID" => "SECTION_ID",
-                )
-            ),
-            false
-        ); ?>
+    <?
+    /*$APPLICATION->IncludeComponent(
+	"bitrix:eshopapp.basket",
+	"pamira-basket",
+	array(
+		"AJAX_MODE" => "N",
+		"AJAX_OPTION_ADDITIONAL" => "",
+		"AJAX_OPTION_HISTORY" => "N",
+		"AJAX_OPTION_JUMP" => "N",
+		"AJAX_OPTION_STYLE" => "Y",
+		"CATALOG_FOLDER" => "/eshop_app/catalog/",
+		"COLUMNS_LIST" => array(
+			0 => "NAME",
+			1 => "PRICE",
+			2 => "QUANTITY",
+			3 => "DELETE",
+			4 => "DELAY",
+			5 => "WEIGHT",
+		),
+		"COUNT_DISCOUNT_4_ALL_QUANTITY" => "N",
+		"HIDE_COUPON" => "N",
+		"PATH_TO_ORDER" => "/personal/order.php",
+		"PRICE_VAT_SHOW_VALUE" => "N",
+		"QUANTITY_FLOAT" => "N",
+		"SET_TITLE" => "Y",
+		"COMPONENT_TEMPLATE" => "pamira-basket",
+		"VARIABLE_ALIASES" => array(
+			"ELEMENT_ID" => "ELEMENT_ID",
+			"SECTION_ID" => "SECTION_ID",
+		)
+	),
+	false
+);
+    */?>
     </div>
 
 </div>
+-->
 
 <div class="wr-icon wr-icon_basket" id="selected">
     <div class="basket">

@@ -21,10 +21,165 @@ use \Bitrix\Main\Localization\Loc;
  * @var CatalogSectionComponent $component
  */
 ?>
+
+<div class="catalog-item">
+    <div class="catalog-item_img">
+        <a  href="<?= $item['DETAIL_PAGE_URL'] ?>" title="<?= $imgTitle ?>" data-entity="image-wrapper">
+            <img src="<?= $item['PREVIEW_PICTURE']['SRC'] ?>" alt="<?= $imgTitle ?>">
+        </a>
+    </div>
+    <div class="catalog-item_text">
+        <a href="<?= $item['DETAIL_PAGE_URL'] ?>" title="<?= $productTitle ?>"><?= $productTitle ?></a>
+
+        <div class="catalog-item_cost" data-entity="price-block">
+            <?
+            if ($arParams['SHOW_OLD_PRICE'] === 'Y') {
+                ?>
+                <p class="catalog-item_cost_old" id="<?= $itemIds['PRICE_OLD'] ?>"
+                    <?= ($price['RATIO_PRICE'] >= $price['RATIO_BASE_PRICE'] ? 'style="display: none;"' : '') ?>>
+                    <?= $price['PRINT_RATIO_BASE_PRICE'] ?>
+                </p>&nbsp;
+                <?
+            }
+            ?>
+            <p class="catalog-item_cost_new" id="<?= $itemIds['PRICE'] ?>">
+                <?
+                if (!empty($price)) {
+                    if ($arParams['PRODUCT_DISPLAY_MODE'] === 'N' && $haveOffers) {
+                        echo Loc::getMessage(
+                            'CT_BCI_TPL_MESS_PRICE_SIMPLE_MODE',
+                            array(
+                                '#PRICE#' => $price['PRINT_RATIO_PRICE'],
+                                '#VALUE#' => $measureRatio,
+                                '#UNIT#' => $minOffer['ITEM_MEASURE']['TITLE']
+                            )
+                        );
+                    } else {
+                        echo $price['PRINT_RATIO_PRICE'];
+                    }
+                }
+                ?>
+            </p>
+        </div>
+    </div>
+    <div class="catalog-item_links">
+        <?
+        if (
+            $arParams['DISPLAY_COMPARE']
+            && (!$haveOffers || $arParams['PRODUCT_DISPLAY_MODE'] === 'Y')
+        ) {
+            ?>
+            <span class="catalog-item_links_icon" id="<?= $itemIds['COMPARE_LINK'] ?>">
+                <input class="d-none" type="checkbox" data-entity="compare-checkbox">
+                <svg data-toggle="tooltip" data-placement="left"
+                     title="Сравнение">
+                    <use xlink:href="#compare"></use>
+                </svg>
+            </span>
+            <?
+        }
+        ?>
+
+        <a class="catalog-item_links_icon" href="#">
+            <svg data-toggle="tooltip" data-placement="left"
+                 title="Избранное">
+                <use xlink:href="#favorites"></use>
+            </svg>
+        </a>
+
+        <?
+        if (!$haveOffers) {
+            if ($actualItem['CAN_BUY']) {
+                ?>
+                <div class="product-item-button-container" id="<?= $itemIds['BASKET_ACTIONS'] ?>">
+                    <a class="btn btn-default <?= $buttonSizeClass ?>" id="<?= $itemIds['BUY_LINK'] ?>"
+                       href="javascript:void(0)" rel="nofollow">
+                        <?= ($arParams['ADD_TO_BASKET_ACTION'] === 'BUY' ? $arParams['MESS_BTN_BUY'] : $arParams['MESS_BTN_ADD_TO_BASKET']) ?>
+                    </a>
+                </div>
+                <?
+            } else {
+                ?>
+                <div class="product-item-button-container">
+                    <?
+                    if ($showSubscribe) {
+                        $APPLICATION->IncludeComponent(
+                            'bitrix:catalog.product.subscribe',
+                            '',
+                            array(
+                                'PRODUCT_ID' => $actualItem['ID'],
+                                'BUTTON_ID' => $itemIds['SUBSCRIBE_LINK'],
+                                'BUTTON_CLASS' => 'btn btn-default ' . $buttonSizeClass,
+                                'DEFAULT_DISPLAY' => true,
+                                'MESS_BTN_SUBSCRIBE' => $arParams['~MESS_BTN_SUBSCRIBE'],
+                            ),
+                            $component,
+                            array('HIDE_ICONS' => 'Y')
+                        );
+                    }
+                    ?>
+                    <a class="btn btn-link <?= $buttonSizeClass ?>"
+                       id="<?= $itemIds['NOT_AVAILABLE_MESS'] ?>" href="javascript:void(0)"
+                       rel="nofollow">
+                        <?= $arParams['MESS_NOT_AVAILABLE'] ?>
+                    </a>
+                </div>
+                <?
+            }
+        } else {
+            if ($arParams['PRODUCT_DISPLAY_MODE'] === 'Y') {
+                ?>
+                <div class="product-item-button-container">
+                    <?
+                    if ($showSubscribe) {
+                        $APPLICATION->IncludeComponent(
+                            'bitrix:catalog.product.subscribe',
+                            '',
+                            array(
+                                'PRODUCT_ID' => $item['ID'],
+                                'BUTTON_ID' => $itemIds['SUBSCRIBE_LINK'],
+                                'BUTTON_CLASS' => 'btn btn-default ' . $buttonSizeClass,
+                                'DEFAULT_DISPLAY' => !$actualItem['CAN_BUY'],
+                                'MESS_BTN_SUBSCRIBE' => $arParams['~MESS_BTN_SUBSCRIBE'],
+                            ),
+                            $component,
+                            array('HIDE_ICONS' => 'Y')
+                        );
+                    }
+                    ?>
+                    <a class="btn btn-link <?= $buttonSizeClass ?>"
+                       id="<?= $itemIds['NOT_AVAILABLE_MESS'] ?>" href="javascript:void(0)"
+                       rel="nofollow"
+                        <?= ($actualItem['CAN_BUY'] ? 'style="display: none;"' : '') ?>>
+                        <?= $arParams['MESS_NOT_AVAILABLE'] ?>
+                    </a>
+                    <div id="<?= $itemIds['BASKET_ACTIONS'] ?>" <?= ($actualItem['CAN_BUY'] ? '' : 'style="display: none;"') ?>>
+                        <a class="btn btn-default <?= $buttonSizeClass ?>"
+                           id="<?= $itemIds['BUY_LINK'] ?>"
+                           href="javascript:void(0)" rel="nofollow">
+                            <?= ($arParams['ADD_TO_BASKET_ACTION'] === 'BUY' ? $arParams['MESS_BTN_BUY'] : $arParams['MESS_BTN_ADD_TO_BASKET']) ?>
+                        </a>
+                    </div>
+                </div>
+                <?
+            } else {
+                ?>
+                <div class="product-item-button-container">
+                    <a class="btn btn-default <?= $buttonSizeClass ?>"
+                       href="<?= $item['DETAIL_PAGE_URL'] ?>">
+                        <?= $arParams['MESS_BTN_DETAIL'] ?>
+                    </a>
+                </div>
+                <?
+            }
+        }
+        ?>
+    </div>
+</div>
+<!--
 <div class="catalog-item product-item">
     <div class="catalog-item_img">
-        <a class="product-item-image-wrapper" href="<?= $item['DETAIL_PAGE_URL'] ?>" title="<?= $imgTitle ?>"
-           data-entity="image-wrapper">
+        <a class="product-item-image-wrapper" href="<?= $item['DETAIL_PAGE_URL'] ?>" title="<?= $imgTitle ?>" data-entity="image-wrapper">
 		<span class="product-item-image-slider-slide-container slide" id="<?= $itemIds['PICT_SLIDER'] ?>"
             <?= ($showSlider ? '' : 'style="display: none;"') ?>
               data-slider-interval="<?= $arParams['SLIDER_INTERVAL'] ?>" data-slider-wrap="true">
@@ -547,3 +702,4 @@ use \Bitrix\Main\Localization\Loc;
     }
     ?>
 </div>
+-->
