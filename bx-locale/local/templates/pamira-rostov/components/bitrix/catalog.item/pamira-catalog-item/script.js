@@ -304,6 +304,7 @@
                 default:
                     this.errorCode = -1;
             }
+
             if (arParams.BASKET && typeof arParams.BASKET === 'object') {
                 if (arParams.BASKET.QUANTITY) {
                     this.basketData.quantity = arParams.BASKET.QUANTITY;
@@ -386,13 +387,6 @@
                 this.obSecondPict = BX(this.visual.SECOND_PICT_ID);
             }
 
-            this.obPictSlider = BX(this.visual.PICT_SLIDER_ID);
-            this.obPictSliderIndicator = BX(this.visual.PICT_SLIDER_ID + '_indicator');
-            this.obPictSliderProgressBar = BX(this.visual.PICT_SLIDER_ID + '_progress_bar');
-            if (!this.obPictSlider) {
-                this.errorCode = -4;
-            }
-
             this.obPrice = BX(this.visual.PRICE_ID);
             this.obPriceOld = BX(this.visual.PRICE_OLD_ID);
             this.obPriceTotal = BX(this.visual.PRICE_TOTAL_ID);
@@ -471,12 +465,7 @@
 
             if (this.errorCode === 0) {
                 // product slider events
-                if (this.isTouchDevice) {
-                    BX.bind(this.obPictSlider, 'touchstart', BX.proxy(this.touchStartEvent, this));
-                    BX.bind(this.obPictSlider, 'touchend', BX.proxy(this.touchEndEvent, this));
-                    BX.bind(this.obPictSlider, 'touchcancel', BX.proxy(this.touchEndEvent, this));
-                }
-                else {
+                if (!this.isTouchDevice) {
                     if (this.viewMode === 'CARD') {
                         // product hover events
                         BX.bind(this.obProduct, 'mouseenter', BX.proxy(this.hoverOn, this));
@@ -528,9 +517,6 @@
                     case 0: // no catalog
                     case 1: // product
                     case 2: // set
-                        if (parseInt(this.product.morePhotoCount) > 1 && this.obPictSlider) {
-                            this.initializeSlider();
-                        }
 
                         this.checkQuantityControls();
 
@@ -546,9 +532,6 @@
                             }
 
                             this.setCurrent();
-                        }
-                        else if (parseInt(this.product.morePhotoCount) > 1 && this.obPictSlider) {
-                            this.initializeSlider();
                         }
 
                         break;
@@ -999,51 +982,6 @@
 
                         BX.adjust(this.obQuantityLimit.value, {html: strLimit});
                         BX.adjust(this.obQuantityLimit.all, {style: {display: ''}});
-                    }
-                }
-            }
-        },
-
-        initializeSlider: function () {
-            var wrap = this.obPictSlider.getAttribute('data-slider-wrap');
-            if (wrap) {
-                this.slider.options.wrap = wrap === 'true';
-            }
-            else {
-                this.slider.options.wrap = this.defaultSliderOptions.wrap;
-            }
-
-            if (this.isTouchDevice) {
-                this.slider.options.interval = false;
-            }
-            else {
-                this.slider.options.interval = parseInt(this.obPictSlider.getAttribute('data-slider-interval')) || this.defaultSliderOptions.interval;
-                // slider interval must be more than 700ms because of css transitions
-                if (this.slider.options.interval < 700) {
-                    this.slider.options.interval = 700;
-                }
-
-                if (this.obPictSliderIndicator) {
-                    var controls = this.obPictSliderIndicator.querySelectorAll('[data-go-to]');
-                    for (var i in controls) {
-                        if (controls.hasOwnProperty(i)) {
-                            BX.bind(controls[i], 'click', BX.proxy(this.sliderClickHandler, this));
-                        }
-                    }
-                }
-
-                if (this.obPictSliderProgressBar) {
-                    if (this.slider.progress) {
-                        this.resetProgress();
-                        this.cycleSlider();
-                    }
-                    else {
-                        this.slider.progress = new BX.easing({
-                            transition: BX.easing.transitions.linear,
-                            step: BX.delegate(function (state) {
-                                this.obPictSliderProgressBar.style.width = state.width / 10 + '%';
-                            }, this)
-                        });
                     }
                 }
             }
@@ -1511,102 +1449,6 @@
                 }
             }
             if (index > -1) {
-                if (parseInt(this.offers[index].MORE_PHOTO_COUNT) > 1 && this.obPictSlider) {
-                    // hide pict and second_pict containers
-                    if (this.obPict) {
-                        this.obPict.style.display = 'none';
-                    }
-
-                    if (this.obSecondPict) {
-                        this.obSecondPict.style.display = 'none';
-                    }
-
-                    // clear slider container
-                    BX.cleanNode(this.obPictSlider);
-
-                    // fill slider container with slides
-                    for (i in this.offers[index].MORE_PHOTO) {
-                        if (this.offers[index].MORE_PHOTO.hasOwnProperty(i)) {
-                            this.obPictSlider.appendChild(
-                                BX.create('SPAN', {
-                                    props: {className: 'product-item-image-slide item' + (i == 0 ? ' active' : '')},
-                                    style: {backgroundImage: 'url(\'' + this.offers[index].MORE_PHOTO[i].SRC + '\')'}
-                                })
-                            );
-                        }
-                    }
-
-                    // fill slider indicator if exists
-                    if (this.obPictSliderIndicator) {
-                        BX.cleanNode(this.obPictSliderIndicator);
-
-                        for (i in this.offers[index].MORE_PHOTO) {
-                            if (this.offers[index].MORE_PHOTO.hasOwnProperty(i)) {
-                                this.obPictSliderIndicator.appendChild(
-                                    BX.create('DIV', {
-                                        attrs: {'data-go-to': i},
-                                        props: {className: 'product-item-image-slider-control' + (i == 0 ? ' active' : '')}
-                                    })
-                                );
-                                this.obPictSliderIndicator.appendChild(document.createTextNode(' '));
-                            }
-                        }
-
-                        this.obPictSliderIndicator.style.display = '';
-                    }
-
-                    if (this.obPictSliderProgressBar) {
-                        this.obPictSliderProgressBar.style.display = '';
-                    }
-
-                    // show slider container
-                    this.obPictSlider.style.display = '';
-                    this.initializeSlider();
-                }
-                else {
-                    // hide slider container
-                    if (this.obPictSlider) {
-                        this.obPictSlider.style.display = 'none';
-                    }
-
-                    if (this.obPictSliderIndicator) {
-                        this.obPictSliderIndicator.style.display = 'none';
-                    }
-
-                    if (this.obPictSliderProgressBar) {
-                        this.obPictSliderProgressBar.style.display = 'none';
-                    }
-
-                    // show pict and pict_second containers
-                    if (this.obPict) {
-                        if (this.offers[index].PREVIEW_PICTURE) {
-                            BX.adjust(this.obPict, {style: {backgroundImage: 'url(\'' + this.offers[index].PREVIEW_PICTURE.SRC + '\')'}});
-                        }
-                        else {
-                            BX.adjust(this.obPict, {style: {backgroundImage: 'url(\'' + this.defaultPict.pict.SRC + '\')'}});
-                        }
-
-                        this.obPict.style.display = '';
-                    }
-
-                    if (this.secondPict && this.obSecondPict) {
-                        if (this.offers[index].PREVIEW_PICTURE_SECOND) {
-                            BX.adjust(this.obSecondPict, {style: {backgroundImage: 'url(\'' + this.offers[index].PREVIEW_PICTURE_SECOND.SRC + '\')'}});
-                        }
-                        else if (this.offers[index].PREVIEW_PICTURE.SRC) {
-                            BX.adjust(this.obSecondPict, {style: {backgroundImage: 'url(\'' + this.offers[index].PREVIEW_PICTURE.SRC + '\')'}});
-                        }
-                        else if (this.defaultPict.secondPict) {
-                            BX.adjust(this.obSecondPict, {style: {backgroundImage: 'url(\'' + this.defaultPict.secondPict.SRC + '\')'}});
-                        }
-                        else {
-                            BX.adjust(this.obSecondPict, {style: {backgroundImage: 'url(\'' + this.defaultPict.pict.SRC + '\')'}});
-                        }
-
-                        this.obSecondPict.style.display = '';
-                    }
-                }
-
                 if (this.showSkuProps && this.obSkuProps) {
                     if (this.offers[index].DISPLAY_PROPERTIES.length) {
                         BX.adjust(this.obSkuProps, {style: {display: ''}, html: this.offers[index].DISPLAY_PROPERTIES});

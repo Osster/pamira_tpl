@@ -12,7 +12,8 @@
     }
 
     &:hover,
-    &:active {
+    &:active,
+    &.active {
       background-color: $color_white;
       color: $color_gray_darkest;
     }

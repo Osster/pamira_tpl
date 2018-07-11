@@ -34,6 +34,164 @@ if ($haveOffers) {
 }
 ?>
 
+
+<div class="catalog-item product-item">
+    <div class="catalog-item_img">
+        <a id="<?= $item['SECOND_PICT'] ? $itemIds['SECOND_PICT'] : $itemIds['PICT'] ?>" href="<?= $item['DETAIL_PAGE_URL'] ?>" title="<?= $productTitle ?>">
+            <img src="<?= $item['PREVIEW_PICTURE']['SRC'] ?>" alt="<?= $imgTitle ?>">
+        </a>
+    </div>
+    <div class="catalog-item_text">
+        <a href="<?= $item['DETAIL_PAGE_URL'] ?>"><?= $productTitle ?></a>
+        <?
+        if (!empty($item['DISPLAY_PROPERTIES']))
+        {
+        ?>
+        <div class="product-item-info-container product-item-hidden" data-entity="props-block">
+            <dl class="product-item-properties">
+                <?
+                foreach ($item['DISPLAY_PROPERTIES'] as $code => $displayProperty)
+                {
+                    ?>
+                    <p<?=(!isset($item['PROPERTY_CODE_MOBILE'][$code]) ? ' class="d-none d-lg-block"' : '')?>>
+                        <?=$displayProperty['NAME']?>:
+                        <?=(is_array($displayProperty['DISPLAY_VALUE'])
+                            ? implode(' / ', $displayProperty['DISPLAY_VALUE'])
+                            : $displayProperty['DISPLAY_VALUE'])?>
+                    </p>
+                    <?
+                }
+                ?>
+            </dl>
+        </div>
+        <?
+        }
+        ?>
+    </div>
+    <div class="catalog-item_links">
+        <div class="catalog-item_links_props">
+            <div class="catalog-item_cost" data-entity="price-block">
+                <?
+                if ($arParams['SHOW_OLD_PRICE'] === 'Y') {
+                    ?>
+                    <span class="catalog-item_cost_old" id="<?= $itemIds['PRICE_OLD'] ?>"
+                        <?= ($price['RATIO_PRICE'] >= $price['RATIO_BASE_PRICE'] ? 'style="display: none;"' : '') ?>>
+                        <?= $price['PRINT_RATIO_BASE_PRICE'] ?>
+                    </span>&nbsp;
+                    <?
+                }
+                ?>
+                <span class="catalog-item_cost_new" id="<?= $itemIds['PRICE'] ?>">
+                    <?
+                    if (!empty($price)) {
+                        if ($arParams['PRODUCT_DISPLAY_MODE'] === 'N' && $haveOffers) {
+                            echo Loc::getMessage(
+                                'CT_BCI_TPL_MESS_PRICE_SIMPLE_MODE',
+                                array(
+                                    '#PRICE#' => $price['PRINT_RATIO_PRICE'],
+                                    '#VALUE#' => $measureRatio,
+                                    '#UNIT#' => $minOffer['ITEM_MEASURE']['TITLE']
+                                )
+                            );
+                        } else {
+                            echo $price['PRINT_RATIO_PRICE'];
+                        }
+                    }
+                    ?>
+                </span>
+            </div>
+            <?
+            if (!$haveOffers) {
+                if ($actualItem['CAN_BUY']) {
+                    ?>
+                    <div class="product-item-button-container" id="<?= $itemIds['BASKET_ACTIONS'] ?>">
+                        <a class="btn btn-default <?= $buttonSizeClass ?>" id="<?= $itemIds['BUY_LINK'] ?>"
+                           href="javascript:void(0)" rel="nofollow">
+                            <?= ($arParams['ADD_TO_BASKET_ACTION'] === 'BUY' ? $arParams['MESS_BTN_BUY'] : $arParams['MESS_BTN_ADD_TO_BASKET']) ?>
+                        </a>
+                    </div>
+                    <?
+                } else {
+                    ?>
+                    <div class="product-item-button-container">
+                        <?
+                        if ($showSubscribe) {
+                            $APPLICATION->IncludeComponent(
+                                'bitrix:catalog.product.subscribe',
+                                '',
+                                array(
+                                    'PRODUCT_ID' => $actualItem['ID'],
+                                    'BUTTON_ID' => $itemIds['SUBSCRIBE_LINK'],
+                                    'BUTTON_CLASS' => 'btn btn-default ' . $buttonSizeClass,
+                                    'DEFAULT_DISPLAY' => true,
+                                    'MESS_BTN_SUBSCRIBE' => $arParams['~MESS_BTN_SUBSCRIBE'],
+                                ),
+                                $component,
+                                array('HIDE_ICONS' => 'Y')
+                            );
+                        }
+                        ?>
+                        <a class="btn btn-link <?= $buttonSizeClass ?>"
+                           id="<?= $itemIds['NOT_AVAILABLE_MESS'] ?>" href="javascript:void(0)"
+                           rel="nofollow">
+                            <?= $arParams['MESS_NOT_AVAILABLE'] ?>
+                        </a>
+                    </div>
+                    <?
+                }
+            } else {
+                if ($arParams['PRODUCT_DISPLAY_MODE'] === 'Y') {
+                    ?>
+                    <div class="product-item-button-container">
+                        <?
+                        if ($showSubscribe) {
+                            $APPLICATION->IncludeComponent(
+                                'bitrix:catalog.product.subscribe',
+                                '',
+                                array(
+                                    'PRODUCT_ID' => $item['ID'],
+                                    'BUTTON_ID' => $itemIds['SUBSCRIBE_LINK'],
+                                    'BUTTON_CLASS' => 'btn btn-default ' . $buttonSizeClass,
+                                    'DEFAULT_DISPLAY' => !$actualItem['CAN_BUY'],
+                                    'MESS_BTN_SUBSCRIBE' => $arParams['~MESS_BTN_SUBSCRIBE'],
+                                ),
+                                $component,
+                                array('HIDE_ICONS' => 'Y')
+                            );
+                        }
+                        ?>
+                        <a class="btn btn-link <?= $buttonSizeClass ?>"
+                           id="<?= $itemIds['NOT_AVAILABLE_MESS'] ?>" href="javascript:void(0)"
+                           rel="nofollow"
+                            <?= ($actualItem['CAN_BUY'] ? 'style="display: none;"' : '') ?>>
+                            <?= $arParams['MESS_NOT_AVAILABLE'] ?>
+                        </a>
+                        <div id="<?= $itemIds['BASKET_ACTIONS'] ?>" <?= ($actualItem['CAN_BUY'] ? '' : 'style="display: none;"') ?>>
+                            <a class="btn btn-default <?= $buttonSizeClass ?>"
+                               id="<?= $itemIds['BUY_LINK'] ?>"
+                               href="javascript:void(0)" rel="nofollow">
+                                <?= ($arParams['ADD_TO_BASKET_ACTION'] === 'BUY' ? $arParams['MESS_BTN_BUY'] : $arParams['MESS_BTN_ADD_TO_BASKET']) ?>
+                            </a>
+                        </div>
+                    </div>
+                    <?
+                } else {
+                    ?>
+                    <div class="product-item-button-container">
+                        <a class="btn btn-default <?= $buttonSizeClass ?>"
+                           href="<?= $item['DETAIL_PAGE_URL'] ?>">
+                            <?= $arParams['MESS_BTN_DETAIL'] ?>
+                        </a>
+                    </div>
+                    <?
+                }
+            }
+            ?>
+        </div>
+    </div>
+</div>
+
+<!--
 <div class="row product-item">
     <div class="col-xs-12">
         <div class="product-item-title">
@@ -623,3 +781,4 @@ if ($haveOffers) {
         </div>
     </div>
 </div>
+-->

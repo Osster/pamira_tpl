@@ -29,13 +29,18 @@
 
 $(document).ready(function () {
 
-    $("#priceRange").ionRangeSlider({
-        type: "double",
-        min: 0,
-        max: 125000,
-        from: 0,
-        to: 125000
-    });
+    if (typeof window.rangeSliders !== 'undefined') {
+        window.rangeSliders.map(function (rs) {
+            $(rs.id).ionRangeSlider({
+                type: "double",
+                min: rs.min,
+                max: rs.max,
+                from: rs.from,
+                to: rs.to,
+                onFinish: rs.onFinish
+            });
+        });
+    }
 
 });
 
