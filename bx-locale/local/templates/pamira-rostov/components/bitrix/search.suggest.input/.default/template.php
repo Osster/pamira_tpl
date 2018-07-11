@@ -33,6 +33,7 @@ CJSCore::Init(array("ajax"));
         name="<? echo $arParams["NAME"] ?>"
         id="<? echo $arResult["ID"] ?>"
         value="<? echo $arParams["VALUE"] ?>"
+        placeholder="Найдется всё! Например, варочные панели..."
         class="search__input"
         type="text"
         autocomplete="off"

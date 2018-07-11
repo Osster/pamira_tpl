@@ -44,16 +44,14 @@
     </aside>
 
     <div class="wr-icon" id="search">
-        <div class="wr-contacts-form wr-contacts-form_search wr-contacts-form_light">
-            <? $APPLICATION->IncludeComponent(
-                "bitrix:search.form",
-                "pamira-search-form",
-                Array(
-                    "PAGE" => "#SITE_DIR#search/index.php",
-                    "USE_SUGGEST" => "Y"
-                )
-            ); ?>
-        </div>
+        <? $APPLICATION->IncludeComponent(
+            "bitrix:search.form",
+            "pamira-search-form",
+            Array(
+                "PAGE" => "#SITE_DIR#search/index.php",
+                "USE_SUGGEST" => "Y"
+            )
+        ); ?>
         <!--    <div class="wr-contacts-form wr-contacts-form_search wr-contacts-form_light">-->
         <!--        <img src="img/icons/close-red.svg" alt="">-->
         <!--        <form class="search" name="search" method="post">-->
@@ -107,7 +105,14 @@
                 </svg>
             </button>
 
-            <?
+            <? $APPLICATION->IncludeComponent(
+                "bitrix:sale.basket.basket",
+                "pamira-basket",
+                Array(),
+                false
+            ); ?>
+
+            <? /*
             $APPLICATION->IncludeComponent(
                 "bitrix:eshopapp.basket",
                 "pamira-basket",
@@ -139,7 +144,7 @@
                     )
                 ),
                 false
-            );
+            );*/
             ?>
         </div>
 
@@ -194,5 +199,6 @@
             </div>
 
         </div>
+
     </div>
 </div>
