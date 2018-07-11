@@ -1,12 +1,10 @@
 <?
 require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/header.php");
 $APPLICATION->SetTitle("Техника");
-?>
-
-<? $APPLICATION->IncludeComponent(
+?><? $APPLICATION->IncludeComponent(
     "bitrix:catalog",
     "pamira-catalog",
-    array(
+    Array(
         "ACTION_VARIABLE" => "action",
         "ADD_ELEMENT_CHAIN" => "Y",
         "ADD_PICT_PROP" => "-",
@@ -25,23 +23,24 @@ $APPLICATION->SetTitle("Техника");
         "CACHE_TYPE" => "A",
         "COMMON_ADD_TO_BASKET_ACTION" => "ADD",
         "COMMON_SHOW_CLOSE_POPUP" => "N",
+        "COMPARE_ELEMENT_SORT_FIELD" => "sort",
+        "COMPARE_ELEMENT_SORT_ORDER" => "asc",
+        "COMPARE_FIELD_CODE" => array(0 => "", 1 => "",),
+        "COMPARE_NAME" => "CATALOG_COMPARE_LIST",
+        "COMPARE_POSITION" => "top left",
+        "COMPARE_POSITION_FIXED" => "Y",
+        "COMPARE_PROPERTY_CODE" => array(0 => "MANUFACTURER", 1 => "OPT_PRICE", 2 => "STYLE", 3 => "WIDTH", 4 => "ASSORTIMENT", 5 => "MATERIAL", 6 => "ENTITY", 7 => "COUNTRY", 8 => "TYPE", 9 => "COLOR", 10 => "",),
         "COMPATIBLE_MODE" => "Y",
+        "COMPONENT_TEMPLATE" => "pamira-catalog",
         "CONVERT_CURRENCY" => "N",
         "DETAIL_ADD_DETAIL_TO_SLIDER" => "N",
-        "DETAIL_ADD_TO_BASKET_ACTION" => array(
-            0 => "BUY",
-        ),
-        "DETAIL_ADD_TO_BASKET_ACTION_PRIMARY" => array(
-            0 => "BUY",
-        ),
+        "DETAIL_ADD_TO_BASKET_ACTION" => array(0 => "BUY",),
+        "DETAIL_ADD_TO_BASKET_ACTION_PRIMARY" => array(0 => "BUY",),
         "DETAIL_BACKGROUND_IMAGE" => "-",
         "DETAIL_BRAND_USE" => "N",
         "DETAIL_BROWSER_TITLE" => "-",
         "DETAIL_CHECK_SECTION_ID_VARIABLE" => "N",
-        "DETAIL_DETAIL_PICTURE_MODE" => array(
-            0 => "POPUP",
-            1 => "MAGNIFIER",
-        ),
+        "DETAIL_DETAIL_PICTURE_MODE" => array(0 => "POPUP", 1 => "MAGNIFIER",),
         "DETAIL_DISPLAY_NAME" => "Y",
         "DETAIL_DISPLAY_PREVIEW_TEXT_MODE" => "E",
         "DETAIL_IMAGE_RESOLUTION" => "16by9",
@@ -50,10 +49,7 @@ $APPLICATION->SetTitle("Техника");
         "DETAIL_META_KEYWORDS" => "-",
         "DETAIL_PRODUCT_INFO_BLOCK_ORDER" => "sku,props",
         "DETAIL_PRODUCT_PAY_BLOCK_ORDER" => "rating,price,priceRanges,quantityLimit,quantity,buttons",
-        "DETAIL_PROPERTY_CODE" => array(
-            0 => "",
-            1 => "",
-        ),
+        "DETAIL_PROPERTY_CODE" => array(0 => "", 1 => "",),
         "DETAIL_SET_CANONICAL_URL" => "N",
         "DETAIL_SET_VIEWED_IN_COMPONENT" => "N",
         "DETAIL_SHOW_POPULAR" => "Y",
@@ -64,24 +60,17 @@ $APPLICATION->SetTitle("Техника");
         "DETAIL_USE_VOTE_RATING" => "N",
         "DISABLE_INIT_JS_IN_COMPONENT" => "N",
         "DISPLAY_BOTTOM_PAGER" => "Y",
+        "DISPLAY_ELEMENT_SELECT_BOX" => "N",
         "DISPLAY_TOP_PAGER" => "N",
         "ELEMENT_SORT_FIELD" => "sort",
         "ELEMENT_SORT_FIELD2" => "id",
         "ELEMENT_SORT_ORDER" => "asc",
         "ELEMENT_SORT_ORDER2" => "desc",
-        "FILTER_FIELD_CODE" => array(
-            0 => "",
-            1 => "",
-        ),
+        "FILTER_FIELD_CODE" => array(0 => "", 1 => "",),
         "FILTER_HIDE_ON_MOBILE" => "N",
         "FILTER_NAME" => "",
-        "FILTER_PRICE_CODE" => array(
-            0 => "BASE",
-        ),
-        "FILTER_PROPERTY_CODE" => array(
-            0 => "",
-            1 => "",
-        ),
+        "FILTER_PRICE_CODE" => array(0 => "BASE",),
+        "FILTER_PROPERTY_CODE" => array(0 => "", 1 => "",),
         "FILTER_VIEW_MODE" => "HORIZONTAL",
         "GIFTS_DETAIL_BLOCK_TITLE" => "Выберите один из подарков",
         "GIFTS_DETAIL_HIDE_BLOCK_TITLE" => "N",
@@ -118,10 +107,7 @@ $APPLICATION->SetTitle("Техника");
         "LIST_META_KEYWORDS" => "-",
         "LIST_PRODUCT_BLOCKS_ORDER" => "price,props,sku,quantityLimit,quantity,buttons",
         "LIST_PRODUCT_ROW_VARIANTS" => "[{'VARIANT':'2','BIG_DATA':false},{'VARIANT':'2','BIG_DATA':false},{'VARIANT':'2','BIG_DATA':false},{'VARIANT':'2','BIG_DATA':false},{'VARIANT':'2','BIG_DATA':false},{'VARIANT':'2','BIG_DATA':false},{'VARIANT':'2','BIG_DATA':false},{'VARIANT':'2','BIG_DATA':false},{'VARIANT':'2','BIG_DATA':false},{'VARIANT':'2','BIG_DATA':false}]",
-        "LIST_PROPERTY_CODE" => array(
-            0 => "",
-            1 => "",
-        ),
+        "LIST_PROPERTY_CODE" => array(0 => "", 1 => "",),
         "LIST_PROPERTY_CODE_MOBILE" => array(),
         "LIST_SHOW_SLIDER" => "Y",
         "LIST_SLIDER_INTERVAL" => "3000",
@@ -147,9 +133,7 @@ $APPLICATION->SetTitle("Техника");
         "PAGER_TITLE" => "Товары",
         "PAGE_ELEMENT_COUNT" => "30",
         "PARTIAL_PRODUCT_PROPERTIES" => "N",
-        "PRICE_CODE" => array(
-            0 => "BASE",
-        ),
+        "PRICE_CODE" => array(0 => "BASE",),
         "PRICE_VAT_INCLUDE" => "Y",
         "PRICE_VAT_SHOW_VALUE" => "N",
         "PRODUCT_ID_VARIABLE" => "id",
@@ -171,6 +155,7 @@ $APPLICATION->SetTitle("Техника");
         "SECTION_TOP_DEPTH" => "2",
         "SEF_FOLDER" => "/tehnika/",
         "SEF_MODE" => "Y",
+        "SEF_URL_TEMPLATES" => array("sections" => "", "section" => "#SECTION_CODE#/", "element" => "#SECTION_CODE#/#ELEMENT_CODE#/", "compare" => "compare.php?action=#ACTION_CODE#", "smart_filter" => "#SECTION_CODE#/filter/#SMART_FILTER_PATH#/",),
         "SET_LAST_MODIFIED" => "Y",
         "SET_STATUS_404" => "Y",
         "SET_TITLE" => "Y",
@@ -195,10 +180,7 @@ $APPLICATION->SetTitle("Техника");
         "TOP_LINE_ELEMENT_COUNT" => "3",
         "TOP_PRODUCT_BLOCKS_ORDER" => "price,props,sku,quantityLimit,quantity,buttons",
         "TOP_PRODUCT_ROW_VARIANTS" => "[{'VARIANT':'2','BIG_DATA':false},{'VARIANT':'2','BIG_DATA':false},{'VARIANT':'2','BIG_DATA':false}]",
-        "TOP_PROPERTY_CODE" => array(
-            0 => "",
-            1 => "",
-        ),
+        "TOP_PROPERTY_CODE" => array(0 => "", 1 => "",),
         "TOP_PROPERTY_CODE_MOBILE" => array(),
         "TOP_SHOW_SLIDER" => "Y",
         "TOP_SLIDER_INTERVAL" => "3000",
@@ -209,8 +191,8 @@ $APPLICATION->SetTitle("Техника");
         "USER_CONSENT_IS_CHECKED" => "Y",
         "USER_CONSENT_IS_LOADED" => "N",
         "USE_BIG_DATA" => "Y",
-        "USE_COMMON_SETTINGS_BASKET_POPUP" => "N",
-        "USE_COMPARE" => "N",
+        "USE_COMMON_SETTINGS_BASKET_POPUP" => "Y",
+        "USE_COMPARE" => "Y",
         "USE_ELEMENT_COUNTER" => "Y",
         "USE_ENHANCED_ECOMMERCE" => "N",
         "USE_FILTER" => "Y",
@@ -219,23 +201,10 @@ $APPLICATION->SetTitle("Техника");
         "USE_GIFTS_SECTION" => "N",
         "USE_MAIN_ELEMENT_SECTION" => "Y",
         "USE_PRICE_COUNT" => "N",
-        "USE_PRODUCT_QUANTITY" => "Y",
+        "USE_PRODUCT_QUANTITY" => "N",
         "USE_REVIEW" => "N",
         "USE_SALE_BESTSELLERS" => "Y",
         "USE_STORE" => "N",
-        "COMPONENT_TEMPLATE" => "pamira-catalog",
-        "SEF_URL_TEMPLATES" => array(
-            "sections" => "",
-            "section" => "#SECTION_CODE#/",
-            "element" => "#SECTION_CODE#/#ELEMENT_CODE#/",
-            "compare" => "compare.php?action=#ACTION_CODE#",
-            "smart_filter" => "#SECTION_CODE#/filter/#SMART_FILTER_PATH#/",
-        ),
-        "VARIABLE_ALIASES" => array(
-            "compare" => array(
-                "ACTION_CODE" => "action",
-            ),
-        )
-    ),
-    false
-); ?><br><? require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/footer.php"); ?>
+        "VARIABLE_ALIASES" => array("compare" => array("ACTION_CODE" => "action",),)
+    )
+); ?><? require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/footer.php"); ?>

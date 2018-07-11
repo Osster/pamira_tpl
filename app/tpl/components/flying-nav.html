@@ -84,32 +84,43 @@
 <div class="wr-icon wr-icon_basket" id="basket">
 
    <div class="basket">
+       <button class="icon-close">
+           <svg width="32" height="32" data-toggle="tooltip" data-placement="left"
+                title="Закрыть">
+               <use xlink:href="#icon-close"></use>
+           </svg>
+       </button>
 
-       <img src="img/icons/close-red.svg" alt="">
 
        <div class="basket__title">
            КОРЗИНА
        </div>
 
        <div class="basket__product">
-           <div class="product-name">
-               Вытяжка Faber Flexa Glass M6 BK A60
-               Faber Flexa Gl
+           <div class="basket__product_img">
+               <a href="#">
+                   <img src="img/catalog/2b295d7c-550e-11e8-8130-0cc47a688fc6.jpg" alt="">
+               </a>
            </div>
-           <div class="product-price">
-               700 390 руб./1 шт
+           <div class="basket__product_text">
+               <div class="product-name">
+                   Вытяжка Faber Flexa Glass M6 BK A60
+                   Faber Flexa Gl
+               </div>
+               <div class="d-flex justify-content-between">
+                   <div class="product-price">
+                       700 390 руб./1 шт
+                   </div>
+                   <div class="basket-calc">
+                       <span class="basket-calc__minus">-</span>
+                       <span class="basket-calc__number">1</span>
+                       <span class="basket-calc__plus">+</span>
+                   </div>
+               </div>
+               <div class="product-info">
+                   А Вы знаете о преимуществах вытяжек Faber?
+               </div>
            </div>
-           <div class="product-info">
-               А Вы знаете о преимуществах вытяжек Faber?
-           </div>
-
-           <div class="basket-calc">
-               <span class="basket-calc__minus">-</span>
-               <span class="basket-calc__number">1</span>
-               <span class="basket-calc__plus">+</span>
-           </div>
-
-           <img src="img/icons/close-white.svg" alt="">
        </div>
 
        <div class="basket__product basket__product_gray">
@@ -141,8 +152,8 @@
        </div>
 
        <div class="basket__buttons">
-           <button class="btn btn-hover_white" name="form-questions__button">Оформить в один клик</button>
-           <button class="btn btn-hover_red" name="form-questions__button">Перейти в корзину</button>
+           <button class="btn btn-hover_white mr-2" name="form-questions__button">Оформить в один клик</button>
+           <button class="btn btn-hover_red ml-2" name="form-questions__button">Перейти в корзину</button>
        </div>
 
    </div>
