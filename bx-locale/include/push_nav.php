@@ -4,21 +4,21 @@
             <li>
                 <a class="#">
                     <svg width="28" height="28">
-                        <use xlink:href="#favorites"></use>
+                        <use xlink:href="#favorites-svg"></use>
                     </svg>
                 </a>
             </li>
             <li>
                 <a class="#">
                     <svg width="28" height="28">
-                        <use xlink:href="#compare"></use>
+                        <use xlink:href="#compare-svg"></use>
                     </svg>
                 </a>
             </li>
             <li>
                 <a class="#">
                     <svg width="28" height="28">
-                        <use xlink:href="#login"></use>
+                        <use xlink:href="#login-svg"></use>
                     </svg>
                 </a>
             </li>

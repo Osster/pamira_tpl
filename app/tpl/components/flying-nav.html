@@ -2,41 +2,41 @@
     <div class="wr-flying-nav_links d-block d-md-flex flex-column">
         <a class="wr-flying-nav_links_icon" href="#" id="icon-search">
             <svg width="36" height="36" data-toggle="tooltip" data-placement="left" title="Поиск">
-                <use xlink:href="#icon-search-svg"></use>
+                <use xlink:href="#search-svg"></use>
             </svg>
         </a>
         <a class="wr-flying-nav_links_icon" href="#" id="icon-call">
             <svg width="37" height="37" data-toggle="tooltip" data-placement="left" title="Заказать звонок">
-                <use xlink:href="#tel"></use>
+                <use xlink:href="#tel-svg"></use>
             </svg>
         </a>
     </div>
     <div class="wr-flying-nav_links d-block d-md-flex flex-column">
         <a class="wr-flying-nav_links_icon" href="#" id="icon-login">
             <svg width="37" height="37" data-toggle="tooltip" data-placement="left" title="Личный кабинет">
-                <use xlink:href="#login"></use>
+                <use xlink:href="#login-svg"></use>
             </svg>
         </a>
         <a class="wr-flying-nav_links_icon" href="#" id="icon-basket">
             <svg width="37" height="37" data-toggle="tooltip" data-placement="left" title="Корзина">
-                <use xlink:href="#icon-cart-svg"></use>
+                <use xlink:href="#cart-svg"></use>
             </svg>
         </a>
         <a class="wr-flying-nav_links_icon" href="#" id="icon-selected">
             <svg width="37" height="37" data-toggle="tooltip" data-placement="left" title="Избранное">
-                <use xlink:href="#favorites"></use>
+                <use xlink:href="#favorites-svg"></use>
             </svg>
         </a>
         <a class="wr-flying-nav_links_icon" href="#" id="icon-compare">
             <svg width="37" height="37" data-toggle="tooltip" data-placement="left" title="Сравнение">
-                <use xlink:href="#compare"></use>
+                <use xlink:href="#compare-svg"></use>
             </svg>
         </a>
     </div>
     <div class="wr-flying-nav_links d-block d-md-flex flex-column">
         <a class="wr-flying-nav_links_icon" href="#" id="icon-baloon">
             <svg width="37" height="37" data-toggle="tooltip" data-placement="left" title="Задать вопрос">
-                <use xlink:href="#baloon"></use>
+                <use xlink:href="#baloon-svg"></use>
             </svg>
         </a>
     </div>
@@ -44,7 +44,12 @@
 
 <div class="wr-icon" id="search">
     <div class="wr-contacts-form wr-contacts-form_search wr-contacts-form_light">
-        <img src="img/icons/close-red.svg" alt="">
+        <button class="icon-close">
+            <svg width="32" height="32" data-toggle="tooltip" data-placement="left"
+                 title="Закрыть">
+                <use xlink:href="#icon-close"></use>
+            </svg>
+        </button>
         <form class="search" name="search" method="post">
             <input class="search__input" name="search" type="text" placeholder="Найдется все! Например, варочные панели...">
             <button class="btn btn-primary search__btn">Найти</button>
@@ -54,7 +59,12 @@
 
 <div class="wr-icon" id="call">
     <div class="wr-contacts-form wr-contacts-form_light">
-        <img src="img/icons/close-red.svg" alt="">
+        <button class="icon-close">
+            <svg width="32" height="32" data-toggle="tooltip" data-placement="left"
+                 title="Закрыть">
+                <use xlink:href="#icon-close"></use>
+            </svg>
+        </button>
         <form class="form-questions" name="form-call" method="post">
             <div class="form-questions__title form-questions__title_light">
                 ЗАКАЗАТЬ ОБРАТНЫЙ ЗВОНОК
@@ -163,7 +173,12 @@
 <div class="wr-icon wr-icon_basket" id="selected">
     <div class="basket">
 
-        <img src="img/icons/close-red.svg" alt="">
+        <button class="icon-close">
+            <svg width="32" height="32" data-toggle="tooltip" data-placement="left"
+                 title="Закрыть">
+                <use xlink:href="#icon-close"></use>
+            </svg>
+        </button>
 
         <div class="basket__title">
             ИЗБРАННОЕ

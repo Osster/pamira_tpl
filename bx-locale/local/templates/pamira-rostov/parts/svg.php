@@ -1,9 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
-    <symbol id="times" viewBox="0 0 384 512">
+    <svg id="times" viewBox="0 0 384 512">
         <path fill="currentColor"
               d="M323.1 441l53.9-53.9c9.4-9.4 9.4-24.5 0-33.9L279.8 256l97.2-97.2c9.4-9.4 9.4-24.5 0-33.9L323.1 71c-9.4-9.4-24.5-9.4-33.9 0L192 168.2 94.8 71c-9.4-9.4-24.5-9.4-33.9 0L7 124.9c-9.4 9.4-9.4 24.5 0 33.9l97.2 97.2L7 353.2c-9.4 9.4-9.4 24.5 0 33.9L60.9 441c9.4 9.4 24.5 9.4 33.9 0l97.2-97.2 97.2 97.2c9.3 9.3 24.5 9.3 33.9 0z"
               class=""></path>
-    </symbol>
+    </svg>
     <symbol id="icon-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="-12885 923 10 15.41">
         <g transform="translate(-13651 122.41)">
             <path data-name="Path 1" class="icon-arrow-cls-1" fill="currentColor"
@@ -960,7 +960,7 @@
               d="M184.2 177.1c0-22.1 17.9-40 39.8-40s39.8 17.9 39.8 40c0 22-17.9 39.8-39.8 39.8s-39.8-17.9-39.8-39.8zM448 80v352c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V80c0-26.5 21.5-48 48-48h352c26.5 0 48 21.5 48 48zm-305.1 97.1c0 44.6 36.4 80.9 81.1 80.9s81.1-36.2 81.1-80.9c0-44.8-36.4-81.1-81.1-81.1s-81.1 36.2-81.1 81.1zm174.5 90.7c-4.6-9.1-17.3-16.8-34.1-3.6 0 0-22.7 18-59.3 18s-59.3-18-59.3-18c-16.8-13.2-29.5-5.5-34.1 3.6-7.9 16.1 1.1 23.7 21.4 37 17.3 11.1 41.2 15.2 56.6 16.8l-12.9 12.9c-18.2 18-35.5 35.5-47.7 47.7-17.6 17.6 10.7 45.8 28.4 28.6l47.7-47.9c18.2 18.2 35.7 35.7 47.7 47.9 17.6 17.2 46-10.7 28.6-28.6l-47.7-47.7-13-12.9c15.5-1.6 39.1-5.9 56.2-16.8 20.4-13.3 29.3-21 21.5-37z"
               class=""></path>
     </symbol>
-    <symbol id="baloon" viewBox="-11647.254 -3374.242 47.093 40.198">
+    <symbol id="baloon-svg" viewBox="-11647.254 -3374.242 47.093 40.198">
         <defs>
             <style>
                 .cls-1, .cls-2, .cls-4 {
@@ -998,7 +998,7 @@
             </g>
         </g>
     </symbol>
-    <symbol id="icon-cart-svg" viewBox="-11650.176 -3798.496 44.295 44.8">
+    <symbol id="cart-svg" viewBox="-11650.176 -3798.496 44.295 44.8">
         <defs>
             <style>
                 .cartcls-1, .cartcls-2, .cartcls-4 {
@@ -1035,7 +1035,7 @@
                   transform="translate(384.496 -1568.046)"/>
         </g>
     </symbol>
-    <symbol id="compare" viewBox="-11639.86 -3854.064 33.101 34.852">
+    <symbol id="compare-svg" viewBox="-11639.86 -3854.064 33.101 34.852">
         <defs>
             <style>
                 .comparecls-1, .comparecls-2 {
@@ -1059,7 +1059,7 @@
             </g>
         </g>
     </symbol>
-    <symbol id="favorites" viewBox="-11643.508 -3910.283 40.79 38.046">
+    <symbol id="favorites-svg" viewBox="-11643.508 -3910.283 40.79 38.046">
         <defs>
             <style>
                 .favoritescls-1 {
@@ -1081,7 +1081,7 @@
             </g>
         </g>
     </symbol>
-    <symbol id="login" viewBox="-11640.364 -3976.046 34.166 46.191">
+    <symbol id="login-svg" viewBox="-11640.364 -3976.046 34.166 46.191">
         <defs>
             <style>
                 .cls-1, .cls-2, .cls-3, .cls-5 {
@@ -1123,7 +1123,7 @@
                   transform="translate(538.622 -1596.907)"/>
         </g>
     </symbol>
-    <symbol id="icon-search-svg" viewBox="-1 1 39 38">
+    <symbol id="search-svg" viewBox="-1 1 39 38">
         <defs>
             <path id="sx3aa" d="M1820.89 83.36a15.42 15.42 0 1 1 30.84 0 15.42 15.42 0 0 1-30.84 0z"/>
             <path id="sx3ac" d="M1846.71 93.76l10.86 10.86"/>
@@ -1147,7 +1147,7 @@
             </g>
         </g>
     </symbol>
-    <symbol id="tel" viewBox="-11638.604 -4244.515 35.62 38.753">
+    <symbol id="tel-svg" viewBox="-11638.604 -4244.515 35.62 38.753">
         <defs>
             <style>
                 .cls-1 {
@@ -1224,6 +1224,50 @@
                 <use fill="#fff" fill-opacity="0" stroke="currentColor" stroke-miterlimit="50" stroke-width="2"
                      xlink:href="#yfseb"/>
             </g>
+        </g>
+    </symbol>
+    <symbol id="pointer" viewBox="-9541.869 -3071.394 20.212 26.096">
+        <defs>
+            <style>
+                .pointer-1, .pointer-2, .pointer-4 {
+                    fill: none;
+                }
+
+                .pointer-1, .pointer-2 {
+                    stroke: currentColor;
+                }
+
+                .pointer-1 {
+                    stroke-width: 2px;
+                }
+
+                .pointer-3 {
+                    stroke: none;
+                }
+            </style>
+        </defs>
+        <g id="Group_389" data-name="Group 389" transform="translate(-7905 -3281)">
+            <path id="Path_263" data-name="Path 263" class="pointer-1"
+                  d="M-1626.988,234l-5.9-8.6a12.7,12.7,0,0,1-2.453-4.445,10.294,10.294,0,0,1,0-5.748c1.15-2.682,3.219-4.6,8.354-4.6s7.664,1.993,8.89,5.288-.689,7.2-2.376,9.5S-1626.988,234-1626.988,234Z"/>
+            <g id="Ellipse_27" data-name="Ellipse 27" class="pointer-2" transform="translate(-1632 214)">
+                <circle class="pointer-3" cx="5" cy="5" r="5"/>
+                <circle class="pointer-4" cx="5" cy="5" r="4.5"/>
+            </g>
+        </g>
+    </symbol>
+    <symbol id="icon-close" viewBox="-11113.207 -3400.207 31.414 31.414">
+        <defs>
+            <style>
+                .close1 {
+                    fill: none;
+                    stroke: currentColor;
+                    stroke-width: 2px;
+                }
+            </style>
+        </defs>
+        <g id="Group_540" data-name="Group 540" transform="translate(-11386 -3414)">
+            <line id="Line_119" data-name="Line 119" class="close1" x2="30" y2="30" transform="translate(273.5 14.5)"/>
+            <line id="Line_120" data-name="Line 120" class="close1" x1="30" y2="30" transform="translate(273.5 14.5)"/>
         </g>
     </symbol>
 </svg>

@@ -73,7 +73,7 @@ use \Bitrix\Main\Localization\Loc;
                 <input class="d-none" type="checkbox" data-entity="compare-checkbox">
                 <svg data-toggle="tooltip" data-placement="left"
                      title="Сравнение">
-                    <use xlink:href="#compare"></use>
+                    <use xlink:href="#compare-svg"></use>
                 </svg>
             </span>
             <?
@@ -88,7 +88,7 @@ use \Bitrix\Main\Localization\Loc;
         >
             <svg data-toggle="tooltip" data-placement="left"
                  title="Избранное">
-                <use xlink:href="#favorites"></use>
+                <use xlink:href="#favorites-svg"></use>
             </svg>
         </a>
 

@@ -203,7 +203,7 @@ if (!empty($arParams['LABEL_PROP_POSITION'])) {
                                    data-placement="left"
                                    title="Сравнение">
                                     <svg width="24" height="22">
-                                        <use xlink:href="#compare"></use>
+                                        <use xlink:href="#compare-svg"></use>
                                     </svg>
                                     <label id="<?= $itemIds['COMPARE_LINK'] ?>">
                                         <input type="checkbox" data-entity="compare-checkbox">
@@ -214,7 +214,7 @@ if (!empty($arParams['LABEL_PROP_POSITION'])) {
                                    data-placement="left"
                                    title="Избранное">
                                     <svg width="24" height="22">
-                                        <use xlink:href="#favorites"></use>
+                                        <use xlink:href="#favorites-svg"></use>
                                     </svg>
                                     <span>В избранное</span>
                                 </a>
@@ -224,7 +224,7 @@ if (!empty($arParams['LABEL_PROP_POSITION'])) {
                                href="javascript:void(0);" data-entity="panel-buy-button"
                                data-toggle="tooltip" data-placement="left" title="В корзину">
                                 <svg width="24" height="22">
-                                    <use xlink:href="#icon-cart-svg"></use>
+                                    <use xlink:href="#cart-svg"></use>
                                 </svg>
                                 <span>В корзину</span>
                             </a>
