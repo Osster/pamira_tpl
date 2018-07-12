@@ -80,7 +80,12 @@ use \Bitrix\Main\Localization\Loc;
         }
         ?>
 
-        <a class="catalog-item_links_icon" href="#">
+        <a class="catalog-item_links_icon add-to-fav"
+           data-id="<?= $item['ID'] ?>"
+           data-name="<?= $productTitle?>"
+           data-pic="<?= $item['PREVIEW_PICTURE']['SRC'] ?>"
+           data-url="<?= $item['DETAIL_PAGE_URL'] ?>"
+        >
             <svg data-toggle="tooltip" data-placement="left"
                  title="Избранное">
                 <use xlink:href="#favorites"></use>
