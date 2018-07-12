@@ -167,6 +167,14 @@ if (isset($_REQUEST["ORDER"]) && preg_match('/^(NAME|PRICE|RATING)\:/', $_REQUES
     $SECTION_ORDER_DIR = $APPLICATION->get_cookie("SECTION_ORDER_DIR") ?: 'ASC';
 }
 
+
+if(CModule::IncludeModule('asd.favorite')) {
+    foreach($arResult["ITEMS"] as $cell=>$arElement){
+        $arIDs[] = $arElement['ID'];
+    }
+    $arFavs = CASDfavorite::GetLikesAndFavedByElementID($arIDs);
+}
+
 ?>
 
 <div class="wr-filter">
@@ -233,7 +241,8 @@ if (isset($_REQUEST["ORDER"]) && preg_match('/^(NAME|PRICE|RATING)\:/', $_REQUES
                                     'BIG_LABEL' => 'N',
                                     'BIG_DISCOUNT_PERCENT' => 'N',
                                     'BIG_BUTTONS' => 'Y',
-                                    'SCALABLE' => 'N'
+                                    'SCALABLE' => 'N',
+                                    'FAVORITE' => $arFavs
                                 ),
                                 'PARAMS' => $generalParams
                                     + array('SKU_PROPS' => $arResult['SKU_PROPS'][$item['IBLOCK_ID']])

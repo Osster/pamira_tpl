@@ -26,6 +26,7 @@
 //= components/singleItem.js
 //= components/locationPicker.js
 //= components/pushNav.js
+//= components/asdFavorite.js
 
 $(document).ready(function () {
 
