@@ -294,6 +294,16 @@ a {
 
     &_dark {
       background-color: $color_gray_darkest;
+
+      .wr-inner-page.container {
+        max-width: #{map_get($container-max-widths, xl)};
+        background: $color_white;
+        .inner-page {
+          padding: 48px;
+          color: $color_gray_darkest;
+        }
+      }
+
       .main__promo {
         color: $color_white_dirty;
       }
@@ -306,6 +316,7 @@ a {
   &_dark {
     background-color: $color_gray_darkest;
     color: $color_white_dirty;
+
   }
 
   &_header.container {

@@ -12,8 +12,8 @@
 /** @var CBitrixComponent $component */
 ?>
 <div class="main__promo_dark">
-<div class="main_dark main_padding">
-    <div class="search-page container">
+    <div class="wr-inner-page container">
+        <div class="inner-page">
     <form action="" method="get">
         <div class="d-flex w-50">
         <? if ($arParams["USE_SUGGEST"] === "Y"):
@@ -200,6 +200,6 @@
     <? else: ?>
         <? ShowNote(GetMessage("SEARCH_NOTHING_TO_FOUND")); ?>
     <? endif; ?>
-</div>
-</div>
+        </div>
+    </div>
 </div>

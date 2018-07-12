@@ -1,5 +1,5 @@
 .wr-aside {
-  z-index: 900;
+  z-index: 99;
   position: absolute;
 }
 
@@ -140,19 +140,9 @@
     font-weight: normal;
     text-align: center;
     padding: 20px;
+    width: 100%;
   }
 
-  .title-margin{
-    margin-top: 0;
-  }
-
-  .direction-arrow{
-    //margin-top: 0;
-
-    &::after{
-      transform: rotateX(180deg);
-    }
-  }
 
   &__product {
     width: 100%;
@@ -163,12 +153,11 @@
 
     &_img {
       width: 150px;
-      height: 150px;
-      margin-left: 20px;
+      margin-right: 20px;
       img {
         max-width: 150px;
         max-height: 150px;
-        object-fit: cover;
+        object-fit: contain;
       }
     }
 
@@ -185,6 +174,15 @@
       }
     }
 
+  }
+
+  .basket-item-block-amount {
+    .basket-item-amount-btn-minus {
+    }
+    .basket-item-amount-btn-plus {
+    }
+    .basket-item-amount-filed-block {
+    }
   }
 
   .close{
