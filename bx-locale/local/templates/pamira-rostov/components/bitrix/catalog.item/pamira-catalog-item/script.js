@@ -553,6 +553,16 @@
                     }
 
                     BX.addCustomEvent('onCatalogDeleteCompare', BX.proxy(this.checkDeletedCompare, this));
+
+                    var obCompare = this.obCompare;
+                    if(typeof window.compareList !== 'undefined') {
+                        window.compareList.map(function (compareItem) {
+                            if (obCompare.getAttribute('data-id') == compareItem.id) {
+                                obCompare.classList.add('checked');
+                                return;
+                            }
+                        });
+                    }
                 }
             }
         },
@@ -1627,6 +1637,12 @@
 
             if (checkbox) {
                 checked = target === checkbox ? checkbox.checked : !checkbox.checked;
+            }
+
+            if(checked) {
+                checkbox.parentElement.classList.add('checked');
+            } else {
+                checkbox.parentElement.classList.remove('checked');
             }
 
             var url = checked ? this.compareData.compareUrl : this.compareData.compareDeleteUrl,

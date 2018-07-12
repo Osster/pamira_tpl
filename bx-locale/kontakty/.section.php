@@ -1,4 +1,6 @@
 <?
-$sSectionName = "Техника";
-$arDirProperties = Array();
+$sSectionName = "Контакты";
+$arDirProperties = array(
+
+);
 ?>

@@ -69,7 +69,7 @@ use \Bitrix\Main\Localization\Loc;
             && (!$haveOffers || $arParams['PRODUCT_DISPLAY_MODE'] === 'Y')
         ) {
             ?>
-            <span class="catalog-item_links_icon" id="<?= $itemIds['COMPARE_LINK'] ?>">
+            <span class="catalog-item_links_icon" id="<?= $itemIds['COMPARE_LINK'] ?>" data-id="<?= $item['ID'] ?>">
                 <input class="d-none" type="checkbox" data-entity="compare-checkbox">
                 <svg data-toggle="tooltip" data-placement="left"
                      title="Сравнение">

@@ -12,41 +12,40 @@
 /** @var CBitrixComponent $component */
 ?>
 <div class="main__promo_dark">
-    <div class="main__promo">
-        <div class="search-page container">
+<div class="main_dark main_padding">
+    <div class="search-page container">
     <form action="" method="get">
         <div class="d-flex w-50">
-            <? if ($arParams["USE_SUGGEST"] === "Y"):
-                if (strlen($arResult["REQUEST"]["~QUERY"]) && is_object($arResult["NAV_RESULT"])) {
-                    $arResult["FILTER_MD5"] = $arResult["NAV_RESULT"]->GetFilterMD5();
-                    $obSearchSuggest = new CSearchSuggest($arResult["FILTER_MD5"], $arResult["REQUEST"]["~QUERY"]);
-                    $obSearchSuggest->SetResultCount($arResult["NAV_RESULT"]->NavRecordCount);
-                }
-                ?>
-                <? $APPLICATION->IncludeComponent(
-                "bitrix:search.suggest.input",
-                "",
-                array(
-                    "NAME" => "q",
-                    "VALUE" => $arResult["REQUEST"]["~QUERY"],
-                    "INPUT_SIZE" => 40,
-                    "DROPDOWN_SIZE" => 10,
-                    "FILTER_MD5" => $arResult["FILTER_MD5"],
-                ),
-                $component, array("HIDE_ICONS" => "Y")
-            ); ?>
-            <? else: ?>
-                <input class="search__input" type="text" name="q" value="<?= $arResult["REQUEST"]["QUERY"] ?>"
-                       size="40"/>
-            <? endif; ?>
-            <? if ($arParams["SHOW_WHERE"]): ?>
-                &nbsp;<select name="where">
-                    <option value=""><?= GetMessage("SEARCH_ALL") ?></option>
-                    <? foreach ($arResult["DROPDOWN"] as $key => $value): ?>
-                        <option value="<?= $key ?>"<? if ($arResult["REQUEST"]["WHERE"] == $key) echo " selected" ?>><?= $value ?></option>
-                    <? endforeach ?>
-                </select>
-            <? endif; ?>
+        <? if ($arParams["USE_SUGGEST"] === "Y"):
+            if (strlen($arResult["REQUEST"]["~QUERY"]) && is_object($arResult["NAV_RESULT"])) {
+                $arResult["FILTER_MD5"] = $arResult["NAV_RESULT"]->GetFilterMD5();
+                $obSearchSuggest = new CSearchSuggest($arResult["FILTER_MD5"], $arResult["REQUEST"]["~QUERY"]);
+                $obSearchSuggest->SetResultCount($arResult["NAV_RESULT"]->NavRecordCount);
+            }
+            ?>
+            <? $APPLICATION->IncludeComponent(
+            "bitrix:search.suggest.input",
+            "",
+            array(
+                "NAME" => "q",
+                "VALUE" => $arResult["REQUEST"]["~QUERY"],
+                "INPUT_SIZE" => 40,
+                "DROPDOWN_SIZE" => 10,
+                "FILTER_MD5" => $arResult["FILTER_MD5"],
+            ),
+            $component, array("HIDE_ICONS" => "Y")
+        ); ?>
+        <? else: ?>
+            <input class="search__input" type="text" name="q" value="<?= $arResult["REQUEST"]["QUERY"] ?>" size="40"/>
+        <? endif; ?>
+        <? if ($arParams["SHOW_WHERE"]): ?>
+            &nbsp;<select name="where">
+                <option value=""><?= GetMessage("SEARCH_ALL") ?></option>
+                <? foreach ($arResult["DROPDOWN"] as $key => $value): ?>
+                    <option value="<?= $key ?>"<? if ($arResult["REQUEST"]["WHERE"] == $key) echo " selected" ?>><?= $value ?></option>
+                <? endforeach ?>
+            </select>
+        <? endif; ?>
             <button type="submit" class="btn btn-primary search__btn">Найти</button>
             <input type="hidden" name="how" value="<? echo $arResult["REQUEST"]["HOW"] == "d" ? "d" : "r" ?>"/>
         </div>
@@ -149,11 +148,11 @@
         <br/>
         <hr/>
         <? foreach ($arResult["SEARCH"] as $arItem): ?>
-            <div class="search-result_item">
-                <div class="mb-3">
-                    <a href="<? echo $arItem["URL"] ?>"><? echo $arItem["TITLE_FORMATED"] ?></a>
-                </div>
-            <p><? echo $arItem["BODY_FORMATED"] ?></p>
+        <div class="search-result_item">
+            <div class="mb-3">
+                <a href="<? echo $arItem["URL"] ?>"><? echo $arItem["TITLE_FORMATED"] ?></a>
+            </div>
+            <p><? echo strip_tags(html_entity_decode($arItem["BODY_FORMATED"])) ?></p>
             <? if (
                 $arParams["SHOW_RATING"] == "Y"
                 && strlen($arItem["RATING_TYPE_ID"]) > 0
@@ -179,13 +178,13 @@
                     ); ?>
                 </div>
             <? endif; ?>
-                <?
-                /*if ($arItem["CHAIN_PATH"]):?>
-                    <small><?= GetMessage("SEARCH_PATH") ?>&nbsp;<?= $arItem["CHAIN_PATH"] ?></small><?
-                endif;*/
+            <?
+            /*if ($arItem["CHAIN_PATH"]):?>
+                <small><?= GetMessage("SEARCH_PATH") ?>&nbsp;<?= $arItem["CHAIN_PATH"] ?></small><?
+            endif;*/
             ?>
             <hr/>
-            </div>
+        </div>
         <? endforeach; ?>
         <? if ($arParams["DISPLAY_BOTTOM_PAGER"] != "N") echo $arResult["NAV_STRING"] ?>
         <br/>
@@ -202,5 +201,5 @@
         <? ShowNote(GetMessage("SEARCH_NOTHING_TO_FOUND")); ?>
     <? endif; ?>
 </div>
-    </div>
+</div>
 </div>

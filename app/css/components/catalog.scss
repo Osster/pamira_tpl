@@ -95,7 +95,8 @@
         margin-right: 3px;
         @include transition();
 
-        &:hover {
+        &:hover,
+        &.checked {
           background-color: $color_red_middle;
           color: $color_white;
         }

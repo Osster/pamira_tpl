@@ -97,5 +97,21 @@ $jsParams = array(
 );
 ?></div>
 <script type="text/javascript">
-var <? echo $obCompare; ?> = new JCCatalogCompareList(<? echo CUtil::PhpToJSObject($jsParams, false, true); ?>)
+    var <? echo $obCompare; ?> = new JCCatalogCompareList(<? echo CUtil::PhpToJSObject($jsParams, false, true); ?>)
+</script>
+<script type="text/javascript">
+    if(typeof window.compareList === 'undefined') {
+        window.compareList = [];
+    }
+    <?
+    foreach($arResult as $arElement)
+    {
+    ?>
+    window.compareList.push({
+        id: <? echo $arElement['PARENT_ID']; ?>,
+        name: '<?=$arElement["NAME"]?>'
+    });
+    <?
+    }
+    ?>
 </script>
