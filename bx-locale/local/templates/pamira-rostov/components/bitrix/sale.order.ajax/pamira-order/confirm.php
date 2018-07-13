@@ -14,24 +14,25 @@ if ($arParams["SET_TITLE"] == "Y") {
 ?>
 
 <? if (!empty($arResult["ORDER"])): ?>
+    <div class="main__promo main__promo_dark">
 
-    <table class="sale_order_full_table">
-        <tr>
-            <td>
-                <?= Loc::getMessage("SOA_ORDER_SUC", array(
-                    "#ORDER_DATE#" => $arResult["ORDER"]["DATE_INSERT"]->format('d.m.Y H:i'),
-                    "#ORDER_ID#" => $arResult["ORDER"]["ACCOUNT_NUMBER"]
-                )) ?>
-                <? if (!empty($arResult['ORDER']["PAYMENT_ID"])): ?>
-                    <?= Loc::getMessage("SOA_PAYMENT_SUC", array(
-                        "#PAYMENT_ID#" => $arResult['PAYMENT'][$arResult['ORDER']["PAYMENT_ID"]]['ACCOUNT_NUMBER']
+        <div class="wr-inner-page container">
+            <div class="inner-page sale_order_full_table">
+                <h3>
+                    <?= Loc::getMessage("SOA_ORDER_SUC", array(
+                        "#ORDER_DATE#" => $arResult["ORDER"]["DATE_INSERT"]->format('d.m.Y H:i'),
+                        "#ORDER_ID#" => $arResult["ORDER"]["ACCOUNT_NUMBER"]
                     )) ?>
-                <? endif ?>
-                <br/><br/>
+                    <? if (!empty($arResult['ORDER']["PAYMENT_ID"])): ?>
+                        <?= Loc::getMessage("SOA_PAYMENT_SUC", array(
+                            "#PAYMENT_ID#" => $arResult['PAYMENT'][$arResult['ORDER']["PAYMENT_ID"]]['ACCOUNT_NUMBER']
+                        )) ?>
+                    <? endif ?>
+                </h3>
                 <?= Loc::getMessage("SOA_ORDER_SUC1", array("#LINK#" => $arParams["PATH_TO_PERSONAL"])) ?>
-            </td>
-        </tr>
-    </table>
+            </div>
+        </div>
+    </div>
 
     <?
     if ($arResult["ORDER"]["IS_ALLOW_PAY"] === 'Y') {
@@ -45,19 +46,16 @@ if ($arParams["SET_TITLE"] == "Y") {
 
                         if (empty($arPaySystem["ERROR"])) {
                             ?>
-                            <br/><br/>
-
-                            <table class="sale_order_full_table">
-                                <tr>
-                                    <td class="ps_logo">
+                            <div class="main__promo main__promo_dark pt-0">
+                                <div class="wr-inner-page container">
+                                    <div class="inner-page sale_order_full_table">
+                                        <div class="ps_logo">
                                         <div class="pay_name"><?= Loc::getMessage("SOA_PAY") ?></div>
                                         <?= CFile::ShowImage($arPaySystem["LOGOTIP"], 100, 100, "border=0\" style=\"width:100px\"", "", false) ?>
                                         <div class="paysystem_name"><?= $arPaySystem["NAME"] ?></div>
                                         <br/>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
+                                        </div>
+                                        <div>
                                         <? if (strlen($arPaySystem["ACTION_FILE"]) > 0 && $arPaySystem["NEW_WINDOW"] == "Y" && $arPaySystem["IS_CASH"] != "Y"): ?>
                                             <?
                                             $orderAccountNumber = urlencode(urlencode($arResult["ORDER"]["ACCOUNT_NUMBER"]));
@@ -74,9 +72,10 @@ if ($arParams["SET_TITLE"] == "Y") {
                                         <? else: ?>
                                             <?= $arPaySystem["BUFFERED_OUTPUT"] ?>
                                         <? endif ?>
-                                    </td>
-                                </tr>
-                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
 
                             <?
                         } else {
@@ -113,4 +112,7 @@ if ($arParams["SET_TITLE"] == "Y") {
         </tr>
     </table>
 
+    </div>
+
 <? endif ?>
+

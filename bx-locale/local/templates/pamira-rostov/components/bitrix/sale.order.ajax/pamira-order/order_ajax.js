@@ -2010,7 +2010,7 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
         },
 
         getNewContainer: function (notFluid) {
-            return BX.create('DIV', {props: {className: 'bx-soa-section-content' + (!!notFluid ? '' : ' container-fluid')}});
+            return BX.create('DIV', {props: {className: 'bx-soa-section-content' + (!!notFluid ? '' : ' container mb-5')}});
         },
 
         /**
@@ -3043,7 +3043,7 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
             cols = [
                 BX.create('DIV', {
                     props: {className: 'bx-soa-item-td'},
-                    style: {minWidth: '300px'},
+                    style: {flex: '5'},
                     children: [
                         BX.create('DIV', {
                             props: {className: 'bx-soa-item-block'},
@@ -3757,7 +3757,7 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
                 this.getErrorContainer(regionContent);
 
                 regionNode = BX.create('DIV', {props: {className: 'bx_soa_location row'}});
-                regionNodeCol = BX.create('DIV', {props: {className: 'col-xs-12'}});
+                regionNodeCol = BX.create('DIV', {props: {className: 'col-12 col-md-6 bx_soa_block'}});
 
                 this.getPersonTypeControl(regionNodeCol);
 
@@ -3817,8 +3817,8 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
                 node.appendChild(errorNode.cloneNode(true));
 
             if (selectedPersonType && selectedPersonType.NAME && this.result.PERSON_TYPE.length > 1) {
-                addedHtml += '<strong>' + this.params.MESS_PERSON_TYPE + ':</strong> '
-                    + BX.util.htmlspecialchars(selectedPersonType.NAME) + '<br>';
+                addedHtml += '<div class="d-none"><strong>' + this.params.MESS_PERSON_TYPE + ':</strong> '
+                    + BX.util.htmlspecialchars(selectedPersonType.NAME) + '<br></div>';
             }
 
             if (selectedPersonType) {
@@ -3848,8 +3848,9 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
 
             locationString = this.getLocationString(this.regionHiddenBlockNode);
             if (locationProperty && locationString.length)
-                addedHtml += '<strong>' + BX.util.htmlspecialchars(locationProperty.NAME) + ':</strong> '
-                    + BX.util.htmlspecialchars(locationString) + '<br>';
+                addedHtml += '<div class="col-12 col-md-6 row bx_soa_block"><h3>'
+                    + BX.util.htmlspecialchars(locationProperty.NAME) + ':</h3> '
+                    + BX.util.htmlspecialchars(locationString) + '</div><div style="clear:both;"></div>';
 
             if (zipProperty && zipValue.length)
                 addedHtml += '<strong>' + BX.util.htmlspecialchars(zipProperty.NAME) + ':</strong> '
@@ -4058,7 +4059,7 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
             if (zipProperty) {
                 this.regionBlockNotEmpty = true;
 
-                propsItemNode = BX.create('DIV', {props: {className: "form-group bx-soa-location-input-container"}});
+                propsItemNode = BX.create('DIV', {props: {className: "form-group bx-soa-location-input-container d-none"}});
                 propsItemNode.setAttribute('data-property-id-row', zipProperty.ID);
 
                 labelTextHtml = zipProperty.REQUIRED == 'Y' ? '<span class="bx-authform-starrequired">*</span> ' : '';
@@ -4077,7 +4078,8 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
                         autocomplete: 'zip',
                         className: 'form-control bx-soa-customer-input bx-ios-fix',
                         name: 'ORDER_PROP_' + zipProperty.ID,
-                        value: zipProperty.VALUE
+                        //value: zipProperty.VALUE
+                        value: '100000'
                     }
                 });
 
@@ -4125,7 +4127,7 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
 
             if (personTypesCount > 1) {
                 input = BX.create('DIV', {
-                    props: {className: 'form-group'},
+                    props: {className: 'form-group d-none'},
                     children: [
                         BX.create('LABEL', {
                             props: {className: 'bx-soa-custom-label'},
@@ -4365,7 +4367,7 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
             if (!this.result.PAY_SYSTEM || this.result.PAY_SYSTEM.length <= 0)
                 return;
 
-            var paySystemItemsContainer = BX.create('DIV', {props: {className: 'col-sm-7 bx-soa-pp-item-container'}}),
+            var paySystemItemsContainer = BX.create('DIV', {props: {className: 'col-5 bx_soa_block bx-soa-pp-item-container mr-3 row'}}),
                 paySystemItemNode, i;
 
             for (i = 0; i < this.paySystemPagination.currentPage.length; i++) {
@@ -4419,7 +4421,7 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
             }
 
             itemNode = BX.create('DIV', {
-                props: {className: 'bx-soa-pp-company col-lg-4 col-sm-4 col-xs-6'},
+                props: {className: 'bx-soa-pp-company col-4'},
                 children: [label, title],
                 events: {
                     click: BX.proxy(this.selectPaySystem, this)
@@ -4438,7 +4440,7 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
 
             var paySystemInfoContainer = BX.create('DIV', {
                     props: {
-                        className: (this.result.PAY_SYSTEM.length == 0 ? 'col-sm-12' : 'col-sm-5') + ' bx-soa-pp-desc-container'
+                        className: (this.result.PAY_SYSTEM.length == 0 ? 'col-sm-12' : 'col-5') + ' bx_soa_block bx-soa-pp-desc-container'
                     }
                 }),
                 innerPs, extPs, delimiter, currentPaySystem,
@@ -4624,8 +4626,9 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
                 imgSrc = logotype && logotype.src_1x || this.defaultPaySystemLogo;
 
                 addedHtml += '<div class="bx-soa-pp-company-selected">';
-                addedHtml += '<img src="' + imgSrc + '" style="height:18px;" alt="">';
-                addedHtml += '<strong>' + this.result.INNER_PAY_SYSTEM.NAME + '</strong><br>';
+                addedHtml += '<div class="bx_soa_block col-12 col-md-6">';
+                addedHtml += '<h3>' + this.result.INNER_PAY_SYSTEM.NAME + '</h3>';
+                addedHtml += '</div>';
                 addedHtml += '</div>';
             }
 
@@ -4634,8 +4637,9 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
                 imgSrc = logotype && logotype.src_1x || this.defaultPaySystemLogo;
 
                 addedHtml += '<div class="bx-soa-pp-company-selected">';
-                addedHtml += '<img src="' + imgSrc + '" style="height:18px;" alt="">';
-                addedHtml += '<strong>' + BX.util.htmlspecialchars(selectedPaySystem.NAME) + '</strong>';
+                addedHtml += '<div class="bx_soa_block col-12 col-md-6">';
+                addedHtml += '<h3>' + BX.util.htmlspecialchars(selectedPaySystem.NAME) + '</h3>';
+                addedHtml += '</div>';
                 addedHtml += '</div>';
             }
 
@@ -4784,7 +4788,7 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
             if (!this.result.DELIVERY || this.result.DELIVERY.length <= 0)
                 return;
 
-            var deliveryItemsContainer = BX.create('DIV', {props: {className: 'col-sm-7 bx-soa-pp-item-container'}}),
+            var deliveryItemsContainer = BX.create('DIV', {props: {className: 'col-5 bx_soa_block mr-3 bx-soa-pp-item-container d-flex'}}),
                 deliveryItemNode, k;
 
             for (k = 0; k < this.deliveryPagination.currentPage.length; k++) {
@@ -4802,7 +4806,7 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
             if (!this.result.DELIVERY)
                 return;
 
-            var deliveryInfoContainer = BX.create('DIV', {props: {className: 'col-sm-5 bx-soa-pp-desc-container'}}),
+            var deliveryInfoContainer = BX.create('DIV', {props: {className: 'col-5 bx_soa_block bx-soa-pp-desc-container'}}),
                 currentDelivery, logotype, name, logoNode,
                 subTitle, label, title, price, period,
                 clear, infoList, extraServices, extraServicesNode;
@@ -4851,10 +4855,11 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
             });
 
             if (currentDelivery.PRICE >= 0) {
-                price = BX.create('LI', {
+                price = BX.create('DIV', {
+                    props: {className: 'd-flex'},
                     children: [
                         BX.create('DIV', {
-                            props: {className: 'bx-soa-pp-list-termin'},
+                            props: {className: 'bx-soa-pp-list-termin mr-4'},
                             html: this.params.MESS_PRICE + ':'
                         }),
                         BX.create('DIV', {
@@ -4866,7 +4871,7 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
             }
 
             if (currentDelivery.PERIOD_TEXT && currentDelivery.PERIOD_TEXT.length) {
-                period = BX.create('LI', {
+                period = BX.create('DIV', {
                     children: [
                         BX.create('DIV', {
                             props: {className: 'bx-soa-pp-list-termin'},
@@ -4881,7 +4886,7 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
             }
 
             clear = BX.create('DIV', {style: {clear: 'both'}});
-            infoList = BX.create('UL', {props: {className: 'bx-soa-pp-list'}, children: [price, period]});
+            infoList = BX.create('DIV', {props: {className: 'bx-soa-pp-list'}, children: [price, period]});
             extraServices = this.getDeliveryExtraServices(currentDelivery);
 
             if (extraServices.length) {
@@ -5074,7 +5079,7 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
             }
 
             itemNode = BX.create('DIV', {
-                props: {className: 'bx-soa-pp-company col-lg-4 col-sm-4 col-xs-6'},
+                props: {className: 'bx-soa-pp-company col-6'},
                 children: [label, title],
                 events: {click: BX.proxy(this.selectDelivery, this)}
             });
@@ -5105,8 +5110,8 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
                 logotype = this.getImageSources(selectedDelivery, 'LOGOTIP');
                 imgSrc = logotype && logotype.src_1x || this.defaultDeliveryLogo;
                 arNodes = [
-                    BX.create('IMG', {props: {src: imgSrc, alt: ''}, style: {height: '18px'}}),
-                    BX.create('STRONG', {text: name})
+                    //BX.create('IMG', {props: {src: imgSrc, alt: ''}, style: {height: '0'}}),
+                    BX.create('H3', {text: name})
                 ];
 
                 if (this.params.DELIVERY_FADE_EXTRA_SERVICES == 'Y' && BX.util.object_keys(selectedDelivery.EXTRA_SERVICES).length) {
@@ -5124,18 +5129,23 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
                     }
                 }
 
+
                 node.appendChild(
                     BX.create('DIV', {
-                        props: {className: 'col-sm-9 bx-soa-pp-company-selected'},
-                        children: arNodes
+                        props: {className: 'col-12 col-md-6 row bx_soa_block align-items-center'},
+                        children: [
+                            BX.create('DIV', {
+                                props: {className: 'col-9 bx-soa-pp-company-selected'},
+                                children: arNodes
+                            }),
+                            BX.create('DIV', {
+                                props: {className: 'col-3 bx-soa-pp-price'},
+                                children: this.getDeliveryPriceNodes(selectedDelivery)
+                            })
+                        ]
                     })
                 );
-                node.appendChild(
-                    BX.create('DIV', {
-                        props: {className: 'col-sm-3 bx-soa-pp-price'},
-                        children: this.getDeliveryPriceNodes(selectedDelivery)
-                    })
-                );
+
             }
             else
                 node.appendChild(BX.create('STRONG', {text: BX.message('SOA_DELIVERY_SELECT_ERROR')}));
@@ -5967,7 +5977,7 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
             if (!this.result.ORDER_PROP || !this.propertyCollection)
                 return;
 
-            var propsItemsContainer = BX.create('DIV', {props: {className: 'col-sm-12 bx-soa-customer'}}),
+            var propsItemsContainer = BX.create('DIV', {props: {className: 'col-12 bx_soa_block bx-soa-customer row'}}),
                 group, property, groupIterator = this.propertyCollection.getGroupIterator(), propsIterator;
 
             if (!propsItemsContainer)
@@ -6001,7 +6011,7 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
                 propsItemNode.innerHTML = '<strong>' + BX.util.htmlspecialchars(property.getName()) + ':</strong> ';
             }
             else {
-                BX.addClass(propsItemNode, "form-group bx-soa-customer-field");
+                BX.addClass(propsItemNode, "form-group col-12 col-sm-6 bx-soa-customer-field");
 
                 if (property.isRequired())
                     textHtml += '<span class="bx-authform-starrequired">*</span> ';
@@ -7047,7 +7057,7 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
         editPropsComment: function (propsNode) {
             var propsCommentContainer, label, input, div;
 
-            propsCommentContainer = BX.create('DIV', {props: {className: 'col-sm-12'}});
+            propsCommentContainer = BX.create('DIV', {props: {className: 'col-12 bx_soa_block row'}});
             label = BX.create('LABEL', {
                 attrs: {for: 'orderDescription'},
                 props: {className: 'bx-soa-customer-label'},
@@ -7063,7 +7073,7 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
                 text: this.result.ORDER_DESCRIPTION ? this.result.ORDER_DESCRIPTION : ''
             });
             div = BX.create('DIV', {
-                props: {className: 'form-group bx-soa-customer-field'},
+                props: {className: 'form-group bx-soa-customer-field col-12'},
                 children: [label, input]
             });
 
