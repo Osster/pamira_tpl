@@ -202,7 +202,7 @@ if (empty($arResult['ERROR_MESSAGE'])) {
                                     <?= Loc::getMessage('SBB_FILTER_EMPTY_RESULT') ?>
                                 </div>
                             </div>
-                            <div class="basket-items-list-table" id="basket-item-table">
+                            <div class="basket-items-list-table container" id="basket-item-table">
 
                             </div>
                         </div>

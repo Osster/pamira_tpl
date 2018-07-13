@@ -198,7 +198,7 @@
                 ИЗБРАННОЕ
             </div>
 
-            <div class="favorite-list"></div>
+            <div class="favorite-list container"></div>
 
         </div>
 
@@ -221,23 +221,25 @@
             <div class="compare-list">
                 <? $APPLICATION->IncludeComponent(
                     "bitrix:catalog.compare.list",
-                    "",
-                    Array(
+                    ".default",
+                    array(
                         "ACTION_VARIABLE" => "action",
-                        "AJAX_MODE" => "N",
+                        "AJAX_MODE" => "Y",
                         "AJAX_OPTION_ADDITIONAL" => "",
                         "AJAX_OPTION_HISTORY" => "N",
                         "AJAX_OPTION_JUMP" => "N",
-                        "AJAX_OPTION_STYLE" => "Y",
+                        "AJAX_OPTION_STYLE" => "N",
                         "COMPARE_URL" => "compare.php",
                         "DETAIL_URL" => "",
-                        "IBLOCK_ID" => "",
-                        "IBLOCK_TYPE" => "",
+                        "IBLOCK_ID" => "4",
+                        "IBLOCK_TYPE" => "catalog",
                         "NAME" => "CATALOG_COMPARE_LIST",
                         "POSITION" => "top left",
-                        "POSITION_FIXED" => "Y",
-                        "PRODUCT_ID_VARIABLE" => "id"
-                    )
+                        "POSITION_FIXED" => "N",
+                        "PRODUCT_ID_VARIABLE" => "id",
+                        "COMPONENT_TEMPLATE" => ".default"
+                    ),
+                    false
                 ); ?>
             </div>
 

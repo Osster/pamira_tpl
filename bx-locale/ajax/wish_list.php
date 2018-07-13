@@ -5,27 +5,36 @@ $wlist = json_decode($wlist, true);
 if (count($wlist) > 0) {
     foreach ($wlist as $item) {
         ?>
-        <div class="basket__product">
-            <div class="product-info">
-                <? if($item['pic']!='') : ?>
-                    <a href="<?= $item['url'] ?>" title="<?= $item['name'] ?>">
-                        <img style="max-width: 120px; max-height: 120px; object-fit: contain;" src="<?= $item['pic'] ?>">
-                    </a>
-                <? endif; ?>
-            </div>
-            <div class="product-name">
-                <a href="<?= $item['url'] ?>" title="<?= $item['name'] ?>"><?= $item['name'] ?></a>
+        <div class="row basket__product">
+            <div class="col-12 col-md-6">
+                <div class="d-flex">
+                    <? if ($item['pic'] != '') : ?>
+                        <div class="basket__product_img">
+                            <a href="<?= $item['url'] ?>" title="<?= $item['name'] ?>">
+                                <img class="basket-item-image" src="<?= $item['pic'] ?>">
+                            </a>
+                        </div>
+                    <? endif; ?>
 
+                    <div class="product-name">
+                        <a href="<?= $item['url'] ?>" title="<?= $item['name'] ?>"><?= $item['name'] ?></a>
+                    </div>
+                </div>
             </div>
-            <div class="product-price product-price_selected">
+            <div class="col-12 col-md-3">
+                <div class="product-price product-price_selected">
 
+                </div>
+            </div>
+            <div class="col-12 col-md-3">
+                <div class="basket-btns">
+                    <button class="btn btn-hover_black" name="form-questions__button">В корзину</button>
+                </div>
+            </div>
+            <div class="basket-item-block-actions">
+                <span class="basket-item-actions-remove" data-entity="basket-item-delete"></span>
             </div>
 
-            <div class="basket-btns">
-                <button class="btn btn-hover_black" name="form-questions__button">В корзину</button>
-            </div>
-
-            <img src="img/icons/close-white.svg" alt="">
         </div>
         <?
     }

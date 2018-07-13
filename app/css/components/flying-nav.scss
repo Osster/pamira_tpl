@@ -262,7 +262,7 @@
   .basket-item-block-actions {
     position: absolute;
     top: 0;
-    right: 14px;
+    right: 0;
     opacity: 0.6;
 
     &:hover {
@@ -344,44 +344,12 @@
 
   }
 
-  .basket-btns {
-    position: absolute;
-    bottom: 100px;
-    right: 71px;
+  .btn {
+    height: 35px;
+    padding: 5px 35px;
 
-    @include mobile-all(){
-      bottom: 60px;
-      left: 55px;
-    }
-
-    &::before{
-      position: absolute;
-      left: -50px;
-      top: 0;
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-      align-items: center;
-      flex-wrap: nowrap;
-      width: 35px;
-      height: 35px;
-      content: "";
-      color: $color_white;
-      background-color: $color_gray_light;
-      background-image: url(../../img/icons/icon_compare.svg);
-      background-repeat: no-repeat;
-      background-size: 37px 19px;
-      background-position: center;
-      cursor: pointer;
-    }
-
-    .btn{
-      height: 35px;
-      padding:0 35px;
-
-      @include mobile-all(){
-        padding:0 5px;
-      }
+    @include mobile-all() {
+      padding: 5px;
     }
   }
 
@@ -441,3 +409,7 @@
     }
   }
 }
+
+.bx_catalog-compare-list.fix.top.left {
+  display: none;
+} 
