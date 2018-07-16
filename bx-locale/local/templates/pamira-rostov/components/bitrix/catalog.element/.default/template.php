@@ -170,7 +170,12 @@ if (!empty($arParams['LABEL_PROP_POSITION'])) {
                                     <div class="swiper-slide"
                                          style="background-image:url(<?= $arResult['DETAIL_PICTURE']['SRC'] ?>)">
                                     </div>
-                                    <? if (!$arResult['PROPERTIES']) ?>
+                                    <? if (!$arResult['PROPERTIES']['FOTO_1']):
+                                        ?>
+                                        <div class="swiper-slide"
+                                             style="background-image:url(<?= $arResult['DETAIL_PICTURE']['SRC'] ?>)">
+                                        </div>
+                                    <? endif ?>
                                 </div>
                             </div>
 

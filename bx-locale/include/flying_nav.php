@@ -220,14 +220,14 @@
 
             <div class="compare-list">
                 <? $APPLICATION->IncludeComponent(
-                    "bitrix:catalog.compare.list",
+                    "al_ego:catalog.compare.list",
                     "pamira-compare",
                     array(
                         "ACTION_VARIABLE" => "action",
                         "AJAX_MODE" => "Y",
                         "AJAX_OPTION_ADDITIONAL" => "",
-                        "AJAX_OPTION_HISTORY" => "N",
-                        "AJAX_OPTION_JUMP" => "N",
+                        "AJAX_OPTION_HISTORY" => "Y",
+                        "AJAX_OPTION_JUMP" => "Y",
                         "AJAX_OPTION_STYLE" => "N",
                         "COMPARE_URL" => "compare.php",
                         "DETAIL_URL" => "",
