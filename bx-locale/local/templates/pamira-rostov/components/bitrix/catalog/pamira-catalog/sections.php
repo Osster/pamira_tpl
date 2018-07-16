@@ -70,10 +70,27 @@ $APPLICATION->IncludeFile(
             </div>
 
             <div class="col-12 col-md-9">
+
+                <section class="main__promo main__promo_dark main__sections-nav">
+                    <? $APPLICATION->IncludeComponent(
+                        "bitrix:main.include",
+                        "",
+                        Array(
+                            "AREA_FILE_SHOW" => "file",
+                            "PATH" => SITE_DIR."include/main_sections_nav.php",
+                            "AREA_FILE_RECURSIVE" => "N",
+                            "EDIT_MODE" => "html",
+                        ),
+                        false,
+                        Array('HIDE_ICONS' => 'Y')
+                    ); ?>
+                </section>
+
                 <div class="wr-catalog">
+
                     <?php
 
-                    if ($arParams["USE_COMPARE"] === "Y") {
+                    /*if ($arParams["USE_COMPARE"] === "Y") {
                         $APPLICATION->IncludeComponent(
                             "bitrix:catalog.compare.list",
                             "",
@@ -91,7 +108,7 @@ $APPLICATION->IncludeFile(
                             $component,
                             array("HIDE_ICONS" => "Y")
                         );
-                    }
+                    }*/
 
                     if ($arParams["SHOW_TOP_ELEMENTS"] !== "N") {
                         if (isset($arParams['USE_COMMON_SETTINGS_BASKET_POPUP']) && $arParams['USE_COMMON_SETTINGS_BASKET_POPUP'] === 'Y') {

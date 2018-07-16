@@ -146,6 +146,7 @@ if (!empty($arParams['LABEL_PROP_POSITION'])) {
         $labelPositionClass .= isset($positionClassMap[$pos]) ? ' ' . $positionClassMap[$pos] : '';
     }
 }
+print_r($arResult);
 ?>
     <main class="main" id="<?= $itemIds['ID'] ?>"
           itemscope itemtype="http://schema.org/Product">

@@ -180,7 +180,7 @@ $arParams["ELEMENT_SORT_ORDER"] = $SECTION_ORDER_DIR;
                             array("HIDE_ICONS" => "Y")
                         );
 
-                        if ($arParams["USE_COMPARE"] === "Y")
+                        /*if ($arParams["USE_COMPARE"] === "Y")
                         {
                             $APPLICATION->IncludeComponent(
                                 "bitrix:catalog.compare.list",
@@ -199,7 +199,7 @@ $arParams["ELEMENT_SORT_ORDER"] = $SECTION_ORDER_DIR;
                                 $component,
                                 array("HIDE_ICONS" => "Y")
                             );
-                        }
+                        }*/
 
                         $intSectionID = $APPLICATION->IncludeComponent(
                             "bitrix:catalog.section",

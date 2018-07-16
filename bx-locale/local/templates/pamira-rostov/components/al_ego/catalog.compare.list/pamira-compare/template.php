@@ -42,21 +42,24 @@ $style = ($itemCount == 0 ? ' style="display: none;"' : '');
                     <?
                     foreach ($arResult as $arElement) {
                         ?>
-                        <div class="basket__product row">
+                        <div class="basket__product row" id="<? echo $idCompareRow.$arElement['PARENT_ID']; ?>">
                             <div class="col-12 col-md-6">
                                 <div class="d-flex" id="<? echo $idCompareRow . $arElement['PARENT_ID']; ?>">
                                     <div class="basket__product_img">
-
+                                        <a href="<?= $arElement["DETAIL_PAGE_URL"] ?>">
+                                            <img src="<?= $arElement["PICTURE"] ?>" alt="<?= $arElement["PICTURE"] ? $arElement["NAME"] : "Нет картинки" ?>">
+                                        </a>
                                     </div>
                                     <div class="product-name">
-                                        <a href="<?= $arElement["DETAIL_PAGE_URL"] ?>"><?= $arElement["NAME"] ?>
+                                        <a href="<?= $arElement["DETAIL_PAGE_URL"] ?>">
+                                            <?= $arElement["NAME"] ?>
                                         </a>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-12 col-md-3">
                                 <div class="product-price product-price_selected">
-
+                                    <?= $arElement["PRICE"] ?>
                                 </div>
                             </div>
 
@@ -74,6 +77,17 @@ $style = ($itemCount == 0 ? ' style="display: none;"' : '');
                     }
                     ?>
                 </div>
+            </div>
+
+            <div class="bx_catalog_compare_count col-12 basket__product"><?
+                if ($itemCount > 0) {
+                    ?><p><? echo GetMessage('CP_BCCL_TPL_MESS_COMPARE_COUNT'); ?>&nbsp;<span
+                            id="<? echo $idCompareAll; ?>"><? echo $itemCount; ?></span></p>
+                    <p class="compare-redirect"><a
+                            href="<? echo $arParams["COMPARE_URL"]; ?>"><? echo GetMessage('CP_BCCL_TPL_MESS_COMPARE_PAGE'); ?></a>
+                    </p><?
+                }
+                ?>
             </div>
             <?
         }
@@ -116,16 +130,6 @@ $style = ($itemCount == 0 ? ' style="display: none;"' : '');
             )
         );
         ?>
-        <div class="bx_catalog_compare_count col-12 basket__product"><?
-            if ($itemCount > 0) {
-                ?><p><? echo GetMessage('CP_BCCL_TPL_MESS_COMPARE_COUNT'); ?>&nbsp;<span
-                        id="<? echo $idCompareAll; ?>"><? echo $itemCount; ?></span></p>
-                <p class="compare-redirect"><a
-                        href="<? echo $arParams["COMPARE_URL"]; ?>"><? echo GetMessage('CP_BCCL_TPL_MESS_COMPARE_PAGE'); ?></a>
-                </p><?
-            }
-            ?>
-        </div>
     </div>
 </div>
 <script type="text/javascript">

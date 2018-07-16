@@ -21,10 +21,8 @@ $APPLICATION->SetTitle("Интернет-магазин Техника для к
     <section class="main__promo main__promo_dark">
         <div class="container">
             <div class="main__promo_heading">
-                <div class="main__promo_heading_title">Заголовок</div>
-                <p class="main__promo_heading_desc">Само название Smeg – это не что иное, как аббревиатура от
-                    итальянского Smalteria
-                    Metallurgica Emiliana Guastalla (Металлургическая Фабрика Эмилия Гуасталла).</p>
+                <div class="main__promo_heading_title">Почему именно мы</div>
+                <p class="main__promo_heading_desc">.</p>
             </div>
 
             <div class="row">
@@ -86,10 +84,8 @@ $APPLICATION->SetTitle("Интернет-магазин Техника для к
     <section class="main__promo main__promo_light">
         <div class="container">
             <div class="main__promo_heading">
-                <div class="main__promo_heading_title">Заголовок</div>
-                <p class="main__promo_heading_desc">Само название Smeg – это не что иное, как аббревиатура от
-                    итальянского Smalteria Metallurgica Emiliana Guastalla (Металлургическая Фабрика Эмилия
-                    Гуасталла).</p>
+                <div class="main__promo_heading_title">Выбирая нас</div>
+                <p class="main__promo_heading_desc">.</p>
             </div>
 
             <div class="row">

@@ -93,16 +93,18 @@ window.JCCatalogCompareList.prototype.deleteCompareResult = function(result)
 			BX.onCustomEvent('onCatalogDeleteCompare', [result.ID]);
 
 			tbl = BX(this.visual.LIST);
+
 			if (tbl)
 			{
-				if (tbl.rows.length > 1)
+				if (tbl.children.length > 1)
 				{
 					deleteID = this.visual.ROW + result.ID;
-					for (i = 0; i < tbl.rows.length; i++)
+					for (i = 0; i < tbl.children.length; i++)
 					{
-						if (tbl.rows[i].id === deleteID)
+						if (tbl.children[i].id === deleteID)
 						{
-							tbl.deleteRow(i);
+							//tbl.deleteRow(i);
+							tbl.removeChild(tbl.children[i]);
 						}
 					}
 					tbl = null;
