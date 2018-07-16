@@ -153,7 +153,7 @@
                     "QUANTITY_FLOAT" => "N",
                     "CORRECT_RATIO" => "N",
                     "AUTO_CALCULATION" => "Y",
-                    "SET_TITLE" => "Y",
+                    "SET_TITLE" => "N",
                     "ACTION_VARIABLE" => "basketAction",
                     "COMPATIBLE_MODE" => "Y",
                     "LABEL_PROP_MOBILE" => "",
@@ -200,6 +200,37 @@
 
             <div class="favorite-list container"></div>
 
+            <?
+            $APPLICATION->IncludeComponent(
+                "bitrix:sale.basket.basket.line",
+                ".default",
+                array(
+                    "COMPONENT_TEMPLATE" => ".default",
+                    "PATH_TO_BASKET" => SITE_DIR."zakaz/",
+                    "PATH_TO_ORDER" => SITE_DIR."zakaz/",
+                    "SHOW_NUM_PRODUCTS" => "Y",
+                    "SHOW_TOTAL_PRICE" => "Y",
+                    "SHOW_EMPTY_VALUES" => "Y",
+                    "SHOW_PERSONAL_LINK" => "N",
+                    "PATH_TO_PERSONAL" => SITE_DIR."personal/",
+                    "SHOW_AUTHOR" => "N",
+                    "PATH_TO_AUTHORIZE" => "",
+                    "SHOW_REGISTRATION" => "N",
+                    "PATH_TO_REGISTER" => SITE_DIR."login/",
+                    "PATH_TO_PROFILE" => SITE_DIR."personal/",
+                    "SHOW_PRODUCTS" => "Y",
+                    "SHOW_DELAY" => "N",
+                    "SHOW_NOTAVAIL" => "N",
+                    "SHOW_IMAGE" => "Y",
+                    "SHOW_PRICE" => "Y",
+                    "SHOW_SUMMARY" => "Y",
+                    "POSITION_FIXED" => "N",
+                    "HIDE_ON_BASKET_PAGES" => "N"
+                ),
+                false
+            );
+            ?>
+
         </div>
 
     </div>
@@ -220,27 +251,27 @@
 
             <div class="compare-list">
                 <? $APPLICATION->IncludeComponent(
-                "al_ego:catalog.compare.list",
-                "pamira-compare",
-                array(
-                    "ACTION_VARIABLE" => "action",
-                    "AJAX_MODE" => "Y",
-                    "AJAX_OPTION_ADDITIONAL" => "",
-                    "AJAX_OPTION_HISTORY" => "N",
-                    "AJAX_OPTION_JUMP" => "N",
-                    "AJAX_OPTION_STYLE" => "N",
-                    "COMPARE_URL" => "compare.php",
-                    "DETAIL_URL" => "",
-                    "IBLOCK_ID" => "4",
-                    "IBLOCK_TYPE" => "catalog",
-                    "NAME" => "CATALOG_COMPARE_LIST",
-                    "POSITION" => "top left",
-                    "POSITION_FIXED" => "N",
-                    "PRODUCT_ID_VARIABLE" => "id",
-                    "COMPONENT_TEMPLATE" => "pamira-compare"
-                ),
-                false
-            ); ?>
+                    "al_ego:catalog.compare.list",
+                    "pamira-compare",
+                    array(
+                        "ACTION_VARIABLE" => "action",
+                        "AJAX_MODE" => "Y",
+                        "AJAX_OPTION_ADDITIONAL" => "",
+                        "AJAX_OPTION_HISTORY" => "N",
+                        "AJAX_OPTION_JUMP" => "N",
+                        "AJAX_OPTION_STYLE" => "N",
+                        "COMPARE_URL" => "compare.php",
+                        "DETAIL_URL" => "",
+                        "IBLOCK_ID" => "4",
+                        "IBLOCK_TYPE" => "catalog",
+                        "NAME" => "CATALOG_COMPARE_LIST",
+                        "POSITION" => "top left",
+                        "POSITION_FIXED" => "N",
+                        "PRODUCT_ID_VARIABLE" => "id",
+                        "COMPONENT_TEMPLATE" => "pamira-compare"
+                    ),
+                    false
+                ); ?>
             </div>
 
         </div>
