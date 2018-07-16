@@ -220,27 +220,27 @@
 
             <div class="compare-list">
                 <? $APPLICATION->IncludeComponent(
-                    "al_ego:catalog.compare.list",
-                    "pamira-compare",
-                    array(
-                        "ACTION_VARIABLE" => "action",
-                        "AJAX_MODE" => "Y",
-                        "AJAX_OPTION_ADDITIONAL" => "",
-                        "AJAX_OPTION_HISTORY" => "Y",
-                        "AJAX_OPTION_JUMP" => "Y",
-                        "AJAX_OPTION_STYLE" => "N",
-                        "COMPARE_URL" => "compare.php",
-                        "DETAIL_URL" => "",
-                        "IBLOCK_ID" => "4",
-                        "IBLOCK_TYPE" => "catalog",
-                        "NAME" => "CATALOG_COMPARE_LIST",
-                        "POSITION" => "top left",
-                        "POSITION_FIXED" => "N",
-                        "PRODUCT_ID_VARIABLE" => "id",
-                        "COMPONENT_TEMPLATE" => "pamira-compare"
-                    ),
-                    false
-                ); ?>
+                "al_ego:catalog.compare.list",
+                "pamira-compare",
+                array(
+                    "ACTION_VARIABLE" => "action",
+                    "AJAX_MODE" => "Y",
+                    "AJAX_OPTION_ADDITIONAL" => "",
+                    "AJAX_OPTION_HISTORY" => "N",
+                    "AJAX_OPTION_JUMP" => "N",
+                    "AJAX_OPTION_STYLE" => "N",
+                    "COMPARE_URL" => "compare.php",
+                    "DETAIL_URL" => "",
+                    "IBLOCK_ID" => "4",
+                    "IBLOCK_TYPE" => "catalog",
+                    "NAME" => "CATALOG_COMPARE_LIST",
+                    "POSITION" => "top left",
+                    "POSITION_FIXED" => "N",
+                    "PRODUCT_ID_VARIABLE" => "id",
+                    "COMPONENT_TEMPLATE" => "pamira-compare"
+                ),
+                false
+            ); ?>
             </div>
 
         </div>

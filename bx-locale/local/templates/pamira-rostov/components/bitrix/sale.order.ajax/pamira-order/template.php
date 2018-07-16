@@ -241,7 +241,6 @@ switch (LANGUAGE_ID) {
         break;
 }
 
-$this->addExternalCss('/bitrix/css/main/bootstrap.css');
 $APPLICATION->SetAdditionalCSS('/bitrix/css/main/themes/' . $arParams['TEMPLATE_THEME'] . '/style.css', true);
 $APPLICATION->SetAdditionalCSS($templateFolder . '/style.css', true);
 $this->addExternalJs($templateFolder . '/order_ajax.js');

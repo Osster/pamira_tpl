@@ -42,13 +42,12 @@ $style = ($itemCount == 0 ? ' style="display: none;"' : '');
                     <?
                     foreach ($arResult as $arElement) {
                         ?>
-                        <div class="basket__product row" id="<? echo $idCompareRow . $arElement['PARENT_ID']; ?>">
+                        <div class="basket__product row" id="<? echo $idCompareRow.$arElement['PARENT_ID']; ?>">
                             <div class="col-12 col-md-6">
                                 <div class="d-flex" id="<? echo $idCompareRow . $arElement['PARENT_ID']; ?>">
                                     <div class="basket__product_img">
                                         <a href="<?= $arElement["DETAIL_PAGE_URL"] ?>">
-                                            <img src="<?= $arElement["PICTURE"] ?>"
-                                                 alt="<?= $arElement["PICTURE"] ? $arElement["NAME"] : "Нет картинки" ?>">
+                                            <img src="<?= $arElement["PICTURE"] ?>" alt="<?= $arElement["PICTURE"] ? $arElement["NAME"] : "Нет картинки" ?>">
                                         </a>
                                     </div>
                                     <div class="product-name">

@@ -77,7 +77,7 @@ $APPLICATION->IncludeFile(
                         "",
                         Array(
                             "AREA_FILE_SHOW" => "file",
-                            "PATH" => SITE_DIR . "include/main_sections_nav.php",
+                            "PATH" => SITE_DIR."include/main_sections_nav.php",
                             "AREA_FILE_RECURSIVE" => "N",
                             "EDIT_MODE" => "html",
                         ),

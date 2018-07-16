@@ -19,38 +19,6 @@
 
 		<footer class="bx-footer">
 
-            <?if ($APPLICATION->GetCurPage(true) == SITE_DIR."index.php"):?>
-                <div class="bx-footer-line">
-                    <?$APPLICATION->IncludeComponent("bitrix:search.title", "toggle-form", Array(
-	"NUM_CATEGORIES" => "1",	// Количество категорий поиска
-		"TOP_COUNT" => "5",	// Количество результатов в каждой категории
-		"CHECK_DATES" => "N",	// Искать только в активных по дате документах
-		"SHOW_OTHERS" => "N",	// Показывать категорию "прочее"
-		"PAGE" => SITE_DIR."catalog/",	// Страница выдачи результатов поиска (доступен макрос #SITE_DIR#)
-		"CATEGORY_0_TITLE" => "Товары",	// Название категории
-		"CATEGORY_0" => array(	// Ограничение области поиска
-			0 => "iblock_catalog",
-		),
-		"CATEGORY_0_iblock_catalog" => array(	// Искать в информационных блоках типа "iblock_catalog"
-			0 => "all",
-		),
-		"CATEGORY_OTHERS_TITLE" => "Прочее",
-		"SHOW_INPUT" => "Y",	// Показывать форму ввода поискового запроса
-		"INPUT_ID" => "title-search-input",	// ID строки ввода поискового запроса
-		"CONTAINER_ID" => "search",	// ID контейнера, по ширине которого будут выводиться результаты
-		"PRICE_CODE" => array(	// Тип цены
-			0 => "BASE",
-		),
-		"SHOW_PREVIEW" => "Y",	// Показать картинку
-		"PREVIEW_WIDTH" => "75",	// Ширина картинки
-		"PREVIEW_HEIGHT" => "75",	// Высота картинки
-		"CONVERT_CURRENCY" => "Y",	// Показывать цены в одной валюте
-	),
-	false
-);?>
-                </div>
-            <?endif?>
-
             <?$APPLICATION->IncludeComponent(
                 "bitrix:main.include",
                 "",
@@ -63,27 +31,6 @@
                 false,
                 Array('HIDE_ICONS' => 'Y')
             );?>
-
-            <?$APPLICATION->IncludeComponent("bitrix:menu", "bottom_menu", array(
-                "ROOT_MENU_TYPE" => "left",
-                "MENU_CACHE_TYPE" => "A",
-                "MENU_CACHE_TIME" => "36000000",
-                "MENU_CACHE_USE_GROUPS" => "Y",
-                "MENU_CACHE_GET_VARS" => array(
-                ),
-                "CACHE_SELECTED_ITEMS" => "N",
-                "MAX_LEVEL" => "1",
-                "USE_EXT" => "Y",
-                "DELAY" => "N",
-                "ALLOW_MULTI_SELECT" => "N"
-            ),
-                false
-            );?>
-
-            <?$APPLICATION->IncludeComponent("bitrix:sender.subscribe", "", array(
-                "SET_TITLE" => "N"
-            ));?>
-
 
             <div class="container">
                 <div class="row footer-top">
@@ -279,24 +226,6 @@
                     </div>
                 </div>
             </div>
-
-            <?/*$APPLICATION->IncludeComponent("bitrix:sale.basket.basket.line", "", array(
-					"PATH_TO_BASKET" => SITE_DIR."personal/cart/",
-					"PATH_TO_PERSONAL" => SITE_DIR."personal/",
-					"SHOW_PERSONAL_LINK" => "N",
-					"SHOW_NUM_PRODUCTS" => "Y",
-					"SHOW_TOTAL_PRICE" => "Y",
-					"SHOW_PRODUCTS" => "N",
-					"POSITION_FIXED" =>"Y",
-					"POSITION_HORIZONTAL" => "center",
-					"POSITION_VERTICAL" => "bottom",
-					"SHOW_AUTHOR" => "Y",
-					"PATH_TO_REGISTER" => SITE_DIR."login/",
-					"PATH_TO_PROFILE" => SITE_DIR."personal/"
-				),
-				false,
-				array()
-			);*/?>
 
 		</footer>
 	</div> <!-- //bx-wrapper -->
