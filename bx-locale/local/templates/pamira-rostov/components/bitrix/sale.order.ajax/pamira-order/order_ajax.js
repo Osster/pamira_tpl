@@ -2001,7 +2001,7 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
                     props: {className: 'row bx-soa-more'},
                     children: [
                         BX.create('DIV', {
-                            props: {className: 'bx-soa-more-btn col-xs-12'},
+                            props: {className: 'bx-soa-more-btn d-flex w-100 justify-content-between'},
                             children: buttons
                         })
                     ]

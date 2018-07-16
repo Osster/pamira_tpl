@@ -146,7 +146,7 @@ if (!empty($arParams['LABEL_PROP_POSITION'])) {
         $labelPositionClass .= isset($positionClassMap[$pos]) ? ' ' . $positionClassMap[$pos] : '';
     }
 }
-print_r($arResult);
+//print_r($arResult);
 ?>
     <main class="main" id="<?= $itemIds['ID'] ?>"
           itemscope itemtype="http://schema.org/Product">
@@ -165,16 +165,42 @@ print_r($arResult);
                 ?>
                 <div class="row">
                     <div class="col-12 col-md-6">
-                        <div class="single-item_imgs d-flex">
+                        <div class="single-item_imgs d-flex mb-5">
                             <div class="swiper-container single-item_imgs_thumbs">
                                 <div class="swiper-wrapper">
                                     <div class="swiper-slide"
                                          style="background-image:url(<?= $arResult['DETAIL_PICTURE']['SRC'] ?>)">
                                     </div>
-                                    <? if (!$arResult['PROPERTIES']['FOTO_1']):
+                                    <? if ($arResult['PROPERTIES']['FOTO_1']['VALUE']):
+                                        $fotoId_1 = $arResult['PROPERTIES']['FOTO_1']['VALUE'];
+                                        $arResult['PROPERTIES']['FOTO_1']['SRC'] = CFile::GetPath($fotoId_1);
                                         ?>
                                         <div class="swiper-slide"
-                                             style="background-image:url(<?= $arResult['DETAIL_PICTURE']['SRC'] ?>)">
+                                             style="background-image:url(<?= $arResult['PROPERTIES']['FOTO_1']['SRC'] ?>)">
+                                        </div>
+                                    <? endif ?>
+                                    <? if ($arResult['PROPERTIES']['FOTO_2']['VALUE']):
+                                        $fotoId_2 = $arResult['PROPERTIES']['FOTO_2']['VALUE'];
+                                        $arResult['PROPERTIES']['FOTO_2']['SRC'] = CFile::GetPath($fotoId_2);
+                                        ?>
+                                        <div class="swiper-slide"
+                                             style="background-image:url(<?= $arResult['PROPERTIES']['FOTO_2']['SRC'] ?>)">
+                                        </div>
+                                    <? endif ?>
+                                    <? if ($arResult['PROPERTIES']['FOTO_3']['VALUE']):
+                                        $fotoId_3 = $arResult['PROPERTIES']['FOTO_3']['VALUE'];
+                                        $arResult['PROPERTIES']['FOTO_3']['SRC'] = CFile::GetPath($fotoId_3);
+                                        ?>
+                                        <div class="swiper-slide"
+                                             style="background-image:url(<?= $arResult['PROPERTIES']['FOTO_3']['SRC'] ?>)">
+                                        </div>
+                                    <? endif ?>
+                                    <? if ($arResult['PROPERTIES']['FOTO_4']['VALUE']):
+                                        $fotoId_4 = $arResult['PROPERTIES']['FOTO_4']['VALUE'];
+                                        $arResult['PROPERTIES']['FOTO_4']['SRC'] = CFile::GetPath($fotoId_4);
+                                        ?>
+                                        <div class="swiper-slide"
+                                             style="background-image:url(<?= $arResult['PROPERTIES']['FOTO_4']['SRC'] ?>)">
                                         </div>
                                     <? endif ?>
                                 </div>
@@ -185,6 +211,42 @@ print_r($arResult);
                                     <div class="swiper-slide">
                                         <img src="<?= $arResult['DETAIL_PICTURE']['SRC'] ?>" alt="">
                                     </div>
+                                    <? if ($arResult['PROPERTIES']['FOTO_1']['VALUE']) {
+                                        $fotoId_1 = $arResult['PROPERTIES']['FOTO_1']['VALUE'];
+                                        $arResult['PROPERTIES']['FOTO_1']['SRC'] = CFile::GetPath($fotoId_1);
+                                        ?>
+                                        <div class="swiper-slide">
+                                            <img src="<?= $arResult['PROPERTIES']['FOTO_1']['SRC'] ?>"
+                                                 alt="<?= $arResult['NAME'] ?>">
+                                        </div>
+                                    <? } ?>
+                                    <? if ($arResult['PROPERTIES']['FOTO_2']['VALUE']):
+                                        $fotoId_2 = $arResult['PROPERTIES']['FOTO_2']['VALUE'];
+                                        $arResult['PROPERTIES']['FOTO_2']['SRC'] = CFile::GetPath($fotoId_2);
+                                        ?>
+                                        <div class="swiper-slide">
+                                            <img src="<?= $arResult['PROPERTIES']['FOTO_2']['SRC'] ?>"
+                                                 alt="<?= $arResult['NAME'] ?>">
+                                        </div>
+                                    <? endif ?>
+                                    <? if ($arResult['PROPERTIES']['FOTO_3']['VALUE']):
+                                        $fotoId_3 = $arResult['PROPERTIES']['FOTO_1']['VALUE'];
+                                        $arResult['PROPERTIES']['FOTO_3']['SRC'] = CFile::GetPath($fotoId_3);
+                                        ?>
+                                        <div class="swiper-slide">
+                                            <img src="<?= $arResult['PROPERTIES']['FOTO_3']['SRC'] ?>"
+                                                 alt="<?= $arResult['NAME'] ?>">
+                                        </div>
+                                    <? endif ?>
+                                    <? if ($arResult['PROPERTIES']['FOTO_4']['VALUE']):
+                                        $fotoId_4 = $arResult['PROPERTIES']['FOTO_4']['VALUE'];
+                                        $arResult['PROPERTIES']['FOTO_4']['SRC'] = CFile::GetPath($fotoId_4);
+                                        ?>
+                                        <div class="swiper-slide">
+                                            <img src="<?= $arResult['PROPERTIES']['FOTO_4']['SRC'] ?>"
+                                                 alt="<?= $arResult['NAME'] ?>">
+                                        </div>
+                                    <? endif ?>
                                 </div>
                             </div>
                         </div>
@@ -205,17 +267,20 @@ print_r($arResult);
                         </div>
                         <div class="single-item_links">
                             <div class="d-flex">
-                                <a class="single-item_links_icon mr-1" href="#" data-toggle="tooltip"
-                                   data-placement="left"
-                                   title="Сравнение">
-                                    <svg width="24" height="22">
-                                        <use xlink:href="#compare-svg"></use>
-                                    </svg>
-                                    <label id="<?= $itemIds['COMPARE_LINK'] ?>">
-                                        <input type="checkbox" data-entity="compare-checkbox">
-                                        <span data-entity="compare-title">Сравнить</span>
-                                    </label>
-                                </a>
+                                <? if ($arParams['DISPLAY_COMPARE']) {
+                                    ?>
+                                    <div class="mr-1">
+                                        <input class="d-none" type="checkbox" id="<?= $itemIds['COMPARE_LINK'] ?>"
+                                               data-entity="compare-checkbox">
+                                        <label class="single-item_links_icon" for="<?= $itemIds['COMPARE_LINK'] ?>">
+                                            <svg width="24" height="22">
+                                                <use xlink:href="#compare-svg"></use>
+                                            </svg>
+                                            <span data-entity="compare-title"><?= $arParams['MESS_BTN_COMPARE'] ?></span>
+                                        </label>
+                                    </div>
+                                    <?
+                                } ?>
                                 <a class="single-item_links_icon ml-1" href="#" data-toggle="tooltip"
                                    data-placement="left"
                                    title="Избранное">

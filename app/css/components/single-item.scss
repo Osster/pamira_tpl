@@ -80,6 +80,10 @@
   }
   &_links {
     margin-bottom: 60px;
+
+    & input[type="checkbox"]:checked + label {
+      background-color: $color_red_middle;
+    }
     &_icon {
       display: flex;
       flex: 1;
