@@ -146,7 +146,7 @@
                     "PRODUCT_BLOCKS_ORDER" => "sku,columns,props",
                     "USE_PRICE_ANIMATION" => "Y",
                     "LABEL_PROP" => array(),
-                    "PATH_TO_ORDER" => "/personal/order/make/",
+                    "PATH_TO_ORDER" => "/zakaz/",
                     "HIDE_COUPON" => "Y",
                     "PRICE_VAT_SHOW_VALUE" => "N",
                     "USE_PREPAYMENT" => "N",
@@ -221,7 +221,7 @@
             <div class="compare-list">
                 <? $APPLICATION->IncludeComponent(
                     "bitrix:catalog.compare.list",
-                    ".default",
+                    "pamira-compare",
                     array(
                         "ACTION_VARIABLE" => "action",
                         "AJAX_MODE" => "Y",
@@ -237,7 +237,7 @@
                         "POSITION" => "top left",
                         "POSITION_FIXED" => "N",
                         "PRODUCT_ID_VARIABLE" => "id",
-                        "COMPONENT_TEMPLATE" => ".default"
+                        "COMPONENT_TEMPLATE" => "pamira-compare"
                     ),
                     false
                 ); ?>
