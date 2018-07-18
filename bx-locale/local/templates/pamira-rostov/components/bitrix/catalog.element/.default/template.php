@@ -13,6 +13,10 @@ use \Bitrix\Main\Localization\Loc;
  * @var string $templateFolder
  */
 
+$arResult['NAME'] = html_entity_decode($arResult['NAME']);
+$arResult['DETAIL_TEXT'] = html_entity_decode($arResult['DETAIL_TEXT']);
+$arResult['PREVIEW_TEXT'] = html_entity_decode($arResult['PREVIEW_TEXT']);
+
 $this->setFrameMode(true);
 //$this->addExternalCss('/bitrix/css/main/bootstrap.css');
 
@@ -36,6 +40,7 @@ $templateData = array(
     )
 );
 unset($currencyList, $templateLibrary);
+
 
 $mainId = $this->GetEditAreaId($arResult['ID']);
 $itemIds = array(
@@ -256,11 +261,6 @@ if (!empty($arParams['LABEL_PROP_POSITION'])) {
                     <div class="col-12 col-md-5">
                         <div class="single-item_text">
                             <p class="mb-3"><?= $arResult['DETAIL_TEXT']; ?></p>
-                            <? foreach ($arResult['PROPERTIES'] as $variables) {
-                                if (!$variables['VALUE_ENUM'] == 0) {
-                                    echo '<p>' . '<span>' . $variables['NAME'] . ': </span>' . $variables['VALUE_ENUM'] . '</p>';
-                                }
-                            } ?>
                         </div>
                         <div class="single-item_cost">
                             <p>Цена: <span><?= $arResult['PRICES']['BASE']['PRINT_DISCOUNT_VALUE']; ?></span></p>
@@ -359,14 +359,8 @@ if (!empty($arParams['LABEL_PROP_POSITION'])) {
             <div class="container">
                 <nav>
                     <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                        <a class="nav-link active"
-                           id="tabmenu01"
-                           data-toggle="tab" role="tab"
-                           href="#navtab01"
-                           aria-controls="navtab01"
-                           aria-selected="true">ПРЕИМУЩЕСТВА</a>
 
-                        <a class="nav-link"
+                        <a class="nav-link active show"
                            id="tabmenu02"
                            data-toggle="tab" role="tab"
                            href="#navtab02"
@@ -385,66 +379,20 @@ if (!empty($arParams['LABEL_PROP_POSITION'])) {
 
             <div class="container">
                 <div class="tab-content" id="nav-tabContent">
-                    <div class="tab-pane fade show active" id="navtab01" role="tabpanel" aria-labelledby="tabmenu01">
+                    <div class="tab-pane fade show active" id="navtab02" role="tabpanel" aria-labelledby="tabmenu02">
 
                         <div class="tab-blocks_item">
                             <div class="tab-blocks_item_text">
-                                <div class="d-flex flex-wrap justify-content-around">
-                                    <div class="tab-blocks_item_text_icons">
-                                        <img src="<?= SITE_TEMPLATE_PATH ?>/img/icons/icon-delivery.png" alt="">
-                                        <p>Лидогенератор</p>
-                                    </div>
-                                    <div class="tab-blocks_item_text_icons">
-                                        <img src="<?= SITE_TEMPLATE_PATH ?>/img/icons/icon-map-marker.png" alt="">
-                                        <p>Навеска индивидуальной фасадной двери.</p>
-                                    </div>
-                                    <div class="tab-blocks_item_text_icons">
-                                        <img src="<?= SITE_TEMPLATE_PATH ?>/img/icons/icon-credit-card.png" alt="">
-                                        <p>Freshbox - для фруктов и овощей.</p>
-                                    </div>
-                                </div>
-                                <p>Доставка бытовой и встраиваемой техники в пределах Ростова-на-Дону, Воронежа,
-                                    Пятигорска,
-                                    Ставрополя осуществляется до подъезда покупателя бесплатно. Доставка товара за
-                                    пределы
-                                    города осуществляется за счет покупателя нашим транспортом, согласно заранее
-                                    оговоренному
-                                    тарифу.</p>
-                                <p>Подъем до квартиры крупногабаритной техники осуществляется за дополнительную плату,
-                                    также
-                                    согласно заранее оговоренному тарифу.</p>
-                            </div>
-                        </div>
-
-                    </div>
-                    <div class="tab-pane fade" id="navtab02" role="tabpanel" aria-labelledby="tabmenu02">
-
-                        <div class="tab-blocks_item">
-                            <div class="tab-blocks_item_text">
-                                <div class="d-flex flex-wrap justify-content-around">
-                                    <div class="tab-blocks_item_text_icons">
-                                        <img src="<?= SITE_TEMPLATE_PATH ?>/img/icons/icon-delivery.png" alt="">
-                                        <p>Лидогенератор</p>
-                                    </div>
-                                    <div class="tab-blocks_item_text_icons">
-                                        <img src="<?= SITE_TEMPLATE_PATH ?>/img/icons/icon-map-marker.png" alt="">
-                                        <p>Навеска индивидуальной фасадной двери.</p>
-                                    </div>
-                                    <div class="tab-blocks_item_text_icons">
-                                        <img src="<?= SITE_TEMPLATE_PATH ?>/img/icons/icon-credit-card.png" alt="">
-                                        <p>Freshbox - для фруктов и овощей.</p>
-                                    </div>
-                                </div>
-                                <p>Доставка бытовой и встраиваемой техники в пределах Ростова-на-Дону, Воронежа,
-                                    Пятигорска,
-                                    Ставрополя осуществляется до подъезда покупателя бесплатно. Доставка товара за
-                                    пределы
-                                    города осуществляется за счет покупателя нашим транспортом, согласно заранее
-                                    оговоренному
-                                    тарифу.</p>
-                                <p>Подъем до квартиры крупногабаритной техники осуществляется за дополнительную плату,
-                                    также
-                                    согласно заранее оговоренному тарифу.</p>
+                                <ul>
+                                    <? foreach ($arResult['PROPERTIES'] as $variables) {
+                                        if (!$variables['VALUE_ENUM'] == 0) { ?>
+                                            <li class="tab-blocks_item_text_li">
+                                                <h5 class="mr-5"><?= $variables['NAME']; ?>: </h5>
+                                                <p><?= $variables['VALUE_ENUM']; ?></p>
+                                            </li>
+                                        <? }
+                                    } ?>
+                                </ul>
                             </div>
                         </div>
 
@@ -635,72 +583,6 @@ if (!empty($arParams['LABEL_PROP_POSITION'])) {
 
         </section>
 
-
-        <section class="main__promo main__promo_dark">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12 mb-5 p-0">
-                        <div class="card-item card-item_full">
-                            <div class="card-item_img">
-                                <img src="<?= SITE_TEMPLATE_PATH ?>/img/single-items/smeg-pv164n-hob-60-cm-black-glass-floor.jpg"
-                                     alt="">
-                            </div>
-                            <div class="card-item_text">
-                                <div class="card-item_text_inner">
-                                    <h2>Часто задаваемые вопросы</h2>
-                                </div>
-                                <div class="card-item_text_link">
-                                    <a class="btn" href="#">Читать</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6 col-12 pl-0 mb-4">
-                        <div class="card-item card-item_light">
-                            <div class="card-item_text">
-                                <h2>SOFT TOUCH</h2>
-                                <p>Имеются различные размеры варочных поверхностей, от маленьких Домино
-                                    (30см в ширину и регулируемый) до 60, 70, 90 и даже 116см моделей.</p>
-                            </div>
-                            <div class="card-item_img">
-                                <div class="card-item_img_link">
-                                    <a class="btn more-btn" href="#">
-                                        <span>Читать подробнее</span>
-                                        <svg width="10" height="15">
-                                            <use xlink:href="#icon-arrow"></use>
-                                        </svg>
-                                    </a>
-                                </div>
-                                <img src="<?= SITE_TEMPLATE_PATH ?>/img/single-items/smeg-kochfeld-0.jpg" alt="">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-12 pr-0 mb-4">
-                        <div class="card-item card-item_light">
-                            <div class="card-item_text">
-                                <h2>ОБРАБОТКА ПРОТИВ ОТПЕЧАТКОВ ПАЛЬЦЕВ</h2>
-                                <p>Могут быть установлены различными способами: стандартная, вровень со
-                                    столешницей, низкий монтаж и ультра низкий монтаж.
-                                </p>
-                            </div>
-                            <div class="card-item_img">
-                                <div class="card-item_img_link">
-                                    <a class="btn more-btn" href="#">
-                                        <span>Читать подробнее</span>
-                                        <svg width="10" height="15">
-                                            <use xlink:href="#icon-arrow"></use>
-                                        </svg>
-                                    </a>
-                                </div>
-                                <img src="<?= SITE_TEMPLATE_PATH ?>/img/single-items/final-5.jpg" alt="">
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </section>
 
 
     </main>

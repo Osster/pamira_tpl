@@ -166,7 +166,10 @@ if (empty($arResult['ERROR_MESSAGE'])) {
 
         <div class="row">
             <div class="col-12">
-                <div class="basket-items-list-wrapper-height-fixed basket-items-list-wrapper-light<?= $displayModeClass ?>"
+                <div class="basket__title">КОРЗИНА</div>
+            </div>
+            <div class="col-12">
+                <div class="basket basket-items-list-wrapper-height-fixed basket-items-list-wrapper-light<?= $displayModeClass ?>"
                      id="basket-items-list-wrapper">
                     <div class="basket-items-list-header" data-entity="basket-items-list-header">
                         <div class="basket-items-search-field" data-entity="basket-filter">

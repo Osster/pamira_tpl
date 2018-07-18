@@ -10,7 +10,6 @@ $compositeStub = (isset($arResult['COMPOSITE_STUB']) && $arResult['COMPOSITE_STU
 <div class="bx-hdr-profile">
     <? if (!$compositeStub && $arParams['SHOW_AUTHOR'] == 'Y'): ?>
         <div class="bx-basket-block">
-            <i class="fa fa-user"></i>
             <? if ($USER->IsAuthorized()):
                 $name = trim($USER->GetFullName());
                 if (!$name)
@@ -63,23 +62,26 @@ $compositeStub = (isset($arResult['COMPOSITE_STUB']) && $arResult['COMPOSITE_STU
             <? endif ?>
         </div>
     <? endif ?>
-    <div class="bx-basket-block"><?
-        if (!$arResult["DISABLE_USE_BASKET"]) {
-            ?><i class="fa fa-shopping-cart"></i>
-            <a href="<?= $arParams['PATH_TO_BASKET'] ?>"><?= GetMessage('TSB1_CART') ?></a><?
-        }
-        if (!$compositeStub) {
+    <div class="bx-basket-block">
+        <div class="d-flex justify-content-between">
+            <? if (!$arResult["DISABLE_USE_BASKET"]) { ?>
+                <a href="<?= $arParams['PATH_TO_BASKET'] ?>"><?= GetMessage('TSB1_CART') ?></a>
+            <? }
             if ($arParams['SHOW_NUM_PRODUCTS'] == 'Y' && ($arResult['NUM_PRODUCTS'] > 0 || $arParams['SHOW_EMPTY_VALUES'] == 'Y')) {
                 echo $arResult['NUM_PRODUCTS'] . ' ' . $arResult['PRODUCT(S)'];
-            }
+            } ?>
+        </div>
+        <? if (!$compositeStub) {
+//            if ($arParams['SHOW_NUM_PRODUCTS'] == 'Y' && ($arResult['NUM_PRODUCTS'] > 0 || $arParams['SHOW_EMPTY_VALUES'] == 'Y')) {
+//                echo $arResult['NUM_PRODUCTS'] . ' ' . $arResult['PRODUCT(S)'];
+//            }
             if ($arParams['SHOW_TOTAL_PRICE'] == 'Y'):?>
-                <br <? if ($arParams['POSITION_FIXED'] == 'Y'): ?>class="hidden-xs"<? endif ?>/>
-                <span>
+                <div class="d-flex justify-content-between">
 				<?= GetMessage('TSB1_TOTAL_PRICE') ?>
                     <? if ($arResult['NUM_PRODUCTS'] > 0 || $arParams['SHOW_EMPTY_VALUES'] == 'Y'): ?>
                         <strong><?= $arResult['TOTAL_PRICE'] ?></strong>
                     <? endif ?>
-			</span>
+                </div>
             <? endif; ?>
             <?
         }

@@ -121,7 +121,7 @@
   }
 
   .tab-blocks_item {
-    padding: 110px 45px;
+    padding: 80px 25px;
     font-family: $font_family_title;
     color: $color_gray_middle;
 
@@ -145,6 +145,7 @@
     }
 
     &_text {
+
       &_icons {
         display: flex;
         flex-direction: column;
@@ -161,6 +162,28 @@
         img {
           margin-bottom: 30px;
           max-width: 100%;
+        }
+      }
+
+      ul {
+        margin: 0;
+        padding: 0;
+        width: 50%;
+
+        .tab-blocks_item_text_li {
+          border-bottom: 1px solid $color_gray_lighter;
+          display: flex;
+          justify-content: space-between;
+          align-items: flex-end;
+          padding: 4px 0;
+          margin-bottom: 12px;
+
+          h5, p {
+            margin: 0;
+          }
+          h5 {
+            margin-right: 20px;
+          }
         }
       }
     }

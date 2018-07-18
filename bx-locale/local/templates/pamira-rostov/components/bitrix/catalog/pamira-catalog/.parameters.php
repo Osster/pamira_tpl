@@ -1247,4 +1247,15 @@ $arTemplateParameters['DETAIL_SHOW_VIEWED'] = array(
 
 // hack to hide component parameters by templates
 $arTemplateParameters['HIDE_USE_ALSO_BUY'] = array();
+
+
+$arTemplateParameters["ADVANTAGE_IBLOCK_ID"] = array(
+    "PARENT" => "ADDITIONAL_SETTINGS",
+    "NAME" => "Инфоблок Преимущества",
+    "TYPE" => "LIST",
+    "VALUES" => [
+        5 => "Тот что надо"
+    ],
+    "DEFAULT" => ""
+);
 ?>

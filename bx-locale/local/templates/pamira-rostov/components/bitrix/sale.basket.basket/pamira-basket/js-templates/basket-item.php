@@ -63,7 +63,7 @@ if (!empty($arParams['LABEL_PROP_POSITION'])) {
         </div>
         {{/SHOW_RESTORE}}
         {{^SHOW_RESTORE}}
-        <div class="col-12 col-md-6">
+        <div class="col-12 col-md-5">
             <div class="d-flex" id="basket-item-height-aligner-{{ID}}">
                 <?
                 if (in_array('PREVIEW_PICTURE', $arParams['COLUMNS_LIST']))
@@ -74,7 +74,7 @@ if (!empty($arParams['LABEL_PROP_POSITION'])) {
                     <a href="{{DETAIL_PAGE_URL}}">
                         {{/DETAIL_PAGE_URL}}
 
-                        <img class="basket-item-image" alt="{{NAME}}"
+                        <img alt="{{NAME}}"
                              src="{{{IMAGE_URL}}}{{^IMAGE_URL}}<?= $templateFolder ?>/images/no_photo.png{{/IMAGE_URL}}">
 
                         {{#SHOW_LABEL}}
@@ -109,13 +109,6 @@ if (!empty($arParams['LABEL_PROP_POSITION'])) {
             }
             ?>
             <div class="product-name">
-                <?
-                if (isset($mobileColumns['DELETE'])) {
-                    ?>
-                    <span class="basket-item-actions-remove visible-xs" data-entity="basket-item-delete"></span>
-                    <?
-                }
-                ?>
                 <p>
                     {{#DETAIL_PAGE_URL}}
                     <a href="{{DETAIL_PAGE_URL}}" class="basket-item-info-name-link">
@@ -273,7 +266,7 @@ if (!empty($arParams['LABEL_PROP_POSITION'])) {
                                     {{/IS_IMAGE}}
 
                                     {{#IS_TEXT}}
-                                    <div class="basket-item-property-custom basket-item-property-custom-text
+                                    <div class="basket-item-property-custom basket-item-property-custom-text d-none
 														{{#HIDE_MOBILE}}hidden-xs{{/HIDE_MOBILE}}"
                                          data-entity="basket-item-property">
                                         <div class="basket-item-property-custom-name">{{NAME}}</div>
@@ -316,44 +309,47 @@ if (!empty($arParams['LABEL_PROP_POSITION'])) {
     <?
     if ($usePriceInAdditionalColumn) {
         ?>
-        <div class="basket-items-list-item-price basket-items-list-item-price-for-one<?= (!isset($mobileColumns['PRICE']) ? ' hidden-xs' : '') ?>">
-            <div class="basket-item-block-price">
-                {{#SHOW_DISCOUNT_PRICE}}
-                <div class="basket-item-price-old">
+        <div class="col-12 col-md-2">
+            <div class="basket-items-list-item-price basket-items-list-item-price-for-one<?= (!isset($mobileColumns['PRICE']) ? ' hidden-xs' : '') ?>">
+                <div class="product-price text-center">
+                    {{#SHOW_DISCOUNT_PRICE}}
+                    <div class="basket-item-price-old">
 								<span class="basket-item-price-old-text">
 									{{{FULL_PRICE_FORMATED}}}
 								</span>
-                </div>
-                {{/SHOW_DISCOUNT_PRICE}}
+                    </div>
+                    {{/SHOW_DISCOUNT_PRICE}}
 
-                <div class="basket-item-price-current">
+                    <div class="basket-item-price-current">
 							<span class="basket-item-price-current-text" id="basket-item-price-{{ID}}">
 								{{{PRICE_FORMATED}}}
 							</span>
-                </div>
+                    </div>
 
-                <div class="basket-item-price-title">
-                    <?= Loc::getMessage('SBB_BASKET_ITEM_PRICE_FOR') ?> {{MEASURE_RATIO}} {{MEASURE_TEXT}}
+                    <div class="basket-item-price-title text-center">
+                        <?= Loc::getMessage('SBB_BASKET_ITEM_PRICE_FOR') ?> {{MEASURE_RATIO}} {{MEASURE_TEXT}}
+                    </div>
+                    {{#SHOW_LOADING}}
+                    <div class="basket-items-list-item-overlay"></div>
+                    {{/SHOW_LOADING}}
                 </div>
-                {{#SHOW_LOADING}}
-                <div class="basket-items-list-item-overlay"></div>
-                {{/SHOW_LOADING}}
             </div>
         </div>
         <?
     }
     ?>
     <div class="col-6 col-md-3">
-        <div class="basket-item-block-amount{{#NOT_AVAILABLE}} disabled{{/NOT_AVAILABLE}}"
+        <div class="basket-calc basket-item-block-amount{{#NOT_AVAILABLE}} disabled{{/NOT_AVAILABLE}}"
              data-entity="basket-item-quantity-block">
-            <span class="basket-item-amount-btn-minus" data-entity="basket-item-quantity-minus"></span>
-            <div class="basket-item-amount-filed-block">
+            <span class="basket-calc__minus basket-item-amount-btn-minus"
+                  data-entity="basket-item-quantity-minus"></span>
+            <div class="basket-calc__number basket-item-amount-filed-block">
                 <input type="text" class="basket-item-amount-filed" value="{{QUANTITY}}"
                        {{#NOT_AVAILABLE}} disabled="disabled" {{/NOT_AVAILABLE}}
                 data-value="{{QUANTITY}}" data-entity="basket-item-quantity-field"
                 id="basket-item-quantity-{{ID}}">
             </div>
-            <span class="basket-item-amount-btn-plus" data-entity="basket-item-quantity-plus"></span>
+            <span class="basket-calc__plus basket-item-amount-btn-plus" data-entity="basket-item-quantity-plus"></span>
             <div class="basket-item-amount-field-description">
                 <?
                 if ($arParams['PRICE_DISPLAY_MODE'] === 'Y') {
@@ -381,7 +377,7 @@ if (!empty($arParams['LABEL_PROP_POSITION'])) {
     <?
     if ($useSumColumn) {
         ?>
-        <div class="col-6 col-md-3 <?= (!isset($mobileColumns['SUM']) ? ' hidden-xs' : '') ?>">
+        <div class="col-6 col-md-2 <?= (!isset($mobileColumns['SUM']) ? ' hidden-xs' : '') ?>">
             <div class="product-prices">
                 {{#SHOW_DISCOUNT_PRICE}}
                 <div class="basket-item-price-old">
@@ -414,7 +410,8 @@ if (!empty($arParams['LABEL_PROP_POSITION'])) {
     }
     ?>
     <div class="basket-item-block-actions">
-        <span class="basket-item-actions-remove" data-entity="basket-item-delete"></span>
+        <span class="basket-item-actions-remove bx-basket-item-list-item-remove"
+              data-entity="basket-item-delete"></span>
         {{#SHOW_LOADING}}
         <div class="basket-items-list-item-overlay"></div>
         {{/SHOW_LOADING}}

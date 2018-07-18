@@ -11,7 +11,7 @@ if (count($wlist) > 0) {
                     <? if ($item['pic'] != '') : ?>
                         <div class="basket__product_img">
                             <a href="<?= $item['url'] ?>" title="<?= $item['name'] ?>">
-                                <img class="basket-item-image" src="<?= $item['pic'] ?>">
+                                <img src="<?= $item['pic'] ?>">
                             </a>
                         </div>
                     <? endif; ?>
@@ -28,11 +28,14 @@ if (count($wlist) > 0) {
             </div>
             <div class="col-12 col-md-3">
                 <div class="basket-btns">
-                    <button class="btn btn-hover_black" name="form-questions__button">В корзину</button>
+                    <button class="btn btn-hover_black wish-list-item-add-to-cart" data-id="<?= $item["id"] ?>"
+                            name="form-questions__button">В корзину
+                    </button>
                 </div>
             </div>
             <div class="basket-item-block-actions">
-                <span class="basket-item-actions-remove" data-entity="basket-item-delete"></span>
+                <span class="basket-item-actions-remove wish-list-item-delete" data-id="<?= $item["id"] ?>"
+                      data-entity="basket-item-delete"></span>
             </div>
 
         </div>
