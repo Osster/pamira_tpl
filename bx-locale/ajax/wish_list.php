@@ -28,14 +28,11 @@ if (count($wlist) > 0) {
             </div>
             <div class="col-12 col-md-3">
                 <div class="basket-btns">
-                    <button class="btn btn-hover_black wish-list-item-add-to-cart" data-id="<?= $item["id"] ?>"
-                            name="form-questions__button">В корзину
-                    </button>
+                    <button class="btn btn-hover_black wish-list-item-add-to-cart" data-id="<?= $item["id"] ?>" name="form-questions__button">В корзину</button>
                 </div>
             </div>
             <div class="basket-item-block-actions">
-                <span class="basket-item-actions-remove wish-list-item-delete" data-id="<?= $item["id"] ?>"
-                      data-entity="basket-item-delete"></span>
+                <span class="basket-item-actions-remove wish-list-item-delete" data-id="<?= $item["id"] ?>" data-entity="basket-item-delete"></span>
             </div>
 
         </div>
