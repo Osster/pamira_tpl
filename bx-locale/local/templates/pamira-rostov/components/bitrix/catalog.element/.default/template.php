@@ -462,68 +462,6 @@ if (!empty($arParams['LABEL_PROP_POSITION'])) {
                                         </div>
                                     </div>
 
-                                    <div class="col-12 mb-5 p-0">
-                                        <div class="card-item card-item_full">
-                                            <div class="card-item_img">
-                                                <img src="<?= SITE_TEMPLATE_PATH ?>/img/single-items/smeg-pv164n-hob-60-cm-black-glass-floor.jpg"
-                                                     alt="">
-                                            </div>
-                                            <div class="card-item_text">
-                                                <div class="card-item_text_inner">
-                                                    <h2>Часто задаваемые вопросы</h2>
-                                                </div>
-                                                <div class="card-item_text_link">
-                                                    <a class="btn" href="#">Читать</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-md-6 col-12 pl-0 mb-4">
-                                        <div class="card-item">
-                                            <div class="card-item_text">
-                                                <h2>SOFT TOUCH</h2>
-                                                <p>Имеются различные размеры варочных поверхностей, от маленьких Домино
-                                                    (30см в ширину и регулируемый) до 60, 70, 90 и даже 116см
-                                                    моделей.</p>
-                                            </div>
-                                            <div class="card-item_img">
-                                                <div class="card-item_img_link">
-                                                    <a class="btn more-btn" href="#">
-                                                        <span>Читать подробнее</span>
-                                                        <svg width="10" height="15">
-                                                            <use xlink:href="#icon-arrow"></use>
-                                                        </svg>
-                                                    </a>
-                                                </div>
-                                                <img src="<?= SITE_TEMPLATE_PATH ?>/img/single-items/smeg-kochfeld-0.jpg"
-                                                     alt="">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 col-12 pr-0 mb-4">
-                                        <div class="card-item">
-                                            <div class="card-item_text">
-                                                <h2>ОБРАБОТКА ПРОТИВ ОТПЕЧАТКОВ ПАЛЬЦЕВ</h2>
-                                                <p>Могут быть установлены различными способами: стандартная, вровень со
-                                                    столешницей, низкий монтаж и ультра низкий монтаж.
-                                                </p>
-                                            </div>
-                                            <div class="card-item_img">
-                                                <div class="card-item_img_link">
-                                                    <a class="btn more-btn" href="#">
-                                                        <span>Читать подробнее</span>
-                                                        <svg width="10" height="15">
-                                                            <use xlink:href="#icon-arrow"></use>
-                                                        </svg>
-                                                    </a>
-                                                </div>
-                                                <img src="<?= SITE_TEMPLATE_PATH ?>/img/single-items/final-5.jpg"
-                                                     alt="">
-                                            </div>
-                                        </div>
-                                    </div>
-
                                 </div>
 
                             </div>

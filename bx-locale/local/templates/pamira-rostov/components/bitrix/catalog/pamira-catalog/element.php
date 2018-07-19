@@ -660,8 +660,8 @@ if ($elementId > 0) {
 //			}
 
     ?>
-    <section class="main__promo main__promo_dark">
-        <div class="container">
+    <section class="main__promo">
+        <div id="card-collapse" class="container">
             <div class="row">
 
                 <?
@@ -707,43 +707,136 @@ if ($elementId > 0) {
                             "PROPERTY_ADD_TEXT"]);
 
                     $k = 0;
+                    $inf = "";
+
+                    function infadd($arElement)
+                    {
+                        if (!$arElement['DETAIL_TEXT'] == 0) {
+                            if (!$arElement['PROPERTY_VIDEO_VALUE']['path'] == 0) {
+                                $video = '<video playsinline="" autoplay="" muted="" loop="" class="player">
+                                            <source src="' . $arElement['PROPERTY_VIDEO_VALUE']['path'] . '" type="video/mp4">
+                                        </video>';
+                            } else {
+                                $video = '<img src="' . $arElement['DETAIL_PICTURE_URL'] . ' " alt="' . $arElement['NAME'] . ' ">';
+                            }
+                            return '
+                            <div class="col-12 main__promo_dark">
+                                <div class="card-item_collapse card-item_collapse_dark collapse" id="' . $arElement['ID'] . '-collapse" data-parent="#card-collapse">
+                                    <div class="card-item_collapse_text">' . $arElement['DETAIL_TEXT'] . ' </div>
+                                    <div class="card-item_collapse_img">' .
+                                $video
+                                . '<div class="card-item_collapse_img_promo">' . $arElement['PROPERTY_ADD_TEXT_VALUE'] . '</div>
+                                    </div>
+                                </div>
+                            </div>
+                        ';
+                        }
+                    }
+
+                    ;
 
                     while ($arElement = $er->GetNext()) {
                         $arElement["PREVIEW_PICTURE_URL"] = CFile::GetPath($arElement["PREVIEW_PICTURE"]);
                         $arElement["DETAIL_PICTURE_URL"] = CFile::GetPath($arElement["DETAIL_PICTURE"]);
 
+//                        echo "<pre>";
+//                        print_r(["arElement", $arElement]);
+//                        echo "</pre>";
 
-                        $clsName = (($k % 3) == 0) ? "col-md-12" : "col-md-6";
-//            echo "<pre>";
-//            print_r(["arElement", $arElement]);
-//            echo "</pre>";
-                        ?>
-
-                        <div class="<?= $clsName; ?> col-12 pl-0 mb-4">
-                            <div class="card-item card-item_light" id="<?= $arElement["ID"] ?>">
-                                <div class="card-item_text">
-                                    <h2><?= $arElement["NAME"]; ?></h2>
-                                    <p><?= $arElement["PREVIEW_TEXT"]; ?></p>
-                                </div>
-                                <div class="card-item_img">
-                                    <div class="card-item_img_link">
-                                        <a class="btn more-btn" href="#">
-                                            <span>Читать подробнее</span>
-                                            <svg width="10" height="15">
-                                                <use xlink:href="#icon-arrow"></use>
-                                            </svg>
-                                        </a>
+                        if ($k % 3 == 0) { ?>
+                            <div class="col-12 mt-4 p-0">
+                                <div class="card-item card-item_full" id="<?= $arElement["ID"] ?>">
+                                    <div class="card-item_img">
+                                        <img src="<?= $arElement["PREVIEW_PICTURE_URL"]; ?>"
+                                             alt="<?= $arElement["NAME"]; ?>">
                                     </div>
-                                    <img src="<?= $arElement["PREVIEW_PICTURE_URL"]; ?>"
-                                         alt="<?= $arElement["NAME"]; ?>">
+                                    <div class="card-item_text">
+                                        <div class="card-item_text_inner">
+                                            <h2><?= $arElement["NAME"]; ?></h2>
+                                            <p><?= $arElement["PREVIEW_TEXT"]; ?></p>
+                                        </div>
+                                        <? if (!$arElement['DETAIL_TEXT'] == 0) : ?>
+                                            <div class="card-item_text_link">
+                                                <a class="btn" data-toggle="collapse"
+                                                   href="#<?= $arElement["ID"] ?>-collapse"
+                                                   aria-expanded="false"
+                                                   aria-controls="<?= $arElement["ID"] ?>-collapse">Читать</a>
+                                            </div>
+                                        <? endif ?>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                            <?
+                            echo infadd($arElement);
 
-                        <?
+                            $inf = "";
+                        } elseif ($k % 3 == 1) {
+                            ?>
+                            <div class="col-md-6 col-12 pl-0 mt-4">
+                                <div class="card-item" id="<?= $arElement["ID"] ?>">
+                                    <div class="card-item_text">
+                                        <h2><?= $arElement["NAME"]; ?></h2>
+                                        <p><?= $arElement["PREVIEW_TEXT"]; ?></p>
+                                    </div>
+                                    <div class="card-item_img">
+                                        <? if (!$arElement['DETAIL_TEXT'] == 0) : ?>
+                                            <div class="card-item_img_link">
+                                                <a class="btn more-btn" data-toggle="collapse"
+                                                   href="#<?= $arElement["ID"] ?>-collapse"
+                                                   aria-expanded="false"
+                                                   aria-controls="<?= $arElement["ID"] ?>-collapse">
+                                                    <span>Читать подробнее</span>
+                                                    <svg width="10" height="15">
+                                                        <use xlink:href="#icon-arrow"></use>
+                                                    </svg>
+                                                </a>
+                                            </div>
+                                        <? endif ?>
+                                        <img src="<?= $arElement["PREVIEW_PICTURE_URL"]; ?>"
+                                             alt="<?= $arElement["NAME"]; ?>">
+                                    </div>
+                                </div>
+                            </div>
+                            <?
+
+                            $inf = infadd($arElement);
+                        } else {
+                            ?>
+                            <div class="col-md-6 col-12 pl-0 mt-4">
+                                <div class="card-item" id="<?= $arElement["ID"] ?>">
+                                    <div class="card-item_text">
+                                        <h2><?= $arElement["NAME"]; ?></h2>
+                                        <p><?= $arElement["PREVIEW_TEXT"]; ?></p>
+                                    </div>
+                                    <div class="card-item_img">
+
+                                        <? if (!$arElement['DETAIL_TEXT'] == 0) : ?>
+                                            <div class="card-item_img_link">
+                                                <a class="btn more-btn" data-toggle="collapse"
+                                                   href="#<?= $arElement["ID"] ?>-collapse"
+                                                   aria-expanded="false"
+                                                   aria-controls="<?= $arElement["ID"] ?>-collapse">
+                                                    <span>Читать подробнее</span>
+                                                    <svg width="10" height="15">
+                                                        <use xlink:href="#icon-arrow"></use>
+                                                    </svg>
+                                                </a>
+                                            </div>
+                                        <? endif ?>
+                                        <img src="<?= $arElement["PREVIEW_PICTURE_URL"]; ?>"
+                                             alt="<?= $arElement["NAME"]; ?>">
+                                    </div>
+                                </div>
+                            </div>
+                            <?
+                            $inf = $inf . infadd($arElement);
+                            echo $inf;
+                        }
+
                         $k++;
                     }
                 }
+
                 ?>
             </div>
         </div>

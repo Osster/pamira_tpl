@@ -10,6 +10,10 @@
     position: relative;
   }
 
+  .btn:focus {
+    box-shadow: none;
+  }
+
 
   &_text {
     color: $color_white;
@@ -46,6 +50,8 @@
 
     img {
       height: 100%;
+      max-height: 415px;
+      width: 100%;
       object-fit: cover;
     }
 
@@ -67,7 +73,6 @@
   }
 
   &_full {
-    margin-bottom: 1.5rem;
 
     @include mobile-all() {
       .card-item_img {
@@ -84,7 +89,7 @@
       position: absolute;
       top: 0;
       left: 0;
-      padding: 110px 70px;
+      padding: 45px 50px 20px;
 
       -webkit-transition: all 0.3s ease;
       -moz-transition: all 0.3s ease;
@@ -105,7 +110,7 @@
 
       &:hover {
         width: 400px;
-        padding: 110px 90px 110px 70px;
+        padding: 45px 70px 20px 50px;
         background-color: $color_red_middle;
 
         @include mobile-all() {
@@ -216,6 +221,35 @@
         right: auto;
       }
 
+    }
+  }
+
+  &_collapse {
+    padding: 70px 50px 150px;
+
+    &_text {
+      margin: 0 200px 50px 0;
+    }
+    &_img {
+      position: relative;
+
+      img,
+      video {
+        max-width: 100%;
+      }
+
+      &_promo {
+        position: absolute;
+        bottom: -100px;
+        right: 40px;
+        width: 450px;
+        padding: 20px 40px;
+        background-color: $color_gray_darkest_opacity_60;
+      }
+    }
+
+    &_dark {
+      color: $color_white;
     }
   }
 }

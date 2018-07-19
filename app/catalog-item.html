@@ -231,10 +231,10 @@
 
     //= tpl/components/single-item-slider-text.html
 
-    <section class="main__promo main__promo_dark">
-        <div class="container">
-            <div class="row">
-                <div class="col-12 mb-5 p-0">
+    <section class="main__promo">
+        <div class="container" id="card-collapse">
+            <div class="row mb-5">
+                <div class="col-12 p-0">
                     <div class="card-item card-item_full">
                         <div class="card-item_img">
                             <img src="img/single-items/smeg-pv164n-hob-60-cm-black-glass-floor.jpg"
@@ -245,14 +245,36 @@
                                 <h2>Часто задаваемые вопросы</h2>
                             </div>
                             <div class="card-item_text_link">
-                                <a class="btn" href="#">Читать</a>
+                                <a class="btn" data-toggle="collapse" href="#card-3-collapse"
+                                   aria-expanded="false" aria-controls="card-3-collapse">Читать</a>
                             </div>
                         </div>
                     </div>
                 </div>
+                <div class="col-12 main__promo_dark">
+                    <div class="card-item_collapse card-item_collapse_dark collapse" id="card-3-collapse"
+                         data-parent="#card-collapse">
+                        <div class="card-item_collapse_text">
+                            <p>На протяжении многих лет Smeg придерживается политики постоянного развития показателей,
+                                обеспечивающих максимальную заботу об окружающей среде.</p>
+                        </div>
+                        <div class="card-item_collapse_img">
+                            <img src="img/brendy-subcat/0_ba6fb_5ff943f4_orig.jpg" alt="">
+                            <div class="card-item_collapse_img_promo">
+                                <p>В целях улучшения воздействия на окружающую среду, вся продукция Smeg произведена в
+                                    соответствии с европейскими нормативами RoHS и REACH, регулирующих качество и
+                                    безопасность используемых материалов, кроме того Smeg имеет внутреннее
+                                    регулирование, запрещающее использование веществ, считающихся потенциально опасными
+                                    для окружающей среды.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-                <div class="col-md-6 col-12 pl-0 mb-4">
-                    <div class="card-item card-item_light">
+            <div class="row mb-5">
+                <div class="col-md-6 col-12 pl-0">
+                    <div class="card-item" id="card-1">
                         <div class="card-item_text">
                             <h2>SOFT TOUCH</h2>
                             <p>Имеются различные размеры варочных поверхностей, от маленьких Домино
@@ -260,7 +282,8 @@
                         </div>
                         <div class="card-item_img">
                             <div class="card-item_img_link">
-                                <a class="btn more-btn" href="#">
+                                <a class="btn more-btn" data-toggle="collapse" href="#card-1-collapse"
+                                   aria-expanded="false" aria-controls="card-1-collapse">
                                     <span>Читать подробнее</span>
                                     <svg width="10" height="15">
                                         <use xlink:href="#icon-arrow"></use>
@@ -271,8 +294,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6 col-12 pr-0 mb-4">
-                    <div class="card-item card-item_light">
+                <div class="col-md-6 col-12 pr-0" id="card-2">
+                    <div class="card-item">
                         <div class="card-item_text">
                             <h2>ОБРАБОТКА ПРОТИВ ОТПЕЧАТКОВ ПАЛЬЦЕВ</h2>
                             <p>Могут быть установлены различными способами: стандартная, вровень со
@@ -281,7 +304,8 @@
                         </div>
                         <div class="card-item_img">
                             <div class="card-item_img_link">
-                                <a class="btn more-btn" href="#">
+                                <a class="btn more-btn" data-toggle="collapse" href="#card-2-collapse"
+                                   aria-expanded="false" aria-controls="card-2-collapse">
                                     <span>Читать подробнее</span>
                                     <svg width="10" height="15">
                                         <use xlink:href="#icon-arrow"></use>
@@ -289,6 +313,43 @@
                                 </a>
                             </div>
                             <img src="img/single-items/final-5.jpg" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 main__promo_dark">
+                    <div class="card-item_collapse card-item_collapse_dark collapse" id="card-1-collapse"
+                         data-parent="#card-collapse">
+                        <div class="card-item_collapse_text">
+                            <p>На протяжении многих лет Smeg придерживается политики постоянного развития показателей,
+                                обеспечивающих максимальную заботу об окружающей среде.</p>
+                        </div>
+                        <div class="card-item_collapse_img">
+                            <img src="img/brendy-subcat/0_ba6fb_5ff943f4_orig.jpg" alt="">
+                            <div class="card-item_collapse_img_promo">
+                                <p>В целях улучшения воздействия на окружающую среду, вся продукция Smeg произведена в
+                                    соответствии с европейскими нормативами RoHS и REACH, регулирующих качество и
+                                    безопасность используемых материалов, кроме того Smeg имеет внутреннее
+                                    регулирование, запрещающее использование веществ, считающихся потенциально опасными
+                                    для окружающей среды.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-item_collapse card-item_collapse_dark collapse" id="card-2-collapse"
+                         data-parent="#card-collapse">
+                        <div class="card-item_collapse_text">
+                            <p>В целях улучшения воздействия на окружающую среду, вся продукция Smeg произведена в
+                                соответствии с европейскими нормативами RoHS и REACH, регулирующих качество и
+                                безопасность используемых материалов, кроме того Smeg имеет внутреннее
+                                регулирование, запрещающее использование веществ, считающихся потенциально опасными
+                                для окружающей среды.</p>
+                        </div>
+                        <div class="card-item_collapse_img">
+                            <img src="img/brendy-subcat/0_ba6fb_5ff943f4_orig.jpg" alt="">
+                            <div class="card-item_collapse_img_promo">
+                                <p>На протяжении многих лет Smeg придерживается политики постоянного развития
+                                    показателей,
+                                    обеспечивающих максимальную заботу об окружающей среде.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
