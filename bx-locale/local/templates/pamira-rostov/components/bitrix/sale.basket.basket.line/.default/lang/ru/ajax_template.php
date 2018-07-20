@@ -5,7 +5,7 @@ $MESS ['TSB1_PERSONAL'] = "Персональный раздел";
 $MESS ['TSB1_EXPAND'] = "Раскрыть";
 $MESS ['TSB1_COLLAPSE'] = "Скрыть";
 
-$MESS ['TSB1_CART'] = "Корзина";
+$MESS ['TSB1_CART'] = "Перейти в корзину";
 $MESS ['TSB1_TOTAL_PRICE'] = "На сумму";
 
 $MESS ['TSB1_YOUR_CART'] = "Ваша корзина";

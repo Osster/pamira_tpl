@@ -377,15 +377,6 @@
 
   }
 
-  .btn {
-    height: 35px;
-    padding: 5px 35px;
-
-    @include mobile-all() {
-      padding: 5px;
-    }
-  }
-
   &__result {
     display: flex;
     justify-content: space-between;

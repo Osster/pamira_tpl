@@ -81,8 +81,11 @@
   &_links {
     margin-bottom: 60px;
 
-    & input[type="checkbox"]:checked + label {
+    .checked label,
+    a.checked,
+    a.checked:not([href]):not([tabindex]) {
       background-color: $color_red_middle;
+      color: $color_white;
     }
     &_icon {
       display: flex;
@@ -93,6 +96,13 @@
       padding: 15px 30px;
       margin-bottom: 8px;
 
+      &:not([href]):not([tabindex]) {
+        color: $color_white_dirty;
+        &:hover {
+          color: $color_white_dirty;
+        }
+      }
+
       @include transition();
       span {
         margin-left: 10px;
@@ -102,6 +112,7 @@
         background-color: $color_red_middle;
         color: #fff;
         text-decoration: none;
+        cursor: pointer;
       }
     }
   }

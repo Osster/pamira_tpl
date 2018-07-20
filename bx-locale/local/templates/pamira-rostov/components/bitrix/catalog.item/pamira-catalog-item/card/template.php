@@ -69,10 +69,12 @@ use \Bitrix\Main\Localization\Loc;
             && (!$haveOffers || $arParams['PRODUCT_DISPLAY_MODE'] === 'Y')
         ) {
             ?>
-            <span class="catalog-item_links_icon" id="<?= $itemIds['COMPARE_LINK'] ?>" data-id="<?= $item['ID'] ?>">
+            <span class="catalog-item_links_icon" id="<?= $itemIds['COMPARE_LINK'] ?>"
+                  data-id="<?= $item['ID'] ?>"
+                  data-toggle="tooltip" data-placement="left"
+                  title="Сравнение">
                 <input class="d-none" type="checkbox" data-entity="compare-checkbox">
-                <svg data-toggle="tooltip" data-placement="left"
-                     title="Сравнение">
+                <svg>
                     <use xlink:href="#compare-svg"></use>
                 </svg>
             </span>
@@ -85,9 +87,11 @@ use \Bitrix\Main\Localization\Loc;
            data-name="<?= $productTitle?>"
            data-pic="<?= $item['PREVIEW_PICTURE']['SRC'] ?>"
            data-url="<?= $item['DETAIL_PAGE_URL'] ?>"
+           data-toggle="tooltip"
+           data-placement="left"
+           title="Избранное"
         >
-            <svg data-toggle="tooltip" data-placement="left"
-                 title="Избранное">
+            <svg>
                 <use xlink:href="#favorites-svg"></use>
             </svg>
         </a>

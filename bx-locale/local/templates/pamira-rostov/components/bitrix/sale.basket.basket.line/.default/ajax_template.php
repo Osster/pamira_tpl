@@ -78,8 +78,12 @@ if ($arParams["SHOW_PRODUCTS"] == "Y" && ($arResult['NUM_PRODUCTS'] > 0 || !empt
         </div>
         <div class="col-12 p-0 mt-2 mb-5">
             <div class="row m-0">
-                <div class="col-6 basket__product basket__product_total">
+                <div class="col-12 basket__product basket__result basket__product_total mb-2">
                     <? require(realpath(dirname(__FILE__)) . '/top_template.php'); ?>
+                </div>
+                <div class="col-6 pl-0">
+                    <a href="<?= $arParams["PATH_TO_BASKET"] ?>"
+                       class="btn basket__product_btn"><?= GetMessage("TSB1_CART") ?></a>
                 </div>
                 <div class="col-6 pr-0">
                     <? if ($arParams["PATH_TO_ORDER"] && $arResult["CATEGORIES"]["READY"]): ?>

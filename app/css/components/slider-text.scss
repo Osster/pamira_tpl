@@ -4,9 +4,10 @@
     background-size: cover;
     background-attachment: fixed;
     width: 100%;
+    padding-top: 70px;
   }
 
-  .swiper-slide {
+  .swiper-slide_text {
     margin-top: 70px;
     background-color: $color_gray_darken_opacity45;
     color: $color_white_dirty;

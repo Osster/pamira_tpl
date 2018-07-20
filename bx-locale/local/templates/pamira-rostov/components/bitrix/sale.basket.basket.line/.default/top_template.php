@@ -7,7 +7,6 @@
  */
 $compositeStub = (isset($arResult['COMPOSITE_STUB']) && $arResult['COMPOSITE_STUB'] == 'Y');
 ?>
-<div class="bx-hdr-profile">
     <? if (!$compositeStub && $arParams['SHOW_AUTHOR'] == 'Y'): ?>
         <div class="bx-basket-block">
             <? if ($USER->IsAuthorized()):
@@ -62,24 +61,20 @@ $compositeStub = (isset($arResult['COMPOSITE_STUB']) && $arResult['COMPOSITE_STU
             <? endif ?>
         </div>
     <? endif ?>
-    <div class="bx-basket-block">
-        <div class="d-flex justify-content-between">
-            <? if (!$arResult["DISABLE_USE_BASKET"]) { ?>
-                <a href="<?= $arParams['PATH_TO_BASKET'] ?>"><?= GetMessage('TSB1_CART') ?></a>
-            <? }
-            if ($arParams['SHOW_NUM_PRODUCTS'] == 'Y' && ($arResult['NUM_PRODUCTS'] > 0 || $arParams['SHOW_EMPTY_VALUES'] == 'Y')) {
-                echo $arResult['NUM_PRODUCTS'] . ' ' . $arResult['PRODUCT(S)'];
-            } ?>
-        </div>
+    <span class="result-text">ИТОГО</span>
+<?
+if ($arParams['SHOW_NUM_PRODUCTS'] == 'Y' && ($arResult['NUM_PRODUCTS'] > 0 || $arParams['SHOW_EMPTY_VALUES'] == 'Y')) { ?>
+    <span><?= $arResult['NUM_PRODUCTS'] ?> <?= $arResult['PRODUCT(S)'] ?></span>
+<? } ?>
         <? if (!$compositeStub) {
 //            if ($arParams['SHOW_NUM_PRODUCTS'] == 'Y' && ($arResult['NUM_PRODUCTS'] > 0 || $arParams['SHOW_EMPTY_VALUES'] == 'Y')) {
 //                echo $arResult['NUM_PRODUCTS'] . ' ' . $arResult['PRODUCT(S)'];
 //            }
             if ($arParams['SHOW_TOTAL_PRICE'] == 'Y'):?>
-                <div class="d-flex justify-content-between">
-				<?= GetMessage('TSB1_TOTAL_PRICE') ?>
+                <div class="d-flex align-items-center">
+                    <span class="mr-3"><?= GetMessage('TSB1_TOTAL_PRICE') ?></span>
                     <? if ($arResult['NUM_PRODUCTS'] > 0 || $arParams['SHOW_EMPTY_VALUES'] == 'Y'): ?>
-                        <strong><?= $arResult['TOTAL_PRICE'] ?></strong>
+                        <span class="result-number"><?= $arResult['TOTAL_PRICE'] ?></span>
                     <? endif ?>
                 </div>
             <? endif; ?>
@@ -91,5 +86,3 @@ $compositeStub = (isset($arResult['COMPOSITE_STUB']) && $arResult['COMPOSITE_STU
                 <a href="<?= $arParams['PATH_TO_PERSONAL'] ?>"><?= GetMessage('TSB1_PERSONAL') ?></a>
             </div>
         <? endif ?>
-    </div>
-</div>

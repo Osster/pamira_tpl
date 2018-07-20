@@ -6,8 +6,8 @@
 
     var BasketButton = function (params) {
         BasketButton.superclass.constructor.apply(this, arguments);
-        this.buttonNode = BX.create('SPAN', {
-            props: {className: 'btn btn-default btn-buy btn-sm', id: this.id},
+        this.buttonNode = BX.create('BUTTON', {
+            props: {className: 'btn', id: this.id},
             style: typeof params.style === 'object' ? params.style : {},
             text: params.text,
             events: this.contextEvents
@@ -313,9 +313,9 @@
             this.node.sliderControlLeft = this.getEntity(this.obBigSlider, 'slider-control-left');
             this.node.sliderControlRight = this.getEntity(this.obBigSlider, 'slider-control-right');
 
-            if (!this.obBigSlider || !this.node.imageContainer || !this.node.imageContainer) {
-                this.errorCode = -2;
-            }
+            // if (!this.obBigSlider || !this.node.imageContainer || !this.node.imageContainer) {
+            //     this.errorCode = -2;
+            // }
 
             if (this.config.showPrice) {
                 this.obPrice.price = BX(this.visual.PRICE_ID);
@@ -445,11 +445,11 @@
                     BX.bind(this.obBigSlider, 'mouseleave', BX.proxy(this.cycleSlider, this));
                 }
 
-                if (this.isTouchDevice) {
-                    BX.bind(this.node.imageContainer, 'touchstart', BX.proxy(this.touchStartEvent, this));
-                    BX.bind(this.node.imageContainer, 'touchend', BX.proxy(this.touchEndEvent, this));
-                    BX.bind(this.node.imageContainer, 'touchcancel', BX.proxy(this.touchEndEvent, this));
-                }
+                // if (this.isTouchDevice) {
+                //     BX.bind(this.node.imageContainer, 'touchstart', BX.proxy(this.touchStartEvent, this));
+                //     BX.bind(this.node.imageContainer, 'touchend', BX.proxy(this.touchEndEvent, this));
+                //     BX.bind(this.node.imageContainer, 'touchcancel', BX.proxy(this.touchEndEvent, this));
+                // }
 
                 BX.bind(this.node.sliderControlLeft, 'click', BX.proxy(this.slidePrev, this));
                 BX.bind(this.node.sliderControlRight, 'click', BX.proxy(this.slideNext, this));
@@ -554,8 +554,15 @@
                 this.obAddToBasketBtn && BX.bind(this.obAddToBasketBtn, 'click', BX.proxy(this.add2Basket, this));
                 this.smallCardNodes.addButton && BX.bind(this.smallCardNodes.addButton, 'click', BX.proxy(this.add2Basket, this));
 
+
                 if (this.obCompare) {
+                    // var that = this;
+                    // var labelCompare = document.querySelector('label[for="' + this.obCompare.id + '"]');
                     BX.bind(this.obCompare, 'click', BX.proxy(this.compare, this));
+                    // labelCompare.addEventListener('click', function () {
+                    //     that.obCompare.trigger('click');
+                    //     console.log('labelCompare', labelCompare);
+                    // });
                     BX.addCustomEvent('onCatalogDeleteCompare', BX.proxy(this.checkDeletedCompare, this));
                 }
             }
@@ -1158,8 +1165,8 @@
 
         initPopup: function () {
             if (this.config.usePopup) {
-                this.node.imageContainer.style.cursor = 'zoom-in';
-                BX.bind(this.node.imageContainer, 'click', BX.delegate(this.toggleMainPictPopup, this));
+                // this.node.imageContainer.style.cursor = 'zoom-in';
+                // BX.bind(this.node.imageContainer, 'click', BX.delegate(this.toggleMainPictPopup, this));
                 BX.bind(document, 'keyup', BX.proxy(this.closeByEscape, this));
                 BX.bind(
                     this.getEntity(this.obBigSlider, 'close-popup'),
@@ -1184,22 +1191,22 @@
             this.currentImg.width = img.WIDTH;
             this.currentImg.height = img.HEIGHT;
 
-            if (showImage && this.node.imageContainer) {
-                images = this.getEntities(this.node.imageContainer, 'image');
-                l = images.length;
-                while (l--) {
-                    if (images[l].getAttribute('data-id') == img.ID) {
-                        if (!BX.hasClass(images[l], 'active')) {
-                            this.node.sliderProgressBar && this.resetProgress();
-                        }
-
-                        BX.addClass(images[l], 'active');
-                    }
-                    else if (BX.hasClass(images[l], 'active')) {
-                        BX.removeClass(images[l], 'active');
-                    }
-                }
-            }
+            // if (showImage && this.node.imageContainer) {
+            //     images = this.getEntities(this.node.imageContainer, 'image');
+            //     l = images.length;
+            //     while (l--) {
+            //         if (images[l].getAttribute('data-id') == img.ID) {
+            //             if (!BX.hasClass(images[l], 'active')) {
+            //                 this.node.sliderProgressBar && this.resetProgress();
+            //             }
+            //
+            //             BX.addClass(images[l], 'active');
+            //         }
+            //         else if (BX.hasClass(images[l], 'active')) {
+            //             BX.removeClass(images[l], 'active');
+            //         }
+            //     }
+            // }
 
             if (showPanelImage && this.smallCardNodes.picture) {
                 this.smallCardNodes.picture.setAttribute('src', this.currentImg.src);
@@ -1215,26 +1222,26 @@
         },
 
         setMagnifierParams: function () {
-            var images = this.getEntities(this.node.imageContainer, 'image'),
-                l = images.length,
-                current;
-
-            while (l--) {
-                // disable image title show
-                current = images[l].querySelector('img');
-                current.setAttribute('data-title', current.getAttribute('title') || '');
-                current.removeAttribute('title');
-
-                if (images[l].getAttribute('data-id') == this.currentImg.id) {
-                    BX.unbind(this.currentImg.node, 'mouseover', BX.proxy(this.enableMagnifier, this));
-
-                    this.currentImg.node = current;
-                    this.currentImg.node.style.backgroundImage = 'url(\'' + this.currentImg.src + '\')';
-                    this.currentImg.node.style.backgroundSize = '100% auto';
-
-                    BX.bind(this.currentImg.node, 'mouseover', BX.proxy(this.enableMagnifier, this));
-                }
-            }
+            // var images = this.getEntities(this.node.imageContainer, 'image'),
+            //     l = images.length,
+            //     current;
+            //
+            // while (l--) {
+            //     // disable image title show
+            //     current = images[l].querySelector('img');
+            //     current.setAttribute('data-title', current.getAttribute('title') || '');
+            //     current.removeAttribute('title');
+            //
+            //     if (images[l].getAttribute('data-id') == this.currentImg.id) {
+            //         BX.unbind(this.currentImg.node, 'mouseover', BX.proxy(this.enableMagnifier, this));
+            //
+            //         this.currentImg.node = current;
+            //         this.currentImg.node.style.backgroundImage = 'url(\'' + this.currentImg.src + '\')';
+            //         this.currentImg.node.style.backgroundSize = '100% auto';
+            //
+            //         BX.bind(this.currentImg.node, 'mouseover', BX.proxy(this.enableMagnifier, this));
+            //     }
+            // }
         },
 
         enableMagnifier: function () {
@@ -1475,36 +1482,36 @@
         },
 
         setMainPictFromItem: function (index) {
-            if (this.node.imageContainer) {
-                var boolSet = false,
-                    obNewPict = {};
-
-                if (this.offers[index]) {
-                    if (this.offers[index].DETAIL_PICTURE) {
-                        obNewPict = this.offers[index].DETAIL_PICTURE;
-                        boolSet = true;
-                    }
-                    else if (this.offers[index].PREVIEW_PICTURE) {
-                        obNewPict = this.offers[index].PREVIEW_PICTURE;
-                        boolSet = true;
-                    }
-                }
-
-                if (!boolSet) {
-                    if (this.defaultPict.detail) {
-                        obNewPict = this.defaultPict.detail;
-                        boolSet = true;
-                    }
-                    else if (this.defaultPict.preview) {
-                        obNewPict = this.defaultPict.preview;
-                        boolSet = true;
-                    }
-                }
-
-                if (boolSet) {
-                    this.setCurrentImg(obNewPict, true, true);
-                }
-            }
+            // if (this.node.imageContainer) {
+            //     var boolSet = false,
+            //         obNewPict = {};
+            //
+            //     if (this.offers[index]) {
+            //         if (this.offers[index].DETAIL_PICTURE) {
+            //             obNewPict = this.offers[index].DETAIL_PICTURE;
+            //             boolSet = true;
+            //         }
+            //         else if (this.offers[index].PREVIEW_PICTURE) {
+            //             obNewPict = this.offers[index].PREVIEW_PICTURE;
+            //             boolSet = true;
+            //         }
+            //     }
+            //
+            //     if (!boolSet) {
+            //         if (this.defaultPict.detail) {
+            //             obNewPict = this.defaultPict.detail;
+            //             boolSet = true;
+            //         }
+            //         else if (this.defaultPict.preview) {
+            //             obNewPict = this.defaultPict.preview;
+            //             boolSet = true;
+            //         }
+            //     }
+            //
+            //     if (boolSet) {
+            //         this.setCurrentImg(obNewPict, true, true);
+            //     }
+            // }
         },
 
         toggleMainPictPopup: function () {
@@ -1519,7 +1526,7 @@
         showMainPictPopup: function () {
             this.config.useMagnifier && this.disableMagnifier(false);
             BX.addClass(this.obBigSlider, 'popup');
-            this.node.imageContainer.style.cursor = '';
+            //this.node.imageContainer.style.cursor = '';
             // remove double scroll bar
             document.body.style.overflow = 'hidden';
         },
@@ -1527,7 +1534,7 @@
         hideMainPictPopup: function () {
             this.config.useMagnifier && this.disableMagnifier(false);
             BX.removeClass(this.obBigSlider, 'popup');
-            this.node.imageContainer.style.cursor = 'zoom-in';
+            //this.node.imageContainer.style.cursor = 'zoom-in';
             // remove double scroll bar
             document.body.style.overflow = '';
         },
@@ -2220,42 +2227,42 @@
         },
 
         drawImages: function (images) {
-            if (!this.node.imageContainer)
-                return;
-
-            var i, img, entities = this.getEntities(this.node.imageContainer, 'image');
-            for (i in entities) {
-                if (entities.hasOwnProperty(i) && BX.type.isDomNode(entities[i])) {
-                    BX.remove(entities[i]);
-                }
-            }
-
-            for (i = 0; i < images.length; i++) {
-                img = BX.create('IMG', {
-                    props: {
-                        src: images[i].SRC,
-                        alt: this.config.alt,
-                        title: this.config.title
-                    }
-                });
-
-                if (i == 0) {
-                    img.setAttribute('itemprop', 'image');
-                }
-
-                this.node.imageContainer.appendChild(
-                    BX.create('DIV', {
-                        attrs: {
-                            'data-entity': 'image',
-                            'data-id': images[i].ID
-                        },
-                        props: {
-                            className: 'product-item-detail-slider-image' + (i == 0 ? ' active' : '')
-                        },
-                        children: [img]
-                    })
-                );
-            }
+            // if (!this.node.imageContainer)
+            //     return;
+            //
+            // var i, img, entities = this.getEntities(this.node.imageContainer, 'image');
+            // for (i in entities) {
+            //     if (entities.hasOwnProperty(i) && BX.type.isDomNode(entities[i])) {
+            //         BX.remove(entities[i]);
+            //     }
+            // }
+            //
+            // for (i = 0; i < images.length; i++) {
+            //     img = BX.create('IMG', {
+            //         props: {
+            //             src: images[i].SRC,
+            //             alt: this.config.alt,
+            //             title: this.config.title
+            //         }
+            //     });
+            //
+            //     if (i == 0) {
+            //         img.setAttribute('itemprop', 'image');
+            //     }
+            //
+            //     this.node.imageContainer.appendChild(
+            //         BX.create('DIV', {
+            //             attrs: {
+            //                 'data-entity': 'image',
+            //                 'data-id': images[i].ID
+            //             },
+            //             props: {
+            //                 className: 'product-item-detail-slider-image' + (i == 0 ? ' active' : '')
+            //             },
+            //             children: [img]
+            //         })
+            //     );
+            // }
         },
 
         restoreSticker: function () {
@@ -2521,12 +2528,18 @@
         },
 
         compare: function (event) {
-            var checkbox = this.obCompare.querySelector('[data-entity="compare-checkbox"]'),
+            var checkbox = this.obCompare.parentElement.querySelector('[data-entity="compare-checkbox"]'),
                 target = BX.getEventTarget(event),
                 checked = true;
 
             if (checkbox) {
                 checked = target === checkbox ? checkbox.checked : !checkbox.checked;
+            }
+
+            if (checked) {
+                checkbox.parentElement.classList.add('checked');
+            } else {
+                checkbox.parentElement.classList.remove('checked');
             }
 
             var url = checked ? this.compareData.compareUrl : this.compareData.compareDeleteUrl,
@@ -2874,7 +2887,7 @@
                     switch (this.productType) {
                         case 1: // product
                         case 2: // set
-                            productPict = this.product.pict.SRC;
+                            productPict = this.product.pict;
                             break;
                         case 3: // sku
                             productPict = this.offers[this.offerNum].PREVIEW_PICTURE
@@ -2884,7 +2897,7 @@
                     }
 
                     popupContent = '<div style="width: 100%; margin: 0; text-align: center;">'
-                        + '<img src="' + productPict + '" height="130" style="max-height:130px"><p>'
+                        + '<img class="mb-3" src="' + productPict + '" height="130" style="max-height:130px"><p class="mb-0">'
                         + this.product.name + '</p></div>';
 
                     if (this.config.showClosePopup) {

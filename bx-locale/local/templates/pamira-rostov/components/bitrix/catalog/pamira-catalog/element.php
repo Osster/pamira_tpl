@@ -28,26 +28,6 @@ $isSidebar = ($arParams['SIDEBAR_DETAIL_SHOW'] == 'Y' && !empty($arParams['SIDEB
 ?>
 
 <?
-if ($arParams["USE_COMPARE"] === "Y") {
-    $APPLICATION->IncludeComponent(
-        "bitrix:catalog.compare.list",
-        "",
-        array(
-            "IBLOCK_TYPE" => $arParams["IBLOCK_TYPE"],
-            "IBLOCK_ID" => $arParams["IBLOCK_ID"],
-            "NAME" => $arParams["COMPARE_NAME"],
-            "DETAIL_URL" => $arResult["FOLDER"] . $arResult["URL_TEMPLATES"]["element"],
-            "COMPARE_URL" => $arResult["FOLDER"] . $arResult["URL_TEMPLATES"]["compare"],
-            "ACTION_VARIABLE" => (!empty($arParams["ACTION_VARIABLE"]) ? $arParams["ACTION_VARIABLE"] : "action"),
-            "PRODUCT_ID_VARIABLE" => $arParams["PRODUCT_ID_VARIABLE"],
-            'POSITION_FIXED' => isset($arParams['COMPARE_POSITION_FIXED']) ? $arParams['COMPARE_POSITION_FIXED'] : '',
-            'POSITION' => isset($arParams['COMPARE_POSITION']) ? $arParams['COMPARE_POSITION'] : ''
-        ),
-        $component,
-        array("HIDE_ICONS" => "Y")
-    );
-}
-
 $componentElementParams = array(
     'IBLOCK_TYPE' => $arParams['IBLOCK_TYPE'],
     'IBLOCK_ID' => $arParams['IBLOCK_ID'],
@@ -220,84 +200,84 @@ $elementId = $APPLICATION->IncludeComponent(
 $GLOBALS['CATALOG_CURRENT_ELEMENT_ID'] = $elementId;
 
 if ($elementId > 0) {
-    if ($arParams['USE_STORE'] == 'Y' && ModuleManager::isModuleInstalled('catalog')) {
-        $APPLICATION->IncludeComponent(
-            'bitrix:catalog.store.amount',
-            '.default',
-            array(
-                'ELEMENT_ID' => $elementId,
-                'STORE_PATH' => $arParams['STORE_PATH'],
-                'CACHE_TYPE' => 'A',
-                'CACHE_TIME' => '36000',
-                'MAIN_TITLE' => $arParams['MAIN_TITLE'],
-                'USE_MIN_AMOUNT' => $arParams['USE_MIN_AMOUNT'],
-                'MIN_AMOUNT' => $arParams['MIN_AMOUNT'],
-                'STORES' => $arParams['STORES'],
-                'SHOW_EMPTY_STORE' => $arParams['SHOW_EMPTY_STORE'],
-                'SHOW_GENERAL_STORE_INFORMATION' => $arParams['SHOW_GENERAL_STORE_INFORMATION'],
-                'USER_FIELDS' => $arParams['USER_FIELDS'],
-                'FIELDS' => $arParams['FIELDS']
-            ),
-            $component,
-            array('HIDE_ICONS' => 'Y')
+if ($arParams['USE_STORE'] == 'Y' && ModuleManager::isModuleInstalled('catalog')) {
+    $APPLICATION->IncludeComponent(
+        'bitrix:catalog.store.amount',
+        '.default',
+        array(
+            'ELEMENT_ID' => $elementId,
+            'STORE_PATH' => $arParams['STORE_PATH'],
+            'CACHE_TYPE' => 'A',
+            'CACHE_TIME' => '36000',
+            'MAIN_TITLE' => $arParams['MAIN_TITLE'],
+            'USE_MIN_AMOUNT' => $arParams['USE_MIN_AMOUNT'],
+            'MIN_AMOUNT' => $arParams['MIN_AMOUNT'],
+            'STORES' => $arParams['STORES'],
+            'SHOW_EMPTY_STORE' => $arParams['SHOW_EMPTY_STORE'],
+            'SHOW_GENERAL_STORE_INFORMATION' => $arParams['SHOW_GENERAL_STORE_INFORMATION'],
+            'USER_FIELDS' => $arParams['USER_FIELDS'],
+            'FIELDS' => $arParams['FIELDS']
+        ),
+        $component,
+        array('HIDE_ICONS' => 'Y')
+    );
+}
+
+$recommendedData = array();
+$recommendedCacheId = array('IBLOCK_ID' => $arParams['IBLOCK_ID']);
+
+$obCache = new CPHPCache();
+if ($obCache->InitCache(36000, serialize($recommendedCacheId), '/catalog/recommended')) {
+    $recommendedData = $obCache->GetVars();
+} elseif ($obCache->StartDataCache()) {
+    if (Loader::includeModule('catalog')) {
+        $arSku = CCatalogSku::GetInfoByProductIBlock($arParams['IBLOCK_ID']);
+        $recommendedData['OFFER_IBLOCK_ID'] = (!empty($arSku) ? $arSku['IBLOCK_ID'] : 0);
+        $recommendedData['IBLOCK_LINK'] = '';
+        $recommendedData['ALL_LINK'] = '';
+        $rsProps = CIBlockProperty::GetList(
+            array('SORT' => 'ASC', 'ID' => 'ASC'),
+            array('IBLOCK_ID' => $arParams['IBLOCK_ID'], 'PROPERTY_TYPE' => 'E', 'ACTIVE' => 'Y')
         );
-    }
-
-    $recommendedData = array();
-    $recommendedCacheId = array('IBLOCK_ID' => $arParams['IBLOCK_ID']);
-
-    $obCache = new CPHPCache();
-    if ($obCache->InitCache(36000, serialize($recommendedCacheId), '/catalog/recommended')) {
-        $recommendedData = $obCache->GetVars();
-    } elseif ($obCache->StartDataCache()) {
-        if (Loader::includeModule('catalog')) {
-            $arSku = CCatalogSku::GetInfoByProductIBlock($arParams['IBLOCK_ID']);
-            $recommendedData['OFFER_IBLOCK_ID'] = (!empty($arSku) ? $arSku['IBLOCK_ID'] : 0);
-            $recommendedData['IBLOCK_LINK'] = '';
-            $recommendedData['ALL_LINK'] = '';
-            $rsProps = CIBlockProperty::GetList(
-                array('SORT' => 'ASC', 'ID' => 'ASC'),
-                array('IBLOCK_ID' => $arParams['IBLOCK_ID'], 'PROPERTY_TYPE' => 'E', 'ACTIVE' => 'Y')
-            );
-            $found = false;
-            while ($arProp = $rsProps->Fetch()) {
-                if ($found) {
-                    break;
-                }
-
-                if ($arProp['CODE'] == '') {
-                    $arProp['CODE'] = $arProp['ID'];
-                }
-
-                $arProp['LINK_IBLOCK_ID'] = intval($arProp['LINK_IBLOCK_ID']);
-                if ($arProp['LINK_IBLOCK_ID'] != 0 && $arProp['LINK_IBLOCK_ID'] != $arParams['IBLOCK_ID']) {
-                    continue;
-                }
-
-                if ($arProp['LINK_IBLOCK_ID'] > 0) {
-                    if ($recommendedData['IBLOCK_LINK'] == '') {
-                        $recommendedData['IBLOCK_LINK'] = $arProp['CODE'];
-                        $found = true;
-                    }
-                } else {
-                    if ($recommendedData['ALL_LINK'] == '') {
-                        $recommendedData['ALL_LINK'] = $arProp['CODE'];
-                    }
-                }
+        $found = false;
+        while ($arProp = $rsProps->Fetch()) {
+            if ($found) {
+                break;
             }
 
-            if ($found) {
-                if (defined('BX_COMP_MANAGED_CACHE')) {
-                    global $CACHE_MANAGER;
-                    $CACHE_MANAGER->StartTagCache('/catalog/recommended');
-                    $CACHE_MANAGER->RegisterTag('iblock_id_' . $arParams['IBLOCK_ID']);
-                    $CACHE_MANAGER->EndTagCache();
+            if ($arProp['CODE'] == '') {
+                $arProp['CODE'] = $arProp['ID'];
+            }
+
+            $arProp['LINK_IBLOCK_ID'] = intval($arProp['LINK_IBLOCK_ID']);
+            if ($arProp['LINK_IBLOCK_ID'] != 0 && $arProp['LINK_IBLOCK_ID'] != $arParams['IBLOCK_ID']) {
+                continue;
+            }
+
+            if ($arProp['LINK_IBLOCK_ID'] > 0) {
+                if ($recommendedData['IBLOCK_LINK'] == '') {
+                    $recommendedData['IBLOCK_LINK'] = $arProp['CODE'];
+                    $found = true;
+                }
+            } else {
+                if ($recommendedData['ALL_LINK'] == '') {
+                    $recommendedData['ALL_LINK'] = $arProp['CODE'];
                 }
             }
         }
 
-        $obCache->EndDataCache($recommendedData);
+        if ($found) {
+            if (defined('BX_COMP_MANAGED_CACHE')) {
+                global $CACHE_MANAGER;
+                $CACHE_MANAGER->StartTagCache('/catalog/recommended');
+                $CACHE_MANAGER->RegisterTag('iblock_id_' . $arParams['IBLOCK_ID']);
+                $CACHE_MANAGER->EndTagCache();
+            }
+        }
     }
+
+    $obCache->EndDataCache($recommendedData);
+}
 
 
 //			if (!empty($recommendedData))
@@ -305,14 +285,14 @@ if ($elementId > 0) {
 //				if (!empty($recommendedData['IBLOCK_LINK']) || !empty($recommendedData['ALL_LINK']))
 //				{
 //
-    ?>
-    <!--					<div class='row'>-->
-    <!--						<div class='col-xs-12' data-entity="parent-container">-->
-    <!--							<div class="catalog-block-header" data-entity="header" data-showed="false" style="display: none; opacity: 0;">-->
-    <!--								--><?//=GetMessage('CATALOG_RECOMMENDED_BY_LINK')
-    ?>
-    <!--							</div>-->
-    <!--							--><?//
+?>
+<!--					<div class='row'>-->
+<!--						<div class='col-xs-12' data-entity="parent-container">-->
+<!--							<div class="catalog-block-header" data-entity="header" data-showed="false" style="display: none; opacity: 0;">-->
+<!--								--><?//=GetMessage('CATALOG_RECOMMENDED_BY_LINK')
+?>
+<!--							</div>-->
+<!--							--><?//
 //							$APPLICATION->IncludeComponent(
 //								'bitrix:catalog.recommended.products',
 //								'',
@@ -404,23 +384,23 @@ if ($elementId > 0) {
 //								$component
 //							);
 //
-    ?>
-    <!--						</div>-->
-    <!--					</div>-->
-    <!--					--><?//
+?>
+<!--						</div>-->
+<!--					</div>-->
+<!--					--><?//
 //				}
 //
 //				if (!isset($arParams['DETAIL_SHOW_POPULAR']) || $arParams['DETAIL_SHOW_POPULAR'] != 'N')
 //				{
 //
-    ?>
-    <!--					<div class='row'>-->
-    <!--						<div class='col-xs-12' data-entity="parent-container">-->
-    <!--							<div class="catalog-block-header" data-entity="header" data-showed="false" style="display: none; opacity: 0;">-->
-    <!--								--><?//=GetMessage('CATALOG_POPULAR_IN_SECTION')
-    ?>
-    <!--							</div>-->
-    <!--							--><?//
+?>
+<!--					<div class='row'>-->
+<!--						<div class='col-xs-12' data-entity="parent-container">-->
+<!--							<div class="catalog-block-header" data-entity="header" data-showed="false" style="display: none; opacity: 0;">-->
+<!--								--><?//=GetMessage('CATALOG_POPULAR_IN_SECTION')
+?>
+<!--							</div>-->
+<!--							--><?//
 //							$APPLICATION->IncludeComponent(
 //								'bitrix:catalog.section',
 //								'',
@@ -537,10 +517,10 @@ if ($elementId > 0) {
 //								$component
 //							);
 //
-    ?>
-    <!--						</div>-->
-    <!--					</div>-->
-    <!--					--><?//
+?>
+<!--						</div>-->
+<!--					</div>-->
+<!--					--><?//
 //				}
 //
 //				if (
@@ -549,14 +529,14 @@ if ($elementId > 0) {
 //				)
 //				{
 //
-    ?>
-    <!--					<div class='row'>-->
-    <!--						<div class='col-xs-12' data-entity="parent-container">-->
-    <!--							<div class="catalog-block-header" data-entity="header" data-showed="false" style="display: none; opacity: 0;">-->
-    <!--								--><?//=GetMessage('CATALOG_VIEWED')
-    ?>
-    <!--							</div>-->
-    <!--							--><?//
+?>
+<!--					<div class='row'>-->
+<!--						<div class='col-xs-12' data-entity="parent-container">-->
+<!--							<div class="catalog-block-header" data-entity="header" data-showed="false" style="display: none; opacity: 0;">-->
+<!--								--><?//=GetMessage('CATALOG_VIEWED')
+?>
+<!--							</div>-->
+<!--							--><?//
 //							$APPLICATION->IncludeComponent(
 //								'bitrix:catalog.products.viewed',
 //								'',
@@ -652,14 +632,150 @@ if ($elementId > 0) {
 //								$component
 //							);
 //
-    ?>
-    <!--						</div>-->
-    <!--					</div>-->
-    <!--					--><?//
+?>
+<!--						</div>-->
+<!--					</div>-->
+<!--					--><?//
 //				}
 //			}
 
+?>
+<section class="wr-slider-text">
+
+    <?
+    // RELATED SLIDERS
+    $ar_slider_ids = [];
+    $elem_slider_res = CIBlockElement::GetElementGroups(
+        $elementId,
+        false,
+        ["ID"]
+    );
+
+    while ($ar_slider = $elem_slider_res->Fetch()) {
+        $ar_slider_ids[] = $ar_slider["ID"];
+    }
+
+    $slider_res = CIBlockSection::GetList([],
+        [
+            "ID" => $ar_slider_ids,
+            "IBLOCK_ID" => $arParams["IBLOCK_ID"],
+        ],
+        false, ["IBLOCK_ID", "UF_SLIDER_SUBCAT"]);
+
+
+    $relslider_IBLOCK_ID = 0;
+    $ar_related_slider_ids = [];
+    while ($ar_slider = $slider_res->GetNext()) {
+        if (!empty($ar_slider["UF_SLIDER_SUBCAT"])) {
+            $relslider_IBLOCK_ID = $ar_slider["IBLOCK_ID"];
+            $ar_related_slider_ids = array_merge($ar_related_slider_ids, $ar_slider["UF_SLIDER_SUBCAT"]);
+        }
+    }
+
+    global $advantagesslidesFilter;
+    $advantagesslidesFilter = [];
+    if (!empty($ar_related_slider_ids)) {
+    $filterSlider["SECTION_ID"] = $ar_related_slider_ids;
+
+    $erSlider = CIBlockElement::GetList(Array("SORT" => "ASC"), $filterSlider, false, false,
+        ["ID",
+            "NAME",
+            "PROPERTY_SLIDE_1_HEADER",
+            "PROPERTY_SLIDE_2_HEADER",
+            "PROPERTY_SLIDE_3_HEADER",
+            "PROPERTY_SLIDE_1_TEXT",
+            "PROPERTY_SLIDE_2_TEXT",
+            "PROPERTY_SLIDE_3_TEXT",
+            "PROPERTY_SLIDE_1_FOTO",
+            "PROPERTY_SLIDE_2_FOTO",
+            "PROPERTY_SLIDE_3_FOTO",
+            "PROPERTY_SLIDE_1_LINK",
+            "PROPERTY_SLIDE_2_LINK",
+            "PROPERTY_SLIDE_3_LINK"]);
+
+
+    while ($sliderElement = $erSlider->GetNext()) {
+
+    $sliderElement['PROPERTY_SLIDE_1_FOTO_VALUE_SRC'] = CFile::GetPath($sliderElement['PROPERTY_SLIDE_1_FOTO_VALUE']);
+    $sliderElement['PROPERTY_SLIDE_2_FOTO_VALUE_SRC'] = CFile::GetPath($sliderElement['PROPERTY_SLIDE_2_FOTO_VALUE']);
+    $sliderElement['PROPERTY_SLIDE_3_FOTO_VALUE_SRC'] = CFile::GetPath($sliderElement['PROPERTY_SLIDE_3_FOTO_VALUE']);
+
+    //                        echo "<pre>";
+    //                        print_r(["sliderElement", $sliderElement]);
+    //                        echo "</pre>";
+
     ?>
+    <section id="slider-text-01" class="wr-slider-text">
+        <!-- Slider main container -->
+        <div class="swiper-container">
+            <!-- Additional required wrapper -->
+            <div class="swiper-wrapper">
+                <!-- Slides -->
+                <div class="swiper-slide">
+                    <div class="slider-text_bg"
+                         style="background-image:url(<?= $sliderElement['PROPERTY_SLIDE_1_FOTO_VALUE_SRC'] ?>)">
+                        <div class="container">
+                            <div class="col-12 col-md-6 col-lg-4">
+                                <div class="swiper-slide_text">
+                                    <h3><?= $sliderElement['PROPERTY_SLIDE_1_HEADER_VALUE'] ?></h3>
+                                    <p><?= $sliderElement['PROPERTY_SLIDE_1_TEXT_VALUE'] ?></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="slider-text_bg"
+                         style="background-image:url(<?= $sliderElement['PROPERTY_SLIDE_2_FOTO_VALUE_SRC'] ?>)">
+                        <div class="container">
+                            <div class="col-12 col-md-6 col-lg-4">
+                                <div class="swiper-slide_text">
+                                    <h3><?= $sliderElement['PROPERTY_SLIDE_2_HEADER_VALUE'] ?></h3>
+                                    <p><?= $sliderElement['PROPERTY_SLIDE_2_TEXT_VALUE'] ?></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="slider-text_bg"
+                         style="background-image:url(<?= $sliderElement['PROPERTY_SLIDE_3_FOTO_VALUE_SRC'] ?>)">
+                        <div class="container">
+                            <div class="col-12 col-md-6 col-lg-4">
+                                <div class="swiper-slide_text">
+                                    <h3><?= $sliderElement['PROPERTY_SLIDE_3_HEADER_VALUE'] ?></h3>
+                                    <p><?= $sliderElement['PROPERTY_SLIDE_3_TEXT_VALUE'] ?></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="slider-text_pagination">
+                        <div class="swiper-pagination"></div>
+
+                        <div class="swiper-button-prev">
+                        </div>
+                        <div class="swiper-button-next">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        </div>
+        </div>
+
+        <?
+        }
+
+        }
+
+        ?>
+
+    </section>
     <section class="main__promo">
         <div id="card-collapse" class="container">
             <div class="row">
@@ -690,6 +806,7 @@ if ($elementId > 0) {
                         $ar_related_group_ids = array_merge($ar_related_group_ids, $ar_group["UF_ADVANTAGES_DIR"]);
                     }
                 }
+
 
                 global $advantagesFilter;
                 $advantagesFilter = [];
@@ -802,7 +919,7 @@ if ($elementId > 0) {
                             $inf = infadd($arElement);
                         } else {
                             ?>
-                            <div class="col-md-6 col-12 pl-0 mt-4">
+                            <div class="col-md-6 col-12 pr-0 mt-4">
                                 <div class="card-item" id="<?= $arElement["ID"] ?>">
                                     <div class="card-item_text">
                                         <h2><?= $arElement["NAME"]; ?></h2>
@@ -843,24 +960,25 @@ if ($elementId > 0) {
     </section>
 
     <?
-}
-?>
 
-<? if ($isSidebar): ?>
-    <div class='col-md-3 col-sm-4'>
-        <?
-        $APPLICATION->IncludeComponent(
-            'bitrix:main.include',
-            '',
-            array(
-                'AREA_FILE_SHOW' => 'file',
-                'PATH' => $arParams['SIDEBAR_PATH'],
-                'AREA_FILE_RECURSIVE' => 'N',
-                'EDIT_MODE' => 'html',
-            ),
-            false,
-            array('HIDE_ICONS' => 'Y')
-        );
-        ?>
-    </div>
-<? endif ?>
+    }
+    ?>
+
+    <? if ($isSidebar): ?>
+        <div class='col-md-3 col-sm-4'>
+            <?
+            $APPLICATION->IncludeComponent(
+                'bitrix:main.include',
+                '',
+                array(
+                    'AREA_FILE_SHOW' => 'file',
+                    'PATH' => $arParams['SIDEBAR_PATH'],
+                    'AREA_FILE_RECURSIVE' => 'N',
+                    'EDIT_MODE' => 'html',
+                ),
+                false,
+                array('HIDE_ICONS' => 'Y')
+            );
+            ?>
+        </div>
+    <? endif ?>
