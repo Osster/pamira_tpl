@@ -17,6 +17,29 @@
     ); ?>
 <? endif; ?>
 
+<?php
+$APPLICATION->IncludeComponent(
+    "bitrix:catalog.section.list",
+    "",
+    array(
+        "IBLOCK_TYPE" => $arParams["IBLOCK_TYPE"],
+        "IBLOCK_ID" => $arParams["IBLOCK_ID"],
+        "CACHE_TYPE" => $arParams["CACHE_TYPE"],
+        "CACHE_TIME" => $arParams["CACHE_TIME"],
+        "CACHE_GROUPS" => $arParams["CACHE_GROUPS"],
+        "COUNT_ELEMENTS" => $arParams["SECTION_COUNT_ELEMENTS"],
+        "TOP_DEPTH" => $arParams["SECTION_TOP_DEPTH"],
+        "SECTION_URL" => $arResult["FOLDER"] . $arResult["URL_TEMPLATES"]["section"],
+        "VIEW_MODE" => $arParams["SECTIONS_VIEW_MODE"],
+        "SHOW_PARENT_NAME" => $arParams["SECTIONS_SHOW_PARENT_NAME"],
+        "HIDE_SECTION_NAME" => (isset($arParams["SECTIONS_HIDE_SECTION_NAME"]) ? $arParams["SECTIONS_HIDE_SECTION_NAME"] : "N"),
+        "ADD_SECTIONS_CHAIN" => (isset($arParams["ADD_SECTIONS_CHAIN"]) ? $arParams["ADD_SECTIONS_CHAIN"] : '')
+    ),
+    $component,
+    ($arParams["SHOW_TOP_ELEMENTS"] !== "N" ? array("HIDE_ICONS" => "Y") : array())
+);
+?>
+
 		<footer class="bx-footer">
 
             <?$APPLICATION->IncludeComponent(
@@ -35,101 +58,98 @@
             <div class="container">
                 <div class="row footer-top">
                     <div class="col-lg-6">
-                        <div class="footer-top__tite"><a href="#">Каталог</a></div>
+                        <div class="footer-top__titel"><a href="/tehnika/">Каталог</a></div>
+
                         <ul class="footer-top__menu ">
 
                             <li class="footer-top__menu_item ">
-                                <a class="footer-top__menu_item_link" href="#">Сантехника</a>
-                                <ul class="footer-top__menu_level-1">
-                                    <li class="footer-top__menu_level-1_item">
-                                        <a href="" class="footer-top__menu_level-1_item_link">Кухонные мойки</a>
-                                    </li>
-                                    <li class="footer-top__menu_level-1_item">
-                                        <a href="" class="footer-top__menu_level-1_item_link">Смесители</a>
-                                    </li>
-                                    <li class="footer-top__menu_level-1_item">
-                                        <a href="" class="footer-top__menu_level-1_item_link">Дозаторы</a>
-                                    </li>
-                                    <li class="footer-top__menu_level-1_item">
-                                        <a href="" class="footer-top__menu_level-1_item_link">Измельчители</a>
-                                    </li>
-                                    <li class="footer-top__menu_level-1_item">
-                                        <a href="" class="footer-top__menu_level-1_item_link">Сортеры</a>
-                                    </li>
-                                    <li class="footer-top__menu_level-1_item">
-                                        <a href="" class="footer-top__menu_level-1_item_link">Аксессуары</a>
-                                    </li>
-                                </ul>
+                                <a class="footer-top__menu_item_link" href="/tehnika/ukhod_za_belem/">Уход за бельём</a>
+                                <?
+                                $APPLICATION->IncludeComponent(
+                                    "bitrix:catalog.section.list",
+                                    "footer-list",
+                                    Array(
+                                        "ADD_SECTIONS_CHAIN" => "Y",
+                                        "CACHE_GROUPS" => "Y",
+                                        "CACHE_TIME" => "36000000",
+                                        "CACHE_TYPE" => "A",
+                                        "COUNT_ELEMENTS" => "Y",
+                                        "IBLOCK_ID" => "4",
+                                        "IBLOCK_TYPE" => "catalog",
+                                        "SECTION_CODE" => "",
+                                        "SECTION_FIELDS" => array("", ""),
+                                        "SECTION_ID" => "83",
+                                        "SECTION_URL" => "",
+                                        "SECTION_USER_FIELDS" => array("", ""),
+                                        "SHOW_PARENT_NAME" => "Y",
+                                        "TOP_DEPTH" => "1",
+                                        "VIEW_MODE" => "LINE"
+                                    )
+                                ); ?>
+                                <a class="footer-top__menu_item_link" href="/tehnika/mbt_i_posuda/">МБТ и Посуда</a>
                             </li>
 
-                            <li class="footer-top__menu_item order-3">
-                                <a class="footer-top__menu_item_link" href="#">МБТ и Посуда</a>
+                            <li class="footer-top__menu_item">
+                                <a class="footer-top__menu_item_link" href="/tehnika/tekhnika-dlya-kukhni/">Техника для
+                                    кухни</a>
+                                <?
+                                $APPLICATION->IncludeComponent(
+                                    "bitrix:catalog.section.list",
+                                    "footer-list",
+                                    Array(
+                                        "ADD_SECTIONS_CHAIN" => "Y",
+                                        "CACHE_GROUPS" => "Y",
+                                        "CACHE_TIME" => "36000000",
+                                        "CACHE_TYPE" => "A",
+                                        "COUNT_ELEMENTS" => "Y",
+                                        "IBLOCK_ID" => "4",
+                                        "IBLOCK_TYPE" => "catalog",
+                                        "SECTION_CODE" => "",
+                                        "SECTION_FIELDS" => array("", ""),
+                                        "SECTION_ID" => "74",
+                                        "SECTION_URL" => "",
+                                        "SECTION_USER_FIELDS" => array("", ""),
+                                        "SHOW_PARENT_NAME" => "Y",
+                                        "TOP_DEPTH" => "1",
+                                        "VIEW_MODE" => "LINE"
+                                    )
+                                ); ?>
                             </li>
 
-                            <li class="footer-top__menu_item ">
-                                <a class="footer-top__menu_item_link" href="#">Техника для кухни</a>
-                                <ul class="footer-top__menu_level-1">
-                                    <li class="footer-top__menu_level-1_item">
-                                        <a href="" class="footer-top__menu_level-1_item_link">Духовые шкафы</a>
-                                    </li>
-                                    <li class="footer-top__menu_level-1_item">
-                                        <a href="" class="footer-top__menu_level-1_item_link">Кухонные блоки</a>
-                                    </li>
-                                    <li class="footer-top__menu_level-1_item">
-                                        <a href="" class="footer-top__menu_level-1_item_link">Варочные поверхности</a>
-                                    </li>
-                                    <li class="footer-top__menu_level-1_item">
-                                        <a href="" class="footer-top__menu_level-1_item_link">Микроволновые печи</a>
-                                    </li>
-                                    <li class="footer-top__menu_level-1_item">
-                                        <a href="" class="footer-top__menu_level-1_item_link">Компактные приборы</a>
-                                    </li>
-                                    <li class="footer-top__menu_level-1_item">
-                                        <a href="" class="footer-top__menu_level-1_item_link">Вытяжки</a>
-                                    </li>
-                                    <li class="footer-top__menu_level-1_item">
-                                        <a href="" class="footer-top__menu_level-1_item_link">Посудомоечные машины</a>
-                                    </li>
-                                    <li class="footer-top__menu_level-1_item">
-                                        <a href="" class="footer-top__menu_level-1_item_link">Холодильное оборудование</a>
-                                    </li>
-                                    <li class="footer-top__menu_level-1_item">
-                                        <a href="" class="footer-top__menu_level-1_item_link">Техника на заказ PREMIUM</a>
-                                    </li>
-                                </ul>
+                            <li class="footer-top__menu_item">
+                                <a class="footer-top__menu_item_link" href="/tehnika/santekhnika/">Сантехника</a>
+                                <?
+                                $APPLICATION->IncludeComponent(
+                                    "bitrix:catalog.section.list",
+                                    "footer-list",
+                                    Array(
+                                        "ADD_SECTIONS_CHAIN" => "Y",
+                                        "CACHE_GROUPS" => "Y",
+                                        "CACHE_TIME" => "36000000",
+                                        "CACHE_TYPE" => "A",
+                                        "COUNT_ELEMENTS" => "Y",
+                                        "IBLOCK_ID" => "4",
+                                        "IBLOCK_TYPE" => "catalog",
+                                        "SECTION_CODE" => "",
+                                        "SECTION_FIELDS" => array("", ""),
+                                        "SECTION_ID" => "88",
+                                        "SECTION_URL" => "",
+                                        "SECTION_USER_FIELDS" => array("", ""),
+                                        "SHOW_PARENT_NAME" => "Y",
+                                        "TOP_DEPTH" => "1",
+                                        "VIEW_MODE" => "LINE"
+                                    )
+                                ); ?>
+                                <a class="footer-top__menu_item_link" href="/tehnika/brendy/">Бренды</a>
+                                <a class="footer-top__menu_item_link" href="/tehnika/">Перейти в каталог</a>
                             </li>
-
-                            <li class="footer-top__menu_item ">
-                                <a class="footer-top__menu_item_link" href="#">Уход за бельём</a>
-                                <ul class="footer-top__menu_level-1">
-                                    <li class="footer-top__menu_level-1_item">
-                                        <a href="" class="footer-top__menu_level-1_item_link">Стиральные машины</a>
-                                    </li>
-                                    <li class="footer-top__menu_level-1_item">
-                                        <a href="" class="footer-top__menu_level-1_item_link">Сушильные машины</a>
-                                    </li>
-                                    <li class="footer-top__menu_level-1_item">
-                                        <a href="" class="footer-top__menu_level-1_item_link">Сушильные шкафы</a>
-                                    </li>
-                                    <li class="footer-top__menu_level-1_item">
-                                        <a href="" class="footer-top__menu_level-1_item_link">Аксессуары</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="footer-top__menu_item order-2 ">
-                                <a class="footer-top__menu_item_link" href="#">Бренды</a>
-                            </li>
-                            <li class="footer-top__menu_item order-3 ">
-                                <a class="footer-top__menu_item_link" href="#">Перейти в каталог</a>
-                            </li>
-
                         </ul>
                     </div>
                     <div class="col-lg-6">
-                        <div class="footer-top__tite"><a href="#">О компании</a></div>
-                        <ul class="footer-top__menu">
+                        <div class="footer-top__titel"><a href="/o-kompanii/">О компании</a></div>
+                        <ul class="footer-top__menu" style="flex: 2;">
                             <li class="footer-top__menu_item">
-                                <a class="footer-top__menu_item_link" href="#">Мероприятия</a>
+                                <a class="footer-top__menu_item_link" href="/meropriyatia/">Мероприятия</a>
                                 <ul class="footer-top__menu_level-1">
                                     <li class="footer-top__menu_level-1_item">
                                         <a href="" class="footer-top__menu_level-1_item_link">Мы
@@ -144,8 +164,8 @@
                                     </li>
                                 </ul>
                             </li>
-                            <li class="footer-top__menu_item">
-                                <a class="footer-top__menu_item_link" href="#">Покупателю</a>
+                            <li class="footer-top__menu_item" style="flex: 2;">
+                                <a class="footer-top__menu_item_link" href="/pokupatelu/">Покупателю</a>
                                 <ul class="footer-top__menu_level-1">
                                     <li class="footer-top__menu_level-1_item">
                                         <a href="" class="footer-top__menu_level-1_item_link">Доставка и установка</a>
@@ -161,10 +181,7 @@
                                     </li>
                                 </ul>
                             </li>
-                            <li class="footer-top__menu_item order-1">
-                                <a class="footer-top__menu_item_link" href="#">Контакты</a>
-                            </li>
-                            <li class="footer-top__menu_item">
+                            <li class="footer-top__menu_item" style="flex: 3;">
                                 <a class="footer-top__menu_item_link" href="#">Партнёры</a>
                                 <ul class="footer-top__menu_level-1">
                                     <li class="footer-top__menu_level-1_item">
@@ -186,6 +203,10 @@
                                         <a href="" class="footer-top__menu_level-1_item_link">Дизайнеры и архитекторы</a>
                                     </li>
                                 </ul>
+                            </li>
+
+                            <li class="footer-top__menu_item" style="flex: 1;">
+                                <a class="footer-top__menu_item_link" href="/kontakty/">Контакты</a>
                             </li>
                         </ul>
 

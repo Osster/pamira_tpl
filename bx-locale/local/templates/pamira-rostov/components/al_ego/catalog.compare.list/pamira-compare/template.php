@@ -65,7 +65,7 @@ $style = ($itemCount == 0 ? ' style="display: none;"' : '');
 
                             <div class="col-12 col-md-3">
                                 <noindex>
-                                    <a class="btn" href="javascript:void(0);"
+                                    <a class="btn btn_narrow" href="javascript:void(0);"
                                        data-id="<? echo $arElement['PARENT_ID']; ?>"
                                        rel="nofollow">
                                         <?= GetMessage("CATALOG_DELETE") ?>
@@ -79,12 +79,13 @@ $style = ($itemCount == 0 ? ' style="display: none;"' : '');
                 </div>
             </div>
 
-            <div class="bx_catalog_compare_count col-12 basket__product"><?
+            <div class="bx_catalog_compare_count col-12 basket__product text-right"><?
                 if ($itemCount > 0) {
                     ?><p><? echo GetMessage('CP_BCCL_TPL_MESS_COMPARE_COUNT'); ?>&nbsp;<span
                             id="<? echo $idCompareAll; ?>"><? echo $itemCount; ?></span></p>
-                    <p class="compare-redirect"><a
-                            href="<? echo $arParams["COMPARE_URL"]; ?>"><? echo GetMessage('CP_BCCL_TPL_MESS_COMPARE_PAGE'); ?></a>
+                    <p class="compare-redirect">
+                    <a class="btn"
+                       href="<? echo $arParams["COMPARE_URL"]; ?>"><? echo GetMessage('CP_BCCL_TPL_MESS_COMPARE_PAGE'); ?></a>
                     </p><?
                 }
                 ?>

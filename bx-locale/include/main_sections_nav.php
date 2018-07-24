@@ -23,7 +23,7 @@
             </a>
         </li>
         <li class="col-6 col-lg-3">
-            <a class="main_sections-nav_card" href="#">
+            <a class="main_sections-nav_card" href="/tehnika/mbt_i_posuda/">
                 <svg width="41" height="50" data-toggle="tooltip" data-placement="left"
                      title="МБТ и посуда">
                     <use xlink:href="#mbt_i_posuda"></use>
@@ -54,7 +54,7 @@
             <div class="row">
 
                 <div class="col-4 col-lg-3">
-                    <a class="main_sections-nav_card main_sections-nav_card_content" href="#">
+                    <a class="main_sections-nav_card main_sections-nav_card_content" href="/tehnika/kukhonnye-moyki/">
                         <svg width="50" height="52" data-toggle="tooltip" data-placement="left"
                              title="Кухонные мойки">
                             <use xlink:href="#kuhonnye_moiki"></use>
@@ -64,7 +64,7 @@
                     </a>
                 </div>
                 <div class="col-4 col-lg-3">
-                    <a class="main_sections-nav_card main_sections-nav_card_content" href="#">
+                    <a class="main_sections-nav_card main_sections-nav_card_content" href="/tehnika/izmelchiteli/">
                         <svg width="50" height="52" data-toggle="tooltip" data-placement="left"
                              title="Измельчители">
                             <use xlink:href="#izmelchiteli"></use>
@@ -73,7 +73,7 @@
                     </a>
                 </div>
                 <div class="col-4 col-lg-3">
-                    <a class="main_sections-nav_card main_sections-nav_card_content" href="#">
+                    <a class="main_sections-nav_card main_sections-nav_card_content" href="/tehnika/sortery/">
                         <svg width="50" height="52" data-toggle="tooltip" data-placement="left"
                              title="Сортеры">
                             <use xlink:href="#sortery"></use>
@@ -91,7 +91,7 @@
                     </a>
                 </div>
                 <div class="col-4 col-lg-3">
-                    <a class="main_sections-nav_card main_sections-nav_card_content" href="#">
+                    <a class="main_sections-nav_card main_sections-nav_card_content" href="/tehnika/dozatory/">
                         <svg width="50" height="52" data-toggle="tooltip" data-placement="left"
                              title="Дозаторы">
                             <use xlink:href="#dozatory"></use>
@@ -100,7 +100,7 @@
                     </a>
                 </div>
                 <div class="col-4 col-lg-3">
-                    <a class="main_sections-nav_card main_sections-nav_card_content" href="#">
+                    <a class="main_sections-nav_card main_sections-nav_card_content" href="/tehnika/smesiteli/">
                         <svg width="50" height="52" data-toggle="tooltip" data-placement="left"
                              title="Смесители">
                             <use xlink:href="#smesiteli"></use>
@@ -120,7 +120,7 @@
             <div class="row">
 
                 <div class="col-4 col-lg-3">
-                    <a class="main_sections-nav_card main_sections-nav_card_content" href="#">
+                    <a class="main_sections-nav_card main_sections-nav_card_content" href="/tehnika/dukhovye-shkafy/">
                         <svg width="50" height="52" data-toggle="tooltip" data-placement="left"
                              title="Духовые шкафы">
                             <use xlink:href="#duhovie_shkafi"></use>
@@ -129,16 +129,17 @@
                     </a>
                 </div>
                 <div class="col-4 col-lg-3">
-                    <a class="main_sections-nav_card main_sections-nav_card_content" href="#">
+                    <a class="main_sections-nav_card main_sections-nav_card_content" href="/tehnika/kholodilniki/">
                         <svg width="50" height="52" data-toggle="tooltip" data-placement="left"
                              title="Смесители">
                             <use xlink:href="#holodilniki"></use>
                         </svg>
-                        <span class="label">Холодильники</span>
+                        <span class="label">Холодильное оборудование</span>
                     </a>
                 </div>
                 <div class="col-4 col-lg-3">
-                    <a class="main_sections-nav_card main_sections-nav_card_content" href="#">
+                    <a class="main_sections-nav_card main_sections-nav_card_content"
+                       href="/tehnika/varochnye-poverkhnosti/">
                         <svg width="50" height="52" data-toggle="tooltip" data-placement="left"
                              title="Смесители">
                             <use xlink:href="#varochnie_poverhnosti"></use>
@@ -147,7 +148,8 @@
                     </a>
                 </div>
                 <div class="col-4 col-lg-3">
-                    <a class="main_sections-nav_card main_sections-nav_card_content" href="#">
+                    <a class="main_sections-nav_card main_sections-nav_card_content"
+                       href="/tehnika/kompaktnye-pribory/">
                         <svg width="50" height="52" data-toggle="tooltip" data-placement="left"
                              title="Компактные приборы">
                             <use xlink:href="#kompaktnie_pribori"></use>
@@ -156,7 +158,7 @@
                     </a>
                 </div>
                 <div class="col-4 col-lg-3">
-                    <a class="main_sections-nav_card main_sections-nav_card_content" href="#">
+                    <a class="main_sections-nav_card main_sections-nav_card_content" href="/tehnika/kukhonnye-bloki/">
                         <svg width="50" height="52" data-toggle="tooltip" data-placement="left"
                              title="Кухонные блоки">
                             <use xlink:href="#kuhonnye_bloki"></use>
@@ -165,7 +167,7 @@
                     </a>
                 </div>
                 <div class="col-4 col-lg-3">
-                    <a class="main_sections-nav_card main_sections-nav_card_content" href="#">
+                    <a class="main_sections-nav_card main_sections-nav_card_content" href="/tehnika/vytyazhki/">
                         <svg width="50" height="52" data-toggle="tooltip" data-placement="left"
                              title="Вытяжки">
                             <use xlink:href="#vytazhki"></use>
@@ -174,7 +176,7 @@
                     </a>
                 </div>
                 <div class="col-4 col-lg-3">
-                    <a class="main_sections-nav_card main_sections-nav_card_content" href="#">
+                    <a class="main_sections-nav_card main_sections-nav_card_content" href="/tehnika/svch/">
                         <svg width="50" height="52" data-toggle="tooltip" data-placement="left"
                              title="Микроволновые печи">
                             <use xlink:href="#mikrovolnovie_pechi"></use>
@@ -183,7 +185,8 @@
                     </a>
                 </div>
                 <div class="col-4 col-lg-3">
-                    <a class="main_sections-nav_card main_sections-nav_card_content" href="#">
+                    <a class="main_sections-nav_card main_sections-nav_card_content"
+                       href="/tehnika/posudomoechnye-mashiny/">
                         <svg width="50" height="52" data-toggle="tooltip" data-placement="left"
                              title="Посудомоечные машины">
                             <use xlink:href="#posudomoechnie_mashyny"></use>
@@ -203,7 +206,7 @@
             <div class="row">
 
                 <div class="col-4 col-lg-3">
-                    <a class="main_sections-nav_card main_sections-nav_card_content" href="#">
+                    <a class="main_sections-nav_card main_sections-nav_card_content" href="/tehnika/stiralnye-mashiny/">
                         <svg width="50" height="52" data-toggle="tooltip" data-placement="left"
                              title="Стриральные машины">
                             <use xlink:href="#stiralnye_mashyny"></use>
@@ -212,7 +215,7 @@
                     </a>
                 </div>
                 <div class="col-4 col-lg-3">
-                    <a class="main_sections-nav_card main_sections-nav_card_content" href="#">
+                    <a class="main_sections-nav_card main_sections-nav_card_content" href="/tehnika/sushilnye-mashiny/">
                         <svg width="50" height="52" data-toggle="tooltip" data-placement="left"
                              title="Сушильные машины">
                             <use xlink:href="#sushylnye_mashyny"></use>
@@ -221,7 +224,7 @@
                     </a>
                 </div>
                 <div class="col-4 col-lg-3">
-                    <a class="main_sections-nav_card main_sections-nav_card_content" href="#">
+                    <a class="main_sections-nav_card main_sections-nav_card_content" href="/tehnika/sushilnye-shkafy/">
                         <svg width="50" height="52" data-toggle="tooltip" data-placement="left"
                              title="Сушильные шкафы">
                             <use xlink:href="#sushylnye_shkafy"></use>
@@ -230,7 +233,7 @@
                     </a>
                 </div>
                 <div class="col-4 col-lg-3">
-                    <a class="main_sections-nav_card main_sections-nav_card_content" href="#">
+                    <a class="main_sections-nav_card main_sections-nav_card_content" href="/tehnika/aksessuary/">
                         <svg width="50" height="52" data-toggle="tooltip" data-placement="left"
                              title="Аксессуары">
                             <use xlink:href="#aksessuari_uhod_za_beliom"></use>
