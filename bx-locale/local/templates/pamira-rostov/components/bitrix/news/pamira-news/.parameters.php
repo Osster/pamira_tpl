@@ -73,5 +73,4 @@ if ($arCurrentValues["USE_SHARE"] == "Y") {
         "DEFAULT" => "",
     );
 }
-
 ?>

@@ -2,8 +2,7 @@
 require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/header.php");
 $APPLICATION->SetTitle("Техника");
 ?>
-    <div>
-        <? $APPLICATION->IncludeComponent(
+<? $APPLICATION->IncludeComponent(
     "bitrix:catalog",
     "pamira-catalog",
             array(
@@ -280,11 +279,4 @@ $APPLICATION->SetTitle("Техника");
             ),
             false
         ); ?>
-    </div>
-    <div>
-        <br>
-    </div>
-    <div>
-        <br>
-    </div>
-    <br><? require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/footer.php"); ?>
+<? require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/footer.php"); ?>

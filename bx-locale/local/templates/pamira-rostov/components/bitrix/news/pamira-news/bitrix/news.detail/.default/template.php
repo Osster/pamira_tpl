@@ -12,23 +12,22 @@
 /** @var CBitrixComponent $component */
 $this->setFrameMode(true);
 ?>
-<div class="news-detail">
+<div class="inner-page news-detail">
     <? if ($arParams["DISPLAY_PICTURE"] != "N" && is_array($arResult["DETAIL_PICTURE"])): ?>
         <img
-                class="detail_picture"
-                border="0"
+                class="mb-5 w-100"
                 src="<?= $arResult["DETAIL_PICTURE"]["SRC"] ?>"
-                width="<?= $arResult["DETAIL_PICTURE"]["WIDTH"] ?>"
-                height="<?= $arResult["DETAIL_PICTURE"]["HEIGHT"] ?>"
                 alt="<?= $arResult["DETAIL_PICTURE"]["ALT"] ?>"
                 title="<?= $arResult["DETAIL_PICTURE"]["TITLE"] ?>"
         />
     <? endif ?>
     <? if ($arParams["DISPLAY_DATE"] != "N" && $arResult["DISPLAY_ACTIVE_FROM"]): ?>
-        <span class="news-date-time"><?= $arResult["DISPLAY_ACTIVE_FROM"] ?></span>
+        <div class="text-right">
+            <span class="news-date-time"><?= $arResult["DISPLAY_ACTIVE_FROM"] ?></span>
+        </div>
     <? endif; ?>
     <? if ($arParams["DISPLAY_NAME"] != "N" && $arResult["NAME"]): ?>
-        <h3><?= $arResult["NAME"] ?></h3>
+        <h2><?= $arResult["NAME"] ?></h2>
     <? endif; ?>
     <? if ($arParams["DISPLAY_PREVIEW_TEXT"] != "N" && $arResult["FIELDS"]["PREVIEW_TEXT"]): ?>
         <p><?= $arResult["FIELDS"]["PREVIEW_TEXT"];

@@ -263,6 +263,10 @@ a {
 
     .container {
       max-width: #{map_get($container-max-widths, xl)};
+
+      img {
+        max-width: 100%;
+      }
     }
 
     &_heading {
@@ -316,6 +320,7 @@ a {
         color: $color_white_dirty;
       }
     }
+
   }
   &_dark {
     background-color: $color_gray_darkest;
