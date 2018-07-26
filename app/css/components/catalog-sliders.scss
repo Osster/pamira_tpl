@@ -2,8 +2,12 @@
   .swiper-slide {
     img {
       width: 100%;
-      height: 600px;
+      height: 440px;
       object-fit: cover;
+
+      @include descktopxxl() {
+        height: 600px;
+      }
 
       @include mobile-all() {
         height: 300px;

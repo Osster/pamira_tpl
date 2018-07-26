@@ -87,6 +87,7 @@ use \Bitrix\Main\Localization\Loc;
            data-name="<?= $productTitle?>"
            data-pic="<?= $item['PREVIEW_PICTURE']['SRC'] ?>"
            data-url="<?= $item['DETAIL_PAGE_URL'] ?>"
+           data-price="<?= $price['PRINT_RATIO_PRICE'] ?>"
            data-toggle="tooltip"
            data-placement="left"
            title="Избранное"

@@ -15,6 +15,14 @@
   }
 }
 
+@mixin descktopxxl($breakpoints: $grid-breakpoints) {
+  $minW: breakpoint-min(xxl, $breakpoints);
+  @media (min-width: $minW) and (orientation: landscape) {
+    /* descktop */
+    @content;
+  }
+}
+
 @mixin tablet-portrait($breakpoints: $grid-breakpoints) {
   $minW: breakpoint-min(sm, $breakpoints);
   $minH: breakpoint-min(md, $breakpoints);

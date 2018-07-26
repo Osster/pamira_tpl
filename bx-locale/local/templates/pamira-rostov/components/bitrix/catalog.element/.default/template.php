@@ -321,6 +321,7 @@ if (!empty($arParams['LABEL_PROP_POSITION'])) {
                                    data-name="<?= $arResult['NAME'] ?>"
                                    data-pic="<?= $arResult['PREVIEW_PICTURE']['SRC'] ?>"
                                    data-url="<?= $arResult['DETAIL_PAGE_URL'] ?>"
+                                   data-price="<?= $price['PRINT_RATIO_PRICE'] ?>"
                                    data-toggle="tooltip"
                                    data-placement="left"
                                    title="Избранное">

@@ -1,11 +1,18 @@
 .wr-breadcrumbs {
-  margin-top: 166px;
+  margin-top: 120px;
+
+  @include descktopxxl() {
+    margin-top: 166px;
+  }
 
   .container {
-    max-width: 1140px;
+    max-width: #{map-get($container-max-widths, xl)};
   }
   .breadcrumbs {
-    padding: 40px 0;
+    padding: 15px 0;
+    @include descktopxxl() {
+      padding: 40px 0;
+    }
     a {
       display: inline-block;
       font-size: #{$font_size_sm}px;

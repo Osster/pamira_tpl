@@ -5,9 +5,9 @@ $(document).ready(function(){
 	var favBtns = $('.add-to-fav');
 
     if (typeof wlist != 'undefined') {
-        console.log('wlist', wlist);
+        //console.log('wlist', wlist);
         wlist = JSON.parse(wlist);
-        console.log('wlist', wlist);
+        //console.log('wlist', wlist);
 
         wlist.map(function (item) {
             if (item !== null) {
@@ -27,6 +27,7 @@ $(document).ready(function(){
     if (favBtns.length > 0) {
         favBtns.on('click', function () {
 			$that = $(this);
+            console.log($that);
 			if (itemIsFav(wlist, $that.data('id'))) {
                 wlist.map(function (item, k) {
 					if (item !== null && item.id == $that.data('id')) {
@@ -43,7 +44,8 @@ $(document).ready(function(){
 					id: $that.data('id'),
                     name: $that.data('name'),
                     pic: $that.data('pic'),
-                    url: $that.data('url')
+                    url: $that.data('url'),
+                    price: $that.data('price')
 				});
                 $that.addClass('checked');
 			}

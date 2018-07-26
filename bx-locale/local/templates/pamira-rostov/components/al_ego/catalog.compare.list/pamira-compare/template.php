@@ -57,13 +57,13 @@ $style = ($itemCount == 0 ? ' style="display: none;"' : '');
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-12 col-md-3">
+                            <div class="col-12 col-md-3 p-0">
                                 <div class="product-price product-price_selected">
                                     <?= $arElement["PRICE"] ?>
                                 </div>
                             </div>
 
-                            <div class="col-12 col-md-3">
+                            <div class="col-12 col-md-3 p-0 text-right">
                                 <noindex>
                                     <a class="btn btn_narrow" href="javascript:void(0);"
                                        data-id="<? echo $arElement['PARENT_ID']; ?>"

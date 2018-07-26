@@ -65,22 +65,19 @@
   transition: transform 0.5s ease;
 
   &_basket{
-    width: 50%;
+    width: 60%;
     right: 0;
     left: auto;
     overflow-y: auto;
-    padding: 30px 100px;
+    padding: 30px 100px 30px 30px;
     transition: transform 0.8s ease;
 
-    @include tablet-landscape(){
-      width: 80%;
+    @include descktopxxl() {
+      width: 50%;
+      padding: 30px 100px;
     }
 
-    @include tablet-portrait(){
-      width: 100%;
-    }
-
-    @include mobile-all(){
+    @include media-breakpoint-down(lg) {
       width: 100%;
     }
   }

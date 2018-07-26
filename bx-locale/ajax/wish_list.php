@@ -23,12 +23,15 @@ if (count($wlist) > 0) {
             </div>
             <div class="col-12 col-md-3">
                 <div class="product-price product-price_selected">
+                    <p><?= $item['price'] ?></p>
 
                 </div>
             </div>
             <div class="col-12 col-md-3">
                 <div class="basket-btns">
-                    <button class="btn btn-hover_black wish-list-item-add-to-cart" data-id="<?= $item["id"] ?>" name="form-questions__button">В корзину</button>
+                    <button class="btn btn_narrow btn-hover_black wish-list-item-add-to-cart"
+                            data-id="<?= $item["id"] ?>" name="form-questions__button">В корзину
+                    </button>
                 </div>
             </div>
             <div class="basket-item-block-actions">

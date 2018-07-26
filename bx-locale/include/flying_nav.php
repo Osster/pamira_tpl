@@ -101,7 +101,7 @@
         </div>
     </div>
 
-
+    <!--КОРЗИНА-->
     <div class="wr-icon wr-icon_basket" id="basket">
         <div class="basket">
             <button class="icon-close">
@@ -152,7 +152,7 @@
 
     </div>
 
-
+    <!--ИЗБРАННОЕ-->
     <div id="selected" class="wr-icon wr-icon_basket">
         <div class="basket">
             <button class="icon-close">
@@ -172,7 +172,7 @@
 
     </div>
 
-
+    <!--    СРАВНЕНИЕ-->
     <div id="compare" class="wr-icon wr-icon_basket">
         <div class="basket">
             <button class="icon-close">
