@@ -18,9 +18,9 @@ $strTitle = "";
     <?
     $TOP_DEPTH = $arResult["SECTION"]["DEPTH_LEVEL"];
     $CURRENT_DEPTH = $TOP_DEPTH;
-    //echo "<pre>";
-    //print_r($arResult["SECTIONS"]);
-    //echo "</pre>";
+    //    echo "<pre>";
+    //    print_r($arResult["SECTIONS"]);
+    //    echo "</pre>";
 
     foreach ($arResult["SECTIONS"] as $arSection) {
         $this->AddEditAction($arSection['ID'], $arSection['EDIT_LINK'], CIBlock::GetArrayByID($arSection["IBLOCK_ID"], "SECTION_EDIT"));

@@ -3,7 +3,7 @@ require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("Интернет-магазин Техника для кухни");
 ?>
 
-    <section class="main__promo main__promo_dark main__sections-nav">
+    <section class="main__promo main__promo_dark main__sections-nav py-5">
         <? $APPLICATION->IncludeComponent(
             "bitrix:main.include",
             "",
@@ -18,7 +18,7 @@ $APPLICATION->SetTitle("Интернет-магазин Техника для к
         ); ?>
     </section>
 
-    <section class="main__promo main__promo_dark">
+    <section class="main__promo main__promo_dark pb-5">
         <div class="container">
             <div class="main__promo_heading">
                 <div class="main__promo_heading_title">Почему именно мы</div>
@@ -81,7 +81,7 @@ $APPLICATION->SetTitle("Интернет-магазин Техника для к
         </div>
     </section>
 
-    <section class="main__promo main__promo_light">
+    <section class="main__promo main__promo_light pb-5">
         <div class="container">
             <div class="main__promo_heading">
                 <div class="main__promo_heading_title">Выбирая нас</div>
@@ -294,7 +294,7 @@ $APPLICATION->SetTitle("Интернет-магазин Техника для к
                                 <p>Изумительные цены на новую технику ELECTROLUX</p>
                             </div>
                             <div class="card-item_text_link">
-                                <a class="more-btn more-btn_gray" href="#">Читать подробнее
+                                <a class="more-btn more-btn_gray" href="#"><span>Читать подробнее</span>
                                     <svg width="10" height="15">
                                         <use xlink:href="#icon-arrow"></use>
                                     </svg>
@@ -318,7 +318,7 @@ $APPLICATION->SetTitle("Интернет-магазин Техника для к
                         </div>
                         <div class="card-item_img">
                             <div class="card-item_img_link">
-                                <a class="btn more-btn" href="#">Читать подробнее
+                                <a class="btn more-btn" href="#"><span>Читать подробнее</span>
                                     <svg width="10" height="15">
                                         <use xlink:href="#icon-arrow"></use>
                                     </svg>
@@ -340,7 +340,7 @@ $APPLICATION->SetTitle("Интернет-магазин Техника для к
                         </div>
                         <div class="card-item_img">
                             <div class="card-item_img_link">
-                                <a class="btn more-btn" href="#">Читать подробнее
+                                <a class="btn more-btn" href="#"><span>Читать подробнее</span>
                                     <svg width="10" height="15">
                                         <use xlink:href="#icon-arrow"></use>
                                     </svg>
