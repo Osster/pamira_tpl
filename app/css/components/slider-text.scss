@@ -3,33 +3,48 @@
   .slider-text_bg {
     background-size: cover;
     width: 100%;
-    padding-top: 70px;
   }
   .slider-h500 {
     height: 500px;
   }
+  .slider-h700 {
+    height: 700px;
+  }
 
-  .swiper-slide_text {
-    margin-top: 70px;
-    background-color: $color_gray_darken_opacity45;
-    color: $color_white_dirty;
-    padding: 30px 50px 100px;
-
-    @include mobile-all() {
-      padding: 15px 30px 60px;
+  .swiper-slide {
+    .row.position-absolute {
+      bottom: 0;
     }
-
-    h3 {
-      text-transform: none;
-      margin-bottom: 55px;
-      font-size: #{$font_size_h2}px;
-      line-height: #{$line_height_h2}px;
-      font-weight: 600;
+    &_text {
+      background-color: $color_gray_darken_opacity45;
+      color: $color_white_dirty;
+      padding: 30px 50px 100px;
 
       @include mobile-all() {
+        padding: 15px 30px 60px;
+      }
+
+      h3 {
+        text-transform: none;
+        margin-bottom: 55px;
+        font-size: #{$font_size_h2}px;
+        line-height: #{$line_height_h2}px;
+        font-weight: 600;
+
+        @include mobile-all() {
+          font-size: #{$font_size_h3}px;
+          line-height: #{$line_height_h3}px;
+          margin-bottom: 35px;
+        }
+      }
+      h2 {
         font-size: #{$font_size_h3}px;
         line-height: #{$line_height_h3}px;
-        margin-bottom: 35px;
+
+        @include descktopxxl() {
+          font-size: #{$font_size_h2}px;
+          line-height: #{$line_height_h2}px;
+        }
       }
     }
   }

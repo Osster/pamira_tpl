@@ -12,7 +12,6 @@
 /** @var CBitrixComponent $component */
 $this->setFrameMode(true);
 ?>
-
 <? if ($arParams["USE_RSS"] == "Y"): ?>
     <?
     if (method_exists($APPLICATION, 'addheadstring'))
@@ -108,3 +107,10 @@ $this->setFrameMode(true);
     ),
     $component
 ); ?>
+<?
+$APPLICATION->IncludeFile(
+    SITE_DIR . "include/form-event.php",
+    Array(),
+    Array("MODE" => "html")
+);
+?>

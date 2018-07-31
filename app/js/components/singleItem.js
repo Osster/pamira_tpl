@@ -32,6 +32,4 @@ $(document).ready(function () {
         singleSwiper.controller.control = singleSwiperThumbs;
         singleSwiperThumbs.controller.control = singleSwiper;
     }
-    ;
-
 });

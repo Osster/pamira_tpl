@@ -459,11 +459,15 @@ if (!empty($arParams['LABEL_PROP_POSITION'])) {
                         <div class="tab-blocks_item">
                             <div class="tab-blocks_item_text">
                                 <ul>
-                                    <? foreach ($arResult['PROPERTIES'] as $variables) {
-                                        if (!$variables['VALUE_ENUM'] == 0) { ?>
+                                    <? foreach ($arResult['DISPLAY_PROPERTIES'] as $variables) {
+                                        if (trim($variables['DISPLAY_VALUE']) != '') {
+//                                        echo "<pre>";
+//                                        print_r($variables);
+//                                        echo "</pre>";
+                                            ?>
                                             <li class="tab-blocks_item_text_li">
                                                 <h5 class="mr-5"><?= $variables['NAME']; ?>: </h5>
-                                                <p><?= $variables['VALUE_ENUM']; ?></p>
+                                                <p><?= $variables['DISPLAY_VALUE']; ?></p>
                                             </li>
                                         <? }
                                     } ?>

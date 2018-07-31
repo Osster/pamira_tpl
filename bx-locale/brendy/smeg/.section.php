@@ -1,0 +1,4 @@
+<?
+$sSectionName = "Smeg";
+$arDirProperties = Array();
+?>

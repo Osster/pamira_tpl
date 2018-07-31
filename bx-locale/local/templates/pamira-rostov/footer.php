@@ -68,8 +68,8 @@ $APPLICATION->IncludeComponent(
                                 $APPLICATION->IncludeComponent(
                                     "bitrix:catalog.section.list",
                                     "footer-list",
-                                    Array(
-                                        "ADD_SECTIONS_CHAIN" => "Y",
+                                    array(
+                                        "ADD_SECTIONS_CHAIN" => "N",
                                         "CACHE_GROUPS" => "Y",
                                         "CACHE_TIME" => "36000000",
                                         "CACHE_TYPE" => "A",
@@ -77,14 +77,22 @@ $APPLICATION->IncludeComponent(
                                         "IBLOCK_ID" => "4",
                                         "IBLOCK_TYPE" => "catalog",
                                         "SECTION_CODE" => "",
-                                        "SECTION_FIELDS" => array("", ""),
+                                        "SECTION_FIELDS" => array(
+                                            0 => "",
+                                            1 => "",
+                                        ),
                                         "SECTION_ID" => "83",
                                         "SECTION_URL" => "",
-                                        "SECTION_USER_FIELDS" => array("", ""),
+                                        "SECTION_USER_FIELDS" => array(
+                                            0 => "",
+                                            1 => "",
+                                        ),
                                         "SHOW_PARENT_NAME" => "Y",
                                         "TOP_DEPTH" => "1",
-                                        "VIEW_MODE" => "LINE"
-                                    )
+                                        "VIEW_MODE" => "LINE",
+                                        "COMPONENT_TEMPLATE" => "footer-list"
+                                    ),
+                                    false
                                 ); ?>
                                 <a class="footer-top__menu_item_link" href="/tehnika/mbt_i_posuda/">МБТ и Посуда</a>
                             </li>
@@ -96,8 +104,8 @@ $APPLICATION->IncludeComponent(
                                 $APPLICATION->IncludeComponent(
                                     "bitrix:catalog.section.list",
                                     "footer-list",
-                                    Array(
-                                        "ADD_SECTIONS_CHAIN" => "Y",
+                                    array(
+                                        "ADD_SECTIONS_CHAIN" => "N",
                                         "CACHE_GROUPS" => "Y",
                                         "CACHE_TIME" => "36000000",
                                         "CACHE_TYPE" => "A",
@@ -105,14 +113,22 @@ $APPLICATION->IncludeComponent(
                                         "IBLOCK_ID" => "4",
                                         "IBLOCK_TYPE" => "catalog",
                                         "SECTION_CODE" => "",
-                                        "SECTION_FIELDS" => array("", ""),
+                                        "SECTION_FIELDS" => array(
+                                            0 => "",
+                                            1 => "",
+                                        ),
                                         "SECTION_ID" => "74",
                                         "SECTION_URL" => "",
-                                        "SECTION_USER_FIELDS" => array("", ""),
+                                        "SECTION_USER_FIELDS" => array(
+                                            0 => "",
+                                            1 => "",
+                                        ),
                                         "SHOW_PARENT_NAME" => "Y",
                                         "TOP_DEPTH" => "1",
-                                        "VIEW_MODE" => "LINE"
-                                    )
+                                        "VIEW_MODE" => "LINE",
+                                        "COMPONENT_TEMPLATE" => "footer-list"
+                                    ),
+                                    false
                                 ); ?>
                             </li>
 
@@ -122,8 +138,8 @@ $APPLICATION->IncludeComponent(
                                 $APPLICATION->IncludeComponent(
                                     "bitrix:catalog.section.list",
                                     "footer-list",
-                                    Array(
-                                        "ADD_SECTIONS_CHAIN" => "Y",
+                                    array(
+                                        "ADD_SECTIONS_CHAIN" => "N",
                                         "CACHE_GROUPS" => "Y",
                                         "CACHE_TIME" => "36000000",
                                         "CACHE_TYPE" => "A",
@@ -131,14 +147,22 @@ $APPLICATION->IncludeComponent(
                                         "IBLOCK_ID" => "4",
                                         "IBLOCK_TYPE" => "catalog",
                                         "SECTION_CODE" => "",
-                                        "SECTION_FIELDS" => array("", ""),
+                                        "SECTION_FIELDS" => array(
+                                            0 => "",
+                                            1 => "",
+                                        ),
                                         "SECTION_ID" => "88",
                                         "SECTION_URL" => "",
-                                        "SECTION_USER_FIELDS" => array("", ""),
+                                        "SECTION_USER_FIELDS" => array(
+                                            0 => "",
+                                            1 => "",
+                                        ),
                                         "SHOW_PARENT_NAME" => "Y",
                                         "TOP_DEPTH" => "1",
-                                        "VIEW_MODE" => "LINE"
-                                    )
+                                        "VIEW_MODE" => "LINE",
+                                        "COMPONENT_TEMPLATE" => "footer-list"
+                                    ),
+                                    false
                                 ); ?>
                                 <a class="footer-top__menu_item_link" href="/tehnika/brendy/">Бренды</a>
                                 <a class="footer-top__menu_item_link" href="/tehnika/">Перейти в каталог</a>

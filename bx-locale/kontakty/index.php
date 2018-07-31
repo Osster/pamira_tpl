@@ -129,40 +129,12 @@ $APPLICATION->SetTitle("Контакты");
                 </div>
             </div>
         </div>
-
-        <div class="wr-contacts-form">
-            <form class="form-questions" name="form-questions" method="post">
-                <div class="form-questions__title">
-                    У ВАС ОСТАЛИСЬ ВОПРОСЫ?
-                </div>
-
-                <div class="form-questions__text">
-                    Заполните заявку и наши специалисты сделают все лучшее для Вас
-                </div>
-                <div class="form-questions__inputs">
-                    <input type="text" name="form-questions-input-name" class="form-questions__input"
-                           placeholder="Ваше имя"
-                           required>
-                </div>
-
-                <div class="form-questions__inputs">
-                    <input type="tel" name="form-questions-input-email" class="form-questions__input"
-                           placeholder="Ваш телефон" required>
-                </div>
-                <div class="form-questions__checkbox">
-
-                    <input id="personal-data" type="checkbox" name="personal-data" required>
-                    <label for="personal-data">- Я соглашаюсь на обработку персональных даных</label>
-                </div>
-                <div class="form-questions__btn">
-                    <button class="btn btn-hover_white form-questions__button" name="form-questions__button">Оставить
-                        заявку
-                        на подбор техники
-                    </button>
-                </div>
-            </form>
-        </div>
-
-
     </main>
-    <br><? require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/footer.php"); ?>
+<?
+$APPLICATION->IncludeFile(
+    SITE_DIR . "include/form-contact.php",
+    Array(),
+    Array("MODE" => "html")
+);
+?>
+<? require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/footer.php"); ?>

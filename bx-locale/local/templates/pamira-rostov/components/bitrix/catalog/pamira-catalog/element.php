@@ -191,6 +191,24 @@ if (isset($arParams['USER_CONSENT_IS_LOADED'])) {
     $componentElementParams['USER_CONSENT_IS_LOADED'] = $arParams['USER_CONSENT_IS_LOADED'];
 }
 
+
+if (intval($componentElementParams["SECTION_ID"]) == 0) {
+    if (intval($componentElementParams["ELEMENT_ID"]) > 0) {
+        $rsElement = CIBlockElement::GetById($componentElementParams["ELEMENT_ID"]);
+        if ($arElement = $rsElement->GetNext()) {
+            $componentElementParams["SECTION_ID"] = intval($arElement["IBLOCK_SECTION_ID"]);
+        }
+    } elseif ($componentElementParams["ELEMENT_CODE"] != "") {
+        $rsElement = CIBlockElement::GetList([], ["IBLOCK_ID" => $arParams["IBLOCK_ID"], "CODE" => $componentElementParams["ELEMENT_CODE"], "ACTIVE" => "Y"], false, false, []);
+
+        if ($arElement = $rsElement->GetNext()) {
+            $componentElementParams["SECTION_ID"] = intval($arElement["IBLOCK_SECTION_ID"]);
+            $rsElementGroups = CIBlockElement::GetElementGroups($arElement["ID"]);
+        }
+    }
+}
+
+
 $elementId = $APPLICATION->IncludeComponent(
     'bitrix:catalog.element',
     '',
