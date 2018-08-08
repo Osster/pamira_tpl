@@ -74,4 +74,88 @@ if ($arCurrentValues["USE_SHARE"] == "Y") {
     );
 }
 
+if ($arCurrentValues["IBLOCK_ID"] > 0) {
+
+    if (!CModule::IncludeModule("iblock"))
+        return;
+
+//    EVENTS TAB
+    $evFilter = Array(
+        'IBLOCK_ID' => $arCurrentValues['IBLOCK_ID'],
+        "TYPE" => $arCurrentValues['IBLOCK_TYPE'],
+        'GLOBAL_ACTIVE' => 'Y');
+    $evSelect = array(
+        "ID", "NAME"
+    );
+    $evSection = CIBlockSection::GetTreeList($evFilter, $evSelect);
+    $evIBlock = array();
+    while ($evResult = $evSection->GetNext()) {
+        $evIBlock[$evResult["ID"]] = "[" . $evResult["ID"] . "] " . $evResult["NAME"];
+    }
+    $evIBlock[0] = GetMessage("T_IBLOCK_DESC_SECTION_DEFAULT");
+    $arTemplateParameters["BLOCK_SECTION_ONE"] = array(
+        "PARENT" => "BASE",
+        "NAME" => GetMessage("T_IBLOCK_DESC_SECTION_ONE"),
+        "TYPE" => "LIST",
+        "MULTIPLE" => "N",
+        "VALUES" => $evIBlock,
+        "DEFAULT" => "",
+    );
+
+//    ACTION TAB
+    $actionFilter = Array(
+        'IBLOCK_ID' => $arCurrentValues['IBLOCK_ID'],
+        "TYPE" => $arCurrentValues['IBLOCK_TYPE'],
+        'GLOBAL_ACTIVE' => 'Y');
+    $actionSelect = array(
+        "ID", "NAME"
+    );
+    $actionSection = CIBlockSection::GetTreeList($actionFilter, $actionSelect);
+    $actionIBlock = array();
+    while ($actionResult = $actionSection->GetNext()) {
+        $actionIBlock[$actionResult["ID"]] = "[" . $actionResult["ID"] . "] " . $actionResult["NAME"];
+    }
+    $actionIBlock[0] = GetMessage("T_IBLOCK_DESC_SECTION_DEFAULT");
+    $arTemplateParameters["BLOCK_SECTION_TWO"] = array(
+        "PARENT" => "BASE",
+        "NAME" => GetMessage("T_IBLOCK_DESC_SECTION_TWO"),
+        "TYPE" => "LIST",
+        "MULTIPLE" => "N",
+        "VALUES" => $actionIBlock,
+        "DEFAULT" => "",
+    );
+
+//    SALE TAB
+    $saleFilter = Array(
+        'IBLOCK_ID' => $arCurrentValues['IBLOCK_ID'],
+        "TYPE" => $arCurrentValues['IBLOCK_TYPE'],
+        'GLOBAL_ACTIVE' => 'Y');
+    $saleSelect = array(
+        "ID", "NAME"
+    );
+    $saleSection = CIBlockSection::GetTreeList($saleFilter, $saleSelect);
+    $saleIBlock = array();
+    while ($saleResult = $saleSection->GetNext()) {
+        $saleIBlock[$saleResult["ID"]] = "[" . $saleResult["ID"] . "] " . $saleResult["NAME"];
+    }
+    $saleIBlock[0] = GetMessage("T_IBLOCK_DESC_SECTION_DEFAULT");
+    $arTemplateParameters["BLOCK_SECTION_THREE"] = array(
+        "PARENT" => "BASE",
+        "NAME" => GetMessage("T_IBLOCK_DESC_SECTION_THREE"),
+        "TYPE" => "LIST",
+        "MULTIPLE" => "N",
+        "VALUES" => $saleIBlock,
+        "DEFAULT" => "",
+    );
+
+//    SLIDER
+    $arTemplateParameters["SLIDER"] = array(
+        "PARENT" => "BASE",
+        "NAME" => GetMessage("T_SLIDER"),
+        "TYPE" => "STRING",
+        "MULTIPLE" => "N",
+        "DEFAULT" => "",
+    );
+}
+
 ?>

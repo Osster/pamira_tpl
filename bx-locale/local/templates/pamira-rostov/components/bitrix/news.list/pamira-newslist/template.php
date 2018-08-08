@@ -12,6 +12,10 @@
 /** @var CBitrixComponent $component */
 $this->setFrameMode(true);
 
+//echo "<pre>";
+//print_r ($arResult);
+//echo "</pre>";
+
 ?>
 <section class="main__promo main__promo_dark">
     <div class="container">
@@ -63,7 +67,7 @@ $this->setFrameMode(true);
                             </div>
                             <div class="card-item_img">
                                 <div class="card-item_img_link">
-                                    <a class="btn more-btn" href="#">
+                                    <a class="btn more-btn" href="<?= $arItem["DETAIL_PAGE_URL"] ?>">
                                         <span>Подробнее</span>
                                         <svg width="10" height="15">
                                             <use xlink:href="#icon-arrow"></use>

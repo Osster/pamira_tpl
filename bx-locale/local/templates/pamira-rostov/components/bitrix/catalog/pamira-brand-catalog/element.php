@@ -26,7 +26,6 @@ if (isset($arParams['USE_COMMON_SETTINGS_BASKET_POPUP']) && $arParams['USE_COMMO
 
 $isSidebar = ($arParams['SIDEBAR_DETAIL_SHOW'] == 'Y' && !empty($arParams['SIDEBAR_PATH']));
 ?>
-
 <?
 $componentElementParams = array(
     'IBLOCK_TYPE' => $arParams['IBLOCK_TYPE'],

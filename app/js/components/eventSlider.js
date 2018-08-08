@@ -18,6 +18,12 @@ $(document).ready(function () {
         navigation: {
             nextEl: '.wr-events-month .swiper-button-next',
             prevEl: '.wr-events-month .swiper-button-prev'
+        },
+        breakpoints: {
+            640: {
+                slidesPerView: 2,
+                spaceBetween: 5
+            }
         }
     });
 

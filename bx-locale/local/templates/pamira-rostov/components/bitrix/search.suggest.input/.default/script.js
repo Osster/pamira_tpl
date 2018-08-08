@@ -143,7 +143,7 @@ function JsSuggest(oHandler, sParams, sParser) {
 
     t.Show = function (result) {
         t.Destroy();
-        t.oDiv = document.body.appendChild(document.createElement("DIV"));
+        t.oDiv = document.getElementById("search").appendChild(document.createElement("DIV"));
         t.oDiv.id = t.oObj.id + '_div';
 
         t.oDiv.className = "search-popup";

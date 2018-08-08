@@ -48,37 +48,6 @@ $arSectionDeleteParams = array("CONFIRM" => GetMessage('CT_BCSL_ELEMENT_DELETE_C
 if (!function_exists("menu_struct_gen")) {
     function menu_struct_gen($list)
     {
-        /*
-                $struct = [];
-
-                $parentsChain = [];
-                $prevItem = null;
-
-                foreach ($list as $k => $item) {
-                    if ($item['RELATIVE_DEPTH_LEVEL'] > 2) continue;
-
-                    if ($prevItem) {
-
-                        if ($prevItem['RELATIVE_DEPTH_LEVEL'] < $item['RELATIVE_DEPTH_LEVEL']) {
-                            $parentsChain[] = $prevItem['ID'];
-        //                    print_r($parentsChain);
-                        } elseif ($prevItem['RELATIVE_DEPTH_LEVEL'] > $item['RELATIVE_DEPTH_LEVEL']) {
-        //                    $parentsChain[] = $prevItem["IBLOCK_SECTION_ID"];
-                            unset($parentsChain[count($parentsChain) - 1]);
-                        }
-
-                    }
-
-                    if (count($parentsChain) == 0) {
-                        $struct[$item['ID']] = ['key' => $k];
-                    } else {
-                        $struct[$parentsChain[count($parentsChain) - 1]]['childs'][$item['ID']] = ['key'=> $k];
-                    }
-                    $prevItem = $item;
-                }
-                print_r ($struct);
-        */
-
         foreach ($list as $k => $item) {
             if ($item['RELATIVE_DEPTH_LEVEL'] == 1) {
                 $struct[$item['ID']]['key'] = $k;
@@ -98,8 +67,10 @@ if (!function_exists("menu_struct_gen")) {
 }
 
 if (!function_exists("menu_build_recur")) {
-    function menu_build_recur($list, $struct, $obj, $strSectionEdit, $strSectionDelete, $arSectionDeleteParams)
+    function menu_build_recur($result, $struct, $obj, $strSectionEdit, $strSectionDelete, $arSectionDeleteParams)
     {
+        $list = $result['SECTIONS'];
+
         foreach ($struct as $k => $s_item) {
             $item = $list[$s_item["key"]];
 
@@ -108,12 +79,21 @@ if (!function_exists("menu_build_recur")) {
             $obj->AddDeleteAction($item['ID'], $item['DELETE_LINK'], $strSectionDelete, $arSectionDeleteParams);
             ?>
             <div class="side-menu_item">
-                <h3 data-toggle="collapse" data-target="#collapse<?= $item["ID"] ?>" aria-expanded="true"
-                    aria-controls="collapse<?= $item["ID"] ?>"><?= $item["NAME"] ?></h3>
+                <p class="h3" data-toggle="collapse" data-target="#collapse<?= $item["ID"] ?>" aria-expanded="true"
+                   aria-controls="collapse<?= $item["ID"] ?>">
+                    <? if ($s_item["childs"] > 0) { ?>
+                        <?= $item["NAME"] ?>
+                    <? } else { ?>
+                        <a href="<?= $item["SECTION_PAGE_URL"] ?>"
+                           <? if (in_array($item["ID"], $result['ACTIVE_SECTIONS'])) : ?>class="active"<? endif; ?>>
+                            <?= $item["NAME"] ?>
+                        </a>
+                    <? } ?>
+                </p>
                 <?
                 if (isset($s_item["childs"])) {
                     ?>
-                    <div class="side-menu_item_list collapse <? if (current($s_item) == 0) {
+                    <div class="side-menu_item_list collapse <? if (in_array($item["ID"], $result['ACTIVE_SECTIONS'])) {
                         echo 'show';
                     } ?>" id="collapse<?= $item["ID"] ?>"
                          aria-labelledby="heading<?= $item["ID"] ?>" data-parent=".side-menu">
@@ -126,7 +106,10 @@ if (!function_exists("menu_build_recur")) {
                                 ?>
                                 <li>
                                     <a href="<? echo $sub_item["SECTION_PAGE_URL"]; ?>"
-                                       id="<?=$obj->GetEditAreaId($sub_item['ID']);?>"><?= $sub_item["NAME"] ?></a>
+                                       <? if (in_array($sub_item["ID"], $result['ACTIVE_SECTIONS'])) : ?>class="active"<? endif; ?>
+                                       id="<?= $obj->GetEditAreaId($sub_item['ID']); ?>">
+                                        <?= $sub_item["NAME"] ?>
+                                    </a>
                                 </li>
                                 <?
                             }
@@ -151,9 +134,7 @@ if (0 < $arResult["SECTIONS_COUNT"]) {
 
         <?php
         $menu_struct = menu_struct_gen($arResult['SECTIONS']);
-        print_r($list);
-
-        menu_build_recur($arResult['SECTIONS'], $menu_struct, $this, $strSectionEdit, $strSectionDelete, $arSectionDeleteParams);
+        menu_build_recur($arResult, $menu_struct, $this, $strSectionEdit, $strSectionDelete, $arSectionDeleteParams);
         ?>
 
     </div>

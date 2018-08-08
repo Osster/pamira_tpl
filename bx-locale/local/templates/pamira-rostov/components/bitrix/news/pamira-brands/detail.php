@@ -124,11 +124,146 @@ $this->setFrameMode(true);
     <? endif ?>
 <? endif ?>
 
-<?
+<section class="main__promo">
+    <div class="container">
+        <div class="catalog-sections d-flex">
+            <div class="catalog-sections_title" style="flex:1;">
+                Каталог <?= $arResult["NAME"] ?>
+            </div>
 
-// Достаём  все привязки к преимуществам
+            <div class="d-flex flex-wrap" style="flex:7;">
 
-?>
+                <?
+                // Получаем все разделы, элементы которых связаны с брендом
+                $el_ids = [];
+                $catid = [];
+                $arFilter = Array("IBLOCK_ID" => 4, "PROPERTY_MANUFACTURER" => $ElementID, "ACTIVE" => "Y");
+                $arSelectFields = Array("ID");
+                $el_idres = CIBlockElement::GetList(Array(), $arFilter, false, false, $arSelectFields);
+
+                while ($ob = $el_idres->GetNext()) {
+                    $el_ids[$ob["ID"]] = $ob["ID"];
+                }
+
+                $cat_idres = CIBlockElement::GetElementGroups($el_ids, false, ["ID"]);
+
+                while ($ob = $cat_idres->GetNext()) {
+                    $catid[$ob["ID"]] = $ob["ID"];
+                }
+
+                //                echo "<pre>";
+                //                print_r($el_ids);
+                //                echo "</pre>";
+
+                $sArOrder = Array("SORT" => "­­ASC");
+                $sArFilter = Array("IBLOCK_ID" => 4, "ID" => $catid);
+                $sArSelect = Array("NAME", "SECTION_PAGE_URL", "UF_ICON_ID");
+                $sArRes = CIBlockSection::GetList($sArOrder, $sArFilter, false, $sArSelect);
+
+                while ($arSection = $sArRes->GetNext()) {
+                    $rsSectionIconId = CUserFieldEnum::GetList(array(), array("ID" => $arSection["UF_ICON_ID"]));
+                    if ($arSection["UF_ICON_ID"] && $arSectionIconId = $rsSectionIconId->GetNext()) {
+                        echo "<pre>";
+                        print_r($arSectionIconId);
+                        echo "</pre>";
+                        ?>
+                        <a class="catalog-sections_items" href="<?= $arSection["SECTION_PAGE_URL"] ?>"
+                           title="<?= $arSection["NAME"] ?>">
+                            <svg width="50" height="52" data-toggle="tooltip" data-placement="left"
+                                 title="<?= $arSectionIconId["VALUE"] ?>">
+                                <use xlink:href="#<?= $arSectionIconId["XML_ID"] ?>"></use>
+                            </svg>
+                        </a>
+                        <?php
+                    } else {
+                        ?>
+                        <a class="catalog-sections_items" href="<?= $arSection["SECTION_PAGE_URL"] ?>"
+                           title="<?= $arSection["NAME"] ?>">
+                            <?= $arSection["NAME"] ?>
+                        </a>
+                        <?php
+                    }
+                }
+                ?>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="main__promo main__promo_dark">
+    <div class="container">
+        <div class="main__promo_heading">
+            <div class="main__promo_heading_title">
+                Новости <?= $arResult['VARIABLES']['ELEMENT_CODE'] ?>
+            </div>
+        </div>
+
+        <?
+        global $manufacturerFilter;
+        $manufacturerFilter = Array("PROPERTY_MANUFACTURER" => $ElementID, "ACTIVE" => "Y");
+
+        $APPLICATION->IncludeComponent(
+            "bitrix:news.list",
+            "list",
+            Array(
+                "ACTIVE_DATE_FORMAT" => "d.m.Y",
+                "ADD_SECTIONS_CHAIN" => "N",
+                "AJAX_MODE" => "N",
+                "AJAX_OPTION_ADDITIONAL" => "",
+                "AJAX_OPTION_HISTORY" => "N",
+                "AJAX_OPTION_JUMP" => "N",
+                "AJAX_OPTION_STYLE" => "N",
+                "CACHE_FILTER" => "N",
+                "CACHE_GROUPS" => "Y",
+                "CACHE_TIME" => "36000000",
+                "CACHE_TYPE" => "A",
+                "CHECK_DATES" => "Y",
+                "DETAIL_URL" => "",
+                "DISPLAY_BOTTOM_PAGER" => "Y",
+                "DISPLAY_DATE" => "Y",
+                "DISPLAY_NAME" => "Y",
+                "DISPLAY_PICTURE" => "Y",
+                "DISPLAY_PREVIEW_TEXT" => "Y",
+                "DISPLAY_TOP_PAGER" => "N",
+                "FIELD_CODE" => array("", ""),
+                "FILTER_NAME" => "manufacturerFilter",
+                "HIDE_LINK_WHEN_NO_DETAIL" => "N",
+                "IBLOCK_ID" => "12",
+                "IBLOCK_TYPE" => "meropriyatia",
+                "INCLUDE_IBLOCK_INTO_CHAIN" => "N",
+                "INCLUDE_SUBSECTIONS" => "Y",
+                "MESSAGE_404" => "",
+                "NEWS_COUNT" => "20",
+                "PAGER_BASE_LINK_ENABLE" => "N",
+                "PAGER_DESC_NUMBERING" => "N",
+                "PAGER_DESC_NUMBERING_CACHE_TIME" => "36000",
+                "PAGER_SHOW_ALL" => "N",
+                "PAGER_SHOW_ALWAYS" => "N",
+                "PAGER_TEMPLATE" => ".default",
+                "PAGER_TITLE" => "Новости",
+                "PARENT_SECTION" => "",
+                "PARENT_SECTION_CODE" => "",
+                "PREVIEW_TRUNCATE_LEN" => "",
+                "PROPERTY_CODE" => array("", ""),
+                "SET_BROWSER_TITLE" => "Y",
+                "SET_LAST_MODIFIED" => "N",
+                "SET_META_DESCRIPTION" => "Y",
+                "SET_META_KEYWORDS" => "Y",
+                "SET_STATUS_404" => "N",
+                "SET_TITLE" => "N",
+                "SHOW_404" => "N",
+                "SORT_BY1" => "ACTIVE_FROM",
+                "SORT_BY2" => "SORT",
+                "SORT_ORDER1" => "DESC",
+                "SORT_ORDER2" => "ASC",
+                "STRICT_SECTION_CHECK" => "N"
+            ),
+            $component
+        ); ?>
+
+    </div>
+</section>
 <div class="main__promo my-5">
     <div class="container">
         <p class="text-right">

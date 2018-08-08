@@ -37,8 +37,8 @@ $(document).ready(function () {
                 type: "double",
                 min: rs.min,
                 max: rs.max,
-                from: rs.from,
-                to: rs.to,
+                //from: rs.from,
+                //to: rs.to,
                 onFinish: rs.onFinish
             });
         });

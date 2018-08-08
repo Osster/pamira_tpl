@@ -43,9 +43,7 @@ switch ($SECTION_ORDER_FIELD) {
         break;
 }
 $arParams["ELEMENT_SORT_ORDER"] = $SECTION_ORDER_DIR;
-
 ?>
-
 <section class="main_dark main_padding">
     <div class="container">
         <div class="row">
@@ -95,6 +93,30 @@ $arParams["ELEMENT_SORT_ORDER"] = $SECTION_ORDER_DIR;
 
             <div class="col-12 col-md-9">
                 <div class="wr-catalog">
+                    <?php
+                    $APPLICATION->IncludeComponent(
+                        "bitrix:catalog.section.list",
+                        "catalog-tags",
+                        array(
+                            "IBLOCK_TYPE" => $arParams["IBLOCK_TYPE"],
+                            "IBLOCK_ID" => $arParams["IBLOCK_ID"],
+                            "SECTION_ID" => $arResult["VARIABLES"]["SECTION_ID"],
+                            "SECTION_CODE" => $arResult["VARIABLES"]["SECTION_CODE"],
+                            "CACHE_TYPE" => $arParams["CACHE_TYPE"],
+                            "CACHE_TIME" => $arParams["CACHE_TIME"],
+                            "CACHE_GROUPS" => $arParams["CACHE_GROUPS"],
+                            "COUNT_ELEMENTS" => $arParams["SECTION_COUNT_ELEMENTS"],
+                            "TOP_DEPTH" => $arParams["SECTION_TOP_DEPTH"],
+                            "SECTION_URL" => $arResult["FOLDER"] . $arResult["URL_TEMPLATES"]["section"],
+                            "VIEW_MODE" => $arParams["SECTIONS_VIEW_MODE"],
+                            "SHOW_PARENT_NAME" => $arParams["SECTIONS_SHOW_PARENT_NAME"],
+                            "HIDE_SECTION_NAME" => (isset($arParams["SECTIONS_HIDE_SECTION_NAME"]) ? $arParams["SECTIONS_HIDE_SECTION_NAME"] : "N"),
+                            "ADD_SECTIONS_CHAIN" => (isset($arParams["ADD_SECTIONS_CHAIN"]) ? $arParams["ADD_SECTIONS_CHAIN"] : '')
+                        ),
+                        $component,
+                        array("HIDE_ICONS" => "Y")
+                    );
+                    ?>
                     <? if ($isFilter): ?>
                         <div class="col-12<?=(isset($arParams['FILTER_HIDE_ON_MOBILE']) && $arParams['FILTER_HIDE_ON_MOBILE'] === 'Y' ? ' hidden-xs' : '')?>">
                             <?
@@ -157,28 +179,6 @@ $arParams["ELEMENT_SORT_ORDER"] = $SECTION_ORDER_DIR;
                     </div>
                     <div class="col-12">
                         <?
-                        $APPLICATION->IncludeComponent(
-                            "bitrix:catalog.section.list",
-                            "catalog-tags",
-                            array(
-                                "IBLOCK_TYPE" => $arParams["IBLOCK_TYPE"],
-                                "IBLOCK_ID" => $arParams["IBLOCK_ID"],
-                                "SECTION_ID" => $arResult["VARIABLES"]["SECTION_ID"],
-                                "SECTION_CODE" => $arResult["VARIABLES"]["SECTION_CODE"],
-                                "CACHE_TYPE" => $arParams["CACHE_TYPE"],
-                                "CACHE_TIME" => $arParams["CACHE_TIME"],
-                                "CACHE_GROUPS" => $arParams["CACHE_GROUPS"],
-                                "COUNT_ELEMENTS" => $arParams["SECTION_COUNT_ELEMENTS"],
-                                "TOP_DEPTH" => $arParams["SECTION_TOP_DEPTH"],
-                                "SECTION_URL" => $arResult["FOLDER"].$arResult["URL_TEMPLATES"]["section"],
-                                "VIEW_MODE" => $arParams["SECTIONS_VIEW_MODE"],
-                                "SHOW_PARENT_NAME" => $arParams["SECTIONS_SHOW_PARENT_NAME"],
-                                "HIDE_SECTION_NAME" => (isset($arParams["SECTIONS_HIDE_SECTION_NAME"]) ? $arParams["SECTIONS_HIDE_SECTION_NAME"] : "N"),
-                                "ADD_SECTIONS_CHAIN" => (isset($arParams["ADD_SECTIONS_CHAIN"]) ? $arParams["ADD_SECTIONS_CHAIN"] : '')
-                            ),
-                            $component,
-                            array("HIDE_ICONS" => "Y")
-                        );
 
                         /*if ($arParams["USE_COMPARE"] === "Y")
                         {

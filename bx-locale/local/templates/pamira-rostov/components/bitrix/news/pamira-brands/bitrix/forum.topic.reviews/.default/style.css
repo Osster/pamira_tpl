@@ -6,14 +6,12 @@ div.reviews-info-box {
     margin-bottom: 2em;
     zoom: 1;
 }
-
 /* Header */
 div.reviews-header-box {
     font-size: 1em;
     padding: 0.462em 1.117em;
     vertical-align: middle;
 }
-
 /* Link to forum */
 div.reviews-link-box {
     font-size: 1em;
@@ -21,7 +19,6 @@ div.reviews-link-box {
     vertical-align: middle;
     margin-bottom: 1em;
 }
-
 /* Page navigation */
 div.reviews-navigation-box {
     padding: 0 1.117em;
@@ -37,7 +34,6 @@ div.reviews-navigation-bottom {
     margin-bottom: 2em;
     border-top: none;
 }
-
 /* Topic posts table */
 table.reviews-post-table {
     width: 100%;
@@ -63,11 +59,9 @@ table.reviews-post-table thead td {
 table.reviews-post-table thead td, table.reviews-post-table tbody td div.reviews-text {
     padding-top: 0.5em;
 }
-
 table.reviews-post-table thead td .message-post-date {
     font-size: 0.85em;
 }
-
 table.reviews-post-table thead td .review-avatar {
     background-color: #ECEAEC;
     border: 1px solid #C4C4C4;
@@ -76,7 +70,6 @@ table.reviews-post-table thead td .review-avatar {
     margin-right: 0.5em;
     width: 30px;
 }
-
 table.reviews-post-table thead td .review-rating {
     float: right;
 }
@@ -84,7 +77,6 @@ table.reviews-post-table thead td .review-rating {
 table.reviews-post-table thead td .review-rating .rating-vote {
     line-height: 24px;
 }
-
 /* First Post Table */
 table.reviews-post-first {
 }
@@ -135,14 +127,12 @@ div.reviews-post-date {
 div.reviews-post-text {
     padding: 0.5em 0;
 }
-
 /* Post Table: Quote and Author Name Links*/
 div.reviews-post-reply-buttons {
     height: 21px;
     padding: 0;
     position: relative;
 }
-
 div.reviews-post-reply-buttons span.separator {
     background-color: #E0E0E0;
     display: inline-block;
@@ -151,7 +141,6 @@ div.reviews-post-reply-buttons span.separator {
     line-height: 5px;
     width: 1px;
 }
-
 table.reviews-post-table .reply-action-note {
     color: #777777;
     font-style: italic;
@@ -160,18 +149,15 @@ table.reviews-post-table .reply-action-note {
     display: inline-block;
     margin: 2px;
 }
-
 table.reviews-post-table .reply-action-note:hover {
     text-decoration: none;
 }
-
 div.reviews-post-reply-buttons a {
     color: #969696;
     font-size: 11px;
     margin-left: 2px;
     text-decoration: none;
 }
-
 div.reviews-post-reply-buttons a:hover {
     text-decoration: underline;
 }
@@ -591,7 +577,6 @@ div.reviews-note-box {
     border-color: #ffc85e;
     background: #fffdc7;
 }
-
 /* --------------------------------------------------Icons---------------------------------------------- */
 table.palette {
     border: 1px solid gray;
@@ -614,7 +599,6 @@ table.palette td img {
     padding: 0px;
     margin: 0;
 }
-
 /* Popups */
 div.reviews-popup-postform {
     width: 502px;
@@ -623,7 +607,6 @@ div.reviews-popup-postform {
     overflow: hidden;
     color: black;
 }
-
 div.reviews-popup-postform table.reviews-popup {
     border: 1px solid gray;
     width: 500px;
@@ -631,14 +614,12 @@ div.reviews-popup-postform table.reviews-popup {
     font-size: 1em;
     cursor: default;
 }
-
 div.reviews-popup-postform table.reviews-popup td {
     font-size: 1em;
     border: none;
     background-color: white;
     font-size: 1em;
 }
-
 div.reviews-popup-postform table.reviews-popup thead td {
     font-weight: bold;
     padding: 0.5em 0.5em 0.1em 0.8em;
@@ -679,7 +660,6 @@ div.reviews-popup-postform table.reviews-popup tfoot td {
     padding: 0.3em;
     text-align: center;
 }
-
 /*/Popups */
 
 div.reviews-smiles-line, div.reviews-smiles-line a, div.reviews-reply-field-bbcode div.reviews-reply-field-showsmiles {
@@ -720,21 +700,17 @@ form.reviews-form {
     margin: 0;
     padding: 0.8em;
 }
-
 div.reviews-text table.forum-quote {
     background: url("images/font_quote.gif") no-repeat scroll left top #F8F2D4;
     border-color: #EEE9CC;
     color: #4A483F;
 }
-
 div.reviews-text table.forum-quote thead {
     display: none;
 }
-
 div.reviews-text table.forum-code thead {
     display: table-cell;
 }
-
 div.reviews-text table.forum-quote, div.reviews-text table.forum-spoiler, div.reviews-text table.forum-code, div.reviews-text div.forum-code-box {
     border: 1px solid #dddddd;
     table-layout: fixed;
@@ -745,13 +721,11 @@ div.reviews-text table.forum-quote, div.reviews-text table.forum-spoiler, div.re
 div.reviews-text table.forum-quote td, div.reviews-text table.forum-spoiler td, div.reviews-text table.forum-code td, div.reviews-text div.forum-code-box ol {
     color: #696969;
 }
-
 div.reviews-text table.forum-quote th, div.reviews-text table.forum-spoiler th, div.reviews-text table.forum-code th, div.reviews-text div.forum-code-box {
     font-weight: bold;
     text-align: left;
     color: #888;
 }
-
 div.reviews-text table.forum-code pre {
     overflow: auto;
     width: 100%;
@@ -761,18 +735,15 @@ div.reviews-text table.forum-code td, div.reviews-text div.forum-code-box td {
     font-family: "Lucida Console", "DejaVu Sans Mono", Monaco, monospace;
     font-size: 12px;
 }
-
 div.reviews-collapse {
     /*float: right;*/
     width: 100%;
 }
-
 div.reviews-collapse a {
     line-height: 55px;
     margin-right: 30px;
     padding: 0.462em;
 }
-
 div.reviews-expanded {
     width: auto;
     float: right;
@@ -783,21 +754,17 @@ div.reviews-post-entry table.forum-quote {
     border-color: #EEE9CC;
     color: #4A483F;
 }
-
 div.reviews-post-entry table.forum-quote thead {
     display: none;
 }
-
 div.reviews-post-entry table.forum-code thead {
     display: table-cell;
 }
-
 div.reviews-post-entry table.forum-quote, div.reviews-post-entry table.forum-spoiler, div.reviews-post-entry table.forum-code, div.reviews-post-entry div.forum-code-box {
     border: 1px solid #dddddd;
     padding: 3px;
     width: 100%;
 }
-
 div.bx-edit-tab-inner table.bx-edit-table div.reviews-post-entry table.forum-quote td,
 div.bx-edit-tab-inner table.bx-edit-table div.reviews-post-entry table.forum-code td {
     background-color: transparent;
@@ -807,23 +774,19 @@ div.bx-edit-tab-inner table.bx-edit-table div.reviews-post-entry table.forum-cod
 div.reviews-post-entry table.forum-quote td, div.reviews-post-entry table.forum-spoiler td, div.reviews-post-entry table.forum-code td, div.reviews-post-entry div.forum-code-box ol {
     color: #696969;
 }
-
 div.reviews-post-entry table.forum-quote th, div.reviews-post-entry table.forum-spoiler th, div.reviews-post-entry table.forum-code th, div.reviews-post-entry div.forum-code-box {
     font-weight: bold;
     text-align: left;
     color: #888;
 }
-
 .reviews-actions .ilike-light .bx-ilike-right-wrap {
     margin-right: 2px;
 }
-
 .reviews-actions .ilike-light .bx-ilike-right {
     padding: 0px 1px 0 11px;
     font-size: 11px;
     line-height: 19px;
 }
-
 .reviews-actions .ilike-light .bx-ilike-text {
     padding: 0;
 }
@@ -832,7 +795,6 @@ div.reviews-post-entry table.forum-quote th, div.reviews-post-entry table.forum-
     color: #929292;
     font-size: 11px;
 }
-
 /* autosave */
 a.postFormAutosave {
     float: right;
@@ -843,14 +805,12 @@ a.postFormAutosave {
     position: relative;
     z-index: 2;
 }
-
 .forum-notify-bar {
     width: 100%;
     height: 2em;
     background: url("/bitrix/js/main/core/images/panel/sprite04.png") repeat-x scroll 0 -1178px #FFEB8D !important;
     position: relative;
 }
-
 .forum-notify-close {
     display: block !important;
     height: 12px !important;
@@ -861,7 +821,6 @@ a.postFormAutosave {
     top: 5px !important;
     width: 12px !important;
 }
-
 .forum-notify-close a {
     background: url("/bitrix/js/main/core/images/panel/sprite04.png") no-repeat scroll -268px -243px transparent !important;
     display: block !important;
@@ -869,14 +828,12 @@ a.postFormAutosave {
     width: 12px !important;
     cursor: pointer;
 }
-
 .forum-notify-text {
     color: #000000 !important;
     margin: 0 !important;
     padding: 3px 20px 5px !important;
     text-align: center !important;
 }
-
 .forum-notify-text a.postFormAutorestore {
     position: relative;
     color: #ff0000;

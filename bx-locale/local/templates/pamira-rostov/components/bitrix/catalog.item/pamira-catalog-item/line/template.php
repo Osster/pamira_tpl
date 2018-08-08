@@ -37,34 +37,33 @@ if ($haveOffers) {
 
 <div class="catalog-item product-item">
     <div class="catalog-item_img">
-        <a id="<?= $item['SECOND_PICT'] ? $itemIds['SECOND_PICT'] : $itemIds['PICT'] ?>" href="<?= $item['DETAIL_PAGE_URL'] ?>" title="<?= $productTitle ?>">
+        <a id="<?= $item['SECOND_PICT'] ? $itemIds['SECOND_PICT'] : $itemIds['PICT'] ?>"
+           href="<?= $item['DETAIL_PAGE_URL'] ?>" title="<?= $productTitle ?>">
             <img src="<?= $item['PREVIEW_PICTURE']['SRC'] ?>" alt="<?= $imgTitle ?>">
         </a>
     </div>
     <div class="catalog-item_text">
         <a href="<?= $item['DETAIL_PAGE_URL'] ?>"><?= $productTitle ?></a>
         <?
-        if (!empty($item['DISPLAY_PROPERTIES']))
-        {
-        ?>
-        <div class="product-item-info-container product-item-hidden" data-entity="props-block">
-            <dl class="product-item-properties">
-                <?
-                foreach ($item['DISPLAY_PROPERTIES'] as $code => $displayProperty)
-                {
-                    ?>
-                    <p<?=(!isset($item['PROPERTY_CODE_MOBILE'][$code]) ? ' class="d-none d-lg-block"' : '')?>>
-                        <?=$displayProperty['NAME']?>:
-                        <?=(is_array($displayProperty['DISPLAY_VALUE'])
-                            ? implode(' / ', $displayProperty['DISPLAY_VALUE'])
-                            : $displayProperty['DISPLAY_VALUE'])?>
-                    </p>
+        if (!empty($item['DISPLAY_PROPERTIES'])) {
+            ?>
+            <div class="product-item-info-container product-item-hidden" data-entity="props-block">
+                <dl class="product-item-properties">
                     <?
-                }
-                ?>
-            </dl>
-        </div>
-        <?
+                    foreach ($item['DISPLAY_PROPERTIES'] as $code => $displayProperty) {
+                        ?>
+                        <p<?= (!isset($item['PROPERTY_CODE_MOBILE'][$code]) ? ' class="d-none d-lg-block"' : '') ?>>
+                            <?= $displayProperty['NAME'] ?>:
+                            <?= (is_array($displayProperty['DISPLAY_VALUE'])
+                                ? implode(' / ', $displayProperty['DISPLAY_VALUE'])
+                                : $displayProperty['DISPLAY_VALUE']) ?>
+                        </p>
+                        <?
+                    }
+                    ?>
+                </dl>
+            </div>
+            <?
         }
         ?>
     </div>
@@ -104,7 +103,8 @@ if ($haveOffers) {
             if (!$haveOffers) {
                 if ($actualItem['CAN_BUY']) {
                     ?>
-                    <div class="product-item-button-container" id="<?= $itemIds['BASKET_ACTIONS'] ?>">
+                    <div class="product-item-button-container catalog-item_links_busket"
+                         id="<?= $itemIds['BASKET_ACTIONS'] ?>">
                         <a class="btn btn-default <?= $buttonSizeClass ?>" id="<?= $itemIds['BUY_LINK'] ?>"
                            href="javascript:void(0)" rel="nofollow">
                             <?= ($arParams['ADD_TO_BASKET_ACTION'] === 'BUY' ? $arParams['MESS_BTN_BUY'] : $arParams['MESS_BTN_ADD_TO_BASKET']) ?>
@@ -177,7 +177,7 @@ if ($haveOffers) {
                     <?
                 } else {
                     ?>
-                    <div class="product-item-button-container">
+                    <div class="product-item-button-container catalog-item_links_icon">
                         <a class="btn btn-default <?= $buttonSizeClass ?>"
                            href="<?= $item['DETAIL_PAGE_URL'] ?>">
                             <?= $arParams['MESS_BTN_DETAIL'] ?>
@@ -187,6 +187,34 @@ if ($haveOffers) {
                 }
             }
             ?>
+            <div class="d-flex">
+                <? if ($arParams['DISPLAY_COMPARE'] && (!$haveOffers || $arParams['PRODUCT_DISPLAY_MODE'] === 'Y')) { ?>
+                    <span class="catalog-item_links_icon" id="<?= $itemIds['COMPARE_LINK'] ?>"
+                          data-id="<?= $item['ID'] ?>"
+                          data-toggle="tooltip" data-placement="left"
+                          title="Сравнение">
+                    <input class="d-none" type="checkbox" data-entity="compare-checkbox">
+                    <svg>
+                        <use xlink:href="#compare-svg"></use>
+                    </svg>
+                </span>
+                <? } ?>
+
+                <a class="catalog-item_links_icon add-to-fav"
+                   data-id="<?= $item['ID'] ?>"
+                   data-name="<?= $productTitle ?>"
+                   data-pic="<?= $item['PREVIEW_PICTURE']['SRC'] ?>"
+                   data-url="<?= $item['DETAIL_PAGE_URL'] ?>"
+                   data-price="<?= $price['PRINT_RATIO_PRICE'] ?>"
+                   data-toggle="tooltip"
+                   data-placement="left"
+                   title="Избранное"
+                >
+                    <svg>
+                        <use xlink:href="#favorites-svg"></use>
+                    </svg>
+                </a>
+            </div>
         </div>
     </div>
 </div>
@@ -205,141 +233,141 @@ if ($haveOffers) {
                 <?= ($showSlider ? '' : 'style="display: none;"') ?>
                   data-slider-interval="<?= $arParams['SLIDER_INTERVAL'] ?>" data-slider-wrap="true">
 				<?
-                if ($showSlider) {
-                    foreach ($morePhoto as $key => $photo) {
-                        ?>
+if ($showSlider) {
+    foreach ($morePhoto as $key => $photo) {
+        ?>
                         <span class="product-item-image-slide item <?= ($key == 0 ? 'active' : '') ?>"
                               style="background-image: url('<?= $photo['SRC'] ?>');">
 						</span>
                         <?
-                    }
-                }
-                ?>
+    }
+}
+?>
 			</span>
             <span class="product-item-image-original" id="<?= $itemIds['PICT'] ?>"
                   style="background-image: url('<?= $item['PREVIEW_PICTURE']['SRC'] ?>'); <?= ($showSlider ? 'display: none;' : '') ?>">
 			</span>
             <?
-            if ($item['SECOND_PICT']) {
-                $bgImage = !empty($item['PREVIEW_PICTURE_SECOND']) ? $item['PREVIEW_PICTURE_SECOND']['SRC'] : $item['PREVIEW_PICTURE']['SRC'];
-                ?>
+if ($item['SECOND_PICT']) {
+    $bgImage = !empty($item['PREVIEW_PICTURE_SECOND']) ? $item['PREVIEW_PICTURE_SECOND']['SRC'] : $item['PREVIEW_PICTURE']['SRC'];
+    ?>
                 <span class="product-item-image-alternative" id="<?= $itemIds['SECOND_PICT'] ?>"
                       style="background-image: url('<?= $bgImage ?>'); <?= ($showSlider ? 'display: none;' : '') ?>">
 				</span>
                 <?
-            }
+}
 
-            if ($arParams['SHOW_DISCOUNT_PERCENT'] === 'Y') {
-                ?>
+if ($arParams['SHOW_DISCOUNT_PERCENT'] === 'Y') {
+    ?>
                 <div class="product-item-label-ring <?= $discountPositionClass ?>" id="<?= $itemIds['DSC_PERC'] ?>"
                     <?= ($price['PERCENT'] > 0 ? '' : 'style="display: none;"') ?>>
                     <span><?= -$price['PERCENT'] ?>%</span>
                 </div>
                 <?
-            }
+}
 
-            if ($item['LABEL']) {
-                ?>
+if ($item['LABEL']) {
+    ?>
                 <div class="product-item-label-text <?= $labelPositionClass ?>" id="<?= $itemIds['STICKER_ID'] ?>">
                     <?
-                    if (!empty($item['LABEL_ARRAY_VALUE'])) {
-                        foreach ($item['LABEL_ARRAY_VALUE'] as $code => $value) {
-                            ?>
+    if (!empty($item['LABEL_ARRAY_VALUE'])) {
+        foreach ($item['LABEL_ARRAY_VALUE'] as $code => $value) {
+            ?>
                             <div<?= (!isset($item['LABEL_PROP_MOBILE'][$code]) ? ' class="hidden-xs"' : '') ?>>
                                 <span title="<?= $value ?>"><?= $value ?></span>
                             </div>
                             <?
-                        }
-                    }
-                    ?>
+        }
+    }
+    ?>
                 </div>
                 <?
-            }
-            ?>
+}
+?>
             <div class="product-item-image-slider-control-container" id="<?= $itemIds['PICT_SLIDER'] ?>_indicator"
                 <?= ($showSlider ? '' : 'style="display: none;"') ?>>
                 <?
-                if ($showSlider) {
-                    foreach ($morePhoto as $key => $photo) {
-                        ?>
+if ($showSlider) {
+    foreach ($morePhoto as $key => $photo) {
+        ?>
                         <div class="product-item-image-slider-control<?= ($key == 0 ? ' active' : '') ?>"
                              data-go-to="<?= $key ?>"></div>
                         <?
-                    }
-                }
-                ?>
+    }
+}
+?>
             </div>
             <?
-            if ($arParams['SLIDER_PROGRESS'] === 'Y') {
-                ?>
+if ($arParams['SLIDER_PROGRESS'] === 'Y') {
+    ?>
                 <div class="product-item-image-slider-progress-bar-container">
                     <div class="product-item-image-slider-progress-bar" id="<?= $itemIds['PICT_SLIDER'] ?>_progress_bar"
                          style="width: 0;"></div>
                 </div>
                 <?
-            }
-            ?>
+}
+?>
         </a>
     </div>
     <?
-    if (!$haveOffers) {
-        if ($showPropsBlock) {
-            ?>
+if (!$haveOffers) {
+    if ($showPropsBlock) {
+        ?>
             <div class="col-xs-12 col-sm-6 col-md-6 col-lg-7">
                 <?
-                if ($showDisplayProps) {
-                    ?>
+        if ($showDisplayProps) {
+            ?>
                     <div class="product-item-info-container" data-entity="props-block">
                         <dl class="product-item-properties">
                             <?
-                            foreach ($item['DISPLAY_PROPERTIES'] as $code => $displayProperty) {
-                                ?>
+            foreach ($item['DISPLAY_PROPERTIES'] as $code => $displayProperty) {
+                ?>
                                 <dt<?= (!isset($item['PROPERTY_CODE_MOBILE'][$code]) ? ' class="hidden-xs"' : '') ?>>
                                     <?= $displayProperty['NAME'] ?>
                                 </dt>
                                 <dd<?= (!isset($item['PROPERTY_CODE_MOBILE'][$code]) ? ' class="hidden-xs"' : '') ?>>
                                     <?= (is_array($displayProperty['DISPLAY_VALUE'])
-                                        ? implode(' / ', $displayProperty['DISPLAY_VALUE'])
-                                        : $displayProperty['DISPLAY_VALUE']) ?>
+                    ? implode(' / ', $displayProperty['DISPLAY_VALUE'])
+                    : $displayProperty['DISPLAY_VALUE']) ?>
                                 </dd>
                                 <?
-                            }
-                            ?>
+            }
+            ?>
                         </dl>
                     </div>
                     <?
-                }
+        }
 
-                if ($showProductProps) {
-                    ?>
+        if ($showProductProps) {
+            ?>
                     <div id="<?= $itemIds['BASKET_PROP_DIV'] ?>" style="display: none;">
                         <?
-                        if (!empty($item['PRODUCT_PROPERTIES_FILL'])) {
-                            foreach ($item['PRODUCT_PROPERTIES_FILL'] as $propID => $propInfo) {
-                                ?>
+            if (!empty($item['PRODUCT_PROPERTIES_FILL'])) {
+                foreach ($item['PRODUCT_PROPERTIES_FILL'] as $propID => $propInfo) {
+                    ?>
                                 <input type="hidden" name="<?= $arParams['PRODUCT_PROPS_VARIABLE'] ?>[<?= $propID ?>]"
                                        value="<?= htmlspecialcharsbx($propInfo['ID']) ?>">
                                 <?
-                                unset($item['PRODUCT_PROPERTIES'][$propID]);
-                            }
-                        }
+                    unset($item['PRODUCT_PROPERTIES'][$propID]);
+                }
+            }
 
-                        if (!empty($item['PRODUCT_PROPERTIES'])) {
-                            ?>
+            if (!empty($item['PRODUCT_PROPERTIES'])) {
+                ?>
                             <table>
                                 <?
-                                foreach ($item['PRODUCT_PROPERTIES'] as $propID => $propInfo) {
-                                    ?>
+                foreach ($item['PRODUCT_PROPERTIES'] as $propID => $propInfo) {
+                    ?>
                                     <tr>
                                         <td><?= $item['PROPERTIES'][$propID]['NAME'] ?></td>
                                         <td>
                                             <?
-                                            if (
-                                                $item['PROPERTIES'][$propID]['PROPERTY_TYPE'] === 'L'
-                                                && $item['PROPERTIES'][$propID]['LIST_TYPE'] === 'C'
-                                            ) {
-                                                foreach ($propInfo['VALUES'] as $valueID => $value) {
-                                                    ?>
+                    if (
+                        $item['PROPERTIES'][$propID]['PROPERTY_TYPE'] === 'L'
+                        && $item['PROPERTIES'][$propID]['LIST_TYPE'] === 'C'
+                    ) {
+                        foreach ($propInfo['VALUES'] as $valueID => $value) {
+                            ?>
                                                     <label>
                                                         <? $checked = $valueID === $propInfo['SELECTED'] ? 'checked' : ''; ?>
                                                         <input type="radio"
@@ -349,85 +377,85 @@ if ($haveOffers) {
                                                     </label>
                                                     <br/>
                                                     <?
-                                                }
-                                            } else {
-                                                ?>
+                        }
+                    } else {
+                        ?>
                                                 <select name="<?= $arParams['PRODUCT_PROPS_VARIABLE'] ?>[<?= $propID ?>]">
                                                     <?
-                                                    foreach ($propInfo['VALUES'] as $valueID => $value) {
-                                                        $selected = $valueID === $propInfo['SELECTED'] ? 'selected' : '';
-                                                        ?>
+                        foreach ($propInfo['VALUES'] as $valueID => $value) {
+                            $selected = $valueID === $propInfo['SELECTED'] ? 'selected' : '';
+                            ?>
                                                         <option value="<?= $valueID ?>" <?= $selected ?>>
                                                             <?= $value ?>
                                                         </option>
                                                         <?
-                                                    }
-                                                    ?>
+                        }
+                        ?>
                                                 </select>
                                                 <?
-                                            }
-                                            ?>
+                    }
+                    ?>
                                         </td>
                                     </tr>
                                     <?
-                                }
-                                ?>
-                            </table>
-                            <?
-                        }
-                        ?>
-                    </div>
-                    <?
                 }
                 ?>
+                            </table>
+                            <?
+            }
+            ?>
+                    </div>
+                    <?
+        }
+        ?>
             </div>
             <?
-        }
-    } else {
-        if ($showPropsBlock) {
-            ?>
+    }
+} else {
+    if ($showPropsBlock) {
+        ?>
             <div class="col-xs-12 col-sm-6 <?= ($showSkuBlock ? 'col-md-4 col-lg-5' : 'col-md-6 col-lg-7') ?>">
                 <div class="product-item-info-container" data-entity="props-block">
                     <dl class="product-item-properties">
                         <?
-                        if ($showDisplayProps) {
-                            foreach ($item['DISPLAY_PROPERTIES'] as $code => $displayProperty) {
-                                ?>
+        if ($showDisplayProps) {
+            foreach ($item['DISPLAY_PROPERTIES'] as $code => $displayProperty) {
+                ?>
                                 <dt<?= (!isset($item['PROPERTY_CODE_MOBILE'][$code]) ? ' class="hidden-xs"' : '') ?>>
                                     <?= $displayProperty['NAME'] ?>
                                 </dt>
                                 <dd<?= (!isset($item['PROPERTY_CODE_MOBILE'][$code]) ? ' class="hidden-xs"' : '') ?>>
                                     <?= (is_array($displayProperty['DISPLAY_VALUE'])
-                                        ? implode(' / ', $displayProperty['DISPLAY_VALUE'])
-                                        : $displayProperty['DISPLAY_VALUE']) ?>
+                    ? implode(' / ', $displayProperty['DISPLAY_VALUE'])
+                    : $displayProperty['DISPLAY_VALUE']) ?>
                                 </dd>
                                 <?
-                            }
-                        }
+            }
+        }
 
-                        if ($showProductProps) {
-                            ?>
+        if ($showProductProps) {
+            ?>
                             <span id="<?= $itemIds['DISPLAY_PROP_DIV'] ?>" style="display: none;"></span>
                             <?
-                        }
-                        ?>
+        }
+        ?>
                     </dl>
                 </div>
             </div>
             <?
-        }
+    }
 
-        if ($showSkuBlock) {
-            ?>
+    if ($showSkuBlock) {
+        ?>
             <div class="col-xs-12 col-sm-6 col-md-2 col-lg-2<?= ($showPropsBlock ? '' : ' col-md-offset-4 col-lg-offset-5') ?>">
                 <div id="<?= $itemIds['PROP_DIV'] ?>">
                     <?
-                    foreach ($arParams['SKU_PROPS'] as $skuProperty) {
-                        $propertyId = $skuProperty['ID'];
-                        $skuProperty['NAME'] = htmlspecialcharsbx($skuProperty['NAME']);
-                        if (!isset($item['SKU_TREE_VALUES'][$propertyId]))
-                            continue;
-                        ?>
+        foreach ($arParams['SKU_PROPS'] as $skuProperty) {
+            $propertyId = $skuProperty['ID'];
+            $skuProperty['NAME'] = htmlspecialcharsbx($skuProperty['NAME']);
+            if (!isset($item['SKU_TREE_VALUES'][$propertyId]))
+                continue;
+            ?>
                         <div class="product-item-info-container" data-entity="sku-block">
                             <div class="product-item-scu-container" data-entity="sku-line-block">
                                 <?= $skuProperty['NAME'] ?>
@@ -435,14 +463,14 @@ if ($haveOffers) {
                                     <div class="product-item-scu-list">
                                         <ul class="product-item-scu-item-list">
                                             <?
-                                            foreach ($skuProperty['VALUES'] as $value) {
-                                                if (!isset($item['SKU_TREE_VALUES'][$propertyId][$value['ID']]))
-                                                    continue;
+            foreach ($skuProperty['VALUES'] as $value) {
+                if (!isset($item['SKU_TREE_VALUES'][$propertyId][$value['ID']]))
+                    continue;
 
-                                                $value['NAME'] = htmlspecialcharsbx($value['NAME']);
+                $value['NAME'] = htmlspecialcharsbx($value['NAME']);
 
-                                                if ($skuProperty['SHOW_MODE'] === 'PICT') {
-                                                    ?>
+                if ($skuProperty['SHOW_MODE'] === 'PICT') {
+                    ?>
                                                     <li class="product-item-scu-item-color-container"
                                                         title="<?= $value['NAME'] ?>"
                                                         data-treevalue="<?= $propertyId ?>_<?= $value['ID'] ?>"
@@ -455,8 +483,8 @@ if ($haveOffers) {
                                                         </div>
                                                     </li>
                                                     <?
-                                                } else {
-                                                    ?>
+                } else {
+                    ?>
                                                     <li class="product-item-scu-item-text-container"
                                                         title="<?= $value['NAME'] ?>"
                                                         data-treevalue="<?= $propertyId ?>_<?= $value['ID'] ?>"
@@ -466,9 +494,9 @@ if ($haveOffers) {
                                                         </div>
                                                     </li>
                                                     <?
-                                                }
-                                            }
-                                            ?>
+                }
+            }
+            ?>
                                         </ul>
                                         <div style="clear: both;"></div>
                                     </div>
@@ -476,91 +504,91 @@ if ($haveOffers) {
                             </div>
                         </div>
                         <?
-                    }
-                    ?>
+        }
+        ?>
                 </div>
                 <?
-                foreach ($arParams['SKU_PROPS'] as $skuProperty) {
-                    if (!isset($item['OFFERS_PROP'][$skuProperty['CODE']]))
-                        continue;
+        foreach ($arParams['SKU_PROPS'] as $skuProperty) {
+            if (!isset($item['OFFERS_PROP'][$skuProperty['CODE']]))
+                continue;
 
-                    $skuProps[] = array(
-                        'ID' => $skuProperty['ID'],
-                        'SHOW_MODE' => $skuProperty['SHOW_MODE'],
-                        'VALUES' => $skuProperty['VALUES'],
-                        'VALUES_COUNT' => $skuProperty['VALUES_COUNT']
-                    );
-                }
+            $skuProps[] = array(
+                'ID' => $skuProperty['ID'],
+                'SHOW_MODE' => $skuProperty['SHOW_MODE'],
+                'VALUES' => $skuProperty['VALUES'],
+                'VALUES_COUNT' => $skuProperty['VALUES_COUNT']
+            );
+        }
 
-                unset($skuProperty, $value);
+        unset($skuProperty, $value);
 
-                if ($item['OFFERS_PROPS_DISPLAY']) {
-                    foreach ($item['JS_OFFERS'] as $keyOffer => $jsOffer) {
-                        $strProps = '';
+        if ($item['OFFERS_PROPS_DISPLAY']) {
+            foreach ($item['JS_OFFERS'] as $keyOffer => $jsOffer) {
+                $strProps = '';
 
-                        if (!empty($jsOffer['DISPLAY_PROPERTIES'])) {
-                            foreach ($jsOffer['DISPLAY_PROPERTIES'] as $displayProperty) {
-                                $strProps .= '<dt>' . $displayProperty['NAME'] . '</dt><dd>'
-                                    . (is_array($displayProperty['VALUE'])
-                                        ? implode(' / ', $displayProperty['VALUE'])
-                                        : $displayProperty['VALUE'])
-                                    . '</dd>';
-                            }
-                        }
-                        $item['JS_OFFERS'][$keyOffer]['DISPLAY_PROPERTIES'] = $strProps;
+                if (!empty($jsOffer['DISPLAY_PROPERTIES'])) {
+                    foreach ($jsOffer['DISPLAY_PROPERTIES'] as $displayProperty) {
+                        $strProps .= '<dt>' . $displayProperty['NAME'] . '</dt><dd>'
+                            . (is_array($displayProperty['VALUE'])
+                                ? implode(' / ', $displayProperty['VALUE'])
+                                : $displayProperty['VALUE'])
+                            . '</dd>';
                     }
-                    unset($jsOffer, $strProps);
                 }
-                ?>
+                $item['JS_OFFERS'][$keyOffer]['DISPLAY_PROPERTIES'] = $strProps;
+            }
+            unset($jsOffer, $strProps);
+        }
+        ?>
             </div>
             <?
-        }
     }
-    ?>
+}
+?>
     <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3<?= ($showPropsBlock || $showSkuBlock ? '' : ' col-md-offset-6 col-lg-offset-7') ?>">
         <div class="product-line-item-info-right-container">
             <?
-            foreach ($arParams['PRODUCT_BLOCKS_ORDER'] as $blockName) {
-                switch ($blockName) {
-                    case 'price': ?>
+foreach ($arParams['PRODUCT_BLOCKS_ORDER'] as $blockName) {
+    switch ($blockName) {
+        case 'price': ?>
                         <div class="product-item-info-container product-item-price-container" data-entity="price-block">
                             <?
-                            if ($arParams['SHOW_OLD_PRICE'] === 'Y') {
-                                ?>
+            if ($arParams['SHOW_OLD_PRICE'] === 'Y') {
+                ?>
                                 <span class="product-item-price-old" id="<?= $itemIds['PRICE_OLD'] ?>"
                                     <?= ($price['RATIO_PRICE'] >= $price['RATIO_BASE_PRICE'] ? 'style="display: none;"' : '') ?>>
 									<?= $price['PRINT_RATIO_BASE_PRICE'] ?>
 								</span>&nbsp;
                                 <?
-                            }
-                            ?>
+            }
+            ?>
                             <span class="product-item-price-current" id="<?= $itemIds['PRICE'] ?>">
 								<?
-                                if (!empty($price)) {
-                                    if ($arParams['PRODUCT_DISPLAY_MODE'] === 'N' && $haveOffers) {
-                                        echo Loc::getMessage(
-                                            'CT_BCI_TPL_MESS_PRICE_SIMPLE_MODE',
-                                            array(
-                                                '#PRICE#' => $price['PRINT_RATIO_PRICE'],
-                                                '#VALUE#' => $measureRatio,
-                                                '#UNIT#' => $minOffer['ITEM_MEASURE']['TITLE']
-                                            )
-                                        );
-                                    } else {
-                                        echo $price['PRINT_RATIO_PRICE'];
-                                    }
-                                }
-                                ?>
+            if (!empty($price)) {
+                if ($arParams['PRODUCT_DISPLAY_MODE'] === 'N' && $haveOffers) {
+                    echo Loc::getMessage(
+                        'CT_BCI_TPL_MESS_PRICE_SIMPLE_MODE',
+                        array(
+                            '#PRICE#' => $price['PRINT_RATIO_PRICE'],
+                            '#VALUE#' => $measureRatio,
+                            '#UNIT#' => $minOffer['ITEM_MEASURE']['TITLE']
+                        )
+                    );
+                } else {
+                    echo $price['PRINT_RATIO_PRICE'];
+                }
+            }
+            ?>
 							</span>
                         </div>
                         <?
-                        break;
+            break;
 
-                    case 'quantityLimit':
-                        if ($arParams['SHOW_MAX_QUANTITY'] !== 'N') {
-                            if ($haveOffers) {
-                                if ($arParams['PRODUCT_DISPLAY_MODE'] === 'Y') {
-                                    ?>
+        case 'quantityLimit':
+            if ($arParams['SHOW_MAX_QUANTITY'] !== 'N') {
+                if ($haveOffers) {
+                    if ($arParams['PRODUCT_DISPLAY_MODE'] === 'Y') {
+                        ?>
                                     <div class="product-item-info-container product-item-hidden"
                                          id="<?= $itemIds['QUANTITY_LIMIT'] ?>"
                                          style="display: none;"
@@ -572,45 +600,45 @@ if ($haveOffers) {
                                         </div>
                                     </div>
                                     <?
-                                }
-                            } else {
-                                if (
-                                    $measureRatio
-                                    && (float)$actualItem['CATALOG_QUANTITY'] > 0
-                                    && $actualItem['CATALOG_QUANTITY_TRACE'] === 'Y'
-                                    && $actualItem['CATALOG_CAN_BUY_ZERO'] === 'N'
-                                ) {
-                                    ?>
+                    }
+                } else {
+                    if (
+                        $measureRatio
+                        && (float)$actualItem['CATALOG_QUANTITY'] > 0
+                        && $actualItem['CATALOG_QUANTITY_TRACE'] === 'Y'
+                        && $actualItem['CATALOG_CAN_BUY_ZERO'] === 'N'
+                    ) {
+                        ?>
                                     <div class="product-item-info-container product-item-hidden"
                                          id="<?= $itemIds['QUANTITY_LIMIT'] ?>">
                                         <div class="product-item-info-container-title">
                                             <?= $arParams['MESS_SHOW_MAX_QUANTITY'] ?>:
                                             <span class="product-item-quantity" data-entity="quantity-limit-value">
 												<?
-                                                if ($arParams['SHOW_MAX_QUANTITY'] === 'M') {
-                                                    if ((float)$actualItem['CATALOG_QUANTITY'] / $measureRatio >= $arParams['RELATIVE_QUANTITY_FACTOR']) {
-                                                        echo $arParams['MESS_RELATIVE_QUANTITY_MANY'];
-                                                    } else {
-                                                        echo $arParams['MESS_RELATIVE_QUANTITY_FEW'];
-                                                    }
-                                                } else {
-                                                    echo $actualItem['CATALOG_QUANTITY'] . ' ' . $actualItem['ITEM_MEASURE']['TITLE'];
-                                                }
-                                                ?>
+                        if ($arParams['SHOW_MAX_QUANTITY'] === 'M') {
+                            if ((float)$actualItem['CATALOG_QUANTITY'] / $measureRatio >= $arParams['RELATIVE_QUANTITY_FACTOR']) {
+                                echo $arParams['MESS_RELATIVE_QUANTITY_MANY'];
+                            } else {
+                                echo $arParams['MESS_RELATIVE_QUANTITY_FEW'];
+                            }
+                        } else {
+                            echo $actualItem['CATALOG_QUANTITY'] . ' ' . $actualItem['ITEM_MEASURE']['TITLE'];
+                        }
+                        ?>
 											</span>
                                         </div>
                                     </div>
                                     <?
-                                }
-                            }
-                        }
+                    }
+                }
+            }
 
-                        break;
+            break;
 
-                    case 'quantity':
-                        if (!$haveOffers) {
-                            if ($actualItem['CAN_BUY'] && $arParams['USE_PRODUCT_QUANTITY']) {
-                                ?>
+        case 'quantity':
+            if (!$haveOffers) {
+                if ($actualItem['CAN_BUY'] && $arParams['USE_PRODUCT_QUANTITY']) {
+                    ?>
                                 <div class="product-item-info-container" data-entity="quantity-block">
                                     <div class="product-item-amount">
                                         <div class="product-item-amount-field-container">
@@ -632,10 +660,10 @@ if ($haveOffers) {
                                     </div>
                                 </div>
                                 <?
-                            }
-                        } elseif ($arParams['PRODUCT_DISPLAY_MODE'] === 'Y') {
-                            if ($arParams['USE_PRODUCT_QUANTITY']) {
-                                ?>
+                }
+            } elseif ($arParams['PRODUCT_DISPLAY_MODE'] === 'Y') {
+                if ($arParams['USE_PRODUCT_QUANTITY']) {
+                    ?>
                                 <div class="product-item-info-container" data-entity="quantity-block">
                                     <div class="product-item-amount">
                                         <div class="product-item-amount-field-container">
@@ -655,18 +683,18 @@ if ($haveOffers) {
                                     </div>
                                 </div>
                                 <?
-                            }
-                        }
+                }
+            }
 
-                        break;
+            break;
 
-                    case 'buttons':
-                        ?>
+        case 'buttons':
+            ?>
                         <div class="product-item-info-container" data-entity="buttons-block">
                             <?
-                            if (!$haveOffers) {
-                                if ($actualItem['CAN_BUY']) {
-                                    ?>
+            if (!$haveOffers) {
+                if ($actualItem['CAN_BUY']) {
+                    ?>
                                     <div class="product-item-button-container" id="<?= $itemIds['BASKET_ACTIONS'] ?>">
                                         <a class="btn btn-default <?= $buttonSizeClass ?>"
                                            id="<?= $itemIds['BUY_LINK'] ?>"
@@ -675,26 +703,26 @@ if ($haveOffers) {
                                         </a>
                                     </div>
                                     <?
-                                } else {
-                                    ?>
+                } else {
+                    ?>
                                     <div class="product-item-button-container">
                                         <?
-                                        if ($showSubscribe) {
-                                            $APPLICATION->IncludeComponent(
-                                                'bitrix:catalog.product.subscribe',
-                                                '',
-                                                array(
-                                                    'PRODUCT_ID' => $actualItem['ID'],
-                                                    'BUTTON_ID' => $itemIds['SUBSCRIBE_LINK'],
-                                                    'BUTTON_CLASS' => 'btn btn-default ' . $buttonSizeClass,
-                                                    'DEFAULT_DISPLAY' => true,
-                                                    'MESS_BTN_SUBSCRIBE' => $arParams['~MESS_BTN_SUBSCRIBE'],
-                                                ),
-                                                $component,
-                                                array('HIDE_ICONS' => 'Y')
-                                            );
-                                        }
-                                        ?>
+                    if ($showSubscribe) {
+                        $APPLICATION->IncludeComponent(
+                            'bitrix:catalog.product.subscribe',
+                            '',
+                            array(
+                                'PRODUCT_ID' => $actualItem['ID'],
+                                'BUTTON_ID' => $itemIds['SUBSCRIBE_LINK'],
+                                'BUTTON_CLASS' => 'btn btn-default ' . $buttonSizeClass,
+                                'DEFAULT_DISPLAY' => true,
+                                'MESS_BTN_SUBSCRIBE' => $arParams['~MESS_BTN_SUBSCRIBE'],
+                            ),
+                            $component,
+                            array('HIDE_ICONS' => 'Y')
+                        );
+                    }
+                    ?>
                                         <a class="btn btn-link <?= $buttonSizeClass ?>"
                                            id="<?= $itemIds['NOT_AVAILABLE_MESS'] ?>"
                                            href="javascript:void(0)" rel="nofollow">
@@ -702,28 +730,28 @@ if ($haveOffers) {
                                         </a>
                                     </div>
                                     <?
-                                }
-                            } else {
-                                if ($arParams['PRODUCT_DISPLAY_MODE'] === 'Y') {
-                                    ?>
+                }
+            } else {
+                if ($arParams['PRODUCT_DISPLAY_MODE'] === 'Y') {
+                    ?>
                                     <div class="product-item-button-container">
                                         <?
-                                        if ($showSubscribe) {
-                                            $APPLICATION->IncludeComponent(
-                                                'bitrix:catalog.product.subscribe',
-                                                '',
-                                                array(
-                                                    'PRODUCT_ID' => $item['ID'],
-                                                    'BUTTON_ID' => $itemIds['SUBSCRIBE_LINK'],
-                                                    'BUTTON_CLASS' => 'btn btn-default ' . $buttonSizeClass,
-                                                    'DEFAULT_DISPLAY' => !$actualItem['CAN_BUY'],
-                                                    'MESS_BTN_SUBSCRIBE' => $arParams['~MESS_BTN_SUBSCRIBE'],
-                                                ),
-                                                $component,
-                                                array('HIDE_ICONS' => 'Y')
-                                            );
-                                        }
-                                        ?>
+                    if ($showSubscribe) {
+                        $APPLICATION->IncludeComponent(
+                            'bitrix:catalog.product.subscribe',
+                            '',
+                            array(
+                                'PRODUCT_ID' => $item['ID'],
+                                'BUTTON_ID' => $itemIds['SUBSCRIBE_LINK'],
+                                'BUTTON_CLASS' => 'btn btn-default ' . $buttonSizeClass,
+                                'DEFAULT_DISPLAY' => !$actualItem['CAN_BUY'],
+                                'MESS_BTN_SUBSCRIBE' => $arParams['~MESS_BTN_SUBSCRIBE'],
+                            ),
+                            $component,
+                            array('HIDE_ICONS' => 'Y')
+                        );
+                    }
+                    ?>
                                         <a class="btn btn-link <?= $buttonSizeClass ?>"
                                            id="<?= $itemIds['NOT_AVAILABLE_MESS'] ?>" href="javascript:void(0)"
                                            rel="nofollow"
@@ -739,8 +767,8 @@ if ($haveOffers) {
                                         </div>
                                     </div>
                                     <?
-                                } else {
-                                    ?>
+                } else {
+                    ?>
                                     <div class="product-item-button-container">
                                         <a class="btn btn-default <?= $buttonSizeClass ?>"
                                            href="<?= $item['DETAIL_PAGE_URL'] ?>">
@@ -748,19 +776,19 @@ if ($haveOffers) {
                                         </a>
                                     </div>
                                     <?
-                                }
-                            }
-                            ?>
+                }
+            }
+            ?>
                         </div>
                         <?
-                        break;
+            break;
 
-                    case 'compare':
-                        if (
-                            $arParams['DISPLAY_COMPARE']
-                            && (!$haveOffers || $arParams['PRODUCT_DISPLAY_MODE'] === 'Y')
-                        ) {
-                            ?>
+        case 'compare':
+            if (
+                $arParams['DISPLAY_COMPARE']
+                && (!$haveOffers || $arParams['PRODUCT_DISPLAY_MODE'] === 'Y')
+            ) {
+                ?>
                             <div class="product-item-compare-container">
                                 <div class="product-item-compare">
                                     <div class="checkbox">
@@ -772,12 +800,12 @@ if ($haveOffers) {
                                 </div>
                             </div>
                             <?
-                        }
-
-                        break;
-                }
             }
-            ?>
+
+            break;
+    }
+}
+?>
         </div>
     </div>
 </div>

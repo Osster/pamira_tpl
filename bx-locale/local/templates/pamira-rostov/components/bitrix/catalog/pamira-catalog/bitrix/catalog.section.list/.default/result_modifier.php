@@ -1,6 +1,8 @@
 <?
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 
+$uriChanks = explode('/', preg_replace('%(^\/|\/$)%', "", $_SERVER["REQUEST_URI"]));
+
 $arViewModeList = array('LIST', 'LINE', 'TEXT', 'TILE');
 
 $arDefaultParams = array(
@@ -96,4 +98,16 @@ if (0 < $arResult['SECTIONS_COUNT'])
 		}
 	}
 }
+
+$arResult['ACTIVE_SECTIONS'] = [];
+foreach ($arResult['SECTIONS'] as $key => $item) {
+    $sectionChanks = explode('/', preg_replace('%(^\/|\/$)%', "", $item["SECTION_PAGE_URL"]));
+    $existsChanks = array_intersect($uriChanks, $sectionChanks);
+    if (count($sectionChanks) == count($existsChanks)) {
+        $arResult['ACTIVE_SECTIONS'][] = $item["ID"];
+    }
+
+}
+
+
 ?>

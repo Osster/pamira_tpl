@@ -17,7 +17,14 @@ $this->setFrameMode(true);
 <div class="wr-filter">
     <div class="row">
         <div class="col-2">
-            <h3>Фильтр</h3>
+            <h3 class="mb-2">Фильтр</h3>
+            <div class="bx-filter-popup-result <? if ($arParams["FILTER_VIEW_MODE"] == "VERTICAL") echo $arParams["POPUP_POSITION"] ?>"
+                 id="modef" <? if (!isset($arResult["ELEMENT_COUNT"])) echo 'style="display:none"'; ?>
+                 style="display: inline-block;">
+                <div style="font-size: 14px;"><? echo GetMessage("CT_BCSF_FILTER_COUNT", array("#ELEMENT_COUNT#" => '<span id="modef_num">' . intval($arResult["ELEMENT_COUNT"]) . '</span>')); ?></div>
+                <a class="btn btn_narrow my-3" href="<? echo $arResult["FILTER_URL"] ?>"
+                   target=""><? echo GetMessage("CT_BCSF_FILTER_SHOW") ?></a>
+            </div>
         </div>
         <div class="col-10">
             <form name="<?echo $arResult["FILTER_NAME"]."_form"?>" action="<?echo $arResult["FORM_ACTION"]?>" method="get" class="smartfilter">
@@ -42,7 +49,8 @@ $this->setFrameMode(true);
                         ?>
                         <div class="col-2 p-0 pr-1 bx-filter-parameters-box">
                             <div class="dropdown">
-                                <button class="btn" type="button" id="filter01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <button class="btn dropdown-toggle" type="button" id="filter01" data-toggle="dropdown"
+                                        aria-haspopup="true" aria-expanded="false">
                                     <?=$arItem["NAME"]?>
                                 </button>
                                 <input
@@ -65,6 +73,7 @@ $this->setFrameMode(true);
                                                 <label for="<?=$ar["CONTROL_ID"]?>"
                                                        class="check-container bx-filter-param-label<?=$class?>"
                                                        data-role="label_<?=$ar["CONTROL_ID"]?>"
+                                                       data-value="<?= $ar["HTML_VALUE"] ?>" tabIndex="-1"
                                                        onclick="smartFilter.selectDropDownItem(this, '<?=CUtil::JSEscape($ar["CONTROL_ID"])?>')">
                                                     <?=$ar["VALUE"]?>
 
@@ -150,7 +159,7 @@ $this->setFrameMode(true);
                             <?endif;
                         }?>
 
-                        <div class="col-5">
+                        <div class="col-7">
                             <p><?=$arItem["NAME"]?></p>
                             <input type="text" id="priceRange<?=$key?>" name="priceRange" value=""/>
 
@@ -214,12 +223,6 @@ $this->setFrameMode(true);
                                     name="del_filter"
                                     value="<?=GetMessage("CT_BCSF_DEL_FILTER")?>"
                             />
-                            <div class="d-none bx-filter-popup-result <?if ($arParams["FILTER_VIEW_MODE"] == "VERTICAL") echo $arParams["POPUP_POSITION"]?>" id="modef" <?if(!isset($arResult["ELEMENT_COUNT"])) echo 'style="display:none"';?> style="display: inline-block;">
-                                <?echo GetMessage("CT_BCSF_FILTER_COUNT", array("#ELEMENT_COUNT#" => '<span id="modef_num">'.intval($arResult["ELEMENT_COUNT"]).'</span>'));?>
-                                <span class="arrow"></span>
-                                <br/>
-                                <a href="<?echo $arResult["FILTER_URL"]?>" target=""><?echo GetMessage("CT_BCSF_FILTER_SHOW")?></a>
-                            </div>
                         </div>
                     </div>
                 </div>

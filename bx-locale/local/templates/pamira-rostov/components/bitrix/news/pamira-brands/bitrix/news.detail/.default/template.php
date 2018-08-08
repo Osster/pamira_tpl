@@ -52,6 +52,7 @@ while ($ob = $brandSlider_res->GetNextElement()) {
     $brandSliderList[] = $brandSlider;
 }
 ?>
+
 <? if ($brandSliderList > 0): ?>
     <section id="slider-text-01" class="wr-slider-text">
         <!-- Slider main container -->
@@ -386,7 +387,8 @@ $designBrandFields = Array(
     "PREVIEW_TEXT",
     "DETAIL_PICTURE",
     "PROPERTY_MANUFACTURER",
-    "PROPERTY_DESIGN_URL"
+    "PROPERTY_DESIGN_URL",
+    "IBLOCK_SECTION_ID"
 );
 $designBrandSlider_res = CIBlockElement::GetList(Array(), $designBrandFilter, false, false, $designBrandFields);
 
@@ -398,12 +400,33 @@ while ($designBrandSlider_ob = $designBrandSlider_res->GetNextElement()) {
     $designBrandSlider['DETAIL_PICTURE_SRC'] = CFile::GetPath($designBrandSlider['DETAIL_PICTURE']);
     $designBrandSliderItems [] = $designBrandSlider;
 }
-//
-//echo "<pre>";
-//print_r($designBrandSliderItems);
-//echo "</pre>";
+
+
+$designBrandSection = CIBlockSection::GetList(
+    Array(),
+    Array("IBLOCK_ID" => 10, "ID" => $designBrandSliderItems["IBLOCK_SECTION_ID"]),
+    false,
+    false,
+    Array()
+);
+$designBrandSectionItem = $designBrandSection->Fetch();
 
 ?>
+
+<!--Описание раздела слайдера бренда-->
+<? if ($designBrandSectionItem > 0): ?>
+
+    <section class="main__promo main__promo_dark">
+        <div class="container">
+            <? if (strlen($designBrandSectionItem["DESCRIPTION"]) > 0): ?>
+                <div class="main__promo_heading">
+                    <?= $designBrandSectionItem["DESCRIPTION"]; ?>
+                </div>
+            <? endif; ?>
+        </div>
+    </section>
+<? endif; ?>
+
 <? if ($designBrandSliderItems > 0): ?>
     <!-- Слайдер бренда 2-->
     <section id="slider-text-03" class="wr-slider-text mb-5">
@@ -521,3 +544,6 @@ if (!$arResult["DISPLAY_PROPERTIES"]["PICTURE_END"] == 0) {
     <?
 }
 ?>
+
+
+

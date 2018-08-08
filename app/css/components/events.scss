@@ -3,13 +3,13 @@
 
 .wr-events {
   text-align: center;
-  max-width: 1200px;
+  max-width: #{map_get($container-max-widths, xl)};
   width: 100%;
   overflow: hidden;
   margin: 0 auto;
 
   @include mobile-all() {
-    margin-bottom: 40px;
+    margin-bottom: 20px;
   }
 
   .title-center{
@@ -66,10 +66,16 @@
 
   .swiper-wrapper{
     margin-bottom: 90px;
+    @include mobile-all() {
+      margin-bottom: 20px;
+    }
   }
 
   .swiper-pagination{
     bottom: 40px;
+    @include mobile-all() {
+      bottom: 0;
+    }
   }
 }
 
@@ -78,7 +84,11 @@
   text-align: center;
   max-width: #{map_get($container-max-widths, xl)};
   width: 100%;
-  margin: 0 auto 90px;
+  margin: 0 0 90px;
+
+  @include mobile-all() {
+    margin: 0 0 20px;
+  }
 
   .events-month{
     color: $color_gray_ligten;

@@ -215,6 +215,7 @@ a {
     justify-content: center;
     align-items: center;
     padding-bottom: 30px;
+    text-align: center;
 
     span {
       margin-bottom: 10px;
@@ -268,7 +269,7 @@ a {
       text-align: center;
       padding: 80px 0;
 
-      &_title, h1 {
+      &_title, h1, h2 {
         color: $color_gray_middle;
         font-family: $font_family_title;
         font-size: 36px;
@@ -314,7 +315,7 @@ a {
         color: $color_white_dirty;
       }
 
-      .main__promo_heading_title, .main__promo_heading h1 {
+      .main__promo_heading_title, .main__promo_heading h1, .main__promo_heading h2 {
         color: $color_white_dirty;
       }
     }

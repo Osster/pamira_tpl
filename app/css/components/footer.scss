@@ -3,236 +3,210 @@ footer {
   padding: 90px 0 0;
   color: $color_gray_light;
 
-  @include mobile-all(){
+  @include mobile-all() {
     padding: 0;
   }
+}
 
-  .footer-top {
-    //> .col-lg-6 {
-    //  &:first-of-type {
-    //    .footer-top__menu {
-    //      height: 360px;
-    //
-    //      @include tablet-portrait(){
-    //        height: auto;
-    //      }
-    //
-    //      @include mobile-all(){
-    //        height: auto;
-    //      }
-    //    }
-    //  }
-    //  &:last-of-type {
-    //    .footer-top__menu {
-    //      height: 290px;
-    //
-    //      @include tablet-portrait(){
-    //        height: auto;
-    //      }
-    //
-    //      @include mobile-all(){
-    //        height: auto;
-    //      }
-    //    }
-    //  }
-    //}
-    &__titel {
+.footer-top {
+  &__titel {
+    color: $color_gray_lighter;
+    font-family: $font_family_title;
+    font-size: #{$font_size_h3 + 2}px;
+    margin-bottom: 50px;
+    text-align: center;
+    text-transform: uppercase;
+
+    @media (min-width: 1201px) and (max-width: 1559px) {
+      font-size: #{$font_size_h3 - 2}px;
+    }
+
+    @include tablet-landscape() {
+      font-size: #{$font_size_h3 - 2}px;
+    }
+
+    @include mobile-all() {
+      margin: 30px 0 20px;
+    }
+
+    a {
       color: $color_gray_lighter;
-      font-family: $font_family_title;
-      font-size: #{$font_size_h3 + 2}px;
-      margin-bottom: 50px;
-      text-align: center;
-      text-transform: uppercase;
+      text-decoration: none;
 
-      @media (min-width: 1201px) and (max-width: 1559px) {
-        font-size: #{$font_size_h3 - 2}px;
+      @include mobile-all() {
+        font-weight: 600;
+        //color: $color_red_middle;
+      }
+    }
+  }
+  &__menu {
+    display: flex;
+    //flex-flow: column wrap;
+    padding: 0;
+    margin: 0;
+    font-size: #{$font_size}px;
+    line-height: #{$font_size * 1.7}px;
+
+    @media (min-width: 1201px) and (max-width: 1559px) {
+      font-size: #{$font_size_xxs + 1}px;
+    }
+
+    @include tablet-landscape() {
+      font-size: #{$font_size_xxs + 1}px;
+      letter-spacing: -0.1px;
+    }
+
+    @include tablet-portrait() {
+      flex-flow: row wrap;
+    }
+
+    @include mobile-all() {
+      flex-flow: row wrap;
+    }
+
+    &_item {
+      list-style: none;
+      margin-right: 20px;
+      max-width: 220px;
+
+      @include tablet-portrait() {
+        width: 50%;
       }
 
-      @include tablet-landscape(){
-        font-size: #{$font_size_h3 - 2}px;
+      @include mobile-all() {
+        width: 100%;
+        text-align: center;
       }
 
-      @include mobile-all(){
-        margin: 30px 0 20px;
-      }
-
-      a {
+      &_link {
+        display: block;
         color: $color_gray_lighter;
-        text-decoration: none;
+        padding: 0;
+        margin: 0 0 40px;
+        text-transform: uppercase;
 
-        @include mobile-all(){
-          font-weight: 600;
-          //color: $color_red_middle;
+        @media (min-width: 1201px) and (max-width: 1559px) {
+          margin: 0;
+        }
+
+        @include tablet-landscape() {
+          margin: 0;
+        }
+
+        @include mobile-all() {
+          margin-bottom: 10px;
+          color: $color_white_dirty;
         }
       }
     }
-    &__menu {
-      display: flex;
-      //flex-flow: column wrap;
+
+    &_level-1 {
       padding: 0;
-      margin: 0;
-      font-size: #{$font_size}px;
-      line-height: #{$font_size * 1.7}px;
+      margin: 0 0 40px;
 
-      @media (min-width: 1201px) and (max-width: 1559px) {
-        font-size: #{$font_size_xxs + 1}px;
-      }
-
-      @include tablet-landscape(){
-        font-size: #{$font_size_xxs + 1}px;
-        letter-spacing: -0.1px;
-      }
-
-      @include tablet-portrait(){
-        flex-flow: row wrap;
-      }
-
-      @include mobile-all(){
-        flex-flow: row wrap;
+      @include mobile-all() {
+        margin: 0 0 25px;
       }
 
       &_item {
         list-style: none;
-        margin-right: 20px;
-        max-width: 220px;
-
-        @include tablet-portrait(){
-          width: 50%;
-        }
-
-        @include mobile-all(){
-          width: 100%;
-          text-align: center;
-        }
-
         &_link {
-          display: block;
           color: $color_gray_lighter;
           padding: 0;
-          margin: 0 0 40px;
-          text-transform: uppercase;
+          margin: 0;
+          text-transform: inherit;
 
-          @media (min-width: 1201px) and (max-width: 1559px) {
-            margin: 0;
-          }
-
-          @include tablet-landscape(){
-            margin: 0;
-          }
-
-          @include mobile-all(){
-            margin-bottom: 10px;
-            color: $color_white_dirty;
+          @include mobile-all() {
+            color: $color_gray_ligten;
           }
         }
-      }
-
-      &_level-1 {
-        padding: 0;
-        margin: 0 0 40px;
-
-        @include mobile-all(){
-          margin: 0 0 25px;
-        }
-
-        &_item {
-          list-style: none;
-          &_link {
-            color: $color_gray_lighter;
-            padding: 0;
-            margin: 0;
-            text-transform: inherit;
-
-            @include mobile-all(){
-              color: $color_gray_ligten;
-            }
-          }
-        }
-      }
-    }
-    .btn{
-      width: 100%;
-
-      @media (min-width: 1201px) and (max-width: 1559px) {
-        font-size: #{$font_size_xxs + 1}px;
-        padding: 15px 15px;
-      }
-
-      @include tablet-landscape(){
-        font-size: #{$font_size_xxs + 1}px;
-        padding: 15px 15px;
-      }
-
-      @include mobile-all(){
-        font-size: #{$font_size_sm}px;
-        font-weight: 600;
-        letter-spacing: -0.2px;
-        padding: 15px 0;
       }
     }
   }
+  .btn {
+    width: 100%;
 
-  .footer-bottom {
-    padding: 20px 0;
-    &__left {
-
-      @media (min-width: 1201px) and (max-width: 1559px) {
-        font-size: #{$font_size_xs}px;
-      }
-
-      @include tablet-landscape(){
-        font-size: #{$font_size_xs}px;
-      }
+    @media (min-width: 1201px) and (max-width: 1559px) {
+      font-size: #{$font_size_xxs + 1}px;
+      padding: 15px 15px;
     }
-    &__mid {
-      display: flex;
-      flex-flow: row;
-      align-items: center;
-      justify-content: space-around;
 
-      @media (min-width: 1201px) and (max-width: 1559px) {
-        font-size: #{$font_size_xs}px;
-      }
-
-      @include tablet-landscape(){
-        font-size: #{$font_size_xs}px;
-      }
-
-      @include mobile-all(){
-        margin: 30px 0;
-      }
+    @include tablet-landscape() {
+      font-size: #{$font_size_xxs + 1}px;
+      padding: 15px 15px;
     }
-    &__right {
 
-      @media (min-width: 1201px) and (max-width: 1559px) {
-        font-size: #{$font_size_xs}px;
-      }
-
-      @include tablet-landscape(){
-        font-size: #{$font_size_xs}px;
-      }
+    @include mobile-all() {
+      font-size: #{$font_size_sm}px;
+      font-weight: 600;
+      letter-spacing: -0.2px;
+      padding: 15px 0;
     }
   }
+}
 
-  .footer-copy {
-    background-color: $color_gray_middle;
-    color: $color_gray_lighter;
-    font-size: $font_size_sm;
-    padding: 5px 0;
-    margin: 40px 0 0;
+.footer-bottom {
+  padding: 20px 0;
+  &__left {
 
     @media (min-width: 1201px) and (max-width: 1559px) {
       font-size: #{$font_size_xs}px;
     }
 
-    @include tablet-landscape(){
+    @include tablet-landscape() {
+      font-size: #{$font_size_xs}px;
+    }
+  }
+  &__mid {
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    justify-content: space-around;
+
+    @media (min-width: 1201px) and (max-width: 1559px) {
       font-size: #{$font_size_xs}px;
     }
 
+    @include tablet-landscape() {
+      font-size: #{$font_size_xs}px;
+    }
 
-
-    @include mobile-all(){
-      margin: 0;
+    @include mobile-all() {
+      margin: 30px 0;
     }
   }
+  &__right {
+
+    @media (min-width: 1201px) and (max-width: 1559px) {
+      font-size: #{$font_size_xs}px;
+    }
+
+    @include tablet-landscape() {
+      font-size: #{$font_size_xs}px;
+    }
+  }
+}
+
+.footer-copy {
+  background-color: $color_gray_middle;
+  color: $color_gray_lighter;
+  font-size: $font_size_sm;
+  padding: 5px 0;
+  margin: 40px 0 0;
+
+  @media (min-width: 1201px) and (max-width: 1559px) {
+    font-size: #{$font_size_xs}px;
+  }
+
+  @include tablet-landscape() {
+    font-size: #{$font_size_xs}px;
+  }
+
+  @include mobile-all() {
+    margin: 0;
+  }
+}
+
+.tab-content .footer-top__menu_level-1 {
+  margin-bottom: 0;
 }

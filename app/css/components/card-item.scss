@@ -19,6 +19,9 @@
     color: $color_white;
     padding: 45px 50px 20px;
     height: 100%;
+    @include mobile-all() {
+      padding: 20px 30px;
+    }
 
     &_inner {
       margin-bottom: 40px;
@@ -45,7 +48,6 @@
 
   &_img{
     height: 100%;
-    flex: 1;
     position: relative;
 
     img {
@@ -251,6 +253,15 @@
 
     &_dark {
       color: $color_white;
+    }
+  }
+
+  &_half {
+    .card-item_text {
+      height: 50%;
+    }
+    .card-item_img {
+      height: 50%;
     }
   }
 }

@@ -57,8 +57,7 @@ $APPLICATION->IncludeFile(
             </div>
 
             <div class="col-12 col-md-9">
-
-                <section class="main__promo main__promo_dark main__sections-nav">
+                <section class="main__promo main__promo_dark main__sections-nav mb-5">
                     <? $APPLICATION->IncludeComponent(
                         "bitrix:main.include",
                         "",
