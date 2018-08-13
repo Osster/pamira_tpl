@@ -81,36 +81,38 @@
                                             </svg>
                                         </a>
                                     </h4>
-                                    <?
-                                    $APPLICATION->IncludeComponent(
-                                        "bitrix:catalog.section.list",
-                                        "footer-list",
-                                        array(
-                                            "ADD_SECTIONS_CHAIN" => "N",
-                                            "CACHE_GROUPS" => "Y",
-                                            "CACHE_TIME" => "36000000",
-                                            "CACHE_TYPE" => "A",
-                                            "COUNT_ELEMENTS" => "Y",
-                                            "IBLOCK_ID" => "4",
-                                            "IBLOCK_TYPE" => "catalog",
-                                            "SECTION_CODE" => "",
-                                            "SECTION_FIELDS" => array(
-                                                0 => "",
-                                                1 => "",
+                                    <div class="pl-4">
+                                        <?
+                                        $APPLICATION->IncludeComponent(
+                                            "bitrix:catalog.section.list",
+                                            "footer-list",
+                                            array(
+                                                "ADD_SECTIONS_CHAIN" => "N",
+                                                "CACHE_GROUPS" => "Y",
+                                                "CACHE_TIME" => "36000000",
+                                                "CACHE_TYPE" => "A",
+                                                "COUNT_ELEMENTS" => "Y",
+                                                "IBLOCK_ID" => "4",
+                                                "IBLOCK_TYPE" => "catalog",
+                                                "SECTION_CODE" => "",
+                                                "SECTION_FIELDS" => array(
+                                                    0 => "",
+                                                    1 => "",
+                                                ),
+                                                "SECTION_ID" => "74",
+                                                "SECTION_URL" => "",
+                                                "SECTION_USER_FIELDS" => array(
+                                                    0 => "",
+                                                    1 => "",
+                                                ),
+                                                "SHOW_PARENT_NAME" => "Y",
+                                                "TOP_DEPTH" => "1",
+                                                "VIEW_MODE" => "LINE",
+                                                "COMPONENT_TEMPLATE" => "footer-list"
                                             ),
-                                            "SECTION_ID" => "74",
-                                            "SECTION_URL" => "",
-                                            "SECTION_USER_FIELDS" => array(
-                                                0 => "",
-                                                1 => "",
-                                            ),
-                                            "SHOW_PARENT_NAME" => "Y",
-                                            "TOP_DEPTH" => "1",
-                                            "VIEW_MODE" => "LINE",
-                                            "COMPONENT_TEMPLATE" => "footer-list"
-                                        ),
-                                        false
-                                    ); ?>
+                                            false
+                                        ); ?>
+                                    </div>
                                 </div>
                                 <div class="col-9 p-4 toggle-nav_col d-flex align-items-center justify-content-around">
                                     <h4>
@@ -122,36 +124,38 @@
                                             </svg>
                                         </a>
                                     </h4>
-                                    <?
-                                    $APPLICATION->IncludeComponent(
-                                        "bitrix:catalog.section.list",
-                                        "footer-list",
-                                        array(
-                                            "ADD_SECTIONS_CHAIN" => "N",
-                                            "CACHE_GROUPS" => "Y",
-                                            "CACHE_TIME" => "36000000",
-                                            "CACHE_TYPE" => "A",
-                                            "COUNT_ELEMENTS" => "Y",
-                                            "IBLOCK_ID" => "4",
-                                            "IBLOCK_TYPE" => "catalog",
-                                            "SECTION_CODE" => "",
-                                            "SECTION_FIELDS" => array(
-                                                0 => "",
-                                                1 => "",
+                                    <div class="pl-4">
+                                        <?
+                                        $APPLICATION->IncludeComponent(
+                                            "bitrix:catalog.section.list",
+                                            "footer-list",
+                                            array(
+                                                "ADD_SECTIONS_CHAIN" => "N",
+                                                "CACHE_GROUPS" => "Y",
+                                                "CACHE_TIME" => "36000000",
+                                                "CACHE_TYPE" => "A",
+                                                "COUNT_ELEMENTS" => "Y",
+                                                "IBLOCK_ID" => "4",
+                                                "IBLOCK_TYPE" => "catalog",
+                                                "SECTION_CODE" => "",
+                                                "SECTION_FIELDS" => array(
+                                                    0 => "",
+                                                    1 => "",
+                                                ),
+                                                "SECTION_ID" => "88",
+                                                "SECTION_URL" => "",
+                                                "SECTION_USER_FIELDS" => array(
+                                                    0 => "",
+                                                    1 => "",
+                                                ),
+                                                "SHOW_PARENT_NAME" => "Y",
+                                                "TOP_DEPTH" => "1",
+                                                "VIEW_MODE" => "LINE",
+                                                "COMPONENT_TEMPLATE" => "footer-list"
                                             ),
-                                            "SECTION_ID" => "88",
-                                            "SECTION_URL" => "",
-                                            "SECTION_USER_FIELDS" => array(
-                                                0 => "",
-                                                1 => "",
-                                            ),
-                                            "SHOW_PARENT_NAME" => "Y",
-                                            "TOP_DEPTH" => "1",
-                                            "VIEW_MODE" => "LINE",
-                                            "COMPONENT_TEMPLATE" => "footer-list"
-                                        ),
-                                        false
-                                    ); ?>
+                                            false
+                                        ); ?>
+                                    </div>
                                 </div>
                                 <div class="col-3 p-4 toggle-nav_col">
                                     <h4>
@@ -171,7 +175,7 @@
                             <? $APPLICATION->IncludeComponent(
                                 "bitrix:news.list",
                                 "pamira-news-for-toggle",
-                                Array(
+                                array(
                                     "ACTIVE_DATE_FORMAT" => "d.m.Y",
                                     "ADD_SECTIONS_CHAIN" => "N",
                                     "AJAX_MODE" => "N",
@@ -191,7 +195,10 @@
                                     "DISPLAY_PICTURE" => "Y",
                                     "DISPLAY_PREVIEW_TEXT" => "Y",
                                     "DISPLAY_TOP_PAGER" => "N",
-                                    "FIELD_CODE" => array("", ""),
+                                    "FIELD_CODE" => array(
+                                        0 => "",
+                                        1 => "",
+                                    ),
                                     "FILTER_NAME" => "",
                                     "HIDE_LINK_WHEN_NO_DETAIL" => "N",
                                     "IBLOCK_ID" => "12",
@@ -210,7 +217,10 @@
                                     "PARENT_SECTION" => "173",
                                     "PARENT_SECTION_CODE" => "",
                                     "PREVIEW_TRUNCATE_LEN" => "",
-                                    "PROPERTY_CODE" => array("", ""),
+                                    "PROPERTY_CODE" => array(
+                                        0 => "",
+                                        1 => "EVENT_FOTO",
+                                    ),
                                     "SET_BROWSER_TITLE" => "N",
                                     "SET_LAST_MODIFIED" => "N",
                                     "SET_META_DESCRIPTION" => "N",
@@ -222,8 +232,10 @@
                                     "SORT_BY2" => "SORT",
                                     "SORT_ORDER1" => "DESC",
                                     "SORT_ORDER2" => "ASC",
-                                    "STRICT_SECTION_CHECK" => "N"
-                                )
+                                    "STRICT_SECTION_CHECK" => "N",
+                                    "COMPONENT_TEMPLATE" => "pamira-news-for-toggle"
+                                ),
+                                false
                             ); ?>
                         </div>
                         <div class="tab-pane fade" id="v-pills-buyers" role="tabpanel"
@@ -259,10 +271,10 @@
                                 <div class="col-9 p-3 toggle-nav_col">
                                     <div class="pills-item">
                                         <div class="d-flex">
-                                            <a href="/pokupatelyu/"><img
+                                            <a class="mt-3" href="/pokupatelyu/" style="flex:1;"><img
                                                         src="<?= SITE_TEMPLATE_PATH ?>/img/menu/menu-buyers4.jpg"
                                                         alt=""></a>
-                                            <div class="pills-item_text pl-4">
+                                            <div class="pills-item_text pl-4" style="flex:1;">
                                                 <a href="#"><h4>Помощь в выборе и часто задаваемые вопросы</h4></a>
                                             </div>
                                         </div>
@@ -344,7 +356,7 @@
                                 </div>
                                 <div class="col-12 toggle-nav_col p-3 toggle-nav_col">
                                     <div class="pills-item">
-                                        <a class="more-btn_down" href="/brendy/">
+                                        <a class="more-btn_down p-0" href="/brendy/">
                                             <span>Смотреть все</span>
                                             <svg width="30" height="42">
                                                 <use xlink:href="#icon-arrow"></use>
@@ -358,60 +370,60 @@
                              aria-labelledby="v-pills-about-tab">
                             <div class="row">
                                 <div class="col-5 p-3 toggle-nav_col">
-                                    <div class="pills-item">
+                                    <div class="pills-item d-flex flex-column justify-content-between">
                                         <div class="pills-item_text">
                                             <p class="pills-item_text_news">На сегодняшний день компания «ПАМИРА» имеет
-                                                в
-                                                своих магазинах
-                                                самую большую и современную экспозицию встраиваемой техники
-                                                в
-                                                Ростове-на-Дону и Воронеже.</p>
-                                            <a href="" class="more-btn">
-                                                <span>Подробнее</span>
+                                                в своих магазинах самую большую и современную экспозицию встраиваемой
+                                                техники
+                                                в Ростове-на-Дону и Воронеже.</p>
+                                            <a href="/tehnika/" class="more-btn">
+                                                <span>Перейти в каталог</span>
                                                 <svg width="10" height="15">
                                                     <use xlink:href="#icon-arrow"></use>
                                                 </svg>
                                             </a>
                                         </div>
-                                        <a href="#"><img src="img/menu/menu-about1.jpg" alt=""></a>
+                                        <a href="/tehnika/"><img
+                                                    src="<?= SITE_TEMPLATE_PATH ?>/img/menu/menu-about1.jpg" alt=""></a>
                                     </div>
                                 </div>
                                 <div class="col-7 p-3 toggle-nav_col">
-                                    <div class="pills-item">
+                                    <div class="pills-item d-flex flex-column justify-content-between">
                                         <div class="pills-item_text">
                                             <p class="pills-item_text_news">Компания «ПАМИРА» основана в 1998 году и на
-                                                сегодняшний день
-                                                является одной из ведущих компаний на рынке бытовой и
+                                                сегодняшний день является одной из ведущих компаний на рынке бытовой и
                                                 встраиваемой техники Ростова-на-Дону, Ставропольского края и
                                                 Воронежа.</p>
-                                            <a href="" class="more-btn">
-                                                <span>Подробнее</span>
+                                            <a href="/o-kompanii/" class="more-btn">
+                                                <span>Подробнее о компании</span>
                                                 <svg width="10" height="15">
                                                     <use xlink:href="#icon-arrow"></use>
                                                 </svg>
                                             </a>
                                         </div>
                                         <div class="d-flex">
-                                            <a href="#" class="pills-item_text_img"><img src="img/menu/menu-about2.jpg"
-                                                                                         alt=""></a>
-                                            <a href="#" class="pills-item_text_img"><img src="img/menu/menu-about3.jpg"
-                                                                                         alt=""></a>
+                                            <a href="/o-kompanii/" class="pills-item_text_img">
+                                                <img src="<?= SITE_TEMPLATE_PATH ?>/img/menu/menu-about2.jpg" alt="">
+                                            </a>
+                                            <a href="/o-kompanii/" class="pills-item_text_img">
+                                                <img src="<?= SITE_TEMPLATE_PATH ?>/img/menu/menu-about3.jpg" alt="">
+                                            </a>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-9 p-3 toggle-nav_col">
-                                    <div class="pills-item">
+                                    <div class="pills-item d-flex flex-row justify-content-between">
                                         <div class="d-flex">
-                                            <a href="#"><img src="img/menu/menu-about4.jpg" alt=""></a>
-                                            <div class="pills-item_text pl-4">
+                                            <a href="/brendy/" style="flex:1;"><img
+                                                        src="<?= SITE_TEMPLATE_PATH ?>/img/menu/menu-about4.jpg" alt=""></a>
+                                            <div class="pills-item_text pl-4" style="flex:1;">
                                                 <p class="pills-item_text_news">Мы являемся официальными партнерами
-                                                    таких
-                                                    ведущих брендов как:
+                                                    таких ведущих брендов как:
                                                     ELECTROLUX, AEG, GORENJE, ZANUSSI, WHIRLPOOL, FRANKE, FABER,
                                                     SMEG, ASKO, MIDEA, FALMEC, LIEBHERR, KUPPERSBUSCH, FULGOR,
                                                     KITCHEN AID.</p>
-                                                <a href="" class="more-btn">
-                                                    <span>Подробнее</span>
+                                                <a href="/brendy/" class="more-btn">
+                                                    <span>Подробнее о брендах</span>
                                                     <svg width="10" height="15">
                                                         <use xlink:href="#icon-arrow"></use>
                                                     </svg>
@@ -422,8 +434,8 @@
                                 </div>
                                 <div class="col-3 p-3 toggle-nav_col toggle-nav_col">
                                     <div class="pills-item">
-                                        <a class="more-btn_down" href="#">
-                                            <span>Смотреть все</span>
+                                        <a class="more-btn_down" href="/o-kompanii/">
+                                            <span>О компании</span>
                                             <svg width="30" height="42">
                                                 <use xlink:href="#icon-arrow"></use>
                                             </svg>

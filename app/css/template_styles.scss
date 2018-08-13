@@ -48,12 +48,12 @@ input[type="url"], input[type="week"] {
   @extend %hx;
   font-size: #{$font_size_h1}px;
   line-height: #{$line_height_h1}px;
-  padding: 2rem 0 0;
+  //padding: 2rem 0 0;
 
   @include mobile-all() {
     font-size: #{$font_size_h1 * 0.65}px;
     line-height: #{$line_height_h1 * 0.65}px;
-    padding: 1rem 0 0;
+    //padding: 1rem 0 0;
   }
 }
 
@@ -61,12 +61,12 @@ input[type="url"], input[type="week"] {
   @extend %hx;
   font-size: #{$font_size_h2}px;
   line-height: #{$line_height_h2}px;
-  padding: 1.5rem 0 0;
+  //padding: 1.5rem 0 0;
 
   @include mobile-all() {
     font-size: #{$font_size_h2 * 0.65}px;
     line-height: #{$line_height_h2 * 0.65}px;
-    padding: 0.75rem 0 0;
+    //padding: 0.75rem 0 0;
   }
 }
 
@@ -74,12 +74,12 @@ input[type="url"], input[type="week"] {
   @extend %hx;
   font-size: #{$font_size_h3}px;
   line-height: #{$line_height_h3}px;
-  padding: 1rem 0 0;
+  //padding: 1rem 0 0;
 
   @include mobile-all() {
-    font-size: #{$font_size_h3 * 0.65}px;
-    line-height: #{$line_height_h3 * 0.65}px;
-    padding: 0.5rem 0 0;
+    font-size: #{$font_size_h3 * 0.8}px;
+    line-height: #{$line_height_h3 * 0.8}px;
+    //padding: 0.5rem 0 0;
   }
 }
 
@@ -87,12 +87,12 @@ input[type="url"], input[type="week"] {
   @extend %hx;
   font-size: #{$font_size_h4}px;
   line-height: #{$line_height_h4}px;
-  padding: 0.5rem 0 0;
+  //padding: 0.5rem 0 0;
 
   @include mobile-all() {
     font-size: #{$font_size_h4 * 0.65}px;
     line-height: #{$line_height_h4 * 0.65}px;
-    padding: 0.25rem 0 0;
+    //padding: 0.25rem 0 0;
   }
 }
 
@@ -342,5 +342,9 @@ a {
   }
   &_padding {
     padding: 100px 0;
+
+    @include mobile-all() {
+      padding: 40px 0;
+    }
   }
 }

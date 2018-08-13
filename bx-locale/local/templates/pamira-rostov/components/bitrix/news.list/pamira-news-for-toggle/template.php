@@ -44,11 +44,18 @@ $this->setFrameMode(true);
                         <a href="<?= $arItem["DETAIL_PAGE_URL"] ?>"><h4><?= $arItem["NAME"] ?></h4></a>
                         <p><?= $arItem["PREVIEW_TEXT"]; ?></p>
                     </div>
-                    <a class="pills-item_text_img" href="<?= $arItem["DETAIL_PAGE_URL"] ?>">
-                        <img src="<?= $arItem["PREVIEW_PICTURE"]["SRC"] ?>"
-                             alt="<?= $arItem["PREVIEW_PICTURE"]["ALT"] ?>"
-                             title="<?= $arItem["PREVIEW_PICTURE"]["TITLE"] ?>"/>
-                    </a>
+                    <div class="d-flex">
+                        <a class="pills-item_text_img" href="<?= $arItem["DETAIL_PAGE_URL"] ?>">
+                            <img src="<?= $arItem["PREVIEW_PICTURE"]["SRC"] ?>"
+                                 alt="<?= $arItem["PREVIEW_PICTURE"]["ALT"] ?>"
+                                 title="<?= $arItem["PREVIEW_PICTURE"]["TITLE"] ?>"/>
+                        </a>
+                        <a class="pills-item_text_img" href="<?= $arItem["DETAIL_PAGE_URL"] ?>">
+                            <img src="<?= $arItem["DISPLAY_PROPERTIES"]["EVENT_FOTO"]["FILE_VALUE"]["0"]["SRC"] ?>"
+                                 alt="<?= $arItem["PREVIEW_PICTURE"]["ALT"] ?>"
+                                 title="<?= $arItem["PREVIEW_PICTURE"]["TITLE"] ?>"/>
+                        </a>
+                    </div>
                 </div>
             </div>
             <?
@@ -56,12 +63,12 @@ $this->setFrameMode(true);
             ?>
             <div class="col-9 p-3 toggle-nav_col">
                 <div class="pills-item d-flex flex-row justify-content-between">
-                    <a href="<?= $arItem["DETAIL_PAGE_URL"] ?>">
+                    <a class="mt-3" href="<?= $arItem["DETAIL_PAGE_URL"] ?>" style="flex:1;">
                         <img src="<?= $arItem["PREVIEW_PICTURE"]["SRC"] ?>"
                              alt="<?= $arItem["PREVIEW_PICTURE"]["ALT"] ?>"
                              title="<?= $arItem["PREVIEW_PICTURE"]["TITLE"] ?>"/>
                     </a>
-                    <div class="pills-item_text pl-5">
+                    <div class="pills-item_text pl-3" style="flex:1;">
                         <a href="<?= $arItem["DETAIL_PAGE_URL"] ?>"><h4><?= $arItem["NAME"] ?></h4></a>
                         <p><?= $arItem["PREVIEW_TEXT"]; ?></p>
                     </div>

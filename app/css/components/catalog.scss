@@ -27,6 +27,10 @@
         ul {
           padding: 0;
           margin: 30px 0 40px;
+
+          @include mobile-all() {
+            margin: 10px 0 30px;
+          }
           li {
             list-style: none;
             a {
@@ -62,11 +66,19 @@
       display: flex;
       align-items: center;
       justify-content: center;
+
+      @include mobile-all() {
+        height: 170px;
+      }
       a {
         display: block;
         padding: 35px 30px;
         height: 100%;
         width: 100%;
+
+        @include mobile-all() {
+          padding: 10px;
+        }
         img {
           height: 100%;
           width: 100%;
@@ -76,15 +88,27 @@
     }
     &_text {
       padding: 0 30px;
+
+      @include mobile-all() {
+        padding: 0 10px;
+      }
       a {
         height: 3rem;
         overflow: hidden;
+
+        @include mobile-all() {
+          font-size: 12px;
+        }
       }
     }
     &_cost {
       margin: 25px 0 20px;
       color: $color_red_middle;
       font-size: #{$font_size_h4}px;
+
+      @include mobile-all() {
+        margin: 10px 0;
+      }
     }
     &_links {
       display: flex;
@@ -93,6 +117,9 @@
       padding: 0 0 5px;
       @include descktopxxl() {
         padding: 0 30px 50px;
+      }
+      @include mobile-all() {
+        flex-direction: column;
       }
       &_icon {
         background-color: $color_gray_darkest;
@@ -130,9 +157,17 @@
     display: flex;
     justify-content: space-between;
 
+    @include mobile-all() {
+      flex-direction: column;
+    }
+
     &_img {
       width: 30%;
       text-align: center;
+
+      @include mobile-all() {
+        width: 100%;
+      }
       a {
         display: block;
         padding: 30px;
@@ -147,10 +182,19 @@
       width: 45%;
       padding: 30px;
 
+      @include mobile-all() {
+        width: 100%;
+        padding: 0 30px;
+      }
+
       a {
         color: $color_gray_middle;
         display: block;
         margin-bottom: 20px;
+        @include mobile-all() {
+          display: inline-block;
+          margin-bottom: 0;
+        }
       }
       p {
         font-size: #{$font_size_xxs}px;
@@ -164,6 +208,11 @@
       flex-direction: column;
       align-items: flex-end;
       padding: 30px;
+
+      @include mobile-all() {
+        width: 100%;
+        padding: 0 30px;
+      }
 
       .catalog-item_cost {
         margin-bottom: 15px;
@@ -236,6 +285,11 @@
         color: $color_white;
         @include transition();
 
+        @include mobile-all() {
+          padding: 15px;
+          margin-bottom: 10px;
+        }
+
         svg {
           max-height: 25px;
           max-width: 30px;
@@ -259,6 +313,10 @@
   flex-wrap: wrap;
   margin-bottom: 55px;
 
+  @include mobile-all() {
+    margin-bottom: 20px;
+  }
+
   &_item {
     display: flex;
     align-items: center;
@@ -268,6 +326,11 @@
     margin-bottom: 30px;
     svg {
       margin: 0 8px;
+    }
+    @include mobile-all() {
+      margin-right: 15px;
+      margin-bottom: 15px;
+      font-size: 12px;
     }
   }
 }

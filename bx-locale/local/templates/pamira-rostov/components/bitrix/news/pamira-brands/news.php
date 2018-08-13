@@ -125,19 +125,19 @@ $APPLICATION->IncludeFile(
                     <div class="tab-blocks_item_text">
                         <div class="d-flex flex-wrap justify-content-around">
                             <div class="tab-blocks_item_text_icons">
-                                <img src="img/icons/icon-delivery.png" alt="">
+                                <img src="<?= SITE_TEMPLATE_PATH ?>/img/icons/icon-delivery.png" alt="">
                                 <p>
                                     Лидогенератор
                                 </p>
                             </div>
                             <div class="tab-blocks_item_text_icons">
-                                <img src="img/icons/icon-map-marker.png" alt="">
+                                <img src="<?= SITE_TEMPLATE_PATH ?>/img/icons/icon-map-marker.png" alt="">
                                 <p>
                                     Навеска индивидуальной фасадной двери.
                                 </p>
                             </div>
                             <div class="tab-blocks_item_text_icons">
-                                <img src="img/icons/icon-credit-card.png" alt="">
+                                <img src="<?= SITE_TEMPLATE_PATH ?>/img/icons/icon-credit-card.png" alt="">
                                 <p>
                                     Freshbox - для фруктов и овощей.
                                 </p>

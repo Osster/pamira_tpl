@@ -11,6 +11,9 @@
 /** @var string $componentPath */
 /** @var CBitrixComponent $component */
 $this->setFrameMode(true);
+//                echo "<pre>";
+//                print_r($arResult);
+//                echo "</pre>";
 ?>
 
 <? $ElementID = $APPLICATION->IncludeComponent(
@@ -126,68 +129,77 @@ $this->setFrameMode(true);
 
 <section class="main__promo">
     <div class="container">
-        <div class="catalog-sections d-flex">
-            <div class="catalog-sections_title" style="flex:1;">
-                Каталог <?= $arResult["NAME"] ?>
-            </div>
-
-            <div class="d-flex flex-wrap" style="flex:7;">
-
-                <?
-                // Получаем все разделы, элементы которых связаны с брендом
-                $el_ids = [];
-                $catid = [];
-                $arFilter = Array("IBLOCK_ID" => 4, "PROPERTY_MANUFACTURER" => $ElementID, "ACTIVE" => "Y");
-                $arSelectFields = Array("ID");
-                $el_idres = CIBlockElement::GetList(Array(), $arFilter, false, false, $arSelectFields);
-
-                while ($ob = $el_idres->GetNext()) {
-                    $el_ids[$ob["ID"]] = $ob["ID"];
-                }
-
-                $cat_idres = CIBlockElement::GetElementGroups($el_ids, false, ["ID"]);
-
-                while ($ob = $cat_idres->GetNext()) {
-                    $catid[$ob["ID"]] = $ob["ID"];
-                }
-
-                //                echo "<pre>";
-                //                print_r($el_ids);
-                //                echo "</pre>";
-
-                $sArOrder = Array("SORT" => "­­ASC");
-                $sArFilter = Array("IBLOCK_ID" => 4, "ID" => $catid);
-                $sArSelect = Array("NAME", "SECTION_PAGE_URL", "UF_ICON_ID");
-                $sArRes = CIBlockSection::GetList($sArOrder, $sArFilter, false, $sArSelect);
-
-                while ($arSection = $sArRes->GetNext()) {
-                    $rsSectionIconId = CUserFieldEnum::GetList(array(), array("ID" => $arSection["UF_ICON_ID"]));
-                    if ($arSection["UF_ICON_ID"] && $arSectionIconId = $rsSectionIconId->GetNext()) {
-                        echo "<pre>";
-                        print_r($arSectionIconId);
-                        echo "</pre>";
-                        ?>
-                        <a class="catalog-sections_items" href="<?= $arSection["SECTION_PAGE_URL"] ?>"
-                           title="<?= $arSection["NAME"] ?>">
-                            <svg width="50" height="52" data-toggle="tooltip" data-placement="left"
-                                 title="<?= $arSectionIconId["VALUE"] ?>">
-                                <use xlink:href="#<?= $arSectionIconId["XML_ID"] ?>"></use>
-                            </svg>
-                        </a>
-                        <?php
-                    } else {
-                        ?>
-                        <a class="catalog-sections_items" href="<?= $arSection["SECTION_PAGE_URL"] ?>"
-                           title="<?= $arSection["NAME"] ?>">
-                            <?= $arSection["NAME"] ?>
-                        </a>
-                        <?php
-                    }
-                }
-                ?>
-
-            </div>
+        <div class="main__promo_heading">
+            <h2>Каталог продукции <?= $arResult["NAME"] ?></h2>
         </div>
+
+        <div class="row">
+
+            <?
+            // Получаем все разделы, элементы которых связаны с брендом
+            $el_ids = []; //перечень всех товаров производителя
+            $catid = []; //перечень категорий производителя
+            $arFilter = Array("IBLOCK_ID" => 4, "PROPERTY_MANUFACTURER" => $ElementID, "ACTIVE" => "Y");
+            $arSelectFields = Array("ID");
+            $el_idres = CIBlockElement::GetList(Array(), $arFilter, false, false, $arSelectFields);
+
+            while ($ob = $el_idres->GetNext()) {
+                $el_ids[$ob["ID"]] = $ob["ID"];
+            }
+
+            $cat_idres = CIBlockElement::GetElementGroups($el_ids, false, ["ID"]);
+
+            while ($ob = $cat_idres->GetNext()) {
+                $catid[$ob["ID"]] = $ob["ID"];
+            }
+
+            //                echo "<pre>";
+            //                print_r($catid);
+            //                echo "</pre>";
+
+            $sArOrder = Array("SORT" => "­­ASC");
+            $sArFilter = Array("IBLOCK_ID" => 4, "ID" => $catid, "DEPTH_LEVEL" => 2);
+            $sArSelect = Array("NAME", "SECTION_PAGE_URL", "PICTURE");
+            $sArRes = CIBlockSection::GetList($sArOrder, $sArFilter, false, $sArSelect);
+
+            while ($arSection = $sArRes->GetNext()) {
+
+                $arSection["PICTURE_SRC"] = CFile::GetPath($arSection["PICTURE"]);
+//                    echo "<pre>";
+//                    print_r($arSection);
+//                    echo "</pre>";
+                if ($arSection["PICTURE"] > 0) {
+                    ?>
+                    <div class="col-3">
+                        <div class="catalog-sections_items_full">
+                            <a href="<?= $arSection["SECTION_PAGE_URL"] ?>filter/manufacturer-is-<?= $arResult["CODE"] ?>/"
+                               title="<?= $arSection["NAME"] ?>">
+                                <img src="<?= $arSection["PICTURE_SRC"] ?>" alt="<?= $arSection["NAME"] ?>">
+                            </a>
+                            <a href="<?= $arSection["SECTION_PAGE_URL"] ?>filter/manufacturer-is-<?= $arResult["CODE"] ?>/"
+                               title="<?= $arSection["NAME"] ?>">
+                                <?= $arSection["NAME"] ?>
+                            </a>
+                        </div>
+                    </div>
+                    <?
+                } else {
+                    ?>
+                    <div class="col-3">
+                        <div class="catalog-sections_items_full">
+                            <a href="<?= $arSection["SECTION_PAGE_URL"] ?>filter/manufacturer-is-<?= $arResult["CODE"] ?>/"
+                               title="<?= $arSection["NAME"] ?>">
+                                <?= $arSection["NAME"] ?>
+                            </a>
+                        </div>
+                    </div>
+                    <?php
+                }
+            }
+            ?>
+
+        </div>
+    </div>
     </div>
 </section>
 
