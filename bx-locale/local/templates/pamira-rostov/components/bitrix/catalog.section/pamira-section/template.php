@@ -168,42 +168,49 @@ if (isset($_REQUEST["ORDER"]) && preg_match('/^(NAME|PRICE|RATING)\:/', $_REQUES
 }
 
 
-if(CModule::IncludeModule('asd.favorite')) {
-    foreach($arResult["ITEMS"] as $cell=>$arElement){
+if (CModule::IncludeModule('asd.favorite')) {
+    foreach ($arResult["ITEMS"] as $cell => $arElement) {
         $arIDs[] = $arElement['ID'];
     }
     $arFavs = CASDfavorite::GetLikesAndFavedByElementID($arIDs);
 }
 
 ?>
+<div class="row">
+    <div class="col-12 p-0 mb-3">
 
-<div class="wr-filter">
-    <div class="catalog-filter_res">
-        <div class="catalog-filter_res_total">
-            <p>Всего товаров: <?= IntVal($arResult["ACTIVE_ELEMENTS_COUNT"]) ?></p>
+        <div class="wr-filter">
+            <div class="catalog-filter_res">
+                <div class="catalog-filter_res_total">
+                    <p>Всего товаров: <?= IntVal($arResult["ACTIVE_ELEMENTS_COUNT"]) ?></p>
+                </div>
+                <div class="catalog-filter_res_sort">
+                    <p>Сортировать</p>
+                    <a href="?ORDER=NAME:<?= $SECTION_ORDER_DIR == 'ASC' ? 'DESC' : 'ASC' ?>"
+                       class="btn <?= $SECTION_ORDER_FIELD == 'NAME' ? 'active' : '' ?>">по наименованию</a>
+                    <a href="?ORDER=PRICE:<?= $SECTION_ORDER_DIR == 'ASC' ? 'DESC' : 'ASC' ?>"
+                       class="btn <?= $SECTION_ORDER_FIELD == 'PRICE' ? 'active' : '' ?>">по цене</a>
+                    <a href="?ORDER=RATING:<?= $SECTION_ORDER_DIR == 'ASC' ? 'DESC' : 'ASC' ?>"
+                       class="btn <?= $SECTION_ORDER_FIELD == 'RATING' ? 'active' : '' ?>">по популярности</a>
+                </div>
+                <div class="catalog-filter_res_view">
+                    <p>Вид</p>
+                    <a class="<?= $SECTION_VIEW_TYPE == 'line' ? 'active' : '' ?>" href="?TYPE=line">
+                        <svg width="40" height="40" data-toggle="tooltip" data-placement="left" title="Список">
+                            <use xlink:href="#icon-list"></use>
+                        </svg>
+                    </a>
+                    <a class="<?= $SECTION_VIEW_TYPE == 'card' ? 'active' : '' ?>" href="?TYPE=card">
+                        <svg width="40" height="40" data-toggle="tooltip" data-placement="left" title="Блоки">
+                            <use xlink:href="#icon-blocks"></use>
+                        </svg>
+                    </a>
+                </div>
+            </div>
         </div>
-        <div class="catalog-filter_res_sort">
-            <p>Сортировать</p>
-            <a href="?ORDER=NAME:<?= $SECTION_ORDER_DIR == 'ASC' ? 'DESC' : 'ASC' ?>" class="btn <?= $SECTION_ORDER_FIELD == 'NAME' ? 'active': '' ?>">по наименованию</a>
-            <a href="?ORDER=PRICE:<?= $SECTION_ORDER_DIR == 'ASC' ? 'DESC' : 'ASC' ?>" class="btn <?= $SECTION_ORDER_FIELD == 'PRICE' ? 'active': '' ?>">по цене</a>
-            <a href="?ORDER=RATING:<?= $SECTION_ORDER_DIR == 'ASC' ? 'DESC' : 'ASC' ?>" class="btn <?= $SECTION_ORDER_FIELD == 'RATING' ? 'active': '' ?>">по популярности</a>
-        </div>
-        <div class="catalog-filter_res_view">
-            <p>Вид</p>
-            <a class="<?= $SECTION_VIEW_TYPE == 'line' ? 'active' : ''?>" href="?TYPE=line">
-                <svg width="40" height="40" data-toggle="tooltip" data-placement="left" title="Список">
-                    <use xlink:href="#icon-list"></use>
-                </svg>
-            </a>
-            <a class="<?= $SECTION_VIEW_TYPE == 'card' ? 'active' : ''?>" href="?TYPE=card">
-                <svg width="40" height="40" data-toggle="tooltip" data-placement="left" title="Блоки">
-                    <use xlink:href="#icon-blocks"></use>
-                </svg>
-            </a>
-        </div>
+
     </div>
 </div>
-
 <div class="catalog-section <?= ($SECTION_VIEW_TYPE == 'card') ? 'catalog-plitka' : 'catalog-list' ?>"
      data-entity="<?= $containerName ?>">
     <div class="row">
@@ -227,7 +234,7 @@ if(CModule::IncludeModule('asd.favorite')) {
                 <?
                 foreach ($rowItems as $item) {
                     ?>
-                    <div class="col-12 p-1 <?= ($SECTION_VIEW_TYPE == 'card') ? 'col-md-4' : '' ?>"
+                    <div class="p-1 <?= ($SECTION_VIEW_TYPE == 'card') ? 'col-6 col-md-4' : 'col-12' ?>"
                          data-entity="items-row">
                         <?
                         $APPLICATION->IncludeComponent(

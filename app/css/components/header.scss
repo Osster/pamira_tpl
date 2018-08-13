@@ -8,6 +8,8 @@ header {
 
   @include mobile-all() {
     position: fixed;
+    top: 0;
+    background-color: $color_white_dirty_opacity50;
   }
 
   .container {
@@ -385,6 +387,7 @@ header {
 
   &_col {
     border: 1px solid $color_white_dirty;
+    padding: 20px;
     @include transition();
 
     a {
@@ -392,7 +395,10 @@ header {
     }
 
     h4 {
-      margin-bottom: 45px;
+      margin-bottom: 25px;
+      @include descktopxxl() {
+        margin-bottom: 45px;
+      }
 
       a {
         color: $color_gray_lighter;
@@ -424,7 +430,7 @@ header {
       text-decoration: none;
     }
     &_text {
-      margin-bottom: 30px;
+      margin-bottom: 10px;
       h4 {
         font-weight: normal;
         margin-bottom: 15px;
@@ -450,7 +456,8 @@ header {
     }
 
     img {
-      max-width: 100%;
+      width: 100%;
+      height: 140px;
       object-fit: cover;
     }
 

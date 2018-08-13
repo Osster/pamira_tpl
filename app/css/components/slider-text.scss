@@ -5,7 +5,11 @@
     width: 100%;
   }
   .slider-h500 {
-    height: 500px;
+    height: 420px;
+
+    @include descktopxxl() {
+      height: 500px;
+    }
   }
   .slider-h700 {
     height: 700px;

@@ -117,8 +117,7 @@
       line-height: 22px;
       color: $color_gray_ligten;
       padding: 13px 20px;
-      //@extend %hx;
-      //@extend .small;
+
       @include media((
               border-top: (all: 1px solid $color_gray_ligten),
               background-color: (all: $color_gray_darken),
@@ -135,8 +134,6 @@
         font-weight: 400;
         min-height: 40px;
         line-height: 22px;
-        //@extend %hx;
-        //@extend .small;
 
         @include media((
                 border-top: (all: 1px solid $color_gray_ligten),
@@ -151,7 +148,6 @@
           position: relative;
           top: 0;
           left: 0;
-          height: 50px;
           width: calc(100% - 40px);
         }
 
@@ -176,7 +172,6 @@
                     padding: (all: 0 0 0 1rem),
                     border-top: (all: 1px solid $color_gray_ligten),
                     background-color: (all: $color_gray_middle),
-                    height: (all: 50px)
             ));
 
             a {

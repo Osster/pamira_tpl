@@ -220,7 +220,7 @@ if (empty($arResult['ERROR_MESSAGE'])) {
         ) {
             ?>
             <div class="row">
-                <div class="col-12" data-entity="basket-total-block"></div>
+                <div class="col-12 mb-4" data-entity="basket-total-block"></div>
             </div>
             <?
         }

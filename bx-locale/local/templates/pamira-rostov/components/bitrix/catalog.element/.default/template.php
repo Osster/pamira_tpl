@@ -441,13 +441,14 @@ if (!empty($arParams['LABEL_PROP_POSITION'])) {
                            href="#navtab02"
                            aria-controls="navtab02"
                            aria-selected="false">ТЕХНИЧЕСКИЕ ХАРАКТЕРИСТИКИ</a>
-
+                        <?php if (count($arResult["ACCESORIES"]) > 0): ?>
                         <a class="nav-link"
                            id="tabmenu03"
                            data-toggle="tab" role="tab"
                            href="#navtab03"
                            aria-controls="navtab03"
                            aria-selected="false">АКСЕССУАРЫ</a>
+                        <?php endif ?>
                     </div>
                 </nav>
             </div>
@@ -476,78 +477,52 @@ if (!empty($arParams['LABEL_PROP_POSITION'])) {
                         </div>
 
                     </div>
-                    <div class="tab-pane fade" id="navtab03" role="tabpanel" aria-labelledby="tabmenu03">
 
-                        <div class="tab-blocks_item">
-                            <div class="tab-blocks_item_text">
-                                <div class="text-center mb-5">
-                                    <h2 class="mb-5">ЗАГОЛОВОК</h2>
-                                    <p>Мы устраиваем чудесные мастер-классы, на которых вы можете попробовать себя в
-                                        новом стиле
-                                        готовки, а также на нашей активной кухне! Благодаря акциям и распродажам можно
-                                        позволить
-                                        себе больше, чем когда-либо хотелось!</p>
-                                </div>
+                    <?php if (count($arResult["ACCESORIES"]) > 0): ?>
+                        <div class="tab-pane fade" id="navtab03" role="tabpanel" aria-labelledby="tabmenu03">
 
-                                <div class="row">
-                                    <div class="col-12 mb-5">
-                                        <div class="card-item card-item_light card-item_transp">
-                                            <div class="card-item_img">
-                                                <img src="<?= SITE_TEMPLATE_PATH ?>/img/single-items/62ca9504fe8fad74173e2d5af573a80d.jpg"
-                                                     alt="">
-                                            </div>
-                                            <div class="card-item_text">
-                                                <div class="card-item_text_inner">
-                                                    <h2>Заголовок</h2>
-                                                    <p>Покупатель обязан принять технику в течение 10-ти дней с момента
-                                                        извещения
-                                                        покупателя о наличии товара на складе Продавца.</p>
-                                                    <p>Установку и подключение техники, а также консультации по ее
-                                                        эксплуатации
-                                                        сотрудники службы доставки не производят.</p>
-                                                    <p>При получении техники покупатель должен внимательно осмотреть ее
-                                                        внешний
-                                                        вид, проверить наличие гарантийных талонов, инструкций по
-                                                        эксплуатации на
-                                                        русском языке и расписаться в накладной.</p>
+                            <div class="tab-blocks_item">
+                                <div class="tab-blocks_item_text">
+
+                                    <div class="catalog-section catalog-plitka" data-entity="container-1">
+                                        <div class="row">
+                                            <!-- items-container -->
+                                            <?php
+                                            foreach ($arResult["ACCESORIES"] as $arAcessory) {
+                                                ?>
+                                                <div class="col-6 p-1 col-md-4" data-entity="items-row">
+
+                                                    <div class="h-100" data-entity="item">
+                                                        <div class="catalog-item product-item pb-4"
+                                                             style="background-color: #333;">
+                                                            <div class="catalog-item_img">
+                                                                <a href="<?= $arAcessory['DETAIL_PAGE_URL'] ?>"
+                                                                   title="<?= $arAcessory["NAME"] ?>"
+                                                                   data-entity="image-wrapper">
+                                                                    <img src="<?= $arAcessory['PREVIEW_PICTURE']['SRC'] ?>"
+                                                                         alt="<?= $imgTitle ?>">
+                                                                </a>
+                                                            </div>
+                                                            <div class="catalog-item_text product-item-title">
+                                                                <a href="<?= $arAcessory['DETAIL_PAGE_URL'] ?>"
+                                                                   title="<?= $arAcessory["NAME"] ?>"
+                                                                   style="color: #ddd;"><?= $arAcessory["NAME"] ?></a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
                                                 </div>
-                                            </div>
+                                                <?php
+                                            }
+                                            ?>
+                                            <!-- items-container -->
                                         </div>
                                     </div>
-                                    <div class="col-12 mb-5">
-                                        <div class="card-item card-item_light card-item_transp card-item_transp_right">
-                                            <div class="card-item_img">
-                                                <img src="<?= SITE_TEMPLATE_PATH ?>/img/single-items/shutterstock_171790418.jpg"
-                                                     alt="">
-                                            </div>
-                                            <div class="card-item_text">
-                                                <div class="card-item_text_inner">
-                                                    <h2>Заголовок</h2>
-                                                    <p>Если покупателя в момент доставки, указанном им, не оказалось
-                                                        дома,
-                                                        то
-                                                        экспедиторы ожидают 15 минут, оставив уведомление о доставке.
-                                                        Повторная
-                                                        бесплатная доставка не осуществляется.</p>
-                                                    <p>В случае возникновения вопросов при получении техники, просьба
-                                                        обращаться к
-                                                        менеджеру, либо администратору салона, где была приобретена
-                                                        техника.
-                                                        После
-                                                        принятия техники претензии по ее внешнему виду не
-                                                        принимаются.</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
                                 </div>
 
                             </div>
-
                         </div>
-                    </div>
-
+                    <?php endif ?>
 
                 </div>
             </div>

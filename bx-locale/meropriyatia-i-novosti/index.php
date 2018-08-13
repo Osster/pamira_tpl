@@ -57,7 +57,7 @@ $APPLICATION->SetTitle("Наши мероприятия");
         "PREVIEW_TRUNCATE_LEN" => "",
         "SEF_FOLDER" => "/meropriyatia-i-novosti/",
         "SEF_MODE" => "Y",
-        "SEF_URL_TEMPLATES" => Array("detail" => "#ELEMENT_CODE#/", "news" => "", "section" => "#SECTION_CODE_PATH#/"),
+        "SEF_URL_TEMPLATES" => Array("detail" => "#ELEMENT_CODE#/", "news" => "", "section" => "#SECTION_CODE#/"),
         "SET_LAST_MODIFIED" => "N",
         "SET_STATUS_404" => "N",
         "SET_TITLE" => "N",
@@ -75,8 +75,7 @@ $APPLICATION->SetTitle("Наши мероприятия");
         "USE_REVIEW" => "N",
         "USE_RSS" => "N",
         "USE_SEARCH" => "N",
-        "USE_SHARE" => "N",
-        "COMPONENT_TEMPLATE" => "pamira-news",
+        "USE_SHARE" => "N"
     )
 ); ?>
 <?
@@ -85,5 +84,4 @@ $APPLICATION->IncludeFile(
     Array(),
     Array("MODE" => "html")
 );
-?>
-<? require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/footer.php"); ?>
+?><? require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/footer.php"); ?>

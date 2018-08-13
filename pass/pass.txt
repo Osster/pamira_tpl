@@ -1,0 +1,6 @@
+admin / AkyikMicvenfan8
+
+Доступ по FTP/SSH
+IP: 92.53.114.201
+Хост: bitrix148.timeweb.ru
+Логин: cm31727

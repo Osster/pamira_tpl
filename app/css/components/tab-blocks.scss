@@ -1,5 +1,5 @@
 .wr-top-photo {
-  height: 600px;
+  height: 400px;
   -webkit-background-size: cover;
   background-size: cover;
   background-repeat: no-repeat;
@@ -26,6 +26,9 @@
   &_single {
     background-image: url(../img/slides/home-slideshow01.jpg);
     height: 350px;
+    @include mobile-all() {
+      height: 150px;
+    }
   }
 }
 
@@ -51,7 +54,7 @@
     .nav-link {
       flex: 1;
       padding: 40px;
-      height: 180px;
+      height: 140px;
       font-size: #{$font_size_h3}px;
       background-color: $color_gray_darken_opacity45;
       color: $color_white;
@@ -70,7 +73,7 @@
       }
 
       &.active {
-        height: 210px;
+        height: 170px;
         padding: 70px 40px 40px;
         background-color: #fff;
         color: $color_gray_middle;
@@ -170,6 +173,10 @@
         margin: 0;
         padding: 0;
         width: 50%;
+
+        @include mobile-all() {
+          width: 100%;
+        }
 
         .tab-blocks_item_text_li {
           border-bottom: 1px solid $color_gray_lighter;

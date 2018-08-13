@@ -118,7 +118,7 @@ $arParams["ELEMENT_SORT_ORDER"] = $SECTION_ORDER_DIR;
                     );
                     ?>
                     <? if ($isFilter): ?>
-                        <div class="col-12<?=(isset($arParams['FILTER_HIDE_ON_MOBILE']) && $arParams['FILTER_HIDE_ON_MOBILE'] === 'Y' ? ' hidden-xs' : '')?>">
+                        <div class="col-12">
                             <?
                             $APPLICATION->IncludeComponent(
                                 "bitrix:catalog.smart.filter",
@@ -153,31 +153,8 @@ $arParams["ELEMENT_SORT_ORDER"] = $SECTION_ORDER_DIR;
                             ?>
                         </div>
                     <? endif ?>
-                    <div class="col-12">
-                        <?
-                        if (ModuleManager::isModuleInstalled("sale"))
-                        {
-                            $arRecomData = array();
-                            $recomCacheID = array('IBLOCK_ID' => $arParams['IBLOCK_ID']);
-                            $obCache = new CPHPCache();
-                            if ($obCache->InitCache(36000, serialize($recomCacheID), "/sale/bestsellers"))
-                            {
-                                $arRecomData = $obCache->GetVars();
-                            }
-                            elseif ($obCache->StartDataCache())
-                            {
-                                if (Loader::includeModule("catalog"))
-                                {
-                                    $arSKU = CCatalogSku::GetInfoByProductIBlock($arParams['IBLOCK_ID']);
-                                    $arRecomData['OFFER_IBLOCK_ID'] = (!empty($arSKU) ? $arSKU['IBLOCK_ID'] : 0);
-                                }
-                                $obCache->EndDataCache($arRecomData);
-                            }
 
-                        }
-                        ?>
-                    </div>
-                    <div class="col-12">
+                    <div class="col-12 p-0">
                         <?
 
                         /*if ($arParams["USE_COMPARE"] === "Y")

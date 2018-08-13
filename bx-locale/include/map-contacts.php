@@ -2,14 +2,14 @@
     <div class="container">
         <nav>
             <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                <a class="nav-link active"
+                <a class="nav-link active map_rostov"
                    id="tabmenu01"
                    data-toggle="tab" role="tab"
                    href="#navtab01"
                    aria-controls="navtab01"
                    aria-selected="true">РОСТОВ-НА-ДОНУ</a>
 
-                <a class="nav-link"
+                <a class="nav-link map_voronezh"
                    id="tabmenu02"
                    data-toggle="tab" role="tab"
                    href="#navtab02"
@@ -55,7 +55,8 @@
                                 Троллейбусная 24/2В<br/>
                                 <a href="tel:+7 (863) 300-52-97">+7 (863) 300-52-97</a><br/>
                                 Время работы:<br/>
-                                ПН-ПТ 10:00-18:00</p>
+                                ПН-ПТ 10:00-18:00<br/>
+                                <a href="mailto:glavbuh@pamira.ru">glavbuh@pamira.ru</a></p>
                         </div>
                         <div class="col">
                             <p>Склад:</p>
@@ -67,11 +68,11 @@
                         </div>
                     </div>
                 </div>
-
             </div>
             <div class="tab-pane fade" id="navtab02" role="tabpanel" aria-labelledby="tabmenu02">
 
                 <div class="tab-blocks_item">
+                    <h2 class="tab-blocks_item_title">просп. Революции, 11, Воронеж</h2>
                     <div class="tab-blocks_item_text d-flex justify-content-start">
                         <div class="mr-5 col">
                             <p>Розничный отдел:</p>

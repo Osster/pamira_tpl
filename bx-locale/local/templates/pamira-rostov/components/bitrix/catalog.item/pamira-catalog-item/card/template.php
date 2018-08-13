@@ -63,39 +63,41 @@ use \Bitrix\Main\Localization\Loc;
         </div>
     </div>
     <div class="catalog-item_links">
-        <?
-        if (
-            $arParams['DISPLAY_COMPARE']
-            && (!$haveOffers || $arParams['PRODUCT_DISPLAY_MODE'] === 'Y')
-        ) {
-            ?>
-            <span class="catalog-item_links_icon" id="<?= $itemIds['COMPARE_LINK'] ?>"
-                  data-id="<?= $item['ID'] ?>"
-                  data-toggle="tooltip" data-placement="left"
-                  title="Сравнение">
+        <div class="d-flex mb-2 mb-md-0">
+            <?
+            if (
+                $arParams['DISPLAY_COMPARE']
+                && (!$haveOffers || $arParams['PRODUCT_DISPLAY_MODE'] === 'Y')
+            ) {
+                ?>
+                <span class="catalog-item_links_icon" id="<?= $itemIds['COMPARE_LINK'] ?>"
+                      data-id="<?= $item['ID'] ?>"
+                      data-toggle="tooltip" data-placement="left"
+                      title="Сравнение">
                 <input class="d-none" type="checkbox" data-entity="compare-checkbox">
                 <svg>
                     <use xlink:href="#compare-svg"></use>
                 </svg>
             </span>
-            <?
-        }
-        ?>
+                <?
+            }
+            ?>
 
-        <a class="catalog-item_links_icon add-to-fav"
-           data-id="<?= $item['ID'] ?>"
-           data-name="<?= $productTitle?>"
-           data-pic="<?= $item['PREVIEW_PICTURE']['SRC'] ?>"
-           data-url="<?= $item['DETAIL_PAGE_URL'] ?>"
-           data-price="<?= $price['PRINT_RATIO_PRICE'] ?>"
-           data-toggle="tooltip"
-           data-placement="left"
-           title="Избранное"
-        >
-            <svg>
-                <use xlink:href="#favorites-svg"></use>
-            </svg>
-        </a>
+            <a class="catalog-item_links_icon add-to-fav"
+               data-id="<?= $item['ID'] ?>"
+               data-name="<?= $productTitle ?>"
+               data-pic="<?= $item['PREVIEW_PICTURE']['SRC'] ?>"
+               data-url="<?= $item['DETAIL_PAGE_URL'] ?>"
+               data-price="<?= $price['PRINT_RATIO_PRICE'] ?>"
+               data-toggle="tooltip"
+               data-placement="left"
+               title="Избранное"
+            >
+                <svg>
+                    <use xlink:href="#favorites-svg"></use>
+                </svg>
+            </a>
+        </div>
 
         <?
         if (!$haveOffers) {

@@ -111,7 +111,7 @@ $APPLICATION->SetTitle("Техника");
         "HIDE_NOT_AVAILABLE_OFFERS" => "N",
         "IBLOCK_ID" => "4",
         "IBLOCK_TYPE" => "catalog",
-        "INCLUDE_SUBSECTIONS" => "Y",
+        "INCLUDE_SUBSECTIONS" => "N",
         "INSTANT_RELOAD" => "Y",
         "LABEL_PROP" => array(),
         "LAZY_LOAD" => "N",

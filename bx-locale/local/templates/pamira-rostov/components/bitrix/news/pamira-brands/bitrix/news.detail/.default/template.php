@@ -75,8 +75,8 @@ while ($ob = $brandSlider_res->GetNextElement()) {
                                                         echo '...';
                                                     }
                                                 } else {
-                                                    echo substr($b_slider_item['DETAIL_TEXT'], 0, 420);
-                                                    if (strlen($b_slider_item["DETAIL_TEXT"]) > 420) {
+                                                    echo substr($b_slider_item['DETAIL_TEXT'], 0, 320);
+                                                    if (strlen($b_slider_item["DETAIL_TEXT"]) > 320) {
                                                         echo '...';
                                                     }
                                                 }
@@ -143,7 +143,6 @@ if (!$arResult["PREVIEW_TEXT"] == 0 or !$arResult["DETAIL_TEXT"] == 0) {
             </div>
 
             <div class="d-flex flex-wrap" style="flex:7;">
-
                 <?
                 // Получаем все разделы, элементы которых связаны с брендом
                 $el_ids = [];
@@ -176,10 +175,11 @@ if (!$arResult["PREVIEW_TEXT"] == 0 or !$arResult["DETAIL_TEXT"] == 0) {
                     $rsSectionIconId = CUserFieldEnum::GetList(array(), array("ID" => $arSection["UF_ICON_ID"]));
                     if ($arSection["UF_ICON_ID"] && $arSectionIconId = $rsSectionIconId->GetNext()) {
 //        echo "<pre>";
-//        print_r($arSectionIconId);
+//        print_r($arSection);
 //        echo "</pre>";
                         ?>
-                        <a class="catalog-sections_items" href="<?= $arSection["SECTION_PAGE_URL"] ?>"
+                        <a class="catalog-sections_items"
+                           href="<?= $arSection["SECTION_PAGE_URL"] ?>filter/manufacturer-is-<?= $arResult["CODE"] ?>/"
                            title="<?= $arSection["NAME"] ?>">
                             <svg width="50" height="52" data-toggle="tooltip" data-placement="left"
                                  title="<?= $arSectionIconId["VALUE"] ?>">
@@ -189,7 +189,8 @@ if (!$arResult["PREVIEW_TEXT"] == 0 or !$arResult["DETAIL_TEXT"] == 0) {
                         <?php
                     } else {
                         ?>
-                        <a class="catalog-sections_items" href="<?= $arSection["SECTION_PAGE_URL"] ?>"
+                        <a class="catalog-sections_items"
+                           href="<?= $arSection["SECTION_PAGE_URL"] ?>filter/manufacturer-is-<?= $arResult["CODE"] ?>/"
                            title="<?= $arSection["NAME"] ?>">
                             <?= $arSection["NAME"] ?>
                         </a>

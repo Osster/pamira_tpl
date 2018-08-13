@@ -310,6 +310,7 @@ if ($elementId > 0) {
             ["ID"]
         );
 
+
         while ($ar_slider = $elem_slider_res->Fetch()) {
             $ar_slider_ids[] = $ar_slider["ID"];
         }
@@ -359,9 +360,9 @@ if ($elementId > 0) {
                 $sliderElement['PROPERTY_SLIDE_2_FOTO_VALUE_SRC'] = CFile::GetPath($sliderElement['PROPERTY_SLIDE_2_FOTO_VALUE']);
                 $sliderElement['PROPERTY_SLIDE_3_FOTO_VALUE_SRC'] = CFile::GetPath($sliderElement['PROPERTY_SLIDE_3_FOTO_VALUE']);
 
-                //                        echo "<pre>";
-                //                        print_r(["sliderElement", $sliderElement]);
-                //                        echo "</pre>";
+//                echo "<pre>";
+//                print_r(["sliderElement", $sliderElement]);
+//                echo "</pre>";
 
                 ?>
                 <!-- Slider main container -->

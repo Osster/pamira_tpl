@@ -57,7 +57,7 @@ $APPLICATION->IncludeComponent(
 
             <div class="container">
                 <div class="row footer-top">
-                    <div class="col-lg-6">
+                    <div class="col-12 col-lg-6">
                         <div class="footer-top__titel"><a href="/tehnika/">Каталог</a></div>
 
                         <ul class="footer-top__menu ">
@@ -169,7 +169,7 @@ $APPLICATION->IncludeComponent(
                             </li>
                         </ul>
                     </div>
-                    <div class="col-lg-6">
+                    <div class="col-12 col-lg-6">
                         <div class="footer-top__titel"><a href="/o-kompanii/">О компании</a></div>
                         <ul class="footer-top__menu" style="flex: 2;">
                             <li class="footer-top__menu_item">

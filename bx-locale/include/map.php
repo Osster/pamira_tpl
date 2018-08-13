@@ -5,11 +5,11 @@
             <? if (!preg_match("/^\/kontakty/", $APPLICATION->GetCurPage(false))): ?>
                 <div class="container">
                     <div class="row h-100">
-                        <div class="col-12 col-lg-3">
+                        <div class="col-12 col-lg-4">
                             <div class="map_menu">
                                 <h2>Где нас найти?</h2>
                                 <div class="map-item active">
-                                    <h3 class="map-item_label">Ростов-на-дону</h3>
+                                    <h3 class="map-item_label map_rostov">Ростов-на-дону</h3>
                                     <div class="map-item_content">
                                         <div class="map-item_text">
                                             <p>Красноармейская 63/90<br/>
@@ -47,10 +47,11 @@
                                     </div>
                                 </div>
                                 <div class="map-item">
-                                    <h3 class="map-item_label">Воронеж</h3>
+                                    <h3 class="map-item_label map_voronezh">Воронеж</h3>
                                     <div class="map-item_content">
                                         <div class="map-item_text">
-                                            <p>Розница:</p>
+                                            <p>просп. Революции, 11<br/>
+                                                Розница:</p>
                                             <p class="pl-3"><a href="tel:+7(473)253-30-20">+7 (473) 253-30-20</a><br/>
                                                 Время работы:<br/>
                                                 ПН-СБ 10:00-19:00<br/>

@@ -2,23 +2,23 @@
     <section class="pushNav__header">
         <ul class="pushNav__header__list">
             <li>
-                <a class="#">
+                <a href="#">
                     <svg width="28" height="28">
                         <use xlink:href="#favorites-svg"></use>
                     </svg>
                 </a>
             </li>
             <li>
-                <a class="#">
+                <a href="/tehnika/compare/">
                     <svg width="28" height="28">
                         <use xlink:href="#compare-svg"></use>
                     </svg>
                 </a>
             </li>
             <li>
-                <a class="#">
+                <a href="/cart/">
                     <svg width="28" height="28">
-                        <use xlink:href="#login-svg"></use>
+                        <use xlink:href="#cart-svg"></use>
                     </svg>
                 </a>
             </li>
@@ -49,88 +49,111 @@
         </ul>
     </section>
     <section class="pushNav__content">
-        <div class="pushNav__content__title">Каталог</div>
+        <div class="pushNav__content__title">
+            <a href="/tehnika/">Каталог</a></div>
 
         <ul class="pushNav__content__nav">
             <li class="pushNav__content__nav__item">
-                <a href="#">Сантехника</a>
-                <ul>
-                    <li class="">
-                        <a href="#">Кухонные мойки</a>
-                    </li>
-                    <li class="">
-                        <a href="#">Смесители</a>
-                    </li>
-                    <li class="">
-                        <a href="#">Дозаторы</a>
-                    </li>
-                    <li class="">
-                        <a href="#">Измельчители</a>
-                    </li>
-                    <li class="">
-                        <a href="#">Сортеры</a>
-                    </li>
-                    <li class="">
-                        <a href="#">Аксессуары</a>
-                    </li>
-                </ul>
+                <a href="/tehnika/tekhnika-dlya-kukhni/">Техника для кухни</a>
+                <?
+                $APPLICATION->IncludeComponent(
+                    "bitrix:catalog.section.list",
+                    "footer-list",
+                    array(
+                        "ADD_SECTIONS_CHAIN" => "N",
+                        "CACHE_GROUPS" => "Y",
+                        "CACHE_TIME" => "36000000",
+                        "CACHE_TYPE" => "A",
+                        "COUNT_ELEMENTS" => "Y",
+                        "IBLOCK_ID" => "4",
+                        "IBLOCK_TYPE" => "catalog",
+                        "SECTION_CODE" => "",
+                        "SECTION_FIELDS" => array(
+                            0 => "",
+                            1 => "",
+                        ),
+                        "SECTION_ID" => "74",
+                        "SECTION_URL" => "",
+                        "SECTION_USER_FIELDS" => array(
+                            0 => "",
+                            1 => "",
+                        ),
+                        "SHOW_PARENT_NAME" => "Y",
+                        "TOP_DEPTH" => "1",
+                        "VIEW_MODE" => "LINE",
+                        "COMPONENT_TEMPLATE" => "footer-list"
+                    ),
+                    false
+                ); ?>
             </li>
             <li class="pushNav__content__nav__item">
-                <a href="#">МБТ и Посуда</a>
+                <a href="/tehnika/ukhod_za_belem/">Уход за бельём</a>
+                <?
+                $APPLICATION->IncludeComponent(
+                    "bitrix:catalog.section.list",
+                    "footer-list",
+                    array(
+                        "ADD_SECTIONS_CHAIN" => "N",
+                        "CACHE_GROUPS" => "Y",
+                        "CACHE_TIME" => "36000000",
+                        "CACHE_TYPE" => "A",
+                        "COUNT_ELEMENTS" => "Y",
+                        "IBLOCK_ID" => "4",
+                        "IBLOCK_TYPE" => "catalog",
+                        "SECTION_CODE" => "",
+                        "SECTION_FIELDS" => array(
+                            0 => "",
+                            1 => "",
+                        ),
+                        "SECTION_ID" => "83",
+                        "SECTION_URL" => "",
+                        "SECTION_USER_FIELDS" => array(
+                            0 => "",
+                            1 => "",
+                        ),
+                        "SHOW_PARENT_NAME" => "Y",
+                        "TOP_DEPTH" => "1",
+                        "VIEW_MODE" => "LINE",
+                        "COMPONENT_TEMPLATE" => "footer-list"
+                    ),
+                    false
+                ); ?>
             </li>
             <li class="pushNav__content__nav__item">
-                <a href="#">Техника для кухни</a>
-
-                <ul>
-                    <li class="">
-                        <a href="#">Духовые шкафы</a>
-                    </li>
-                    <li class="">
-                        <a href="#">Кухонные блоки</a>
-                    </li>
-                    <li class="">
-                        <a href="#">Варочные поверхности</a>
-                    </li>
-                    <li class="">
-                        <a href="#">Микроволновые печи</a>
-                    </li>
-                    <li class="">
-                        <a href="#">Компактные приборы</a>
-                    </li>
-                    <li class="">
-                        <a href="#">Вытяжки</a>
-                    </li>
-                    <li class="">
-                        <a href="#">Посудомоечные машины</a>
-                    </li>
-                    <li class="">
-                        <a href="#">Холодильное оборудование</a>
-                    </li>
-                    <li class="">
-                        <a href="#">Техника на заказ PREMIUM</a>
-                    </li>
-                </ul>
+                <a href="/tehnika/santekhnika/">Сантехника</a>
+                <?
+                $APPLICATION->IncludeComponent(
+                    "bitrix:catalog.section.list",
+                    "footer-list",
+                    array(
+                        "ADD_SECTIONS_CHAIN" => "N",
+                        "CACHE_GROUPS" => "Y",
+                        "CACHE_TIME" => "36000000",
+                        "CACHE_TYPE" => "A",
+                        "COUNT_ELEMENTS" => "Y",
+                        "IBLOCK_ID" => "4",
+                        "IBLOCK_TYPE" => "catalog",
+                        "SECTION_CODE" => "",
+                        "SECTION_FIELDS" => array(
+                            0 => "",
+                            1 => "",
+                        ),
+                        "SECTION_ID" => "88",
+                        "SECTION_URL" => "",
+                        "SECTION_USER_FIELDS" => array(
+                            0 => "",
+                            1 => "",
+                        ),
+                        "SHOW_PARENT_NAME" => "Y",
+                        "TOP_DEPTH" => "1",
+                        "VIEW_MODE" => "LINE",
+                        "COMPONENT_TEMPLATE" => "footer-list"
+                    ),
+                    false
+                ); ?>
             </li>
             <li class="pushNav__content__nav__item">
-                <a href="#">Уход за бельём</a>
-
-                <ul>
-                    <li class="">
-                        <a href="#">Стиральные машины</a>
-                    </li>
-                    <li class="">
-                        <a href="#">Сушильные машины</a>
-                    </li>
-                    <li class="">
-                        <a href="#">Сушильные шкафы</a>
-                    </li>
-                    <li class="">
-                        <a href="#">Аксессуары</a>
-                    </li>
-                </ul>
-            </li>
-            <li class="pushNav__content__nav__item">
-                <a href="#">Бренды</a>
+                <a href="/tehnika/mbt_i_posuda/">МБТ и Посуда</a>
             </li>
         </ul>
 
