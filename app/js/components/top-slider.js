@@ -1,10 +1,12 @@
 var topSlider = new Swiper ('.top-slider .swiper-container', {
     // Optional parameters
     direction: 'horizontal',
-
     loop: true,
-
     roundLengths: true,
+
+    autoplay: {
+        delay: 5000,
+    },
 
     // If we need pagination
     pagination: {

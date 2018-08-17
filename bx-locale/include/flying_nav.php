@@ -34,13 +34,13 @@
                 </svg>
             </a>
         </div>
-        <div class="wr-flying-nav_links d-block d-md-flex flex-column">
-            <a class="wr-flying-nav_links_icon" id="icon-baloon">
-                <svg width="37" height="37" data-toggle="tooltip" data-placement="left" title="Задать вопрос">
-                    <use xlink:href="#baloon-svg"></use>
-                </svg>
-            </a>
-        </div>
+        <!--        <div class="wr-flying-nav_links d-block d-md-flex flex-column">-->
+        <!--            <a class="wr-flying-nav_links_icon" id="icon-baloon">-->
+        <!--                <svg width="37" height="37" data-toggle="tooltip" data-placement="left" title="Задать вопрос">-->
+        <!--                    <use xlink:href="#baloon-svg"></use>-->
+        <!--                </svg>-->
+        <!--            </a>-->
+        <!--        </div>-->
     </aside>
 
     <div class="wr-icon" id="search">
